@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C81F460218ED52FA00304A34 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C81F460118ED52FA00304A34 /* MainMenuLayer.m */; };
+		C81F460518ED592B00304A34 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C81F460418ED592B00304A34 /* GameplayScene.m */; };
 		C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BC18ED51420050A930 /* QuartzCore.framework */; };
 		C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BE18ED51420050A930 /* OpenGLES.framework */; };
 		C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0C018ED51420050A930 /* OpenAL.framework */; };
@@ -139,11 +141,14 @@
 		C8ADB25B18ED51460050A930 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = C8ADB25A18ED51460050A930 /* vec4.c */; };
 		C8ADB26018ED51460050A930 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADB25F18ED51460050A930 /* main.m */; };
 		C8ADB26318ED51460050A930 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADB26218ED51460050A930 /* AppDelegate.m */; };
-		C8ADB26618ED51460050A930 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADB26518ED51460050A930 /* HelloWorldLayer.m */; };
 		C8ADB26918ED51460050A930 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADB26818ED51460050A930 /* IntroLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C81F460018ED52FA00304A34 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
+		C81F460118ED52FA00304A34 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
+		C81F460318ED592B00304A34 /* GameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayScene.h; sourceTree = "<group>"; };
+		C81F460418ED592B00304A34 /* GameplayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayScene.m; sourceTree = "<group>"; };
 		C8ADB0B918ED51420050A930 /* jesusgetshigh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jesusgetshigh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8ADB0BC18ED51420050A930 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8ADB0BE18ED51420050A930 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -421,8 +426,6 @@
 		C8ADB25F18ED51460050A930 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C8ADB26118ED51460050A930 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8ADB26218ED51460050A930 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C8ADB26418ED51460050A930 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		C8ADB26518ED51460050A930 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		C8ADB26718ED51460050A930 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		C8ADB26818ED51460050A930 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -448,10 +451,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C81F460618ED593500304A34 /* Common_Etc */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADB26118ED51460050A930 /* AppDelegate.h */,
+				C8ADB26218ED51460050A930 /* AppDelegate.m */,
+				C8ADB26718ED51460050A930 /* IntroLayer.h */,
+				C8ADB26818ED51460050A930 /* IntroLayer.m */,
+				C81F460018ED52FA00304A34 /* MainMenuLayer.h */,
+				C81F460118ED52FA00304A34 /* MainMenuLayer.m */,
+			);
+			name = Common_Etc;
+			sourceTree = "<group>";
+		};
+		C81F460718ED594D00304A34 /* Gameplay */ = {
+			isa = PBXGroup;
+			children = (
+				C81F460A18ED598A00304A34 /* Enemies */,
+				C81F460918ED597500304A34 /* Player */,
+				C81F460818ED596C00304A34 /* Layers_Scenes */,
+			);
+			name = Gameplay;
+			sourceTree = "<group>";
+		};
+		C81F460818ED596C00304A34 /* Layers_Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C81F460318ED592B00304A34 /* GameplayScene.h */,
+				C81F460418ED592B00304A34 /* GameplayScene.m */,
+			);
+			name = Layers_Scenes;
+			sourceTree = "<group>";
+		};
+		C81F460918ED597500304A34 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		C81F460A18ED598A00304A34 /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Enemies;
+			sourceTree = "<group>";
+		};
 		C8ADB0B018ED51420050A930 = {
 			isa = PBXGroup;
 			children = (
 				C8ADB0D018ED51420050A930 /* jesusgetshigh */,
+				C8ADB0E918ED51430050A930 /* libs */,
 				C8ADB0BB18ED51420050A930 /* Frameworks */,
 				C8ADB0BA18ED51420050A930 /* Products */,
 			);
@@ -485,14 +535,9 @@
 		C8ADB0D018ED51420050A930 /* jesusgetshigh */ = {
 			isa = PBXGroup;
 			children = (
-				C8ADB26118ED51460050A930 /* AppDelegate.h */,
-				C8ADB26218ED51460050A930 /* AppDelegate.m */,
-				C8ADB26418ED51460050A930 /* HelloWorldLayer.h */,
-				C8ADB26518ED51460050A930 /* HelloWorldLayer.m */,
-				C8ADB26718ED51460050A930 /* IntroLayer.h */,
-				C8ADB26818ED51460050A930 /* IntroLayer.m */,
+				C81F460718ED594D00304A34 /* Gameplay */,
+				C81F460618ED593500304A34 /* Common_Etc */,
 				C8ADB0D118ED51420050A930 /* Resources */,
-				C8ADB0E918ED51430050A930 /* libs */,
 				C8ADB25D18ED51460050A930 /* Supporting Files */,
 			);
 			path = jesusgetshigh;
@@ -528,6 +573,7 @@
 				C8ADB22B18ED51450050A930 /* kazmath */,
 			);
 			name = libs;
+			path = jesusgetshigh;
 			sourceTree = "<group>";
 		};
 		C8ADB0EA18ED51430050A930 /* cocos2d */ = {
@@ -999,6 +1045,7 @@
 				C8ADB26318ED51460050A930 /* AppDelegate.m in Sources */,
 				C8ADB1D318ED51450050A930 /* CCES2Renderer.m in Sources */,
 				C8ADB14518ED51430050A930 /* CCLabelAtlas.m in Sources */,
+				C81F460518ED592B00304A34 /* GameplayScene.m in Sources */,
 				C8ADB16118ED51440050A930 /* CCParallaxNode.m in Sources */,
 				C8ADB26918ED51460050A930 /* IntroLayer.m in Sources */,
 				C8ADB0F918ED51430050A930 /* CCActionGrid.m in Sources */,
@@ -1012,6 +1059,7 @@
 				C8ADB24D18ED51460050A930 /* neon_matrix_impl.c in Sources */,
 				C8ADB17D18ED51440050A930 /* CCScene.m in Sources */,
 				C8ADB0FC18ED51430050A930 /* CCActionGrid3D.m in Sources */,
+				C81F460218ED52FA00304A34 /* MainMenuLayer.m in Sources */,
 				C8ADB24518ED51460050A930 /* mat4stack.c in Sources */,
 				C8ADB1A118ED51440050A930 /* CCSpriteFrameCache.m in Sources */,
 				C8ADB12A18ED51430050A930 /* CCDirector.m in Sources */,
@@ -1045,7 +1093,6 @@
 				C8ADB24718ED51460050A930 /* matrix.c in Sources */,
 				C8ADB12D18ED51430050A930 /* CCDrawingPrimitives.m in Sources */,
 				C8ADB19518ED51440050A930 /* ccShaders.m in Sources */,
-				C8ADB26618ED51460050A930 /* HelloWorldLayer.m in Sources */,
 				C8ADB1EB18ED51450050A930 /* CCWindow.m in Sources */,
 				C8ADB1C918ED51450050A930 /* cocos2d.m in Sources */,
 				C8ADB17618ED51440050A930 /* CCProgressTimer.m in Sources */,
@@ -1169,6 +1216,7 @@
 				C8ADB26E18ED51460050A930 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
