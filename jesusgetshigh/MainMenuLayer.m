@@ -8,6 +8,7 @@
 
 #import "MainMenuLayer.h"
 #import "AppDelegate.h"
+#import "GameplayScene.h"
 
 #pragma mark - MainMenuLayer
 
@@ -19,6 +20,27 @@
         
         CCLabelTTF *gameTitleLabel = [CCLabelTTF labelWithString:@"jesusgetshigh"
                                                         fontName:@"Verdana-Bold" fontSize:24];
+        CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
+            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameplayScene node]]];
+			
+		}];
+        
+        CCMenu *menu = [CCMenu menuWithItems:itemNewGame, nil];
+		
+		[menu alignItemsVerticallyWithPadding:20];
+        if(size.height > size.width)
+        {
+            [menu setPosition:ccp( size.height/2, size.width/2 - 125)];
+        }
+		else{
+            [menu setPosition:ccp(size.width/2,size.height/2-125)];
+        }
+		
+		// Add the menu to the layer
+		[self addChild:menu];
+
+        
         gameTitleLabel.position = ccp(size.width/2, size.height/2);
         [self addChild:gameTitleLabel];
     }

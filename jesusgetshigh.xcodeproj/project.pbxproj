@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229D40BB18F9DE9A006A61E2 /* UILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D40BA18F9DE9A006A61E2 /* UILayer.m */; };
+		229D40C718F9E014006A61E2 /* TreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D40C618F9E014006A61E2 /* TreeLayer.m */; };
+		229D40C918FA109B006A61E2 /* game_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 229D40C818FA109B006A61E2 /* game_background.png */; };
+		229D40CB18FA13A6006A61E2 /* loltree.png in Resources */ = {isa = PBXBuildFile; fileRef = 229D40CA18FA13A6006A61E2 /* loltree.png */; };
+		229D40CE18FA1635006A61E2 /* PlayerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D40CD18FA1635006A61E2 /* PlayerLayer.m */; };
+		229D40D118FA1737006A61E2 /* PlayerSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D40D018FA1737006A61E2 /* PlayerSprite.m */; };
 		C81F460218ED52FA00304A34 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C81F460118ED52FA00304A34 /* MainMenuLayer.m */; };
 		C81F460518ED592B00304A34 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C81F460418ED592B00304A34 /* GameplayScene.m */; };
 		C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BC18ED51420050A930 /* QuartzCore.framework */; };
@@ -145,6 +151,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		229D40B918F9DE9A006A61E2 /* UILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILayer.h; path = "../../../../Downloads/Duck-Hunt-master/duckhunt/UILayer.h"; sourceTree = "<group>"; };
+		229D40BA18F9DE9A006A61E2 /* UILayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILayer.m; path = "../../../../Downloads/Duck-Hunt-master/duckhunt/UILayer.m"; sourceTree = "<group>"; };
+		229D40C518F9E014006A61E2 /* TreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeLayer.h; sourceTree = "<group>"; };
+		229D40C618F9E014006A61E2 /* TreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeLayer.m; sourceTree = "<group>"; };
+		229D40C818FA109B006A61E2 /* game_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_background.png; path = "../../../../Downloads/Duck-Hunt-master/duckhunt/Resources/game_background.png"; sourceTree = "<group>"; };
+		229D40CA18FA13A6006A61E2 /* loltree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loltree.png; path = ../../../../Pictures/loltree.png; sourceTree = "<group>"; };
+		229D40CC18FA1635006A61E2 /* PlayerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerLayer.h; sourceTree = "<group>"; };
+		229D40CD18FA1635006A61E2 /* PlayerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerLayer.m; sourceTree = "<group>"; };
+		229D40CF18FA1737006A61E2 /* PlayerSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSprite.h; sourceTree = "<group>"; };
+		229D40D018FA1737006A61E2 /* PlayerSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSprite.m; sourceTree = "<group>"; };
 		C81F460018ED52FA00304A34 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		C81F460118ED52FA00304A34 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		C81F460318ED592B00304A34 /* GameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayScene.h; sourceTree = "<group>"; };
@@ -460,6 +476,12 @@
 				C8ADB26818ED51460050A930 /* IntroLayer.m */,
 				C81F460018ED52FA00304A34 /* MainMenuLayer.h */,
 				C81F460118ED52FA00304A34 /* MainMenuLayer.m */,
+				229D40C518F9E014006A61E2 /* TreeLayer.h */,
+				229D40C618F9E014006A61E2 /* TreeLayer.m */,
+				229D40CC18FA1635006A61E2 /* PlayerLayer.h */,
+				229D40CD18FA1635006A61E2 /* PlayerLayer.m */,
+				229D40CF18FA1737006A61E2 /* PlayerSprite.h */,
+				229D40D018FA1737006A61E2 /* PlayerSprite.m */,
 			);
 			name = Common_Etc;
 			sourceTree = "<group>";
@@ -477,6 +499,8 @@
 		C81F460818ED596C00304A34 /* Layers_Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				229D40B918F9DE9A006A61E2 /* UILayer.h */,
+				229D40BA18F9DE9A006A61E2 /* UILayer.m */,
 				C81F460318ED592B00304A34 /* GameplayScene.h */,
 				C81F460418ED592B00304A34 /* GameplayScene.m */,
 			);
@@ -546,12 +570,14 @@
 		C8ADB0D118ED51420050A930 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				229D40CA18FA13A6006A61E2 /* loltree.png */,
 				C8ADB0D218ED51420050A930 /* Default.png */,
 				C8ADB0D418ED51420050A930 /* Default@2x.png */,
 				C8ADB0D618ED51420050A930 /* Default-568h@2x.png */,
 				C8ADB0D818ED51420050A930 /* Default-Landscape~ipad.png */,
 				C8ADB0DA18ED51420050A930 /* Icon-72.png */,
 				C8ADB0DC18ED51420050A930 /* Icon-Small-50.png */,
+				229D40C818FA109B006A61E2 /* game_background.png */,
 				C8ADB0DE18ED51420050A930 /* Icon-Small.png */,
 				C8ADB0E018ED51420050A930 /* Icon-Small@2x.png */,
 				C8ADB0E218ED51420050A930 /* Icon.png */,
@@ -977,6 +1003,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8ADB0E318ED51420050A930 /* Icon.png in Resources */,
+				229D40CB18FA13A6006A61E2 /* loltree.png in Resources */,
 				C8ADB24118ED51460050A930 /* ChangeLog in Resources */,
 				C8ADB0D518ED51420050A930 /* Default@2x.png in Resources */,
 				C8ADB0DF18ED51420050A930 /* Icon-Small.png in Resources */,
@@ -987,6 +1014,7 @@
 				C8ADB0E118ED51420050A930 /* Icon-Small@2x.png in Resources */,
 				C8ADB0D918ED51420050A930 /* Default-Landscape~ipad.png in Resources */,
 				C8ADB0D718ED51420050A930 /* Default-568h@2x.png in Resources */,
+				229D40C918FA109B006A61E2 /* game_background.png in Resources */,
 				C8ADB0E518ED51420050A930 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1007,6 +1035,7 @@
 				C8ADB12718ED51430050A930 /* ccDeprecated.m in Sources */,
 				C8ADB1E218ED51450050A930 /* CCDirectorMac.m in Sources */,
 				C8ADB13C18ED51430050A930 /* ccGLStateCache.m in Sources */,
+				229D40C718F9E014006A61E2 /* TreeLayer.m in Sources */,
 				C8ADB20E18ED51450050A930 /* TransformUtils.m in Sources */,
 				C8ADB15B18ED51440050A930 /* CCNode+Debug.m in Sources */,
 				C8ADB13618ED51430050A930 /* ccFPSImages.m in Sources */,
@@ -1015,6 +1044,7 @@
 				C8ADB1EE18ED51450050A930 /* base64.c in Sources */,
 				C8ADB11118ED51430050A930 /* CCActionTween.m in Sources */,
 				C8ADB14818ED51430050A930 /* CCLabelBMFont.m in Sources */,
+				229D40CE18FA1635006A61E2 /* PlayerLayer.m in Sources */,
 				C8ADB1F518ED51450050A930 /* ccCArray.m in Sources */,
 				C8ADB21F18ED51450050A930 /* CDXMacOSXSupport.m in Sources */,
 				C8ADB21318ED51450050A930 /* ZipUtils.m in Sources */,
@@ -1098,6 +1128,7 @@
 				C8ADB17618ED51440050A930 /* CCProgressTimer.m in Sources */,
 				C8ADB14B18ED51430050A930 /* CCLabelTTF.m in Sources */,
 				C8ADB1F818ED51450050A930 /* CCFileUtils.m in Sources */,
+				229D40D118FA1737006A61E2 /* PlayerSprite.m in Sources */,
 				C8ADB1E518ED51450050A930 /* CCEventDispatcher.m in Sources */,
 				C8ADB19B18ED51440050A930 /* CCSpriteBatchNode.m in Sources */,
 				C8ADB12418ED51430050A930 /* CCConfiguration.m in Sources */,
@@ -1107,6 +1138,7 @@
 				C8ADB25B18ED51460050A930 /* vec4.c in Sources */,
 				C8ADB11D18ED51430050A930 /* CCCamera.m in Sources */,
 				C8ADB11718ED51430050A930 /* CCAnimationCache.m in Sources */,
+				229D40BB18F9DE9A006A61E2 /* UILayer.m in Sources */,
 				C8ADB13918ED51430050A930 /* CCGLProgram.m in Sources */,
 				C8ADB22918ED51450050A930 /* SimpleAudioEngine.m in Sources */,
 				C8ADB1DB18ED51450050A930 /* CCTouchDispatcher.m in Sources */,
