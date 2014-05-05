@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		115CED9D1917E49000732687 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 115CED9B1917E49000732687 /* LICENSE */; };
-		115CED9E1917E49000732687 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 115CED9C1917E49000732687 /* README.md */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
 		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
@@ -1023,7 +1021,6 @@
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
 				11E5D2981917CEEE00A76121 /* Icon-Small.png in Resources */,
 				11E5D2941917CEEE00A76121 /* Default@2x.png in Resources */,
-				115CED9E1917E49000732687 /* README.md in Resources */,
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				11E5D28B1917CEEE00A76121 /* LICENSE_Kazmath.txt in Resources */,
 				11E5D2991917CEEE00A76121 /* Icon-Small@2x.png in Resources */,
@@ -1035,7 +1032,6 @@
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
 				11E5D27B1917CEEE00A76121 /* ChangeLog in Resources */,
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
-				115CED9D1917E49000732687 /* LICENSE in Resources */,
 				11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */,
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
