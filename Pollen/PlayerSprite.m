@@ -7,65 +7,41 @@
 //
 
 #import "PlayerSprite.h"
-#define GRAVITY -25.8
+
+#define GRAVITY -5
 
 @implementation PlayerSprite
 
+@synthesize velocity = velocity_;
+
 -(id)init{
-    
-    
-    size = [[CCDirector sharedDirector] winSize];
-    self=[super initWithFile:@"Icon-Small-50.png"];
-    posx=100;
-    ySpeed=0;
-    xSpeed=0;
+    if(self = [super initWithFile:@"Icon-Small-50.png"]) {
+        size = [[CCDirector sharedDirector] winSize];
+        
+        self.position = ccp(size.width/2, size.width/2);
+        self.velocity = CGPointZero;
+    }
     return self;
-    
 }
 
 -(void) update:(ccTime)dt
 {
-    //gravity *=gravity;
-    ySpeed += GRAVITY *dt; // drop the dt if you don't want to use it
-    
-    // Step the position values and update the sprite position accordingly
-    
-    
-    
-    
-    if(self.position.x+xSpeed>size.width)
-    {
-        xSpeed=-xSpeed;
+    //update if above bottom edge
+    if(self.position.y > self.contentSize.height/2) {
+        //update the velocity with gravity
+        self.velocity = ccp(self.velocity.x,
+                            self.velocity.y + GRAVITY*dt);
+    } else {
+        //reset to bottom edge if below
+        if(self.position.y < self.contentSize.height/2)
+            self.position = ccp(self.position.x, self.contentSize.height/2);
         
-        
-    }
-    if(self.position.x+xSpeed<0)
-    {
-        xSpeed=-xSpeed;
-        
+        //zero velocity if below bottom edge
+        self.velocity = CGPointZero;
     }
     
-    if(self.position.y+gravity+ySpeed>size.height)
-    {
-        self.position = ccp(self.position.x, self.position.y-20);
-        
-    }
-    else if(self.position.y+gravity<10)
-    {
-        self.position = ccp(self.position.x, self.position.y);
-        gravity=-1.8;
-        
-    }
-    
-    //   [self setupAnim];
-    else{
-     self.position = ccp(posx, self.position.y + ySpeed* dt);
-    }
-    //self.position = ccpAdd(self.position, ccpMult(m_Direction, speed * dt));
-    
-    if (ySpeed>0)
-        ySpeed=ySpeed+gravity;
-    
+    //update sprite with velocity
+    self.position = ccpAdd(self.position, self.velocity);
 }
 
 

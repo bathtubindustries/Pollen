@@ -6,11 +6,11 @@
 //  Copyright 2014 bathtubindustries. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
 @interface TreeLayer : CCLayer {
-    
+    CGSize size;
+    CCSprite *background;
 }
 
 @end

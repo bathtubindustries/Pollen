@@ -6,19 +6,17 @@
 //  Copyright 2014 bathtubindustries. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
 @interface PlayerSprite : CCSprite {
+    //references
+    CGSize size;
     
-    float gravity;
-    float ySpeed;
-    float xSpeed;
-    CGSize size;  
-    float posx;
-    CGPoint m_Direction;
+    //members
+    CGPoint velocity_;
 }
+@property CGPoint velocity;
+
 -(void) update:(ccTime)dt;
-@property CGPoint direction;
-@property float speed;
+
 @end

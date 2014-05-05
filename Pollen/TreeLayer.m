@@ -1,5 +1,12 @@
-#import "TreeLayer.h"
+//
+//  TreeLayer.h
+//  jesusgetshigh
+//
+//  Created by Eric Nelson on 4/12/14.
+//  Copyright 2014 bathtubindustries. All rights reserved.
+//
 
+#import "TreeLayer.h"
 
 @implementation TreeLayer
 
@@ -7,15 +14,13 @@
 {
     if(self=[super init])
     {
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        CCSprite *background;
+        //references
+        size = [[CCDirector sharedDirector] winSize];
+        
+        //background image
 		background = [CCSprite spriteWithFile:@"loltree.png"];
-        
-		background.anchorPoint = CGPointMake(0, 0);
-		
-		// add the image as a child to this Layer
+        background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:0];
-        
     }
     return self;
 }

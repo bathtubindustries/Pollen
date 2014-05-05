@@ -7,7 +7,6 @@
 //
 
 #import "GameplayScene.h"
-#import "GameplayScene.h"
 
 #import "TreeLayer.h"
 #import "SpriteLayer.h"
@@ -29,7 +28,7 @@
         //[self addChild:statLayer z:1];
         
         pauseLayer_ = [PauseLayer node];
-        [self addChild:pauseLayer_ z:10];
+        [self addChild:pauseLayer_ z:2];
         
         [self scheduleUpdate];
     }
@@ -47,8 +46,5 @@
         [spriteLayer_ update:dt];
     }
 }
-
-
-
 
 @end

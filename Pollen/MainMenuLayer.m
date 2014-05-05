@@ -17,35 +17,37 @@
 -(id) init {
     if(self = [super init]) {
         CGSize size = [[CCDirector sharedDirector] winSize];
+        float scaleFactor = size.height/size.width;
         
-        CCLabelTTF *gameTitleLabel = [CCLabelTTF labelWithString:@"Pollen"
-                                                        fontName:@"Verdana-Bold" fontSize:24];
-        CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
-            
+        [self setColor:ccc3(162, 160, 36)];
+        [self setOpacity:255];
+        
+        //game title
+        CCSprite *gameTitle = [CCSprite spriteWithFile:@"title.png"];
+        gameTitle.position = ccp(size.width/2, size.height/2);
+        gameTitle.scale = 0.9;
+        [self addChild:gameTitle];
+        
+        //menu
+        [CCMenuItemFont setFontName:@"Futura"];
+        [CCMenuItemFont setFontSize:(16*scaleFactor)];
+        
+        CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"tap to start" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameplayScene node]]];
-			
-		}];
+        }];
+        CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
+            //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[StoreScene node]]];
+        }];
         
-        CCMenu *menu = [CCMenu menuWithItems:itemNewGame, nil];
-		
-		[menu alignItemsVerticallyWithPadding:20];
-        if(size.height > size.width)
-        {
-            [menu setPosition:ccp( size.height/2, size.width/2 - 125)];
-        }
-		else{
-            [menu setPosition:ccp(size.width/2,size.height/2-125)];
-        }
-		
-		// Add the menu to the layer
+        CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemStore, nil];
+		[menu alignItemsVerticallyWithPadding:6*scaleFactor];
+        [menu setPosition:ccp(size.width/2, 120)];
+        [menu setColor:ccBLACK];
 		[self addChild:menu];
-
-        
-        gameTitleLabel.position = ccp(size.width/2, size.height/2);
-        [self addChild:gameTitleLabel];
     }
     return self;
 }
+
 +(CCScene*) scene {
     CCScene *scene = [CCScene node];
     MainMenuLayer *layer = [MainMenuLayer node];

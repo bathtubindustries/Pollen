@@ -135,7 +135,6 @@
         [self resumeWithMenu];
 }
 
-
 //UTILITY
 -(BOOL) isPointInPauseButton:(CGPoint)cp {
     if((cp.x >= pauseButton_.position.x-(pauseButton_.contentSize.width*pauseButton_.scale/2) &&
