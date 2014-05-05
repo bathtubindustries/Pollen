@@ -175,21 +175,6 @@ static CCDirector *_sharedDirector = nil;
 	return self;
 }
 
-
-
-- (UIPanGestureRecognizer *)watchForPan:(SEL)selector number:(int)tapsRequired {
-    UIPanGestureRecognizer *recognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:selector] autorelease];
-    recognizer.minimumNumberOfTouches = tapsRequired;
-    [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:recognizer];
-    return recognizer;
-}
-
-- (void)unwatch:(UIGestureRecognizer *)gr {
-    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:gr];
-}
-
-
-
 - (NSString*) description
 {
 	return [NSString stringWithFormat:@"<%@ = %p | Size: %0.f x %0.f, view = %@>", [self class], self, _winSizeInPoints.width, _winSizeInPoints.height, __view];

@@ -16,7 +16,7 @@
     CGSize size;
 }
 
-
-+(CCScene*) scene;
+//update
+-(void) update:(ccTime)dt;
 
 @end

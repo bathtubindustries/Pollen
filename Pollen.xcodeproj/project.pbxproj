@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		115CEDA81917EBB800732687 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 115CEDA71917EBB800732687 /* PauseLayer.m */; };
+		115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 115CEDA91917F0EA00732687 /* pauseButton.png */; };
+		115CEDAC1917F0EA00732687 /* resumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 115CEDAA1917F0EA00732687 /* resumeButton.png */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
 		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
@@ -159,6 +162,10 @@
 /* Begin PBXFileReference section */
 		115CED9B1917E49000732687 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		115CED9C1917E49000732687 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		115CEDA61917EBB800732687 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseLayer.h; path = Pollen/PauseLayer.h; sourceTree = "<group>"; };
+		115CEDA71917EBB800732687 /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseLayer.m; path = Pollen/PauseLayer.m; sourceTree = "<group>"; };
+		115CEDA91917F0EA00732687 /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
+		115CEDAA1917F0EA00732687 /* resumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resumeButton.png; sourceTree = "<group>"; };
 		11E5D0E91917CEED00A76121 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pollen/AppDelegate.h; sourceTree = "<group>"; };
 		11E5D0EA1917CEED00A76121 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pollen/AppDelegate.m; sourceTree = "<group>"; };
 		11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+SFGestureRecognizers.h"; path = "Pollen/CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
@@ -511,6 +518,8 @@
 				11E5D0F21917CEED00A76121 /* IntroLayer.m */,
 				11E5D1FC1917CEED00A76121 /* MainMenuLayer.h */,
 				11E5D1FD1917CEED00A76121 /* MainMenuLayer.m */,
+				115CEDA61917EBB800732687 /* PauseLayer.h */,
+				115CEDA71917EBB800732687 /* PauseLayer.m */,
 			);
 			name = Common_Etc;
 			sourceTree = "<group>";
@@ -911,6 +920,8 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				115CEDA91917F0EA00732687 /* pauseButton.png */,
+				115CEDAA1917F0EA00732687 /* resumeButton.png */,
 				11E5D2031917CEED00A76121 /* Default-568h@2x.png */,
 				11E5D2041917CEED00A76121 /* Default-Landscape~ipad.png */,
 				11E5D2051917CEED00A76121 /* Default.png */,
@@ -1024,6 +1035,7 @@
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				11E5D28B1917CEEE00A76121 /* LICENSE_Kazmath.txt in Resources */,
 				11E5D2991917CEEE00A76121 /* Icon-Small@2x.png in Resources */,
+				115CEDAC1917F0EA00732687 /* resumeButton.png in Resources */,
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
 				11E5D29E1917CEEE00A76121 /* loltree.png in Resources */,
 				11E5D28A1917CEEE00A76121 /* LICENSE_CocosDenshion.txt in Resources */,
@@ -1034,6 +1046,7 @@
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
 				11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */,
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
+				115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
 				11E5D2951917CEEE00A76121 /* game_background.png in Resources */,
 				11E5D2931917CEEE00A76121 /* Default.png in Resources */,
@@ -1098,6 +1111,7 @@
 				11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */,
 				11E5D26C1917CEED00A76121 /* ccUtils.c in Sources */,
 				11E5D2541917CEED00A76121 /* CCTexturePVR.m in Sources */,
+				115CEDA81917EBB800732687 /* PauseLayer.m in Sources */,
 				11E5D26D1917CEED00A76121 /* CCVertex.m in Sources */,
 				11E5D26E1917CEED00A76121 /* CGPointExtension.m in Sources */,
 				11E5D2431917CEED00A76121 /* CCParticleSystem.m in Sources */,

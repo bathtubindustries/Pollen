@@ -8,6 +8,20 @@
 
 #import "CCScene.h"
 
-@interface GameplayScene : CCScene
+@class TreeLayer;
+@class SpriteLayer;
+@class PauseLayer;
+
+@interface GameplayScene : CCScene {
+    TreeLayer *bgLayer_;
+    SpriteLayer *spriteLayer_;
+    PauseLayer *pauseLayer_;
+}
+
+-(void) pause;
+-(void) resume;
+-(BOOL) isPausedWithMenu;
+
+-(void) update:(ccTime)dt;
 
 @end
