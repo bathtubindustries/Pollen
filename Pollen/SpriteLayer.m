@@ -16,25 +16,41 @@
         //setup
         size = [[CCDirector sharedDirector] winSize];
         [self registerWithTouchDispatcher];
+        self.accelerometerEnabled = YES;
         
         //player
         player = [PlayerSprite node];
-        player.position = ccp(200,200);
+        player.position = ccp(size.width/2, size.height/2);
         [self addChild:player z:1];
     }
     return self;
 }
 
-//TOUCHES
+//INPUT
 -(void) registerWithTouchDispatcher {
     [[CCDirector sharedDirector].touchDispatcher
         addTargetedDelegate:self priority:1 swallowsTouches:YES];
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
-    //do something with location here
+    if(location.x > 20 && location.x < size.width - 20 &&
+       location.y > 20 && location.y < size.height - 20) {
+        [player startJump];
+    }
     
     return YES;
+}
+
+-(void) accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration {
+    NSLog(@"acceleration: x:%f / y:%f / z:%f",
+          acceleration.x, acceleration.y, acceleration.z);
+    if(acceleration.x > 0.5) {
+        player.velocity = ccp(5, player.velocity.y);
+    } else if(acceleration.x < 0.5) {
+        player.velocity = ccp(-5, player.velocity.y);
+    } else {
+        player.velocity = ccp(0, player.velocity.y);
+    }
 }
 
 //UPDATE

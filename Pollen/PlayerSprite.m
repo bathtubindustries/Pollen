@@ -8,7 +8,8 @@
 
 #import "PlayerSprite.h"
 
-#define GRAVITY -5
+#define GRAVITY -8
+#define PLAYER_JUMP 5
 
 @implementation PlayerSprite
 
@@ -18,14 +19,28 @@
     if(self = [super initWithFile:@"Icon-Small-50.png"]) {
         size = [[CCDirector sharedDirector] winSize];
         
+        state_ = Idle;
+        
         self.position = ccp(size.width/2, size.width/2);
         self.velocity = CGPointZero;
     }
     return self;
 }
 
+-(void) startJump {
+    if(state_ != Jumping) {
+        state_ = Jumping;
+        self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
+    }
+}
+
 -(void) update:(ccTime)dt
 {
+    //update jumping state
+    if(state_ == Jumping && self.velocity.y < 0.1) {
+        state_ = Idle;
+    }
+    
     //update if above bottom edge
     if(self.position.y > self.contentSize.height/2) {
         //update the velocity with gravity

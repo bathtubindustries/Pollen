@@ -13,10 +13,20 @@
     CGSize size;
     
     //members
+    enum PlayerState {
+        Idle = 0,
+        Jumping
+    };
+    enum PlayerState state_;
+    
     CGPoint velocity_;
 }
 @property CGPoint velocity;
 
+//messages
+-(void) startJump;
+
+//update
 -(void) update:(ccTime)dt;
 
 @end

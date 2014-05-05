@@ -48,7 +48,7 @@
         //menu items and setup
         scaleFactor = size.height/size.width;
         [CCMenuItemFont setFontName:@"Futura"];
-        [CCMenuItemFont setFontSize:(14*scaleFactor)];
+        [CCMenuItemFont setFontSize:(24*scaleFactor)];
         
         CCMenuItem *itemResume = [CCMenuItemFont itemWithString:@"resume" block:^(id sender) {
             [self togglePauseMenu];
@@ -58,7 +58,7 @@
         }];
         pauseMenu_ = [CCMenu menuWithItems:itemResume, itemMainMenu, nil];
         
-        [pauseMenu_ alignItemsVerticallyWithPadding: 8*scaleFactor];
+        [pauseMenu_ alignItemsVerticallyWithPadding: 10*scaleFactor];
         [pauseMenu_ setPosition: ccp(size.width/2, size.height/2)];
         
         [pauseMenu_ setEnabled:NO];

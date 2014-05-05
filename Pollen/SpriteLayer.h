@@ -18,6 +18,8 @@
     PlayerSprite* player;
 }
 
++(float) lowPassFilter:(float)raw;
+
 //update
 -(void) update:(ccTime)dt;
 
