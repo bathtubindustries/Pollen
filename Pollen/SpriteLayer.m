@@ -38,7 +38,7 @@
     CGPoint location = [self convertTouchToNodeSpace:touch];
     if(location.x > 20 && location.x < size.width - 20 &&
        location.y > 20 && location.y < size.height - 20) {
-        [player startJump];
+        [player startAttack];
     }
     
     return YES;
@@ -58,7 +58,7 @@
     
     //handle extra velocity
     if(bgLayer) {
-        [bgLayer scroll:player.extraYVelocity];
+        [bgLayer setYVelocity:player.extraYVelocity];
     }
     
     //handle lose condition

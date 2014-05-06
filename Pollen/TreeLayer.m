@@ -16,6 +16,7 @@
     {
         //references
         size = [[CCDirector sharedDirector] winSize];
+        yVel_ = 0;
         
         //background images
 		bgGround = [CCSprite spriteWithFile:@"loltree.png"];
@@ -37,8 +38,13 @@
     return self;
 }
 
-//setter
--(void) scroll:(float)vel {
+//SETTER
+-(void) setYVelocity:(float)vel {
+    yVel_ = vel;
+}
+
+//UPDATE
+-(void) update:(ccTime)dt {
     //base ground img
     if(bgGround.visible) {
         if(bgGround.position.y < -[bgGround boundingBox].size.height) {
@@ -46,13 +52,13 @@
             bgSky2.visible = YES;
             //[self removeChild:bgGround];
         } else {
-            bgGround.position = ccp(bgGround.position.x, bgGround.position.y - vel);
+            bgGround.position = ccp(bgGround.position.x, bgGround.position.y - yVel_*dt);
         }
     }
     
     //sky imgs
-    bgSky1.position = ccp(bgSky1.position.x, bgSky1.position.y - vel);
-    bgSky2.position = ccp(bgSky2.position.x, bgSky2.position.y - vel);
+    bgSky1.position = ccp(bgSky1.position.x, bgSky1.position.y - yVel_*dt);
+    bgSky2.position = ccp(bgSky2.position.x, bgSky2.position.y - yVel_*dt);
     
     if(bgSky1.position.y < -[bgSky1 boundingBox].size.height)
         bgSky1.position = ccp(bgSky1.position.x, bgSky2.position.y + [bgSky2 boundingBox].size.height);

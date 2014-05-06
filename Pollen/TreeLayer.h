@@ -16,9 +16,13 @@
     CCSprite *bgGround;
     CCSprite *bgSky1;
     CCSprite *bgSky2;
+    
+    float yVel_;
 }
 
 //setter
--(void) scroll:(float)vel;
+-(void) setYVelocity:(float)vel;
+//update
+-(void) update:(ccTime)dt;
 
 @end

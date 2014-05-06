@@ -13,6 +13,9 @@
 		115CEDAF1918049B00732687 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 115CEDAE1918049B00732687 /* title.png */; };
 		11A7F90C191914E40086EC1B /* lolsky1.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90A191914E40086EC1B /* lolsky1.png */; };
 		11A7F90D191914E40086EC1B /* lolsky2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90B191914E40086EC1B /* lolsky2.png */; };
+		11A7F911191921860086EC1B /* pollenManAttack.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90E191921860086EC1B /* pollenManAttack.png */; };
+		11A7F912191921860086EC1B /* pollenManGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90F191921860086EC1B /* pollenManGround.png */; };
+		11A7F913191921860086EC1B /* pollenManJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F910191921860086EC1B /* pollenManJump.png */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
 		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
@@ -172,6 +175,9 @@
 		115CEDAE1918049B00732687 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		11A7F90A191914E40086EC1B /* lolsky1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lolsky1.png; sourceTree = "<group>"; };
 		11A7F90B191914E40086EC1B /* lolsky2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lolsky2.png; sourceTree = "<group>"; };
+		11A7F90E191921860086EC1B /* pollenManAttack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManAttack.png; sourceTree = "<group>"; };
+		11A7F90F191921860086EC1B /* pollenManGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManGround.png; sourceTree = "<group>"; };
+		11A7F910191921860086EC1B /* pollenManJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManJump.png; sourceTree = "<group>"; };
 		11E5D0E91917CEED00A76121 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pollen/AppDelegate.h; sourceTree = "<group>"; };
 		11E5D0EA1917CEED00A76121 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pollen/AppDelegate.m; sourceTree = "<group>"; };
 		11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+SFGestureRecognizers.h"; path = "Pollen/CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
@@ -934,6 +940,9 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11A7F90E191921860086EC1B /* pollenManAttack.png */,
+				11A7F90F191921860086EC1B /* pollenManGround.png */,
+				11A7F910191921860086EC1B /* pollenManJump.png */,
 				11A7F90A191914E40086EC1B /* lolsky1.png */,
 				11A7F90B191914E40086EC1B /* lolsky2.png */,
 				115CEDAE1918049B00732687 /* title.png */,
@@ -1049,12 +1058,15 @@
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
 				11E5D2981917CEEE00A76121 /* Icon-Small.png in Resources */,
 				11E5D2941917CEEE00A76121 /* Default@2x.png in Resources */,
+				11A7F911191921860086EC1B /* pollenManAttack.png in Resources */,
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				11E5D28B1917CEEE00A76121 /* LICENSE_Kazmath.txt in Resources */,
 				11E5D2991917CEEE00A76121 /* Icon-Small@2x.png in Resources */,
+				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
 				115CEDAC1917F0EA00732687 /* resumeButton.png in Resources */,
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
 				11E5D29E1917CEEE00A76121 /* loltree.png in Resources */,
+				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,
 				11E5D28A1917CEEE00A76121 /* LICENSE_CocosDenshion.txt in Resources */,
 				115CEDAF1918049B00732687 /* title.png in Resources */,
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,

@@ -8,21 +8,28 @@
 
 #import "cocos2d.h"
 
-#define PLAYER_XACCEL 80.f
-#define PLAYER_XMAXSPEED 5.f
+#define PLAYER_XACCEL 1500.f
+#define PLAYER_XMAXSPEED 400.f
+
+#define PLAYER_GRAVITY -15.f
+#define PLAYER_JUMP 400.f
+
+#define PLAYER_ATTACK_RESET 0.18f
 
 @interface PlayerSprite : CCSprite {
     //references
     CGSize size;
     
-    //members
+    //members    
     enum PlayerState {
         OnGround = 0,
-        Jumping
-        
+        Jumping,
+        Attacking
     };
     enum PlayerState state_;
     BOOL dead_;
+    
+    float attackResetTimer_;
     
     CGPoint velocity_;
     float extraYVel_;
@@ -32,7 +39,10 @@
 @property BOOL dead;
 
 //messages
--(void) startJump;
+-(void) startAttack;
+
+//utility
+-(void) chooseTexture:(NSString*)fn;
 
 //update
 -(void) update:(ccTime)dt;
