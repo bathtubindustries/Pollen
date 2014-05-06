@@ -8,12 +8,14 @@
 
 #import "cocos2d.h"
 
+@class GameplayScene;
 @class TreeLayer;
 @class PlayerSprite;
 
 @interface SpriteLayer : CCLayer {
     //references
     CGSize size;
+    GameplayScene *scene;
     TreeLayer *bgLayer;
     
     //members
@@ -21,6 +23,7 @@
 }
 
 //setters
+-(void) setScene:(GameplayScene*)s;
 -(void) setBackgroundLayer:(TreeLayer*)l;
 
 //update

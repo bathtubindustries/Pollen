@@ -22,6 +22,7 @@
         [self addChild:bgLayer_ z:0];
 
         spriteLayer_ = [SpriteLayer node];
+        [spriteLayer_ setScene:self];
         [spriteLayer_ setBackgroundLayer:bgLayer_];
         [self addChild:spriteLayer_ z:1];
         

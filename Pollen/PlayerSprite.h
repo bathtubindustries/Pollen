@@ -14,7 +14,7 @@
 #define PLAYER_GRAVITY -15.f
 #define PLAYER_JUMP 400.f
 
-#define PLAYER_ATTACK_RESET 0.18f
+#define PLAYER_ATTACK_RESET 0.15f
 
 @interface PlayerSprite : CCSprite {
     //references

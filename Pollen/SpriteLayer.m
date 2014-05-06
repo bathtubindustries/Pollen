@@ -8,18 +8,18 @@
 
 #import "SpriteLayer.h"
 
+#import "GameplayScene.h"
 #import "TreeLayer.h"
 #import "PlayerSprite.h"
 #import "MainMenuLayer.h"
 
 @implementation SpriteLayer
 
--(id) init{
+-(id) init {
     if(self = [super init])
     {
         //setup
         size = [[CCDirector sharedDirector] winSize];
-        [self registerWithTouchDispatcher];
         self.accelerometerEnabled = YES;
         
         //player
@@ -27,6 +27,14 @@
         [self addChild:player z:1];
     }
     return self;
+}
+-(void) onEnter {
+    [super onEnter];
+    [self registerWithTouchDispatcher];
+}
+-(void) onExit {
+    [super onExit];
+    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
 }
 
 //INPUT
@@ -36,6 +44,8 @@
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
+    
+    if(scene && ![scene isPausedWithMenu])
     if(location.x > 20 && location.x < size.width - 20 &&
        location.y > 20 && location.y < size.height - 20) {
         [player startAttack];
@@ -71,6 +81,9 @@
 }
 
 //UTILITY
+-(void) setScene:(GameplayScene*)s {
+    scene = s;
+}
 -(void) setBackgroundLayer:(TreeLayer*)l {
     bgLayer = l;
 }

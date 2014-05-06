@@ -24,7 +24,6 @@
         paused_ = NO;
         pausedWithMenu_ = NO;
         alreadyPaused_ = NO;
-        [self registerWithTouchDispatcher];
         
         //pause button & textures
         float scaleFactor = 1.0;
@@ -66,6 +65,14 @@
         [self addChild:pauseMenu_];
     }
     return self;
+}
+-(void) onEnter {
+    [super onEnter];
+    [self registerWithTouchDispatcher];
+}
+-(void) onExit {
+    [super onExit];
+    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
 }
 
 //TOUCHES
