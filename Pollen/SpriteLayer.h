@@ -7,18 +7,21 @@
 //
 
 #import "cocos2d.h"
-#import "GameView.h"
-#import "PlayerSprite.h"
+
+@class TreeLayer;
+@class PlayerSprite;
 
 @interface SpriteLayer : CCLayer {
     //references
     CGSize size;
+    TreeLayer *bgLayer;
     
     //members
     PlayerSprite* player;
 }
 
-+(float) lowPassFilter:(float)raw;
+//setters
+-(void) setBackgroundLayer:(TreeLayer*)l;
 
 //update
 -(void) update:(ccTime)dt;

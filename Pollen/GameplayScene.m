@@ -20,12 +20,10 @@
 	{
         bgLayer_ = [TreeLayer node];
         [self addChild:bgLayer_ z:0];
-        
-        spriteLayer_ = [SpriteLayer node];
-        [self addChild:spriteLayer_ z:1];
 
-        //statLayer = [UILayer node];
-        //[self addChild:statLayer z:1];
+        spriteLayer_ = [SpriteLayer node];
+        [spriteLayer_ setBackgroundLayer:bgLayer_];
+        [self addChild:spriteLayer_ z:1];
         
         pauseLayer_ = [PauseLayer node];
         [self addChild:pauseLayer_ z:2];

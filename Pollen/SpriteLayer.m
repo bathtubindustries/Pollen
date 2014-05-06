@@ -8,6 +8,10 @@
 
 #import "SpriteLayer.h"
 
+#import "TreeLayer.h"
+#import "PlayerSprite.h"
+#import "MainMenuLayer.h"
+
 @implementation SpriteLayer
 
 -(id) init{
@@ -20,7 +24,6 @@
         
         //player
         player = [PlayerSprite node];
-        player.position = ccp(size.width/2, size.height/2);
         [self addChild:player z:1];
     }
     return self;
@@ -42,22 +45,34 @@
 }
 
 -(void) accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration {
-    NSLog(@"acceleration: x:%f / y:%f / z:%f",
-          acceleration.x, acceleration.y, acceleration.z);
-    if(acceleration.x > 0.5) {
-        player.velocity = ccp(5, player.velocity.y);
-    } else if(acceleration.x < 0.5) {
-        player.velocity = ccp(-5, player.velocity.y);
-    } else {
-        player.velocity = ccp(0, player.velocity.y);
-    }
+    //low pass filter
+    float lpfFilter = 0.1f;
+	player.velocity = ccp(acceleration.x*lpfFilter*PLAYER_XACCEL + player.velocity.x*(1.0f-lpfFilter),
+                          player.velocity.y);
 }
 
 //UPDATE
 -(void) update:(ccTime)dt
 {
     [player update:dt];
+    
+    //handle extra velocity
+    if(bgLayer) {
+        [bgLayer scroll:player.extraYVelocity];
+    }
+    
+    //handle lose condition
+    if(player.dead) {
+        [[CCDirector sharedDirector] replaceScene:
+         [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
+        
+        player.dead = NO; //so no repeat transition is activated
+    }
 }
 
+//UTILITY
+-(void) setBackgroundLayer:(TreeLayer*)l {
+    bgLayer = l;
+}
 
 @end

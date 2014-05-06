@@ -33,7 +33,8 @@
         [CCMenuItemFont setFontSize:(16*scaleFactor)];
         
         CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"tap to start" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameplayScene node]]];
+            [[CCDirector sharedDirector] replaceScene:
+             [CCTransitionFadeUp transitionWithDuration:0.5 scene:[GameplayScene node]]];
         }];
         CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
             //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[StoreScene node]]];

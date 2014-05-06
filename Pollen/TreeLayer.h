@@ -9,8 +9,16 @@
 #import "cocos2d.h"
 
 @interface TreeLayer : CCLayer {
+    //references
     CGSize size;
-    CCSprite *background;
+
+    //members
+    CCSprite *bgGround;
+    CCSprite *bgSky1;
+    CCSprite *bgSky2;
 }
+
+//setter
+-(void) scroll:(float)vel;
 
 @end
