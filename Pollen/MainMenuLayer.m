@@ -33,12 +33,14 @@
         [self addChild:gameTitle];
         
         //high score label
-        CCLabelTTF *highScoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im / %im",
-                                                                  (int) prevScore, (int) [GameUtility savedHighScore]]
-                                                       fontName:@"Futura" fontSize:20*scaleFactor];
-        highScoreLabel.position = ccp(size.width/2, size.height - 32);
-        [highScoreLabel setColor:ccBLACK];
-        [self addChild:highScoreLabel];
+        if(!([GameUtility savedHighScore] == 0 && prevScore == 0)) {
+            CCLabelTTF *highScoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im / %im",
+                                                                      (int) prevScore, (int) [GameUtility savedHighScore]]
+                                                           fontName:@"Futura" fontSize:20*scaleFactor];
+            highScoreLabel.position = ccp(size.width/2, size.height - 32);
+            [highScoreLabel setColor:ccBLACK];
+            [self addChild:highScoreLabel];
+        }
         
         //tap to play
         CCLabelTTF *newGameLabel = [CCLabelTTF labelWithString:@"( tap anywhere to start )"

@@ -17,8 +17,7 @@
 @implementation IntroLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
-{
++(CCScene *) scene {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -32,16 +31,12 @@
 	return scene;
 }
 
-// 
--(id) init
-{
-	if( (self=[super init])) {
-
+-(id) init {
+	if((self = [super init])) {
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 
 		CCSprite *background;
-		
 		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
 			background = [CCSprite spriteWithFile:@"Default.png"];
 			//background.rotation = 90;
@@ -53,13 +48,11 @@
 		// add the label as a child to this Layer
 		[self addChild: background];
 	}
-	
 	return self;
 }
 
--(void) onEnter
-{
+-(void) onEnter {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenuLayer scene]]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionProgressHorizontal transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
 }
 @end

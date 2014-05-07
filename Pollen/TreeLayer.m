@@ -20,18 +20,18 @@
         
         //background images
 		bgGround = [CCSprite spriteWithFile:@"loltree.png"];
-        bgGround.anchorPoint = ccp(0, 0);
-        bgGround.position = ccp(0, 0);
+        bgGround.anchorPoint = ccp(0.5, 0);
+        bgGround.position = ccp(size.width/2, 0);
 		[self addChild: bgGround z:2];
         
         bgSky1 = [CCSprite spriteWithFile:@"lolsky1.png"];
-        bgSky1.anchorPoint = ccp(0, 0);
-        bgSky1.position = ccp(0, bgGround.position.y + [bgGround boundingBox].size.height);
+        bgSky1.anchorPoint = ccp(0.5, 0);
+        bgSky1.position = ccp(bgGround.position.x, bgGround.position.y + [bgGround boundingBox].size.height);
         [self addChild: bgSky1 z:1];
         
         bgSky2 = [CCSprite spriteWithFile:@"lolsky2.png"];
-        bgSky2.anchorPoint = ccp(0, 0);
-        bgSky2.position = ccp(0, bgSky1.position.y + [bgSky1 boundingBox].size.height);
+        bgSky2.anchorPoint = ccp(0.5, 0);
+        bgSky2.position = ccp(bgSky1.position.x, bgSky1.position.y + [bgSky1 boundingBox].size.height);
         bgSky2.visible = NO;
         [self addChild: bgSky2 z:0];
     }
