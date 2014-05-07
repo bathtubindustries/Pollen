@@ -8,11 +8,14 @@
 
 #import "cocos2d.h"
 
-@class ClipSprite;
 @class GameplayScene;
 @class TreeLayer;
+
 @class PlayerSprite;
 @class FlowerSpawner;
+@class Spiddderoso;
+
+@class ClipSprite;
 
 #define INITIAL_FLOWER_AMOUNT 6
 
@@ -25,6 +28,7 @@
     //members
     PlayerSprite *player_;
     FlowerSpawner *spawner_;
+    Spiddderoso *spiddder_;
     
     CGPoint touchBeganLocation_;
     
@@ -40,6 +44,9 @@
 @property(nonatomic) float topBuffer;
 
 //setters
+-(float) getPollenMeter;
+-(float) getHeight;
+
 -(void) setScene:(GameplayScene*)s;
 -(void) setBackgroundLayer:(TreeLayer*)l;
 

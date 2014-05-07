@@ -40,6 +40,9 @@
 		11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C44191AD31700143F58 /* tutorialMessage4.png */; };
 		11BF2C4A191AD31700143F58 /* tutorialMessage5.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C45191AD31700143F58 /* tutorialMessage5.png */; };
 		11BF2C4D191AD5F200143F58 /* StoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF2C4C191AD5F200143F58 /* StoreLayer.m */; };
+		11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF2C50191ADB3600143F58 /* Spiddderoso.m */; };
+		11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C52191ADD5900143F58 /* spiddderoso.png */; };
+		11BF2C56191AE8D100143F58 /* LineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF2C55191AE8D100143F58 /* LineLayer.m */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
 		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
@@ -232,6 +235,11 @@
 		11BF2C45191AD31700143F58 /* tutorialMessage5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialMessage5.png; sourceTree = "<group>"; };
 		11BF2C4B191AD5F200143F58 /* StoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreLayer.h; path = Pollen/StoreLayer.h; sourceTree = "<group>"; };
 		11BF2C4C191AD5F200143F58 /* StoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreLayer.m; path = Pollen/StoreLayer.m; sourceTree = "<group>"; };
+		11BF2C4F191ADB3600143F58 /* Spiddderoso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spiddderoso.h; path = Pollen/Spiddderoso.h; sourceTree = "<group>"; };
+		11BF2C50191ADB3600143F58 /* Spiddderoso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spiddderoso.m; path = Pollen/Spiddderoso.m; sourceTree = "<group>"; };
+		11BF2C52191ADD5900143F58 /* spiddderoso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spiddderoso.png; sourceTree = "<group>"; };
+		11BF2C54191AE8D100143F58 /* LineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineLayer.h; path = Pollen/LineLayer.h; sourceTree = "<group>"; };
+		11BF2C55191AE8D100143F58 /* LineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineLayer.m; path = Pollen/LineLayer.m; sourceTree = "<group>"; };
 		11E5D0E91917CEED00A76121 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pollen/AppDelegate.h; sourceTree = "<group>"; };
 		11E5D0EA1917CEED00A76121 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pollen/AppDelegate.m; sourceTree = "<group>"; };
 		11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+SFGestureRecognizers.h"; path = "Pollen/CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
@@ -564,6 +572,7 @@
 		113296D81917DF2400F3D78E /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
+				11BF2C4E191ADB1100143F58 /* Enemies */,
 				113296DB1917DF9A00F3D78E /* Flowers */,
 				113296DD1917DFA700F3D78E /* Player */,
 				113296DC1917DF9F00F3D78E /* Layers_Scenes */,
@@ -625,6 +634,8 @@
 				11BF2C37191AC6FC00143F58 /* TutorialLayer.m */,
 				11BF2C4B191AD5F200143F58 /* StoreLayer.h */,
 				11BF2C4C191AD5F200143F58 /* StoreLayer.m */,
+				11BF2C54191AE8D100143F58 /* LineLayer.h */,
+				11BF2C55191AE8D100143F58 /* LineLayer.m */,
 			);
 			name = Layers_Scenes;
 			sourceTree = "<group>";
@@ -647,6 +658,15 @@
 				11E5D0F21917CEED00A76121 /* IntroLayer.m */,
 			);
 			name = etc;
+			sourceTree = "<group>";
+		};
+		11BF2C4E191ADB1100143F58 /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				11BF2C4F191ADB3600143F58 /* Spiddderoso.h */,
+				11BF2C50191ADB3600143F58 /* Spiddderoso.m */,
+			);
+			name = Enemies;
 			sourceTree = "<group>";
 		};
 		11E5D0F31917CEED00A76121 /* libs */ = {
@@ -1006,6 +1026,7 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11BF2C52191ADD5900143F58 /* spiddderoso.png */,
 				11BF2C41191AD31700143F58 /* tutorialMessage1.png */,
 				11BF2C42191AD31700143F58 /* tutorialMessage2.png */,
 				11BF2C43191AD31700143F58 /* tutorialMessage3.png */,
@@ -1167,6 +1188,7 @@
 				11E5D28A1917CEEE00A76121 /* LICENSE_CocosDenshion.txt in Resources */,
 				115CEDAF1918049B00732687 /* title.png in Resources */,
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,
+				11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */,
 				11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */,
 				118BD99E1919AFA1009547F0 /* flowerRedBud.png in Resources */,
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
@@ -1213,6 +1235,7 @@
 				11E5D26A1917CEED00A76121 /* CCFileUtils.m in Sources */,
 				11E5D24D1917CEED00A76121 /* CCSprite.m in Sources */,
 				11E5D2371917CEED00A76121 /* CCLabelAtlas.m in Sources */,
+				11BF2C56191AE8D100143F58 /* LineLayer.m in Sources */,
 				11E5D2761917CEEE00A76121 /* CDXPropertyModifierAction.m in Sources */,
 				11E5D22F1917CEED00A76121 /* CCDrawingPrimitives.m in Sources */,
 				11E5D2721917CEED00A76121 /* ZipUtils.m in Sources */,
@@ -1318,6 +1341,7 @@
 				11E5D2581917CEED00A76121 /* CCTMXTiledMap.m in Sources */,
 				11E5D2681917CEED00A76121 /* CCArray.m in Sources */,
 				11E5D22A1917CEED00A76121 /* CCCamera.m in Sources */,
+				11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */,
 				11E5D2281917CEED00A76121 /* CCAnimationCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

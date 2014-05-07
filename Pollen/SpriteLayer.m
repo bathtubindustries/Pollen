@@ -15,6 +15,7 @@
 #import "PlayerSprite.h"
 #import "FlowerSpawner.h"
 #import "Flower.h"
+#import "Spiddderoso.h"
 
 #import "ClipSprite.h"
 #import "GameUtility.h"
@@ -56,6 +57,10 @@
         [spawner_ setSpawnLayer:self];
         [spawner_ setParticleAmount:INITIAL_FLOWER_AMOUNT];
         
+        //spiddder
+        spiddder_ = [Spiddderoso node];
+        [self addChild:spiddder_ z:2];
+        
         //height
         float scaleFactor = size.height/size.width;
         
@@ -64,13 +69,13 @@
                                              fontName:@"Futura" fontSize:12*scaleFactor];
         highScoreLabel_.anchorPoint = ccp(0, 1);
         highScoreLabel_.position = ccp(4, size.height);
-        [self addChild:highScoreLabel_];
+        [self addChild:highScoreLabel_ z:4];
         
         heightLabel_ = [CCLabelTTF labelWithString:@"0m" fontName:@"Futura" fontSize:12*scaleFactor];
         heightLabel_.anchorPoint = ccp(0, 1);
         heightLabel_.position = ccp(highScoreLabel_.position.x,
                                     highScoreLabel_.position.y - [highScoreLabel_ boundingBox].size.height);
-        [self addChild: heightLabel_];
+        [self addChild: heightLabel_ z:3];
         
         playerHeight_ = 0;
     }
@@ -101,6 +106,19 @@
     if(location.x > 0 && location.x < size.width &&
        location.y > 0 && location.y < size.height) {
         touchBeganLocation_ = location;
+        
+        //spiddder
+        if(!spiddder_.waitingDisconnect) {
+            if(player_.state == OnGround)
+                [spiddder_ updateSpeed];
+            
+            if([GameUtility isCollidingRect:player_ WithRect:spiddder_]) {
+                spiddder_.waitingDisconnect = YES;
+                [spiddder_ updateSpeed];
+                player_.pollenMeter += SPIDDDER_POLLEN_AMOUNT;
+                [player_ startSpiddderJump];
+            }
+        }
         
         [player_ startAttack];
         if(player_.state != Boosting)
@@ -140,28 +158,6 @@
                           player_.velocity.y);
 }
 
-//DRAW
--(void) draw {
-    [super draw];
-    
-    //draw pollen meter lines
-    glLineWidth(50.f);
-    for(int i = 0; i < (PLAYER_MAX_POLLEN/PLAYER_SWIPE_AMOUNT)-1; i++) {
-        int tabWidth;
-        if(player_.pollenMeter >= (i+1)*PLAYER_SWIPE_AMOUNT) {
-            ccDrawColor4B(233, 212, 12, 255);
-            tabWidth = 20;
-        } else {
-            ccDrawColor4B(39, 39, 39, 255);
-            tabWidth = 10;
-        }
-
-        CGPoint lineStart = ccp((i+1)*(PLAYER_SWIPE_AMOUNT/PLAYER_MAX_POLLEN)*size.width - tabWidth/2.f, size.height);
-        CGPoint lineEnd = ccp(lineStart.x + tabWidth, lineStart.y);
-        ccDrawLine(lineStart, lineEnd);
-    }
-}
-
 //UPDATE
 -(void) update:(ccTime)dt
 {
@@ -169,6 +165,12 @@
     [player_ update:dt];
     [spawner_ handleHeight:self.playerHeight];
     [spawner_ update:dt];
+    [spiddder_ update:dt];
+    
+    //update spiddder
+    if(spiddder_.waitingDisconnect && ![GameUtility isCollidingRect:player_ WithRect:spiddder_]) {
+        spiddder_.waitingDisconnect = NO;
+    }
     
     //update pollen meter
     [self updatePollenBar];
@@ -178,7 +180,11 @@
         [bgLayer setYVelocity:player_.extraYVelocity];
     }
     [spawner_ setYVelocity:-player_.extraYVelocity];
+    [spiddder_ setExtraYVelocity:-player_.extraYVelocity];
+    
     self.playerHeight += player_.extraYVelocity*dt / HEIGHT_FACTOR;
+    
+    //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
     if(playerHeight_ > highScore_) [highScoreLabel_ setString:heightLabel_.string];
     
@@ -196,6 +202,13 @@
 }
 
 //UTILITY
+-(float) getPollenMeter {
+    return player_.pollenMeter;
+}
+-(float) getHeight {
+    return size.height;
+}
+
 -(void) setScene:(GameplayScene*)s {
     scene = s;
 }

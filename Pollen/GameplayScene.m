@@ -11,6 +11,7 @@
 #import "TreeLayer.h"
 #import "SpriteLayer.h"
 #import "TutorialLayer.h"
+#import "LineLayer.h"
 #import "PauseLayer.h"
 
 #import "GameUtility.h"
@@ -34,9 +35,13 @@
             [self addChild:tutorialLayer_ z:2];
         }
         
+        lineLayer_ = [LineLayer node];
+        [lineLayer_ setSpriteLayer:spriteLayer_];
+        [self addChild:lineLayer_ z:3];
+        
         pauseLayer_ = [PauseLayer node];
         [pauseLayer_ setTopBuffer:spriteLayer_.topBuffer];
-        [self addChild:pauseLayer_ z:3];
+        [self addChild:pauseLayer_ z:4];
         
         [self scheduleUpdate];
     }

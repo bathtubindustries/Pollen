@@ -14,6 +14,7 @@
 #define PLAYER_GRAVITY -15.f
 #define PLAYER_JUMP 555.f
 #define PLAYER_INITAL_JUMP 800.f
+#define PLAYER_SPIDDDER_JUMP 660.f
 
 #define PLAYER_ATTACK_RESET 0.14f
 
@@ -55,6 +56,7 @@
 //messages
 -(void) startAttack;
 -(void) startJump;
+-(void) startSpiddderJump;
 -(void) startSwipe;
 
 -(void) handleHeight:(float)h;

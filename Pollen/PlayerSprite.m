@@ -64,6 +64,11 @@
     
     self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
 }
+-(void) startSpiddderJump {
+    if(self.pollenMeter > PLAYER_MAX_POLLEN)
+        self.pollenMeter = PLAYER_MAX_POLLEN;
+    self.velocity = ccp(self.velocity.x, PLAYER_SPIDDDER_JUMP);
+}
 -(void) startSwipe {
     if(state_ != Boosting) {
         self.pollenMeter -= PLAYER_SWIPE_AMOUNT;
