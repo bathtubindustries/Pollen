@@ -12,7 +12,7 @@
 #import "SpriteLayer.h"
 #import "GameUtility.h"
 
-#define MIN_FLOWERS 3
+#define MIN_FLOWERS 2
 #define HEIGHT_INCREMENT 400
 #define HEIGHT_OFFSET 250
 
@@ -93,7 +93,7 @@
         if((h > (nextHeightChange-1)*HEIGHT_INCREMENT + HEIGHT_OFFSET) &&
            (self.flowerAmount > INITIAL_FLOWER_AMOUNT-nextHeightChange)) {
             [self setParticleAmount:self.flowerAmount-1];
-            NSLog(@"flower amount: %i", self.flowerAmount);
+            //NSLog(@"flower amount: %i", self.flowerAmount);
         }
     }
     //NSLog(@"iterator: %i", nextHeightChange);
