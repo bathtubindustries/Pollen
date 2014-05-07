@@ -7,11 +7,10 @@
 //
 
 #import "MainMenuLayer.h"
-#import "AppDelegate.h"
-#import "GameplayScene.h"
-#import "GameUtility.h"
 
-#pragma mark - MainMenuLayer
+#import "GameplayScene.h"
+#import "StoreLayer.h"
+#import "GameUtility.h"
 
 @implementation MainMenuLayer
 
@@ -56,7 +55,8 @@
         CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
             #warning store button acting as score reset - debug only!
             [GameUtility saveHighScore:0];
-            //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[StoreScene node]]];
+            [[CCDirector sharedDirector] replaceScene:
+             [CCTransitionSlideInB transitionWithDuration:0.5 scene:[StoreLayer scene]]];
         }];
         [itemStore setColor:ccBLACK];
         

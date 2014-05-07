@@ -36,9 +36,9 @@
     return self;
 }
 -(void) onEnter {
+    [super onEnter];
     [[CCDirector sharedDirector].touchDispatcher
      addTargetedDelegate:self priority:1 swallowsTouches:YES];
-    [super onEnter];
 }
 -(void) dealloc {
     [messages_ dealloc];

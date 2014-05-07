@@ -39,6 +39,7 @@
 		11BF2C48191AD31700143F58 /* tutorialMessage3.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C43191AD31700143F58 /* tutorialMessage3.png */; };
 		11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C44191AD31700143F58 /* tutorialMessage4.png */; };
 		11BF2C4A191AD31700143F58 /* tutorialMessage5.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C45191AD31700143F58 /* tutorialMessage5.png */; };
+		11BF2C4D191AD5F200143F58 /* StoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF2C4C191AD5F200143F58 /* StoreLayer.m */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
 		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
@@ -229,6 +230,8 @@
 		11BF2C43191AD31700143F58 /* tutorialMessage3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialMessage3.png; sourceTree = "<group>"; };
 		11BF2C44191AD31700143F58 /* tutorialMessage4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialMessage4.png; sourceTree = "<group>"; };
 		11BF2C45191AD31700143F58 /* tutorialMessage5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialMessage5.png; sourceTree = "<group>"; };
+		11BF2C4B191AD5F200143F58 /* StoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreLayer.h; path = Pollen/StoreLayer.h; sourceTree = "<group>"; };
+		11BF2C4C191AD5F200143F58 /* StoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreLayer.m; path = Pollen/StoreLayer.m; sourceTree = "<group>"; };
 		11E5D0E91917CEED00A76121 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pollen/AppDelegate.h; sourceTree = "<group>"; };
 		11E5D0EA1917CEED00A76121 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pollen/AppDelegate.m; sourceTree = "<group>"; };
 		11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+SFGestureRecognizers.h"; path = "Pollen/CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				11E5D2141917CEED00A76121 /* TreeLayer.m */,
 				11BF2C36191AC6FC00143F58 /* TutorialLayer.h */,
 				11BF2C37191AC6FC00143F58 /* TutorialLayer.m */,
+				11BF2C4B191AD5F200143F58 /* StoreLayer.h */,
+				11BF2C4C191AD5F200143F58 /* StoreLayer.m */,
 			);
 			name = Layers_Scenes;
 			sourceTree = "<group>";
@@ -1225,6 +1230,7 @@
 				11E5D2521917CEED00A76121 /* CCTextureAtlas.m in Sources */,
 				11E5D25E1917CEED00A76121 /* CCDirectorIOS.m in Sources */,
 				118BD98C19198EB2009547F0 /* Flower.m in Sources */,
+				11BF2C4D191AD5F200143F58 /* StoreLayer.m in Sources */,
 				11E5D2511917CEED00A76121 /* CCTexture2D.m in Sources */,
 				11BF2C33191A7CDC00143F58 /* ClipSprite.m in Sources */,
 				11E5D2481917CEED00A76121 /* CCRenderTexture.m in Sources */,
