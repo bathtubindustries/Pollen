@@ -15,6 +15,7 @@
 @implementation FlowerSpawner
 
 @synthesize yVelocity = yVel_;
+@synthesize flowers = flowers_;
 
 -(id) init {
     if(self = [super init]) {
@@ -58,6 +59,9 @@
             flower.position = ccp([GameUtility randInt:0 :size.width],
                                   size.height + [flower boundingBox].size.height/2);
             [flower setColor:[GameUtility randInt:0 :2]];
+            
+            [flower resetBloom];
+            
             flower.visible = YES;
             break;
         }

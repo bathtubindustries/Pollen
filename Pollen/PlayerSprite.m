@@ -37,14 +37,16 @@
         //start jumping if on ground
         state_ = Jumping;
         [GameUtility loadTexture:@"pollenManJump.png" Into:self];
-        self.velocity = ccp(self.velocity.x, PLAYER_JUMP*2);
+        self.velocity = ccp(self.velocity.x, PLAYER_INITAL_JUMP);
     } else if(state_ != Attacking) {
         //start attacking
         state_ = Attacking;
         attackResetTimer_ = PLAYER_ATTACK_RESET;
         [GameUtility loadTexture:@"pollenManAttack.png" Into:self];
-        self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
     }
+}
+-(void) startJump {
+    self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
 }
 
 -(void) update:(ccTime)dt

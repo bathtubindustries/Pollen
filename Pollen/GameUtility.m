@@ -36,4 +36,8 @@
     }
 }
 
++(BOOL) isCollidingRect:(CCSprite*)s1 WithRect:(CCSprite*)s2 {
+    return CGRectIntersectsRect([s1 boundingBox], [s2 boundingBox]);
+}
+
 @end

@@ -11,8 +11,6 @@
 #import "cocos2d.h"
 #import "GameUtility.h"
 
-#define FLOWER_BLOOM_HEALTH 100
-
 @implementation Flower
 
 @synthesize bloomHealth = bloomHealth_;
@@ -56,6 +54,12 @@
         self.bloomed = YES;
         [GameUtility loadTexture:bloomFile_ Into:self];
     }
+}
+
+-(void) resetBloom {
+    self.bloomed = NO;
+    self.bloomHealth = FLOWER_BLOOM_HEALTH;
+    [GameUtility loadTexture:budFile_ Into:self];
 }
 
 //update

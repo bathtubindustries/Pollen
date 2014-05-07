@@ -10,9 +10,13 @@
 
 #import "GameplayScene.h"
 #import "TreeLayer.h"
+#import "MainMenuLayer.h"
+
 #import "PlayerSprite.h"
 #import "FlowerSpawner.h"
-#import "MainMenuLayer.h"
+#import "Flower.h"
+
+#import "GameUtility.h"
 
 #define HEIGHT_FACTOR 15.f
 
@@ -72,6 +76,13 @@
     if(location.x > 0 && location.x < size.width &&
        location.y > 0 && location.y < size.height) {
         [player_ startAttack];
+        for(Flower* flower in spawner_.flowers) {
+            if(!flower.bloomed && [GameUtility isCollidingRect:player_ WithRect:flower]) {
+                [flower bloomFlowerWithPower:100];
+                if(flower.bloomed) [player_ startJump];
+                //break;
+            }
+        }
     }
     
     return YES;

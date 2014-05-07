@@ -8,6 +8,8 @@
 
 #import "CCSprite.h"
 
+#define FLOWER_BLOOM_HEALTH 100
+
 @interface Flower : CCSprite {
     NSString *budFile_, *bloomFile_;
     
@@ -26,6 +28,7 @@
 //setter
 -(void) setColor:(int)col;
 -(void) bloomFlowerWithPower:(float)pow;
+-(void) resetBloom;
 //update
 -(void) update:(ccTime)dt;
 

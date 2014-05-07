@@ -19,6 +19,7 @@
     float yVel_;
 }
 @property float yVelocity;
+@property(nonatomic, retain) NSMutableArray *flowers;
 
 //setter
 -(void) setSpawnLayer:(CCLayer*)l;

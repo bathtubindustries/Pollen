@@ -12,9 +12,10 @@
 #define PLAYER_XMAXSPEED 400.f
 
 #define PLAYER_GRAVITY -15.f
-#define PLAYER_JUMP 400.f
+#define PLAYER_JUMP 500.f
+#define PLAYER_INITAL_JUMP 800.f
 
-#define PLAYER_ATTACK_RESET 0.15f
+#define PLAYER_ATTACK_RESET 0.14f
 
 @interface PlayerSprite : CCSprite {
     //references
@@ -40,6 +41,7 @@
 
 //messages
 -(void) startAttack;
+-(void) startJump;
 
 //update
 -(void) update:(ccTime)dt;
