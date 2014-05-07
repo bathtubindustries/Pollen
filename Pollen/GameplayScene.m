@@ -10,7 +10,10 @@
 
 #import "TreeLayer.h"
 #import "SpriteLayer.h"
+#import "TutorialLayer.h"
 #import "PauseLayer.h"
+
+#import "GameUtility.h"
 
 @implementation GameplayScene
 
@@ -26,9 +29,14 @@
         [spriteLayer_ setBackgroundLayer:bgLayer_];
         [self addChild:spriteLayer_ z:1];
         
+        if([GameUtility savedHighScore] == 0) {
+            tutorialLayer_ = [TutorialLayer node];
+            [self addChild:tutorialLayer_ z:2];
+        }
+        
         pauseLayer_ = [PauseLayer node];
         [pauseLayer_ setTopBuffer:spriteLayer_.topBuffer];
-        [self addChild:pauseLayer_ z:2];
+        [self addChild:pauseLayer_ z:3];
         
         [self scheduleUpdate];
     }

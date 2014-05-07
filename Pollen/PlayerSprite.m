@@ -46,6 +46,7 @@
         state_ = Jumping;
         [GameUtility loadTexture:@"pollenManJump.png" Into:self];
         self.velocity = ccp(self.velocity.x, PLAYER_INITAL_JUMP);
+        self.rotation = 0;
     } else if(state_ == Jumping) {
         //start attacking
         state_ = Attacking;
@@ -134,9 +135,9 @@
             self.dead = YES;
         }
     } else {
-        //reset to bottom edge if below
-        if(self.position.y < [self boundingBox].size.height/2) {
-            self.position = ccp(self.position.x, [self boundingBox].size.height/2);
+        //reset to bottom edge if below (do not account for rotated box)
+        if(self.position.y < self.contentSize.height*self.scale/2) {
+            self.position = ccp(self.position.x, self.contentSize.height*self.scale/2);
             //zero velocity if below bottom edge
             self.velocity = CGPointZero;
         }
@@ -166,6 +167,21 @@
             self.velocity = ccp(0, self.velocity.y);
         }
     } else {
+        //rotate w x vel
+        int minVel = 15;
+        if(self.velocity.x > minVel) {
+            self.rotation = 9;
+            self.position = ccp(size.width/2 + 12, self.position.y);
+        }
+        else if(self.velocity.x < -minVel) {
+            self.rotation = -9;
+            self.position = ccp(size.width/2 - 12, self.position.y);
+        }
+        else if(abs(self.velocity.x) < minVel-2 && self.velocity.x != 0) {
+            self.rotation = 0;
+            self.position = ccp(size.width/2, self.position.y);
+        }
+        
         self.velocity = ccp(0, self.velocity.y);
     }
     

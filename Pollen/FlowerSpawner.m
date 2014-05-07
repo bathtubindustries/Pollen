@@ -49,7 +49,7 @@
             Flower *particle = [Flower node];
             particle.visible = YES;
             particle.position = ccp([GameUtility randInt:0 :size.width],
-                                    size.height/4 + (i+1)*(size.height/(n-numParticles_-1)));
+                                    size.height/2 + (i+1)*(size.height/(n-numParticles_-1)));
                                                 //warning; might not work if adding particles
             
             [flowers_ addObject:particle];

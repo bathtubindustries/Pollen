@@ -11,10 +11,12 @@
 @class TreeLayer;
 @class SpriteLayer;
 @class PauseLayer;
+@class TutorialLayer;
 
 @interface GameplayScene : CCScene {
     TreeLayer *bgLayer_;
     SpriteLayer *spriteLayer_;
+    TutorialLayer *tutorialLayer_;
     PauseLayer *pauseLayer_;
 }
 

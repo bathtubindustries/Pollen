@@ -92,7 +92,7 @@
 //INPUT
 -(void) registerWithTouchDispatcher {
     [[CCDirector sharedDirector].touchDispatcher
-        addTargetedDelegate:self priority:1 swallowsTouches:YES];
+        addTargetedDelegate:self priority:2 swallowsTouches:YES];
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
