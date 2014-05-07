@@ -42,9 +42,18 @@
         
         //height
         float scaleFactor = size.height/size.width;
+        
+        highScore_ = [GameUtility savedHighScore];
+        highScoreLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im", (int) highScore_]
+                                             fontName:@"Futura" fontSize:12*scaleFactor];
+        highScoreLabel_.anchorPoint = ccp(0, 1);
+        highScoreLabel_.position = ccp(4, size.height);
+        [self addChild:highScoreLabel_];
+        
         heightLabel_ = [CCLabelTTF labelWithString:@"0m" fontName:@"Futura" fontSize:12*scaleFactor];
         heightLabel_.anchorPoint = ccp(0, 1);
-        heightLabel_.position = ccp(4, size.height);
+        heightLabel_.position = ccp(highScoreLabel_.position.x,
+                                    highScoreLabel_.position.y - [highScoreLabel_ boundingBox].size.height);
         [self addChild: heightLabel_];
         
         playerHeight_ = 0;
@@ -108,9 +117,14 @@
     [spawner_ setYVelocity:-player_.extraYVelocity];
     self.playerHeight += player_.extraYVelocity*dt / HEIGHT_FACTOR;
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
+    if(playerHeight_ > highScore_) [highScoreLabel_ setString:heightLabel_.string];
     
     //handle lose condition
     if(player_.dead) {
+        if(playerHeight_ > highScore_) {
+            [GameUtility saveHighScore:playerHeight_];
+        }
+        
         [[CCDirector sharedDirector] replaceScene:
          [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
         

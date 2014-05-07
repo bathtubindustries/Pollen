@@ -22,7 +22,10 @@
     //members
     PlayerSprite *player_;
     FlowerSpawner *spawner_;
+    
+    CCLabelTTF *highScoreLabel_;
     CCLabelTTF *heightLabel_;
+    float highScore_;
     float playerHeight_;
 }
 @property float playerHeight;
