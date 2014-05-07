@@ -26,7 +26,7 @@
         state_ = OnGround;
         self.dead = NO;
         attackResetTimer_ = 0;
-        self.pollenMeter = 90.f;
+        self.pollenMeter = 0;
         
         self.position = ccp(size.width/2, [self boundingBox].size.height/2);
         self.velocity = CGPointZero;
