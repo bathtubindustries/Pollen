@@ -27,6 +27,7 @@
         [self addChild:spriteLayer_ z:1];
         
         pauseLayer_ = [PauseLayer node];
+        [pauseLayer_ setTopBuffer:spriteLayer_.topBuffer];
         [self addChild:pauseLayer_ z:2];
         
         [self scheduleUpdate];

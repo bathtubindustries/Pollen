@@ -27,6 +27,8 @@
 @property BOOL pausedWithMenu;
 
 //state setter
+-(void) setTopBuffer:(float)buf;
+
 -(void) pause;
 -(void) resume;
 

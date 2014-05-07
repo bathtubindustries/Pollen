@@ -17,6 +17,9 @@
 
 #define PLAYER_ATTACK_RESET 0.14f
 
+#define PLAYER_MAX_POLLEN 90.f
+#define PLAYER_SWIPE_AMOUNT 30.f
+
 @interface PlayerSprite : CCSprite {
     //references
     CGSize size;
@@ -31,17 +34,20 @@
     BOOL dead_;
     
     float attackResetTimer_;
+    float pollenMeter_;
     
     CGPoint velocity_;
     float extraYVel_;
 }
 @property CGPoint velocity;
 @property float extraYVelocity;
+@property float pollenMeter;
 @property BOOL dead;
 
 //messages
 -(void) startAttack;
 -(void) startJump;
+-(void) startSwipe;
 
 //update
 -(void) update:(ccTime)dt;

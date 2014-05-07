@@ -9,11 +9,13 @@
 #import "PlayerSprite.h"
 
 #import "GameUtility.h"
+#import "Flower.h"
 
 @implementation PlayerSprite
 
 @synthesize velocity = velocity_;
 @synthesize extraYVelocity = extraYVel_;
+@synthesize pollenMeter = pollenMeter_;
 @synthesize dead = dead_;
 
 -(id)init{
@@ -24,6 +26,7 @@
         state_ = OnGround;
         self.dead = NO;
         attackResetTimer_ = 0;
+        self.pollenMeter = 0;
         
         self.position = ccp(size.width/2, [self boundingBox].size.height/2);
         self.velocity = CGPointZero;
@@ -46,6 +49,16 @@
     }
 }
 -(void) startJump {
+    if(self.pollenMeter < PLAYER_MAX_POLLEN)
+        self.pollenMeter += FLOWER_POLLEN_AMOUNT;
+    if(self.pollenMeter > PLAYER_MAX_POLLEN)
+        self.pollenMeter = PLAYER_MAX_POLLEN;
+    
+    self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
+}
+-(void) startSwipe {
+    self.pollenMeter -= PLAYER_SWIPE_AMOUNT;
+    
     self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
 }
 

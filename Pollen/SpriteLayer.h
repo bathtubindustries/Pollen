@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 
+@class ClipSprite;
 @class GameplayScene;
 @class TreeLayer;
 @class PlayerSprite;
@@ -23,12 +24,18 @@
     PlayerSprite *player_;
     FlowerSpawner *spawner_;
     
+    CGPoint touchBeganLocation_;
+    
     CCLabelTTF *highScoreLabel_;
     CCLabelTTF *heightLabel_;
     float highScore_;
     float playerHeight_;
+    
+    ClipSprite *pollenBar_;
+    CCSprite *pollenBarBackground_;
 }
 @property float playerHeight;
+@property(nonatomic) float topBuffer;
 
 //setters
 -(void) setScene:(GameplayScene*)s;

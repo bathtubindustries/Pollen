@@ -91,6 +91,13 @@
 }
 
 //STATE SETTER
+//top buffer
+-(void) setTopBuffer:(float)buf {
+    pauseButton_.position = ccp(pauseButton_.position.x,
+                                pauseButton_.position.y - buf);
+}
+
+//pause functions
 -(void) pause {
     if(!paused_ && !pauseMenu_.visible)
         paused_ = YES;

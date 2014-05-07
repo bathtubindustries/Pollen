@@ -8,7 +8,8 @@
 
 #import "CCSprite.h"
 
-#define FLOWER_BLOOM_HEALTH 100
+#define FLOWER_BLOOM_HEALTH 100.f
+#define FLOWER_POLLEN_AMOUNT 2.f
 
 @interface Flower : CCSprite {
     NSString *budFile_, *bloomFile_;
