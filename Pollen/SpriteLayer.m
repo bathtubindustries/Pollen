@@ -146,16 +146,19 @@
     [super draw];
     
     //draw pollen meter lines
-    glLineWidth(50.0f);
+    glLineWidth(50.f);
     for(int i = 0; i < (PLAYER_MAX_POLLEN/PLAYER_SWIPE_AMOUNT)-1; i++) {
+        int tabWidth;
         if(player_.pollenMeter >= (i+1)*PLAYER_SWIPE_AMOUNT) {
             ccDrawColor4B(233, 212, 12, 255);
+            tabWidth = 20;
         } else {
             ccDrawColor4B(39, 39, 39, 255);
+            tabWidth = 10;
         }
-        
-        CGPoint lineStart = ccp((i+1)*(PLAYER_SWIPE_AMOUNT/PLAYER_MAX_POLLEN)*size.width, size.height);
-        CGPoint lineEnd = ccp(lineStart.x, lineStart.y-6);
+
+        CGPoint lineStart = ccp((i+1)*(PLAYER_SWIPE_AMOUNT/PLAYER_MAX_POLLEN)*size.width - tabWidth/2.f, size.height);
+        CGPoint lineEnd = ccp(lineStart.x + tabWidth, lineStart.y);
         ccDrawLine(lineStart, lineEnd);
     }
 }
