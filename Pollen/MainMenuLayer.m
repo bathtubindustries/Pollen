@@ -9,12 +9,16 @@
 #import "MainMenuLayer.h"
 #import "AppDelegate.h"
 #import "GameplayScene.h"
+#import "GameUtility.h"
 
 #pragma mark - MainMenuLayer
 
 @implementation MainMenuLayer
 
 -(id) init {
+    return [self initWithScore:0];
+}
+-(id) initWithScore:(float)prevScore {
     if(self = [super init]) {
         CGSize size = [[CCDirector sharedDirector] winSize];
         float scaleFactor = size.height/size.width;
@@ -28,32 +32,73 @@
         gameTitle.scale = 0.9;
         [self addChild:gameTitle];
         
+        //high score label
+        CCLabelTTF *highScoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im / %im",
+                                                                  (int) prevScore, (int) [GameUtility savedHighScore]]
+                                                       fontName:@"Futura" fontSize:20*scaleFactor];
+        highScoreLabel.position = ccp(size.width/2, size.height - 32);
+        [highScoreLabel setColor:ccBLACK];
+        [self addChild:highScoreLabel];
+        
+        //tap to play
+        CCLabelTTF *newGameLabel = [CCLabelTTF labelWithString:@"( tap anywhere to start )"
+                                                      fontName:@"Futura" fontSize:14*scaleFactor];
+        newGameLabel.position = ccp(size.width/2,
+                                    gameTitle.position.y - [gameTitle boundingBox].size.height*3/4);
+        [self addChild:newGameLabel];
+        
         //menu
         [CCMenuItemFont setFontName:@"Futura"];
-        [CCMenuItemFont setFontSize:(16*scaleFactor)];
+        [CCMenuItemFont setFontSize:(24*scaleFactor)];
         
-        CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"tap to start" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:
-             [CCTransitionFadeUp transitionWithDuration:0.5 scene:[GameplayScene node]]];
-        }];
         CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
+            #warning store button acting as score reset - debug only!
+            [GameUtility saveHighScore:0];
             //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[StoreScene node]]];
         }];
+        [itemStore setColor:ccBLACK];
         
-        CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemStore, nil];
+        CCMenu *menu = [CCMenu menuWithItems:itemStore, nil];
 		[menu alignItemsVerticallyWithPadding:6*scaleFactor];
-        [menu setPosition:ccp(size.width/2, 120)];
-        [menu setColor:ccBLACK];
+        [menu setPosition:ccp(size.width/2, 35)];
 		[self addChild:menu];
     }
     return self;
 }
+-(void) onEnter {
+    [super onEnter];
+    [self registerWithTouchDispatcher];
+}
+-(void) onExit {
+    [super onExit];
+    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
+}
 
+//INPUT
+-(void) registerWithTouchDispatcher {
+    [[CCDirector sharedDirector].touchDispatcher
+     addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+-(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event {
+    [MainMenuLayer startGame];
+    
+    return YES;
+}
+
+//UTILITY
 +(CCScene*) scene {
+    return [MainMenuLayer sceneWithScore:0];
+}
++(CCScene*) sceneWithScore:(float)prevScore {
     CCScene *scene = [CCScene node];
-    MainMenuLayer *layer = [MainMenuLayer node];
+    MainMenuLayer *layer = [[[MainMenuLayer alloc] initWithScore:prevScore] autorelease];
     [scene addChild:layer];
     return scene;
+}
+
++(void) startGame {
+    [[CCDirector sharedDirector] replaceScene:
+     [CCTransitionFadeUp transitionWithDuration:0.5 scene:[GameplayScene node]]];
 }
 
 @end

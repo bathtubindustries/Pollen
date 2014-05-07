@@ -126,7 +126,7 @@
         }
         
         [[CCDirector sharedDirector] replaceScene:
-         [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
+         [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer sceneWithScore:playerHeight_]]];
         
         player_.dead = NO; //so no repeat transition is activated
     }

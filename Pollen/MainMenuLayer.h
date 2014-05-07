@@ -11,6 +11,9 @@
 
 @interface MainMenuLayer : CCLayerColor {}
 
+-(id) initWithScore:(float)prevScore;
+
 +(CCScene*) scene;
++(CCScene*) sceneWithScore:(float)prevScore;
 
 @end
