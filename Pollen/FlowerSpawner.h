@@ -25,7 +25,7 @@
 //setter
 -(void) setSpawnLayer:(CCLayer*)l;
 -(void) setParticleAmount:(int)n;
--(void) setHeight:(float)h;
+-(void) handleHeight:(float)h;
 //update
 -(void) update:(ccTime)dt;
 

@@ -34,6 +34,9 @@
     enum PlayerState state_;
     BOOL dead_;
     
+    float gravityIncrement_;
+    float jumpIncrement_;
+    
     float attackResetTimer_;
     float pollenMeter_;
     
@@ -49,6 +52,8 @@
 -(void) startAttack;
 -(void) startJump;
 -(void) startSwipe;
+
+-(void) handleHeight:(float)h;
 
 //update
 -(void) update:(ccTime)dt;

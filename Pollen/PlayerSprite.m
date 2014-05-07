@@ -31,6 +31,9 @@
         self.position = ccp(size.width/2, [self boundingBox].size.height/2);
         self.velocity = CGPointZero;
         self.extraYVelocity = 0;
+        
+        gravityIncrement_ = 0;
+        jumpIncrement_ = 0;
     }
     return self;
 }
@@ -55,14 +58,29 @@
     if(self.pollenMeter > PLAYER_MAX_POLLEN)
         self.pollenMeter = PLAYER_MAX_POLLEN;
     
-    self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
+    self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
 }
 -(void) startSwipe {
     self.pollenMeter -= PLAYER_SWIPE_AMOUNT;
     if(self.pollenMeter < 0)
         self.pollenMeter = 0;
     
-    self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
+    self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
+}
+
+-(void) handleHeight:(float)h {
+    #warning hacky and will not scale automatically
+    if(h > 1500 && gravityIncrement_ == 0) {
+        gravityIncrement_ = 1;
+    }
+    else if(h > 2000 && gravityIncrement_ == 1) {
+        gravityIncrement_ = 3;
+        jumpIncrement_ = 10;
+    }
+    else if(h > 3000 && gravityIncrement_ == 3) {
+        gravityIncrement_ = 5;
+        jumpIncrement_ = 20;
+    }
 }
 
 //UPDATE
@@ -84,13 +102,13 @@
         if(self.position.y > -[self boundingBox].size.height/2) {
             //update the velocity with gravity
             if(self.extraYVelocity > 0)
-                self.extraYVelocity += PLAYER_GRAVITY;
+                self.extraYVelocity += PLAYER_GRAVITY-gravityIncrement_;
             if(self.extraYVelocity < 0)
                 self.extraYVelocity = 0;
 
-            if(self.extraYVelocity < -PLAYER_GRAVITY) {
+            if(self.extraYVelocity < -(PLAYER_GRAVITY-gravityIncrement_)) {
                 self.velocity = ccp(self.velocity.x,
-                                    self.velocity.y + PLAYER_GRAVITY + self.extraYVelocity);
+                                    self.velocity.y + (PLAYER_GRAVITY-gravityIncrement_) + self.extraYVelocity);
             }
         } else {
             self.velocity = CGPointZero;

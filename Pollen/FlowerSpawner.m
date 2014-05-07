@@ -85,7 +85,7 @@
     }
 }
 
--(void) setHeight:(float)h {
+-(void) handleHeight:(float)h {
     //get iterator for height increments
     int nextHeightChange = INITIAL_FLOWER_AMOUNT-self.flowerAmount+1;
     if(nextHeightChange > 0 && nextHeightChange <= INITIAL_FLOWER_AMOUNT-MIN_FLOWERS) {

@@ -166,8 +166,9 @@
 //UPDATE
 -(void) update:(ccTime)dt
 {
+    [player_ handleHeight:self.playerHeight];
     [player_ update:dt];
-    [spawner_ setHeight:self.playerHeight];
+    [spawner_ handleHeight:self.playerHeight];
     [spawner_ update:dt];
     
     //handle extra velocity
