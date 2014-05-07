@@ -103,12 +103,12 @@
         touchBeganLocation_ = location;
         
         [player_ startAttack];
+        if(player_.state != Boosting)
         for(Flower* flower in spawner_.flowers) {
             if(!flower.bloomed && [GameUtility isCollidingRect:player_ WithRect:flower]) {
                 [flower bloomFlowerWithPower:100];
                 if(flower.bloomed) {
                     [player_ startJump];
-                    [self updatePollenBar];
                 }
                 //break; //used to bloom only one flower at a time (will activate lowest flower)
             }
@@ -128,7 +128,6 @@
             //begin swipe
             if(player_.pollenMeter >= PLAYER_SWIPE_AMOUNT) {
                 [player_ startSwipe];
-                [self updatePollenBar];
             }
         }
     }
@@ -170,6 +169,9 @@
     [player_ update:dt];
     [spawner_ handleHeight:self.playerHeight];
     [spawner_ update:dt];
+    
+    //update pollen meter
+    [self updatePollenBar];
     
     //handle extra velocity
     if(bgLayer) {

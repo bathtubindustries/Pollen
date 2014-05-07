@@ -28,6 +28,7 @@
 		11BF2C2F191A7C9000143F58 /* pollenBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C2D191A7C9000143F58 /* pollenBar.png */; };
 		11BF2C30191A7C9000143F58 /* pollenBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C2E191A7C9000143F58 /* pollenBarBackground.png */; };
 		11BF2C33191A7CDC00143F58 /* ClipSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF2C32191A7CDC00143F58 /* ClipSprite.m */; };
+		11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C34191ABBFE00143F58 /* pollenManBoost.png */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
 		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
@@ -206,6 +207,7 @@
 		11BF2C2E191A7C9000143F58 /* pollenBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenBarBackground.png; sourceTree = "<group>"; };
 		11BF2C31191A7CDC00143F58 /* ClipSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClipSprite.h; path = Pollen/ClipSprite.h; sourceTree = "<group>"; };
 		11BF2C32191A7CDC00143F58 /* ClipSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClipSprite.m; path = Pollen/ClipSprite.m; sourceTree = "<group>"; };
+		11BF2C34191ABBFE00143F58 /* pollenManBoost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManBoost.png; sourceTree = "<group>"; };
 		11E5D0E91917CEED00A76121 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pollen/AppDelegate.h; sourceTree = "<group>"; };
 		11E5D0EA1917CEED00A76121 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pollen/AppDelegate.m; sourceTree = "<group>"; };
 		11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+SFGestureRecognizers.h"; path = "Pollen/CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
@@ -976,6 +978,7 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11BF2C34191ABBFE00143F58 /* pollenManBoost.png */,
 				11BF2C2D191A7C9000143F58 /* pollenBar.png */,
 				11BF2C2E191A7C9000143F58 /* pollenBarBackground.png */,
 				118BD9931919AFA1009547F0 /* flowerBlueBloom.png */,
@@ -1113,6 +1116,7 @@
 				11BF2C30191A7C9000143F58 /* pollenBarBackground.png in Resources */,
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
 				118BD99C1919AFA1009547F0 /* flowerGreenBud.png in Resources */,
+				11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */,
 				118BD9991919AFA1009547F0 /* flowerBlueBloom.png in Resources */,
 				11E5D29E1917CEEE00A76121 /* loltree.png in Resources */,
 				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,

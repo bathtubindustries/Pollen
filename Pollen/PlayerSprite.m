@@ -16,6 +16,7 @@
 @synthesize velocity = velocity_;
 @synthesize extraYVelocity = extraYVel_;
 @synthesize pollenMeter = pollenMeter_;
+@synthesize state = state_;
 @synthesize dead = dead_;
 
 -(id)init{
@@ -50,6 +51,8 @@
         state_ = Attacking;
         attackResetTimer_ = PLAYER_ATTACK_RESET;
         [GameUtility loadTexture:@"pollenManAttack.png" Into:self];
+    } else if(state_ == Boosting) {
+        self.velocity = ccp(self.velocity.x, PLAYER_BOOST_JUMP);
     }
 }
 -(void) startJump {
@@ -61,11 +64,13 @@
     self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
 }
 -(void) startSwipe {
-    self.pollenMeter -= PLAYER_SWIPE_AMOUNT;
-    if(self.pollenMeter < 0)
-        self.pollenMeter = 0;
-    
-    self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
+    if(state_ != Boosting) {
+        self.pollenMeter -= PLAYER_SWIPE_AMOUNT;
+        if(self.pollenMeter < 0)
+            self.pollenMeter = 0;
+
+        self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
+    }
 }
 
 -(void) handleHeight:(float)h {
@@ -92,6 +97,19 @@
         if(attackResetTimer_ > 0)
             attackResetTimer_ -= dt;
         else {
+            state_ = Jumping;
+            [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+        }
+    }
+    
+    //CHECK+HANDLE BOOSTING
+    if(self.pollenMeter >= PLAYER_MAX_POLLEN) {
+        state_ = Boosting;
+        [GameUtility loadTexture:@"pollenManBoost.png" Into:self];
+    }
+    if(state_ == Boosting) {
+        self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
+        if(self.pollenMeter <= 0) {
             state_ = Jumping;
             [GameUtility loadTexture:@"pollenManJump.png" Into:self];
         }
