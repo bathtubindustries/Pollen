@@ -14,6 +14,8 @@
 @class PlayerSprite;
 @class FlowerSpawner;
 
+#define INITIAL_FLOWER_AMOUNT 7
+
 @interface SpriteLayer : CCLayer {
     //references
     CGSize size;

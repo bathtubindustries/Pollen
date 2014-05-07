@@ -54,7 +54,7 @@
         //spawner
         spawner_ = [[FlowerSpawner alloc] init];
         [spawner_ setSpawnLayer:self];
-        [spawner_ setParticleAmount:6];
+        [spawner_ setParticleAmount:INITIAL_FLOWER_AMOUNT];
         
         //height
         float scaleFactor = size.height/size.width;
@@ -167,6 +167,7 @@
 -(void) update:(ccTime)dt
 {
     [player_ update:dt];
+    [spawner_ setHeight:self.playerHeight];
     [spawner_ update:dt];
     
     //handle extra velocity

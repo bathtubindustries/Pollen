@@ -35,13 +35,14 @@
     return self;
 }
 
+//MESSAGES
 -(void) startAttack {
     if(state_ == OnGround) {
         //start jumping if on ground
         state_ = Jumping;
         [GameUtility loadTexture:@"pollenManJump.png" Into:self];
         self.velocity = ccp(self.velocity.x, PLAYER_INITAL_JUMP);
-    } else if(state_ != Attacking) {
+    } else if(state_ == Jumping) {
         //start attacking
         state_ = Attacking;
         attackResetTimer_ = PLAYER_ATTACK_RESET;
@@ -58,10 +59,13 @@
 }
 -(void) startSwipe {
     self.pollenMeter -= PLAYER_SWIPE_AMOUNT;
+    if(self.pollenMeter < 0)
+        self.pollenMeter = 0;
     
     self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
 }
 
+//UPDATE
 -(void) update:(ccTime)dt
 {
     //ATTACK STATE UPDATE

@@ -12,7 +12,7 @@
 #define PLAYER_XMAXSPEED 450.f
 
 #define PLAYER_GRAVITY -15.f
-#define PLAYER_JUMP 555.f
+#define PLAYER_JUMP 560.f
 #define PLAYER_INITAL_JUMP 800.f
 
 #define PLAYER_ATTACK_RESET 0.14f
@@ -28,7 +28,8 @@
     enum PlayerState {
         OnGround = 0,
         Jumping,
-        Attacking
+        Attacking,
+        Boosting
     };
     enum PlayerState state_;
     BOOL dead_;

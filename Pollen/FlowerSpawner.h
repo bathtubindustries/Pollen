@@ -20,10 +20,12 @@
 }
 @property float yVelocity;
 @property(nonatomic, retain) NSMutableArray *flowers;
+@property int flowerAmount;
 
 //setter
 -(void) setSpawnLayer:(CCLayer*)l;
 -(void) setParticleAmount:(int)n;
+-(void) setHeight:(float)h;
 //update
 -(void) update:(ccTime)dt;
 
