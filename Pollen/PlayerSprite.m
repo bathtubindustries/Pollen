@@ -8,6 +8,8 @@
 
 #import "PlayerSprite.h"
 
+#import "GameUtility.h"
+
 @implementation PlayerSprite
 
 @synthesize velocity = velocity_;
@@ -34,13 +36,13 @@
     if(state_ == OnGround) {
         //start jumping if on ground
         state_ = Jumping;
-        [self chooseTexture:@"pollenManJump.png"];
+        [GameUtility loadTexture:@"pollenManJump.png" Into:self];
         self.velocity = ccp(self.velocity.x, PLAYER_JUMP*2);
     } else if(state_ != Attacking) {
         //start attacking
         state_ = Attacking;
         attackResetTimer_ = PLAYER_ATTACK_RESET;
-        [self chooseTexture:@"pollenManAttack.png"];
+        [GameUtility loadTexture:@"pollenManAttack.png" Into:self];
         self.velocity = ccp(self.velocity.x, PLAYER_JUMP);
     }
 }
@@ -53,7 +55,7 @@
             attackResetTimer_ -= dt;
         else {
             state_ = Jumping;
-            [self chooseTexture:@"pollenManJump.png"];
+            [GameUtility loadTexture:@"pollenManJump.png" Into:self];
         }
     }
     
@@ -121,16 +123,6 @@
         self.extraYVelocity = self.velocity.y;
         self.velocity = ccp(self.velocity.x, 0);
         self.position = ccp(self.position.x, size.height/2);
-    }
-}
-
-//UTILITY
--(void) chooseTexture:(NSString*)fn {
-    if([[CCTextureCache sharedTextureCache] addImage:fn]) {
-        CCTexture2D *texture = [[CCTextureCache sharedTextureCache] textureForKey:fn];
-        [self setTexture:texture];
-        [self setTextureRect:CGRectMake(0, 0, [texture contentSize].width,
-                                              [texture contentSize].height)];
     }
 }
 

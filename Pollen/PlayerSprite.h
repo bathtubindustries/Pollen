@@ -41,9 +41,6 @@
 //messages
 -(void) startAttack;
 
-//utility
--(void) chooseTexture:(NSString*)fn;
-
 //update
 -(void) update:(ccTime)dt;
 

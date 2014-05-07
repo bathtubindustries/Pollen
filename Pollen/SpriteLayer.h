@@ -11,6 +11,7 @@
 @class GameplayScene;
 @class TreeLayer;
 @class PlayerSprite;
+@class FlowerSpawner;
 
 @interface SpriteLayer : CCLayer {
     //references
@@ -19,8 +20,12 @@
     TreeLayer *bgLayer;
     
     //members
-    PlayerSprite* player;
+    PlayerSprite *player_;
+    FlowerSpawner *spawner_;
+    CCLabelTTF *heightLabel_;
+    float playerHeight_;
 }
+@property float playerHeight;
 
 //setters
 -(void) setScene:(GameplayScene*)s;
