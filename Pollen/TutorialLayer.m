@@ -9,6 +9,7 @@
 #import "TutorialLayer.h"
 
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
 
 #define MESSAGE_COUNT 5
 
@@ -32,6 +33,9 @@
         
         CCSprite *firstMessage = [messages_ objectAtIndex:0];
         firstMessage.visible = YES;
+        
+        //sounds
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"xylophone.wav"];
     }
     return self;
 }
@@ -61,6 +65,7 @@
                 message.visible = NO;
             }
         }
+        [[SimpleAudioEngine sharedEngine] playEffect:@"xylophone.wav"];
     }
     
     return YES;

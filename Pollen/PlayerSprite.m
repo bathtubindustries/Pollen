@@ -8,8 +8,10 @@
 
 #import "PlayerSprite.h"
 
-#import "GameUtility.h"
 #import "Flower.h"
+
+#import "SimpleAudioEngine.h"
+#import "GameUtility.h"
 
 @implementation PlayerSprite
 
@@ -35,6 +37,13 @@
         
         gravityIncrement_ = 0;
         jumpIncrement_ = 0;
+        
+        //sounds
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"redFlowerHit.aif"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"blueFlowerHit.aif"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"greenFlowerHit.aif"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"slurp.wav"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"swipe.wav"];
     }
     return self;
 }
@@ -63,11 +72,26 @@
         self.pollenMeter = PLAYER_MAX_POLLEN;
     
     self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
+
+    switch([GameUtility randInt:0 :2]) {
+        case 0:
+            [[SimpleAudioEngine sharedEngine] playEffect:@"redFlowerHit.aif"];
+            break;
+        case 1:
+            [[SimpleAudioEngine sharedEngine] playEffect:@"blueFlowerHit.aif"];
+            break;
+        case 2:
+        default:
+            [[SimpleAudioEngine sharedEngine] playEffect:@"greenFlowerHit.aif"];
+            break;
+    }
 }
 -(void) startSpiddderJump {
     if(self.pollenMeter > PLAYER_MAX_POLLEN)
         self.pollenMeter = PLAYER_MAX_POLLEN;
     self.velocity = ccp(self.velocity.x, PLAYER_SPIDDDER_JUMP);
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"slurp.wav"];
 }
 -(void) startSwipe {
     if(state_ != Boosting) {
@@ -76,6 +100,8 @@
             self.pollenMeter = 0;
 
         self.velocity = ccp(self.velocity.x, PLAYER_JUMP+jumpIncrement_);
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"swipe.wav"];
     }
 }
 
@@ -112,12 +138,14 @@
     if(self.pollenMeter >= PLAYER_MAX_POLLEN) {
         state_ = Boosting;
         [GameUtility loadTexture:@"pollenManBoost.png" Into:self];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"plucked.mp3"];
     }
     if(state_ == Boosting) {
         self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
         if(self.pollenMeter <= 0) {
             state_ = Jumping;
             [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         }
     }
     

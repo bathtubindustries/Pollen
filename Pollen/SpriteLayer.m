@@ -19,6 +19,7 @@
 
 #import "ClipSprite.h"
 #import "GameUtility.h"
+#import "SimpleAudioEngine.h"
 
 #define HEIGHT_FACTOR 15.f
 
@@ -78,6 +79,9 @@
         [self addChild: heightLabel_ z:3];
         
         playerHeight_ = 0;
+        
+        //music
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     }
     return self;
 }

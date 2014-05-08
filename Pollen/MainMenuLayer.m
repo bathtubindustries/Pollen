@@ -10,6 +10,8 @@
 
 #import "GameplayScene.h"
 #import "StoreLayer.h"
+
+#import "SimpleAudioEngine.h"
 #import "GameUtility.h"
 
 @implementation MainMenuLayer
@@ -64,6 +66,10 @@
 		[menu alignItemsVerticallyWithPadding:6*scaleFactor];
         [menu setPosition:ccp(size.width/2, 35)];
 		[self addChild:menu];
+        
+        //music
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainMenu.wav" loop:YES];
     }
     return self;
 }
