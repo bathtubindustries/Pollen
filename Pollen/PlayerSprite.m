@@ -29,7 +29,7 @@
         state_ = OnGround;
         self.dead = NO;
         attackResetTimer_ = 0;
-        self.pollenMeter = 0;
+        self.pollenMeter = 60.f;
         
         self.position = ccp(size.width/2, [self boundingBox].size.height/2);
         self.velocity = CGPointZero;
@@ -107,17 +107,29 @@
 
 -(void) handleHeight:(float)h {
     #warning hacky and will not scale automatically
-    if(h > 1500 && gravityIncrement_ == 0) {
+    if(h > 1050 && gravityIncrement_ == 0) {
         gravityIncrement_ = 1;
-        jumpIncrement_ = 100;
+        jumpIncrement_ = 75;
+        
+        NSLog(@"reached first checkpoint");
     }
-    else if(h > 2000 && gravityIncrement_ == 1) {
+    else if(h > 1450 && gravityIncrement_ == 1) {
+        gravityIncrement_ = 2;
+        jumpIncrement_ = 235;
+        
+        NSLog(@"reached second checkpoint");
+    }
+    else if(h > 2000 && gravityIncrement_ == 2) {
         gravityIncrement_ = 3;
-        jumpIncrement_ = 250;
+        jumpIncrement_ = 260;
+        
+        NSLog(@"reached third checkpoint");
     }
     else if(h > 3000 && gravityIncrement_ == 3) {
         gravityIncrement_ = 5;
-        jumpIncrement_ = 320;
+        jumpIncrement_ = 325;
+        
+        NSLog(@"reached fourth and final checkpoint");
     }
 }
 
