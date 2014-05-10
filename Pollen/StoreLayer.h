@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "ProductMenuItem.h"
 
 @interface StoreLayer : CCLayer
 

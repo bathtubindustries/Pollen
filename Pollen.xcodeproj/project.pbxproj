@@ -188,6 +188,15 @@
 		11E5D29E1917CEEE00A76121 /* loltree.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2101917CEED00A76121 /* loltree.png */; };
 		11E5D29F1917CEEE00A76121 /* SpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2121917CEED00A76121 /* SpriteLayer.m */; };
 		11E5D2A01917CEEE00A76121 /* TreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2141917CEED00A76121 /* TreeLayer.m */; };
+		22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9A191E01BB009A63A1 /* ghostbust.wav */; };
+		22ADAD9E191E10CB009A63A1 /* ProductMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */; };
+		22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */; };
+		22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADA1191EC4CF009A63A1 /* DandelionHammer.png */; };
+		22ADADA4191EC62D009A63A1 /* pollenstorebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADA3191EC62D009A63A1 /* pollenstorebg.png */; };
+		22ADADAC191ED341009A63A1 /* DandelionHammerLocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */; };
+		22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADAD191ED394009A63A1 /* lockOverlay.png */; };
+		22ADADB1191ED52D009A63A1 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */; };
+		22ADADB3191ED5AC009A63A1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADADB2191ED5AC009A63A1 /* Security.framework */; };
 		C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BC18ED51420050A930 /* QuartzCore.framework */; };
 		C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BE18ED51420050A930 /* OpenGLES.framework */; };
 		C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0C018ED51420050A930 /* OpenAL.framework */; };
@@ -540,6 +549,17 @@
 		11E5D2121917CEED00A76121 /* SpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteLayer.m; path = Pollen/SpriteLayer.m; sourceTree = "<group>"; };
 		11E5D2131917CEED00A76121 /* TreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TreeLayer.h; path = Pollen/TreeLayer.h; sourceTree = "<group>"; };
 		11E5D2141917CEED00A76121 /* TreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TreeLayer.m; path = Pollen/TreeLayer.m; sourceTree = "<group>"; };
+		22ADAD9A191E01BB009A63A1 /* ghostbust.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghostbust.wav; sourceTree = "<group>"; };
+		22ADAD9C191E10CB009A63A1 /* ProductMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductMenuItem.h; path = Pollen/ProductMenuItem.h; sourceTree = "<group>"; };
+		22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductMenuItem.m; path = Pollen/ProductMenuItem.m; sourceTree = "<group>"; };
+		22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sporeTwigStaff.png; sourceTree = "<group>"; };
+		22ADADA1191EC4CF009A63A1 /* DandelionHammer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DandelionHammer.png; sourceTree = "<group>"; };
+		22ADADA3191EC62D009A63A1 /* pollenstorebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenstorebg.png; sourceTree = "<group>"; };
+		22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DandelionHammerLocked.png; sourceTree = "<group>"; };
+		22ADADAD191ED394009A63A1 /* lockOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOverlay.png; sourceTree = "<group>"; };
+		22ADADAF191ED52D009A63A1 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHFKeychainUtils.h; path = Pollen/SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHFKeychainUtils.m; path = Pollen/SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		22ADADB2191ED5AC009A63A1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C8ADB0B918ED51420050A930 /* Pollen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8ADB0BC18ED51420050A930 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8ADB0BE18ED51420050A930 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -558,6 +578,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22ADADB3191ED5AC009A63A1 /* Security.framework in Frameworks */,
 				C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */,
 				C8ADB0C718ED51420050A930 /* UIKit.framework in Frameworks */,
 				C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */,
@@ -599,8 +620,12 @@
 		113296D91917DF3D00F3D78E /* Common_Etc */ = {
 			isa = PBXGroup;
 			children = (
+				22ADAD9C191E10CB009A63A1 /* ProductMenuItem.h */,
+				22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */,
 				11E5D0EF1917CEED00A76121 /* GameView.h */,
 				11E5D0F01917CEED00A76121 /* GameView.m */,
+				22ADADAF191ED52D009A63A1 /* SFHFKeychainUtils.h */,
+				22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */,
 				11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */,
 				11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */,
 				11E5D1FC1917CEED00A76121 /* MainMenuLayer.h */,
@@ -1042,6 +1067,12 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22ADADAD191ED394009A63A1 /* lockOverlay.png */,
+				22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */,
+				22ADADA3191EC62D009A63A1 /* pollenstorebg.png */,
+				22ADADA1191EC4CF009A63A1 /* DandelionHammer.png */,
+				22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */,
+				22ADAD9A191E01BB009A63A1 /* ghostbust.wav */,
 				116039FA191B1175005BABEF /* slurp.wav */,
 				116039F8191B1006005BABEF /* xylophone.wav */,
 				116039F4191B0F74005BABEF /* plucked.mp3 */,
@@ -1119,6 +1150,7 @@
 		C8ADB0BB18ED51420050A930 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22ADADB2191ED5AC009A63A1 /* Security.framework */,
 				C8ADB0BC18ED51420050A930 /* QuartzCore.framework */,
 				C8ADB0BE18ED51420050A930 /* OpenGLES.framework */,
 				C8ADB0C018ED51420050A930 /* OpenAL.framework */,
@@ -1201,6 +1233,7 @@
 				11BF2C4A191AD31700143F58 /* tutorialMessage5.png in Resources */,
 				118BD99D1919AFA1009547F0 /* flowerRedBloom.png in Resources */,
 				11BF2C47191AD31700143F58 /* tutorialMessage2.png in Resources */,
+				22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */,
 				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
 				116039F6191B0F74005BABEF /* plucked.mp3 in Resources */,
 				116039FB191B1175005BABEF /* slurp.wav in Resources */,
@@ -1208,11 +1241,14 @@
 				116039F3191B0D13005BABEF /* redFlowerHit.aif in Resources */,
 				116039ED191B0ACE005BABEF /* mainMenu.wav in Resources */,
 				11BF2C30191A7C9000143F58 /* pollenBarBackground.png in Resources */,
+				22ADADA4191EC62D009A63A1 /* pollenstorebg.png in Resources */,
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
 				118BD99C1919AFA1009547F0 /* flowerGreenBud.png in Resources */,
 				11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */,
 				118BD9991919AFA1009547F0 /* flowerBlueBloom.png in Resources */,
+				22ADADAC191ED341009A63A1 /* DandelionHammerLocked.png in Resources */,
 				11E5D29E1917CEEE00A76121 /* loltree.png in Resources */,
+				22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */,
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
 				11BF2C3D191ACC0C00143F58 /* pollenstore.png in Resources */,
 				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,
@@ -1220,6 +1256,7 @@
 				115CEDAF1918049B00732687 /* title.png in Resources */,
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,
 				11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */,
+				22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */,
 				11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */,
 				118BD99E1919AFA1009547F0 /* flowerRedBud.png in Resources */,
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
@@ -1231,6 +1268,7 @@
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
 				11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */,
 				115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */,
+				22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */,
 				116039F7191B0F74005BABEF /* swipe.wav in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
 				11BF2C2F191A7C9000143F58 /* pollenBar.png in Resources */,
@@ -1297,6 +1335,7 @@
 				11E5D2771917CEEE00A76121 /* CocosDenshion.m in Sources */,
 				11E5D26F1917CEED00A76121 /* NSThread+performBlock.m in Sources */,
 				11E5D25D1917CEED00A76121 /* cocos2d.m in Sources */,
+				22ADAD9E191E10CB009A63A1 /* ProductMenuItem.m in Sources */,
 				11E5D2471917CEED00A76121 /* CCProgressTimer.m in Sources */,
 				11E5D2641917CEED00A76121 /* CCEventDispatcher.m in Sources */,
 				11E5D2861917CEEE00A76121 /* vec2.c in Sources */,
@@ -1372,6 +1411,7 @@
 				11E5D2361917CEED00A76121 /* CCGrid.m in Sources */,
 				11E5D2581917CEED00A76121 /* CCTMXTiledMap.m in Sources */,
 				11E5D2681917CEED00A76121 /* CCArray.m in Sources */,
+				22ADADB1191ED52D009A63A1 /* SFHFKeychainUtils.m in Sources */,
 				11E5D22A1917CEED00A76121 /* CCCamera.m in Sources */,
 				11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */,
 				11E5D2281917CEED00A76121 /* CCAnimationCache.m in Sources */,

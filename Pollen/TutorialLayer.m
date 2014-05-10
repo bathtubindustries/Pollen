@@ -35,7 +35,7 @@
         firstMessage.visible = YES;
         
         //sounds
-        [[SimpleAudioEngine sharedEngine] preloadEffect:@"xylophone.wav"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"ghostbust.wav"];
     }
     return self;
 }
@@ -65,7 +65,7 @@
                 message.visible = NO;
             }
         }
-        [[SimpleAudioEngine sharedEngine] playEffect:@"xylophone.wav"];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"ghostbust.wav"];
     }
     
     return YES;

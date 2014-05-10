@@ -14,13 +14,35 @@
 
 -(id) init {
     if(self = [super init]) {
-        CCSprite *img = [CCSprite spriteWithFile:@"pollenstore.png"];
+        CCSprite *img = [CCSprite spriteWithFile:@"pollenstorebg.png"];
         img.anchorPoint = ccp(0, 0);
         img.position = ccp(0, 0);
         [self addChild:img];
+        
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        
+        
+        
+        ProductMenuItem * sporeTwig = [[ProductMenuItem alloc]initWithProductNumber:0];
+        sporeTwig.position = ccp(winSize.width/2 - sporeTwig.activeArea.size.width/1.38, winSize.height - sporeTwig.activeArea.size.height);
+        
+        ProductMenuItem * Dandelion = [[ProductMenuItem alloc]initWithProductNumber:1];
+        Dandelion.position = ccp(winSize.width - Dandelion.activeArea.size.width/1.38, winSize.height - Dandelion.activeArea.size.height);
+        
+
+        
+        CCMenu *pauseMenu = [CCMenu menuWithItems:sporeTwig,Dandelion, nil];
+        pauseMenu.position = CGPointZero;
+        [self addChild:pauseMenu];
+        
+        
+        
     }
     return self;
 }
+
+
+
 -(void) onEnter {
     [super onEnter];
     [[CCDirector sharedDirector].touchDispatcher
