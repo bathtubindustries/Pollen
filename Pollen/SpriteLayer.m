@@ -188,6 +188,10 @@
     
     self.playerHeight += player_.extraYVelocity*dt / HEIGHT_FACTOR;
     
+    if(bgLayer) {//lets background know when to change level
+        [bgLayer setAltitude:self.playerHeight];
+    }
+    
     //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
     if(playerHeight_ > highScore_) [highScoreLabel_ setString:heightLabel_.string];
