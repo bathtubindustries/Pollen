@@ -16,12 +16,18 @@
     CCSprite *bgGround;
     CCSprite *bgSky1;
     CCSprite *bgSky2;
+    CCSprite *bgSky3;
+    CCSprite *bgSky4;
     
     float yVel_;
+    
+    int level_;  //determines which pair of backgrounds alternate
+    float altitude_;    //passed in from player, influences level swap
 }
 
 //setter
 -(void) setYVelocity:(float)vel;
+-(void) setAltitude:(float)alt;
 //update
 -(void) update:(ccTime)dt;
 
