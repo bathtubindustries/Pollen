@@ -188,6 +188,8 @@
 		11E5D29E1917CEEE00A76121 /* loltree.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2101917CEED00A76121 /* loltree.png */; };
 		11E5D29F1917CEEE00A76121 /* SpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2121917CEED00A76121 /* SpriteLayer.m */; };
 		11E5D2A01917CEEE00A76121 /* TreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2141917CEED00A76121 /* TreeLayer.m */; };
+		223363201927ADBA005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631E1927ADBA005B12E9 /* treebody3.png */; };
+		223363211927ADBA005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631F1927ADBA005B12E9 /* treebody4.png */; };
 		22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9A191E01BB009A63A1 /* ghostbust.wav */; };
 		22ADAD9E191E10CB009A63A1 /* ProductMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */; };
 		22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */; };
@@ -549,6 +551,8 @@
 		11E5D2121917CEED00A76121 /* SpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteLayer.m; path = Pollen/SpriteLayer.m; sourceTree = "<group>"; };
 		11E5D2131917CEED00A76121 /* TreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TreeLayer.h; path = Pollen/TreeLayer.h; sourceTree = "<group>"; };
 		11E5D2141917CEED00A76121 /* TreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TreeLayer.m; path = Pollen/TreeLayer.m; sourceTree = "<group>"; };
+		2233631E1927ADBA005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
+		2233631F1927ADBA005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
 		22ADAD9A191E01BB009A63A1 /* ghostbust.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghostbust.wav; sourceTree = "<group>"; };
 		22ADAD9C191E10CB009A63A1 /* ProductMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductMenuItem.h; path = Pollen/ProductMenuItem.h; sourceTree = "<group>"; };
 		22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductMenuItem.m; path = Pollen/ProductMenuItem.m; sourceTree = "<group>"; };
@@ -1067,6 +1071,8 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2233631E1927ADBA005B12E9 /* treebody3.png */,
+				2233631F1927ADBA005B12E9 /* treebody4.png */,
 				22ADADAD191ED394009A63A1 /* lockOverlay.png */,
 				22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */,
 				22ADADA3191EC62D009A63A1 /* pollenstorebg.png */,
@@ -1252,6 +1258,7 @@
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
 				11BF2C3D191ACC0C00143F58 /* pollenstore.png in Resources */,
 				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,
+				223363201927ADBA005B12E9 /* treebody3.png in Resources */,
 				11E5D28A1917CEEE00A76121 /* LICENSE_CocosDenshion.txt in Resources */,
 				115CEDAF1918049B00732687 /* title.png in Resources */,
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,
@@ -1261,6 +1268,7 @@
 				118BD99E1919AFA1009547F0 /* flowerRedBud.png in Resources */,
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
 				11BF2C3F191ACC0C00143F58 /* treebody1.png in Resources */,
+				223363211927ADBA005B12E9 /* treebody4.png in Resources */,
 				118BD99A1919AFA1009547F0 /* flowerBlueBud.png in Resources */,
 				11E5D27B1917CEEE00A76121 /* ChangeLog in Resources */,
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
