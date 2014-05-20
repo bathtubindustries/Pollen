@@ -199,6 +199,10 @@
 		22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADAD191ED394009A63A1 /* lockOverlay.png */; };
 		22ADADB1191ED52D009A63A1 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */; };
 		22ADADB3191ED5AC009A63A1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADADB2191ED5AC009A63A1 /* Security.framework */; };
+		22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BB6192AEBD500A9565A /* GameKitHelper.m */; };
+		22D28BBC192AFF4E00A9565A /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BBA192AFF4E00A9565A /* FriendsPickerViewController.m */; };
+		22D28BBD192AFF4E00A9565A /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D28BBB192AFF4E00A9565A /* FriendsPickerViewController.xib */; };
+		22D28BC0192B0E0800A9565A /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BBF192B0E0800A9565A /* GameOverLayer.m */; };
 		C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BC18ED51420050A930 /* QuartzCore.framework */; };
 		C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BE18ED51420050A930 /* OpenGLES.framework */; };
 		C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0C018ED51420050A930 /* OpenAL.framework */; };
@@ -564,7 +568,14 @@
 		22ADADAF191ED52D009A63A1 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHFKeychainUtils.h; path = Pollen/SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHFKeychainUtils.m; path = Pollen/SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		22ADADB2191ED5AC009A63A1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		C8ADB0B918ED51420050A930 /* Pollen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22D28BB5192AEBD500A9565A /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameKitHelper.h; path = Pollen/GameKitHelper.h; sourceTree = "<group>"; };
+		22D28BB6192AEBD500A9565A /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameKitHelper.m; path = Pollen/GameKitHelper.m; sourceTree = "<group>"; };
+		22D28BB9192AFF4E00A9565A /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
+		22D28BBA192AFF4E00A9565A /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
+		22D28BBB192AFF4E00A9565A /* FriendsPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsPickerViewController.xib; sourceTree = "<group>"; };
+		22D28BBE192B0E0800A9565A /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		22D28BBF192B0E0800A9565A /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		C8ADB0B918ED51420050A930 /* PollenBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollenBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8ADB0BC18ED51420050A930 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8ADB0BE18ED51420050A930 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C8ADB0C018ED51420050A930 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -602,6 +613,7 @@
 		113296D71917DED600F3D78E /* Pollen */ = {
 			isa = PBXGroup;
 			children = (
+				22D28BB8192AFE8A00A9565A /* GameCenter */,
 				113296D81917DF2400F3D78E /* Gameplay */,
 				113296D91917DF3D00F3D78E /* Common_Etc */,
 				11E5D2021917CEED00A76121 /* Resources */,
@@ -681,6 +693,8 @@
 				11BF2C4C191AD5F200143F58 /* StoreLayer.m */,
 				11BF2C54191AE8D100143F58 /* LineLayer.h */,
 				11BF2C55191AE8D100143F58 /* LineLayer.m */,
+				22D28BBE192B0E0800A9565A /* GameOverLayer.h */,
+				22D28BBF192B0E0800A9565A /* GameOverLayer.m */,
 			);
 			name = Layers_Scenes;
 			sourceTree = "<group>";
@@ -1133,6 +1147,18 @@
 			path = Pollen/Resources;
 			sourceTree = "<group>";
 		};
+		22D28BB8192AFE8A00A9565A /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				22D28BB5192AEBD500A9565A /* GameKitHelper.h */,
+				22D28BB6192AEBD500A9565A /* GameKitHelper.m */,
+				22D28BB9192AFF4E00A9565A /* FriendsPickerViewController.h */,
+				22D28BBA192AFF4E00A9565A /* FriendsPickerViewController.m */,
+				22D28BBB192AFF4E00A9565A /* FriendsPickerViewController.xib */,
+			);
+			name = GameCenter;
+			sourceTree = "<group>";
+		};
 		C8ADB0B018ED51420050A930 = {
 			isa = PBXGroup;
 			children = (
@@ -1148,7 +1174,7 @@
 		C8ADB0BA18ED51420050A930 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8ADB0B918ED51420050A930 /* Pollen.app */,
+				C8ADB0B918ED51420050A930 /* PollenBug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1174,9 +1200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C8ADB0B818ED51420050A930 /* Pollen */ = {
+		C8ADB0B818ED51420050A930 /* PollenBug */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8ADB26C18ED51460050A930 /* Build configuration list for PBXNativeTarget "Pollen" */;
+			buildConfigurationList = C8ADB26C18ED51460050A930 /* Build configuration list for PBXNativeTarget "PollenBug" */;
 			buildPhases = (
 				C8ADB0B518ED51420050A930 /* Sources */,
 				C8ADB0B618ED51420050A930 /* Frameworks */,
@@ -1186,9 +1212,9 @@
 			);
 			dependencies = (
 			);
-			name = Pollen;
+			name = PollenBug;
 			productName = jesusgetshigh;
-			productReference = C8ADB0B918ED51420050A930 /* Pollen.app */;
+			productReference = C8ADB0B918ED51420050A930 /* PollenBug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1200,7 +1226,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = bathtubindustries;
 			};
-			buildConfigurationList = C8ADB0B418ED51420050A930 /* Build configuration list for PBXProject "Pollen" */;
+			buildConfigurationList = C8ADB0B418ED51420050A930 /* Build configuration list for PBXProject "PollenBug" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1212,7 +1238,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C8ADB0B818ED51420050A930 /* Pollen */,
+				C8ADB0B818ED51420050A930 /* PollenBug */,
 			);
 		};
 /* End PBXProject section */
@@ -1240,6 +1266,7 @@
 				118BD99D1919AFA1009547F0 /* flowerRedBloom.png in Resources */,
 				11BF2C47191AD31700143F58 /* tutorialMessage2.png in Resources */,
 				22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */,
+				22D28BBD192AFF4E00A9565A /* FriendsPickerViewController.xib in Resources */,
 				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
 				116039F6191B0F74005BABEF /* plucked.mp3 in Resources */,
 				116039FB191B1175005BABEF /* slurp.wav in Resources */,
@@ -1314,6 +1341,7 @@
 				11E5D24D1917CEED00A76121 /* CCSprite.m in Sources */,
 				11E5D2371917CEED00A76121 /* CCLabelAtlas.m in Sources */,
 				11BF2C56191AE8D100143F58 /* LineLayer.m in Sources */,
+				22D28BBC192AFF4E00A9565A /* FriendsPickerViewController.m in Sources */,
 				11E5D2761917CEEE00A76121 /* CDXPropertyModifierAction.m in Sources */,
 				11E5D22F1917CEED00A76121 /* CCDrawingPrimitives.m in Sources */,
 				11E5D2721917CEED00A76121 /* ZipUtils.m in Sources */,
@@ -1362,6 +1390,7 @@
 				11E5D23D1917CEED00A76121 /* CCMotionStreak.m in Sources */,
 				11E5D27F1917CEEE00A76121 /* mat3.c in Sources */,
 				11E5D2741917CEEE00A76121 /* CDOpenALSupport.m in Sources */,
+				22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */,
 				11E5D2621917CEED00A76121 /* CCTouchHandler.m in Sources */,
 				11E5D28E1917CEEE00A76121 /* MainMenuLayer.m in Sources */,
 				11E5D2791917CEEE00A76121 /* SimpleAudioEngine.m in Sources */,
@@ -1369,6 +1398,7 @@
 				11E5D2201917CEED00A76121 /* CCActionInstant.m in Sources */,
 				11E5D25F1917CEED00A76121 /* CCES2Renderer.m in Sources */,
 				11E5D22C1917CEED00A76121 /* CCConfiguration.m in Sources */,
+				22D28BC0192B0E0800A9565A /* GameOverLayer.m in Sources */,
 				11E5D21C1917CEED00A76121 /* CCActionCatmullRom.m in Sources */,
 				11E5D2331917CEED00A76121 /* CCGLProgram.m in Sources */,
 				11E5D2181917CEED00A76121 /* GameView.m in Sources */,
@@ -1484,7 +1514,8 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = Pollen;
+				PRODUCT_NAME = PollenBug;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1503,7 +1534,8 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = Pollen;
+				PRODUCT_NAME = PollenBug;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1512,7 +1544,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C8ADB0B418ED51420050A930 /* Build configuration list for PBXProject "Pollen" */ = {
+		C8ADB0B418ED51420050A930 /* Build configuration list for PBXProject "PollenBug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8ADB26A18ED51460050A930 /* Debug */,
@@ -1521,7 +1553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8ADB26C18ED51460050A930 /* Build configuration list for PBXNativeTarget "Pollen" */ = {
+		C8ADB26C18ED51460050A930 /* Build configuration list for PBXNativeTarget "PollenBug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8ADB26D18ED51460050A930 /* Debug */,

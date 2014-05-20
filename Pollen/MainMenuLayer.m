@@ -21,6 +21,9 @@
 }
 -(id) initWithScore:(float)prevScore {
     if(self = [super init]) {
+        
+       
+        
         CGSize size = [[CCDirector sharedDirector] winSize];
         float scaleFactor = size.height/size.width;
         
@@ -32,6 +35,10 @@
         gameTitle.position = ccp(size.width/2, size.height/2);
         gameTitle.scale = 0.9;
         [self addChild:gameTitle];
+        
+        
+        
+        
         
         //high score label
         if(!([GameUtility savedHighScore] == 0 && prevScore == 0)) {
@@ -62,9 +69,19 @@
         }];
         [itemStore setColor:ccBLACK];
         
-        CCMenu *menu = [CCMenu menuWithItems:itemStore, nil];
+        
+        
+        
+        CCMenuItem *leaderBoard = [CCMenuItemFont itemWithString:@"leaderboard" block:^(id sender) {
+            [self showLeaderboard];
+            
+            
+        }];
+        [leaderBoard setColor:ccBLACK];
+
+        CCMenu *menu = [CCMenu menuWithItems:itemStore, leaderBoard, nil];
 		[menu alignItemsVerticallyWithPadding:6*scaleFactor];
-        [menu setPosition:ccp(size.width/2, 35)];
+        [menu setPosition:ccp(size.width/2, 80)];
 		[self addChild:menu];
         
         //music
@@ -73,9 +90,38 @@
     }
     return self;
 }
+
+
+//Game Center functions
+- (void) showLeaderboard{
+    GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+    if (leaderboardController != NULL)
+    {
+        leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+        leaderboardController.leaderboardDelegate = self;
+        [[CCDirector sharedDirector] presentViewController:leaderboardController animated:YES completion:^(void){}];
+    }
+
+}
+
+- (void) leaderboardViewControllerDidFinish: (GKLeaderboardViewController *)viewController{
+    
+    
+    [[CCDirector sharedDirector] dismissModalViewControllerAnimated: YES];
+   
+}
+
+
+
+
+
+
+
+
 -(void) onEnter {
     [super onEnter];
     [self registerWithTouchDispatcher];
+    
 }
 -(void) onExit {
     [super onExit];
@@ -92,6 +138,8 @@
     
     return YES;
 }
+
+
 
 //UTILITY
 +(CCScene*) scene {

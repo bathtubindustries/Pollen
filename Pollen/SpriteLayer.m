@@ -11,6 +11,7 @@
 #import "GameplayScene.h"
 #import "TreeLayer.h"
 #import "MainMenuLayer.h"
+#import "GameOverLayer.h"
 
 #import "PlayerSprite.h"
 #import "FlowerSpawner.h"
@@ -139,6 +140,10 @@
     
     return YES;
 }
+
+
+
+
 -(void) ccTouchEnded:(UITouch*)touch withEvent:(UIEvent*)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
     
@@ -201,9 +206,13 @@
         if(playerHeight_ > highScore_) {
             [GameUtility saveHighScore:playerHeight_];
         }
+        [[GameKitHelper sharedGameKitHelper]
+         submitScore:(int64_t)playerHeight_
+         category:@"PollenBug_Leaderboard"];
+
         
         [[CCDirector sharedDirector] replaceScene:
-         [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer sceneWithScore:playerHeight_]]];
+         [CCTransitionFadeDown transitionWithDuration:0.0 scene:[GameOverLayer sceneWithScore:playerHeight_]]];
         
         player_.dead = NO; //so no repeat transition is activated
     }

@@ -9,11 +9,13 @@
 #import <GameKit/GameKit.h>
 #import "cocos2d.h"
 
-@interface MainMenuLayer : CCLayerColor {}
+@interface MainMenuLayer : CCLayerColor <GKLeaderboardViewControllerDelegate>  {}
 
 -(id) initWithScore:(float)prevScore;
-
+-(void) showLeaderboard;
 +(CCScene*) scene;
 +(CCScene*) sceneWithScore:(float)prevScore;
+- (void) leaderboardViewControllerDidFinish: (GKLeaderboardViewController *)viewController;
+
 
 @end
