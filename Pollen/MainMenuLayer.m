@@ -64,6 +64,7 @@
         CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
             #warning store button acting as score reset - debug only!
             [GameUtility saveHighScore:0];
+            [GameUtility HaikuDiscovered:@"Instruct" discoverable:YES];
             [[CCDirector sharedDirector] replaceScene:
              [CCTransitionSlideInB transitionWithDuration:0.5 scene:[StoreLayer scene]]];
         }];
@@ -78,17 +79,57 @@
             
         }];
         [leaderBoard setColor:ccBLACK];
+        
+        
+        // Sound on/off toggle
+        CCMenuItem *soundOnItem = [CCMenuItemImage itemFromNormalImage:@"muteOn.png"
+                                                         selectedImage:@"muteOn.png"
+                                                                target:nil
+                                                              selector:nil];
+        
+        CCMenuItem *soundOffItem = [CCMenuItemImage itemFromNormalImage:@"muteOff.png"
+                                                          selectedImage:@"muteOff.png"
+                                                                 target:nil
+                                                               selector:nil];
+        
+        CCMenuItemToggle * soundToggleItem;
+        
+        if ([[SimpleAudioEngine sharedEngine] mute])
+            soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                      selector:@selector(soundButtonTapped:)
+                                                         items:soundOffItem, soundOnItem, nil];
+        else
+            soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                      selector:@selector(soundButtonTapped:)
+                                                         items:soundOnItem, soundOffItem, nil];
 
-        CCMenu *menu = [CCMenu menuWithItems:itemStore, leaderBoard, nil];
-		[menu alignItemsVerticallyWithPadding:6*scaleFactor];
+
+        CCMenu *menu = [CCMenu menuWithItems:itemStore, leaderBoard, soundToggleItem, nil];
+		[menu alignItemsVerticallyWithPadding:2*scaleFactor];
         [menu setPosition:ccp(size.width/2, 80)];
 		[self addChild:menu];
         
+        
+        
+        
         //music
-        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainMenu.wav" loop:YES];
+        volumeLevel=[[SimpleAudioEngine sharedEngine] effectsVolume];
     }
     return self;
+}
+
+-(void) soundButtonTapped: (id) sender
+{
+ 	if ([[SimpleAudioEngine sharedEngine] mute]) {
+        // This will unmute the sound
+        [[SimpleAudioEngine sharedEngine] setMute:0];
+    }
+    else {
+        //This will mute the sound
+        [[SimpleAudioEngine sharedEngine] setMute:1];
+    }
 }
 
 
@@ -148,6 +189,7 @@
 +(CCScene*) sceneWithScore:(float)prevScore {
     CCScene *scene = [CCScene node];
     MainMenuLayer *layer = [[[MainMenuLayer alloc] initWithScore:prevScore] autorelease];
+    
     [scene addChild:layer];
     return scene;
 }

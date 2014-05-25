@@ -35,7 +35,17 @@
         [retry setColor:ccWHITE];
         
         
-        CCMenuItem *challenge = [CCMenuItemFont itemWithString:@"Challenge your fronds" block:^(id sender) {
+        CCMenuItem *menu = [CCMenuItemFont itemWithString:@"Main Menu" block:^(id sender) {
+            [[CCDirector sharedDirector] replaceScene:
+             [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer sceneWithScore:_playerScore]]];
+            
+        }];
+        [menu setColor:ccWHITE];
+
+        
+        
+        [CCMenuItemFont setFontSize:(12*scaleFactor)];
+        CCMenuItem *challenge = [CCMenuItemFont itemWithString:@"Challenge friends to beat this score" block:^(id sender) {
             //challenges
             if ([[GameKitHelper sharedGameKitHelper] localPlayerIsAuthenticated]){
             [GameKitHelper showFriendsPickerViewControllerForScore:
@@ -54,18 +64,15 @@
         }];
         
         
-        CCMenuItem *menu = [CCMenuItemFont itemWithString:@"Main Menu" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:
-             [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer sceneWithScore:_playerScore]]];
-            
-        }];
-        [menu setColor:ccWHITE];
         
         
         
         
-        CCMenu *endMenu = [CCMenu menuWithItems:challenge,menu,retry, nil];
-        [endMenu alignItemsVerticallyWithPadding:6*scaleFactor];
+        
+        CCMenu *endMenu = [CCMenu menuWithItems:challenge, menu,retry, nil];
+        
+        
+        [endMenu alignItemsVerticallyWithPadding:12*scaleFactor];
         [endMenu setPosition:ccp(winSize.width/2, winSize.height/2)];
         [self addChild:endMenu];
         
@@ -75,7 +82,12 @@
     return self;
 }
 
-
++(CCScene*) scene {
+    CCScene *scene = [CCScene node];
+    GameOverLayer *layer = [GameOverLayer node];
+    [scene addChild:layer];
+    return scene;
+}
 
 
 -(void) onEnter {

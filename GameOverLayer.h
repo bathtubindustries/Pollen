@@ -13,4 +13,5 @@
 @property float playerScore;
 -(id) initWithScore: (float)score;
 +(CCScene*) sceneWithScore:(float)prevScore;
++(CCScene*) scene;
 @end

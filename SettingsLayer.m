@@ -1,16 +1,14 @@
 //
-//  StoreLayer.m
-//  Pollen
+//  SettingsLayer.m
+//  PollenBug
 //
-//  Created by Garv Manocha on 5/7/14.
+//  Created by Eric Nelson on 5/23/14.
 //  Copyright (c) 2014 bathtubindustries. All rights reserved.
 //
 
-#import "StoreLayer.h"
+#import "SettingsLayer.h"
 
-#import "MainMenuLayer.h"
-
-@implementation StoreLayer
+@implementation SettingsLayer
 
 -(id) init {
     if(self = [super init]) {
@@ -20,20 +18,6 @@
         [self addChild:img];
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        
-        
-        
-        ProductMenuItem * sporeTwig = [[ProductMenuItem alloc]initWithProductNumber:0];
-        sporeTwig.position = ccp(winSize.width/2 - sporeTwig.activeArea.size.width/1.38, winSize.height - sporeTwig.activeArea.size.height);
-        
-        ProductMenuItem * Dandelion = [[ProductMenuItem alloc]initWithProductNumber:1];
-        Dandelion.position = ccp(winSize.width - Dandelion.activeArea.size.width/1.38, winSize.height - Dandelion.activeArea.size.height);
-        
-
-        
-        CCMenu *storeMenu = [CCMenu menuWithItems:sporeTwig,Dandelion, nil];
-        storeMenu.position = CGPointZero;
-        [self addChild:storeMenu];
         
         
         
@@ -63,9 +47,11 @@
 //UTILITY
 +(CCScene*) scene {
     CCScene *scene = [CCScene node];
-    StoreLayer *layer = [StoreLayer node];
+    SettingsLayer *layer = [SettingsLayer node];
     [scene addChild:layer];
     return scene;
 }
+
+
 
 @end

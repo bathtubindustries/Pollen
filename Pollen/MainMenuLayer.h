@@ -9,7 +9,10 @@
 #import <GameKit/GameKit.h>
 #import "cocos2d.h"
 
-@interface MainMenuLayer : CCLayerColor <GKLeaderboardViewControllerDelegate>  {}
+@interface MainMenuLayer : CCLayerColor <GKLeaderboardViewControllerDelegate>  {
+
+    float volumeLevel;
+}
 
 -(id) initWithScore:(float)prevScore;
 -(void) showLeaderboard;

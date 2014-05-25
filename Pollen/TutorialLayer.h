@@ -7,14 +7,17 @@
 //
 
 #import "CCLayer.h"
+#import "GameplayScene.h"
 
 @interface TutorialLayer : CCLayer {
     //references
     CGSize size;
-    
+    GameplayScene *scene;
     //members
     int currentMessage_;
     NSMutableArray *messages_;
 }
+
+-(void) setScene:(GameplayScene *) s;
 
 @end

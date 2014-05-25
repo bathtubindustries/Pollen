@@ -94,6 +94,7 @@ showFriendsPickerViewControllerForScore:
             [self presentViewController:viewController];
         } else {
             _gameCenterFeaturesEnabled = NO;
+            _isAuthenticated = NO;
         }
     };
 }
@@ -170,12 +171,13 @@ showFriendsPickerViewControllerForScore:
          BOOL success = (error == nil);
          
          if (success) {
-             NSLog(@"found scores of friends");
+             
              if (!_includeLocalPlayerScore) {
                  NSMutableArray *friendsScores =
                  [NSMutableArray array];
                  
                  for (GKScore *score in scores) {
+                     
                      if (![score.playerID
                            isEqualToString:
                            [GKLocalPlayer localPlayer]
@@ -196,6 +198,7 @@ showFriendsPickerViewControllerForScore:
          }
      }];
 }
+
 
 
 -(void) getPlayerInfo:(NSArray*)playerList {

@@ -58,6 +58,7 @@
 -(void) startJump;
 -(void) startSpiddderJump;
 -(void) startSwipe;
+-(void) startBoost;
 
 -(void) handleHeight:(float)h;
 

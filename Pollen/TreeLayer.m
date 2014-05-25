@@ -20,7 +20,7 @@
         yVel_ = 0;
         level_=0;
         //background images
-		bgGround = [CCSprite spriteWithFile:@"treebase.png"];
+		bgGround = [CCSprite spriteWithFile:@"treebase0.png"];
         bgGround.anchorPoint = ccp(0.5, 0);
         bgGround.position = ccp(size.width/2, 0);
 		[self addChild: bgGround z:4];

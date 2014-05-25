@@ -29,6 +29,10 @@ GameKitHelperProtocol> {
 @implementation FriendsPickerViewController
 
 
+-(void) onScoresSubmitted:(bool)success{
+    
+}
+
 - (id)initWithScore:(int64_t) score {
     self = [super
             initWithNibName:
@@ -38,11 +42,12 @@ GameKitHelperProtocol> {
     if (self) {
         _score = score;
         
-        [_dataSource initWithDictionary:[NSMutableDictionary dictionary]];
-        NSLog(@"Dicti init");
-        GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
+        _dataSource=[[NSMutableDictionary alloc] initWithDictionary:[NSMutableDictionary dictionary]];
         
+        GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
+        _tableView.dataSource = (id<UITableViewDataSource>)_dataSource;
         gameKitHelper.delegate = self;
+        
         [gameKitHelper findScoresOfFriendsToChallenge];
     }
     return self;
@@ -78,6 +83,14 @@ GameKitHelperProtocol> {
     cancelButton;
     self.navigationItem.rightBarButtonItem =
     challengeButton;
+    
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+   
+    return _dataSource.count;
 }
 
 
@@ -88,6 +101,9 @@ onScoresOfFriendsToChallengeListReceived:
     NSMutableArray *playerIds =
     [NSMutableArray array];
     
+   
+    
+    
     //2
     [scores enumerateObjectsUsingBlock:
      ^(id obj, NSUInteger idx, BOOL *stop){
@@ -96,7 +112,7 @@ onScoresOfFriendsToChallengeListReceived:
          
          
          //3
-         if (_dataSource != [NSDictionary dictionary]){
+         
          if(_dataSource[score.playerID]
             == nil) {
              _dataSource[score.playerID] =
@@ -114,7 +130,10 @@ onScoresOfFriendsToChallengeListReceived:
          //5
          [_dataSource[score.playerID]
           setObject:score forKey:kScoreKey];
-         }
+         
+        
+         
+         
      }];
     
     //6
@@ -122,12 +141,15 @@ onScoresOfFriendsToChallengeListReceived:
      getPlayerInfo:playerIds];
      
     [self.tableView reloadData];
+    
+   
+    
      
 }
 
 -(void) onPlayerInfoReceived:(NSArray*)players {
     //1
-    
+   
     [players
      enumerateObjectsUsingBlock:
      ^(id obj, NSUInteger idx, BOOL *stop) {
@@ -145,6 +167,9 @@ onScoresOfFriendsToChallengeListReceived:
          
          //3
          [self.tableView reloadData];
+         
+         
+         
      }];
 }
 
@@ -154,14 +179,11 @@ onScoresOfFriendsToChallengeListReceived:
 
 
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
-    return _dataSource.count;
-}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+   
     static NSString *CellIdentifier = @"Cell identifier";
     static int ScoreLabelTag = 1;
     static int PlayerImageTag = 2;
@@ -171,6 +193,7 @@ onScoresOfFriendsToChallengeListReceived:
     [tableView
      dequeueReusableCellWithIdentifier:
      CellIdentifier];
+    
     
     if (!tableViewCell) {
         
@@ -267,6 +290,8 @@ onScoresOfFriendsToChallengeListReceived:
     (UILabel*)[tableViewCell
                viewWithTag:ScoreLabelTag];
     scoreLabel.text = score.formattedValue;
+    
+    
     return tableViewCell;
 }
 
@@ -324,8 +349,44 @@ didSelectRowAtIndexPath:
 }
 
 - (void)challengeButtonPressed:(id) sender {
-    if (self.challengeButtonPressedBlock) {
-        self.challengeButtonPressedBlock();
+    //1
+    if(self.challengeMessage.text.
+       length > 0) {
+        
+        //2
+        NSMutableArray *playerIds =
+        [NSMutableArray array];
+        NSArray *allValues =
+        [_dataSource allValues];
+        
+        for (NSDictionary *dict in allValues) {
+            if ([dict[kIsChallengedKey]
+                 boolValue] == YES) {
+                
+                GKPlayer *player =
+                dict[kPlayerKey];
+                [playerIds addObject:
+                 player.playerID];
+            }
+        }
+        if (playerIds.count > 0) {
+            
+            //3
+            [[GameKitHelper sharedGameKitHelper]
+             sendScoreChallengeToPlayers:playerIds
+             withScore:_score message:
+             self.challengeMessage.text];
+        }
+        
+        if (self.challengeButtonPressedBlock) {
+            self.challengeButtonPressedBlock();
+        }
+    } else {
+        self.challengeMessage.layer.
+        borderWidth = 2;
+        self.challengeMessage.layer.
+        borderColor =
+        [UIColor redColor].CGColor;
     }
 }
 
@@ -337,14 +398,14 @@ didSelectRowAtIndexPath:
 
 - (void)dealloc {
     [_bgImage release];
-    
+    [_dataSource release];
     [_challengeMessage release];
     [_tableView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
     [self setBgImage:nil];
-   
+   [_dataSource release];
     [self setChallengeMessage:nil];
     [self setTableView:nil];
     [super viewDidUnload];

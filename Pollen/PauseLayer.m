@@ -11,6 +11,8 @@
 #import "GameplayScene.h"
 #import "MainMenuLayer.h"
 
+#import "SimpleAudioEngine.h"
+
 #define PAUSED_OPACITY 100
 
 @implementation PauseLayer
@@ -55,9 +57,35 @@
         CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"main menu" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
         }];
-        pauseMenu_ = [CCMenu menuWithItems:itemResume, itemMainMenu, nil];
         
-        [pauseMenu_ alignItemsVerticallyWithPadding: 10*scaleFactor];
+        
+        CCMenuItem *soundOnItem = [CCMenuItemImage itemFromNormalImage:@"muteOn.png"
+                                                         selectedImage:@"muteOn.png"
+                                                                target:nil
+                                                              selector:nil];
+        
+        CCMenuItem *soundOffItem = [CCMenuItemImage itemFromNormalImage:@"muteOff.png"
+                                                          selectedImage:@"muteOff.png"
+                                                                 target:nil
+                                                               selector:nil];
+        CCMenuItemToggle *soundToggleItem;
+        
+        
+        if ([[SimpleAudioEngine sharedEngine] mute])
+            soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                                        selector:@selector(soundButtonTapped:)
+                                                                           items:soundOffItem, soundOnItem, nil];
+        else
+            soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                                    selector:@selector(soundButtonTapped:)
+                                                                       items:soundOnItem, soundOffItem, nil];
+
+        
+        
+        pauseMenu_ = [CCMenu menuWithItems:itemResume, itemMainMenu, soundToggleItem, nil];
+        
+        
+        [pauseMenu_ alignItemsVerticallyWithPadding: 3*scaleFactor];
         [pauseMenu_ setPosition: ccp(size.width/2, size.height/2)];
         
         [pauseMenu_ setEnabled:NO];
@@ -66,6 +94,20 @@
     }
     return self;
 }
+
+-(void) soundButtonTapped: (id) sender
+{
+ 	if ([[SimpleAudioEngine sharedEngine] mute]) {
+        // This will unmute the sound
+        [[SimpleAudioEngine sharedEngine] setMute:0];
+    }
+    else {
+        //This will mute the sound
+        [[SimpleAudioEngine sharedEngine] setMute:1];
+    }
+}
+
+
 -(void) onEnter {
     [super onEnter];
     [self registerWithTouchDispatcher];

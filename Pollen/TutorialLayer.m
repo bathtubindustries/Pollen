@@ -49,12 +49,17 @@
     [super dealloc];
 }
 
+-(void) setScene:(GameplayScene*)s{
+    scene=s;
+}
+
 //INPUT
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event {
     currentMessage_++;
     if(currentMessage_ >= [messages_ count]) {
         CCSprite *message = [messages_ objectAtIndex:[messages_ count]-1];
         message.visible = NO;
+        scene.tutorialActive=NO;
         [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
     } else {
         for(int i = 0; i < [messages_ count]; i++) {
@@ -65,7 +70,7 @@
                 message.visible = NO;
             }
         }
-        [[SimpleAudioEngine sharedEngine] playEffect:@"ghostbust.wav"];
+       // [[SimpleAudioEngine sharedEngine] playEffect:@"ghostbust.wav"];
     }
     
     return YES;

@@ -14,8 +14,9 @@ typedef void
 (^FriendsPickerChallengeButtonPressed)();
 
 @interface FriendsPickerViewController : UIViewController
-@property (retain, nonatomic) IBOutlet UIImageView *bgImage;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UIImageView *bgImage;
+
 
 @property (retain, nonatomic) IBOutlet UITextField *challengeMessage;
 
