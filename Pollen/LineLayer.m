@@ -32,7 +32,7 @@
 
     if(spriteLayer) {
         //draw pollen meter lines
-        glLineWidth(50.f);
+        glLineWidth((GLfloat) 50.f);
         for(int i = 0; i < (PLAYER_MAX_POLLEN/PLAYER_SWIPE_AMOUNT)-1; i++) {
             int tabWidth;
             if([spriteLayer getPollenMeter] >= (i+1)*PLAYER_SWIPE_AMOUNT) {
