@@ -187,11 +187,8 @@
 		11E5D29E1917CEEE00A76121 /* loltree.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2101917CEED00A76121 /* loltree.png */; };
 		11E5D29F1917CEEE00A76121 /* SpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2121917CEED00A76121 /* SpriteLayer.m */; };
 		11E5D2A01917CEEE00A76121 /* TreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2141917CEED00A76121 /* TreeLayer.m */; };
-		22143196193117FA0065A064 /* ContinueLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22143195193117FA0065A064 /* ContinueLayer.m */; };
 		2214319819319BF60065A064 /* treebase0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319719319BF60065A064 /* treebase0.png */; };
 		2214319A19319F7D0065A064 /* Instruct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319919319F7D0065A064 /* Instruct.png */; };
-		2214319E1931AB9F0065A064 /* Haiku.m in Sources */ = {isa = PBXBuildFile; fileRef = 2214319D1931AB9F0065A064 /* Haiku.m */; };
-		221431A11931ABD00065A064 /* HaikuSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = 221431A01931ABD00065A064 /* HaikuSpawner.m */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
 		22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9A191E01BB009A63A1 /* ghostbust.wav */; };
@@ -208,9 +205,12 @@
 		22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE3193009F4008B5EF5 /* muteOn.png */; };
 		22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE819304A60008B5EF5 /* checkmark.png */; };
 		22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BB6192AEBD500A9565A /* GameKitHelper.m */; };
-		22D28BBC192AFF4E00A9565A /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BBA192AFF4E00A9565A /* FriendsPickerViewController.m */; };
-		22D28BBD192AFF4E00A9565A /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D28BBB192AFF4E00A9565A /* FriendsPickerViewController.xib */; };
-		22D28BC0192B0E0800A9565A /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BBF192B0E0800A9565A /* GameOverLayer.m */; };
+		C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374919354225004F44C5 /* ContinueLayer.m */; };
+		C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */; };
+		C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */; };
+		C8AC375A19354225004F44C5 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374E19354225004F44C5 /* GameOverLayer.m */; };
+		C8AC375C19354225004F44C5 /* Haiku.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC375219354225004F44C5 /* Haiku.m */; };
+		C8AC375D19354225004F44C5 /* HaikuSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC375419354225004F44C5 /* HaikuSpawner.m */; };
 		C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BC18ED51420050A930 /* QuartzCore.framework */; };
 		C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BE18ED51420050A930 /* OpenGLES.framework */; };
 		C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0C018ED51420050A930 /* OpenAL.framework */; };
@@ -561,14 +561,8 @@
 		11E5D2121917CEED00A76121 /* SpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteLayer.m; path = Pollen/SpriteLayer.m; sourceTree = "<group>"; };
 		11E5D2131917CEED00A76121 /* TreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TreeLayer.h; path = Pollen/TreeLayer.h; sourceTree = "<group>"; };
 		11E5D2141917CEED00A76121 /* TreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TreeLayer.m; path = Pollen/TreeLayer.m; sourceTree = "<group>"; };
-		22143194193117FA0065A064 /* ContinueLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContinueLayer.h; sourceTree = "<group>"; };
-		22143195193117FA0065A064 /* ContinueLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContinueLayer.m; sourceTree = "<group>"; };
 		2214319719319BF60065A064 /* treebase0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebase0.png; sourceTree = "<group>"; };
 		2214319919319F7D0065A064 /* Instruct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instruct.png; sourceTree = "<group>"; };
-		2214319C1931AB9F0065A064 /* Haiku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haiku.h; sourceTree = "<group>"; };
-		2214319D1931AB9F0065A064 /* Haiku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haiku.m; sourceTree = "<group>"; };
-		2214319F1931ABD00065A064 /* HaikuSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaikuSpawner.h; sourceTree = "<group>"; };
-		221431A01931ABD00065A064 /* HaikuSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuSpawner.m; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
 		22ADAD9A191E01BB009A63A1 /* ghostbust.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghostbust.wav; sourceTree = "<group>"; };
@@ -588,11 +582,17 @@
 		22CD0CE819304A60008B5EF5 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		22D28BB5192AEBD500A9565A /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameKitHelper.h; path = Pollen/GameKitHelper.h; sourceTree = "<group>"; };
 		22D28BB6192AEBD500A9565A /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameKitHelper.m; path = Pollen/GameKitHelper.m; sourceTree = "<group>"; };
-		22D28BB9192AFF4E00A9565A /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
-		22D28BBA192AFF4E00A9565A /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
-		22D28BBB192AFF4E00A9565A /* FriendsPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsPickerViewController.xib; sourceTree = "<group>"; };
-		22D28BBE192B0E0800A9565A /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
-		22D28BBF192B0E0800A9565A /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		C8AC374819354225004F44C5 /* ContinueLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinueLayer.h; path = Pollen/ContinueLayer.h; sourceTree = "<group>"; };
+		C8AC374919354225004F44C5 /* ContinueLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinueLayer.m; path = Pollen/ContinueLayer.m; sourceTree = "<group>"; };
+		C8AC374A19354225004F44C5 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsPickerViewController.h; path = Pollen/FriendsPickerViewController.h; sourceTree = "<group>"; };
+		C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsPickerViewController.m; path = Pollen/FriendsPickerViewController.m; sourceTree = "<group>"; };
+		C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendsPickerViewController.xib; path = Pollen/FriendsPickerViewController.xib; sourceTree = "<group>"; };
+		C8AC374D19354225004F44C5 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverLayer.h; path = Pollen/GameOverLayer.h; sourceTree = "<group>"; };
+		C8AC374E19354225004F44C5 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverLayer.m; path = Pollen/GameOverLayer.m; sourceTree = "<group>"; };
+		C8AC375119354225004F44C5 /* Haiku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Haiku.h; path = Pollen/Haiku.h; sourceTree = "<group>"; };
+		C8AC375219354225004F44C5 /* Haiku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Haiku.m; path = Pollen/Haiku.m; sourceTree = "<group>"; };
+		C8AC375319354225004F44C5 /* HaikuSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HaikuSpawner.h; path = Pollen/HaikuSpawner.h; sourceTree = "<group>"; };
+		C8AC375419354225004F44C5 /* HaikuSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HaikuSpawner.m; path = Pollen/HaikuSpawner.m; sourceTree = "<group>"; };
 		C8ADB0B918ED51420050A930 /* PollenBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollenBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8ADB0BC18ED51420050A930 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8ADB0BE18ED51420050A930 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -711,10 +711,10 @@
 				11BF2C4C191AD5F200143F58 /* StoreLayer.m */,
 				11BF2C54191AE8D100143F58 /* LineLayer.h */,
 				11BF2C55191AE8D100143F58 /* LineLayer.m */,
-				22D28BBE192B0E0800A9565A /* GameOverLayer.h */,
-				22D28BBF192B0E0800A9565A /* GameOverLayer.m */,
-				22143194193117FA0065A064 /* ContinueLayer.h */,
-				22143195193117FA0065A064 /* ContinueLayer.m */,
+				C8AC374D19354225004F44C5 /* GameOverLayer.h */,
+				C8AC374E19354225004F44C5 /* GameOverLayer.m */,
+				C8AC374819354225004F44C5 /* ContinueLayer.h */,
+				C8AC374919354225004F44C5 /* ContinueLayer.m */,
 			);
 			name = Layers_Scenes;
 			sourceTree = "<group>";
@@ -1175,10 +1175,10 @@
 		2214319B1931AB6A0065A064 /* Haikus */ = {
 			isa = PBXGroup;
 			children = (
-				2214319C1931AB9F0065A064 /* Haiku.h */,
-				2214319D1931AB9F0065A064 /* Haiku.m */,
-				2214319F1931ABD00065A064 /* HaikuSpawner.h */,
-				221431A01931ABD00065A064 /* HaikuSpawner.m */,
+				C8AC375119354225004F44C5 /* Haiku.h */,
+				C8AC375219354225004F44C5 /* Haiku.m */,
+				C8AC375319354225004F44C5 /* HaikuSpawner.h */,
+				C8AC375419354225004F44C5 /* HaikuSpawner.m */,
 			);
 			name = Haikus;
 			sourceTree = "<group>";
@@ -1188,9 +1188,9 @@
 			children = (
 				22D28BB5192AEBD500A9565A /* GameKitHelper.h */,
 				22D28BB6192AEBD500A9565A /* GameKitHelper.m */,
-				22D28BB9192AFF4E00A9565A /* FriendsPickerViewController.h */,
-				22D28BBA192AFF4E00A9565A /* FriendsPickerViewController.m */,
-				22D28BBB192AFF4E00A9565A /* FriendsPickerViewController.xib */,
+				C8AC374A19354225004F44C5 /* FriendsPickerViewController.h */,
+				C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */,
+				C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */,
 			);
 			name = GameCenter;
 			sourceTree = "<group>";
@@ -1304,7 +1304,6 @@
 				118BD99D1919AFA1009547F0 /* flowerRedBloom.png in Resources */,
 				11BF2C47191AD31700143F58 /* tutorialMessage2.png in Resources */,
 				22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */,
-				22D28BBD192AFF4E00A9565A /* FriendsPickerViewController.xib in Resources */,
 				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
 				22CD0CE4193009F4008B5EF5 /* muteOff.png in Resources */,
 				116039F6191B0F74005BABEF /* plucked.mp3 in Resources */,
@@ -1330,6 +1329,7 @@
 				22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */,
 				115CEDAF1918049B00732687 /* title.png in Resources */,
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,
+				C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */,
 				11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */,
 				22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */,
 				11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */,
@@ -1383,7 +1383,6 @@
 				11E5D24D1917CEED00A76121 /* CCSprite.m in Sources */,
 				11E5D2371917CEED00A76121 /* CCLabelAtlas.m in Sources */,
 				11BF2C56191AE8D100143F58 /* LineLayer.m in Sources */,
-				22D28BBC192AFF4E00A9565A /* FriendsPickerViewController.m in Sources */,
 				11E5D2761917CEEE00A76121 /* CDXPropertyModifierAction.m in Sources */,
 				11E5D22F1917CEED00A76121 /* CCDrawingPrimitives.m in Sources */,
 				11E5D2721917CEED00A76121 /* ZipUtils.m in Sources */,
@@ -1411,6 +1410,7 @@
 				11E5D2631917CEED00A76121 /* CCDirectorMac.m in Sources */,
 				11E5D2501917CEED00A76121 /* CCSpriteFrameCache.m in Sources */,
 				11E5D2771917CEEE00A76121 /* CocosDenshion.m in Sources */,
+				C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */,
 				11E5D26F1917CEED00A76121 /* NSThread+performBlock.m in Sources */,
 				11E5D25D1917CEED00A76121 /* cocos2d.m in Sources */,
 				22ADAD9E191E10CB009A63A1 /* ProductMenuItem.m in Sources */,
@@ -1440,7 +1440,6 @@
 				11E5D2201917CEED00A76121 /* CCActionInstant.m in Sources */,
 				11E5D25F1917CEED00A76121 /* CCES2Renderer.m in Sources */,
 				11E5D22C1917CEED00A76121 /* CCConfiguration.m in Sources */,
-				22D28BC0192B0E0800A9565A /* GameOverLayer.m in Sources */,
 				11E5D21C1917CEED00A76121 /* CCActionCatmullRom.m in Sources */,
 				11E5D2331917CEED00A76121 /* CCGLProgram.m in Sources */,
 				11E5D2651917CEED00A76121 /* CCGLView.m in Sources */,
@@ -1468,21 +1467,21 @@
 				11E5D2671917CEED00A76121 /* base64.c in Sources */,
 				11E5D2261917CEED00A76121 /* CCActionTween.m in Sources */,
 				11E5D2A01917CEEE00A76121 /* TreeLayer.m in Sources */,
-				221431A11931ABD00065A064 /* HaikuSpawner.m in Sources */,
 				118BD98F19199259009547F0 /* GameUtility.m in Sources */,
 				11E5D2341917CEED00A76121 /* ccGLStateCache.m in Sources */,
 				11E5D29F1917CEEE00A76121 /* SpriteLayer.m in Sources */,
 				11E5D2821917CEEE00A76121 /* plane.c in Sources */,
 				11E5D2811917CEEE00A76121 /* neon_matrix_impl.c in Sources */,
+				C8AC375C19354225004F44C5 /* Haiku.m in Sources */,
 				11E5D25A1917CEED00A76121 /* CCTransition.m in Sources */,
 				11E5D24C1917CEED00A76121 /* ccShaders.m in Sources */,
+				C8AC375D19354225004F44C5 /* HaikuSpawner.m in Sources */,
 				11E5D2661917CEED00A76121 /* CCWindow.m in Sources */,
 				11E5D2531917CEED00A76121 /* CCTextureCache.m in Sources */,
 				11E5D22B1917CEED00A76121 /* CCClippingNode.m in Sources */,
 				11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */,
-				2214319E1931AB9F0065A064 /* Haiku.m in Sources */,
-				22143196193117FA0065A064 /* ContinueLayer.m in Sources */,
 				11BF2C38191AC6FC00143F58 /* TutorialLayer.m in Sources */,
+				C8AC375A19354225004F44C5 /* GameOverLayer.m in Sources */,
 				11E5D2491917CEED00A76121 /* CCScene.m in Sources */,
 				11E5D2191917CEED00A76121 /* IntroLayer.m in Sources */,
 				11E5D2851917CEEE00A76121 /* utility.c in Sources */,
@@ -1497,6 +1496,7 @@
 				11E5D22A1917CEED00A76121 /* CCCamera.m in Sources */,
 				11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */,
 				11E5D2281917CEED00A76121 /* CCAnimationCache.m in Sources */,
+				C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
