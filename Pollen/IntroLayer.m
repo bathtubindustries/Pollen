@@ -33,6 +33,9 @@
 
 -(id) init {
 	if((self = [super init])) {
+        
+        [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
+        
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 

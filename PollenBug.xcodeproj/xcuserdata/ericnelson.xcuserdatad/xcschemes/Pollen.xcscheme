@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8ADB0B818ED51420050A930"
-               BuildableName = "Pollen.app"
-               BlueprintName = "Pollen"
-               ReferencedContainer = "container:Pollen.xcodeproj">
+               BuildableName = "PollenBug.app"
+               BlueprintName = "PollenBug"
+               ReferencedContainer = "container:PollenBug.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8ADB0B818ED51420050A930"
-            BuildableName = "Pollen.app"
-            BlueprintName = "Pollen"
-            ReferencedContainer = "container:Pollen.xcodeproj">
+            BuildableName = "PollenBug.app"
+            BlueprintName = "PollenBug"
+            ReferencedContainer = "container:PollenBug.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8ADB0B818ED51420050A930"
-            BuildableName = "Pollen.app"
-            BlueprintName = "Pollen"
-            ReferencedContainer = "container:Pollen.xcodeproj">
+            BuildableName = "PollenBug.app"
+            BlueprintName = "PollenBug"
+            ReferencedContainer = "container:PollenBug.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8ADB0B818ED51420050A930"
-            BuildableName = "Pollen.app"
-            BlueprintName = "Pollen"
-            ReferencedContainer = "container:Pollen.xcodeproj">
+            BuildableName = "PollenBug.app"
+            BlueprintName = "PollenBug"
+            ReferencedContainer = "container:PollenBug.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

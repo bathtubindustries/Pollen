@@ -13,6 +13,7 @@
 @class PauseLayer;
 @class TutorialLayer;
 @class LineLayer;
+@class ContinueLayer;
 
 @interface GameplayScene : CCScene {
     TreeLayer *bgLayer_;
@@ -20,11 +21,15 @@
     TutorialLayer *tutorialLayer_;
     LineLayer *lineLayer_;
     PauseLayer *pauseLayer_;
+    ContinueLayer * continueLayer_;
 }
 
+@property BOOL tutorialActive;
 -(void) pause;
 -(void) resume;
 -(BOOL) isPausedWithMenu;
+-(void) activateContinueCheck: (NSInteger)score;
+-(void) makeReviveCall;
 
 -(void) update:(ccTime)dt;
 
