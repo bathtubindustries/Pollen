@@ -31,9 +31,9 @@
         
 
         
-        CCMenu *pauseMenu = [CCMenu menuWithItems:sporeTwig,Dandelion, nil];
-        pauseMenu.position = CGPointZero;
-        [self addChild:pauseMenu];
+        CCMenu *storeMenu = [CCMenu menuWithItems:sporeTwig,Dandelion, nil];
+        storeMenu.position = CGPointZero;
+        [self addChild:storeMenu];
         
         
         

@@ -8,14 +8,24 @@
 
 #import "CCNode.h"
 
+
+;
+
 @class CCSprite;
 
 @interface GameUtility : CCNode {}
 @property(nonatomic, readonly, assign) NSUInteger savedHighScore;
+@property(nonatomic, readonly, assign) NSUInteger haikuCount;
 
 //saving
 +(NSUInteger) savedHighScore;
 +(void) saveHighScore:(NSUInteger)val;
+
++(void) saveHaikuCount:(NSUInteger) val;
++(NSUInteger) savedHaikuCount;
++(void) HaikuDiscovered: (NSString*) t discoverable: (BOOL) b;
++(BOOL) isHaikuDiscoverable: (NSString*) title;
+
 
 //utility
 +(int) randInt:(int)low :(int)high;

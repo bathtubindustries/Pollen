@@ -104,6 +104,12 @@
     }
 }
 
+-(void) startBoost{
+    state_ = Boosting;
+    [GameUtility loadTexture:@"pollenManBoost.png" Into:self];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"plucked.mp3"];
+}
+
 -(void) handleHeight:(float)h {
     #warning hacky and will not scale automatically
     if(h > 1050 && gravityIncrement_ == 0) {
@@ -147,9 +153,7 @@
     
     //CHECK+HANDLE BOOSTING
     if(self.pollenMeter >= PLAYER_MAX_POLLEN) {
-        state_ = Boosting;
-        [GameUtility loadTexture:@"pollenManBoost.png" Into:self];
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"plucked.mp3"];
+        [self startBoost];
     }
     if(state_ == Boosting) {
         self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
@@ -177,6 +181,7 @@
         } else {
             self.velocity = CGPointZero;
             self.dead = YES;
+            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         }
     } else {
         //reset to bottom edge if below (do not account for rotated box)

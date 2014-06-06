@@ -11,15 +11,19 @@
 #import "GameplayScene.h"
 #import "TreeLayer.h"
 #import "MainMenuLayer.h"
+#import "GameOverLayer.h"
 
 #import "PlayerSprite.h"
 #import "FlowerSpawner.h"
 #import "Flower.h"
 #import "Spiddderoso.h"
+#import "SpidderEye.h"
 
 #import "ClipSprite.h"
 #import "GameUtility.h"
 #import "SimpleAudioEngine.h"
+#import "HaikuSpawner.h"
+#import "Haiku.h"
 
 #define HEIGHT_FACTOR 15.f
 
@@ -58,12 +62,19 @@
         [spawner_ setSpawnLayer:self];
         [spawner_ setParticleAmount:INITIAL_FLOWER_AMOUNT];
         
+        haikuSpawner_ = [[HaikuSpawner alloc]init];
+        [haikuSpawner_ setSpawnLayer:self];
+        
         //spiddder
         spiddder_ = [Spiddderoso node];
         [self addChild:spiddder_ z:2];
+        //eyes
+        eyes_ = [[NSMutableArray alloc] init];
+        eyesToRemove_ = [[NSMutableArray alloc] init];
         
         //height
         float scaleFactor = size.height/size.width;
+        
         
         highScore_ = [GameUtility savedHighScore];
         highScoreLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im", (int) highScore_]
@@ -82,6 +93,8 @@
         
         //music
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        
+        
     }
     return self;
 }
@@ -121,6 +134,29 @@
                 [spiddder_ updateSpeed];
                 player_.pollenMeter += SPIDDDER_POLLEN_AMOUNT;
                 [player_ startSpiddderJump];
+                
+                //drop an eye
+                //spidder eye animation
+                for (int i=0;i<4;i++){
+                    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeDrop.plist"];
+                    eyeSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeDrop.png"];
+                    [self addChild:eyeSpriteSheet];
+                    eyeAnimFrames = [NSMutableArray array];
+                    for (int i=1; i<=16; i++) {
+                        [eyeAnimFrames addObject:
+                         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                          [NSString stringWithFormat:@"eye%d.png",i]]];
+                    }
+                    eyeAnim = [CCAnimation animationWithSpriteFrames:eyeAnimFrames delay:0.1f];
+                    [eyes_ addObject:[[SpidderEye alloc] init ]];
+                    CCAction * flash =[CCAnimate actionWithAnimation:eyeAnim];
+                    
+                    
+                    ((SpidderEye*)[eyes_ lastObject]).position = ccp(spiddder_.position.x, spiddder_.position.y);
+                    [[eyes_ lastObject] runAction:[CCScaleTo actionWithDuration:0.0 scale:1.5]];
+                    [[eyes_ lastObject] runAction:flash];
+                    [eyeSpriteSheet addChild:[eyes_ lastObject]];
+                }
             }
         }
         
@@ -139,6 +175,10 @@
     
     return YES;
 }
+
+
+
+
 -(void) ccTouchEnded:(UITouch*)touch withEvent:(UIEvent*)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
     
@@ -169,7 +209,23 @@
     [player_ update:dt];
     [spawner_ handleHeight:self.playerHeight];
     [spawner_ update:dt];
+    [haikuSpawner_ update:dt];
     [spiddder_ update:dt];
+    
+    if ([eyes_ count]!=0) {
+        for (SpidderEye* eye in eyes_){
+            if (eye.visible){
+                [eye update:dt];
+            }
+            else{
+                [eyesToRemove_ addObject:eye];
+            }
+        }
+    }
+    
+    [eyes_ removeObjectsInArray:eyesToRemove_];
+    [eyesToRemove_ removeAllObjects];
+    
     
     //update spiddder
     if(spiddder_.waitingDisconnect && ![GameUtility isCollidingRect:player_ WithRect:spiddder_]) {
@@ -183,14 +239,27 @@
     if(bgLayer) {
         [bgLayer setYVelocity:player_.extraYVelocity];
     }
+    
     [spawner_ setYVelocity:-player_.extraYVelocity];
+    [haikuSpawner_ setYVelocity:-player_.extraYVelocity];
+    
+    
     [spiddder_ setExtraYVelocity:-player_.extraYVelocity];
     
     self.playerHeight += player_.extraYVelocity*dt / HEIGHT_FACTOR;
     
+    
     if(bgLayer) {//lets background know when to change level
         [bgLayer setAltitude:self.playerHeight];
     }
+    
+    //spawn first haiku
+    if (playerHeight_ == 0 && !scene.tutorialActive)
+        [haikuSpawner_ spawnHaiku:0];
+    
+    if (playerHeight_ == 20)
+        [haikuSpawner_ spawnHaiku:0];
+    
     
     //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
@@ -202,11 +271,49 @@
             [GameUtility saveHighScore:playerHeight_];
         }
         
-        [[CCDirector sharedDirector] replaceScene:
-         [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer sceneWithScore:playerHeight_]]];
+        if ([[GameKitHelper sharedGameKitHelper] localPlayerIsAuthenticated]){
+        [[GameKitHelper sharedGameKitHelper]
+         submitScore:(int64_t)playerHeight_
+         category:@"PollenBug_Leaderboard"];
+        }
         
         player_.dead = NO; //so no repeat transition is activated
+        
+        
+        
+        
+        //Checks if player wants to continue by consuming a haiku
+        
+        [scene  activateContinueCheck: playerHeight_];
     }
+}
+
+
+-(void) revivePlayer{
+    
+    CGPoint respawnPoint;
+    BOOL respawnFound=NO;
+   
+    player_.pollenMeter= PLAYER_MAX_POLLEN/2;
+    [player_ startBoost];
+    
+    //find a good flower to respawn above
+    for(Flower* flower in spawner_.flowers) {
+        if (!flower.bloomed && flower.visible && fabsf(flower.position.x - (size.width/2))<size.width/3 && fabsf(flower.position.y - (size.height/2))<size.height/3)
+        {
+            respawnPoint = flower.position;
+            respawnFound=YES;
+        }
+    
+    }
+    //or respawn in middle of screen if no good flower
+    if (!respawnFound){
+        respawnPoint = ccp(size.width/2,size.height/2);
+    }
+    player_.position = respawnPoint;
+    player_.dead=NO;
+    [player_ startJump];
+    
 }
 
 //UTILITY

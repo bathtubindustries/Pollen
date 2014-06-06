@@ -21,6 +21,32 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++(NSUInteger) savedHaikuCount {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"haikuCount"];
+}
++(void) saveHaikuCount:(NSUInteger)val {
+    [[NSUserDefaults standardUserDefaults] setInteger:val forKey:@"haikuCount"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+//PASS IN 'NO' TO MARK THIS HAIKU AS DISCOVERED.
++(void) HaikuDiscovered: (NSString*) title discoverable:(BOOL)b {
+    [[NSUserDefaults standardUserDefaults] setBool:b  forKey:title];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(BOOL) isHaikuDiscoverable: (NSString*) title{
+    
+    //if userdefaults contains a key with this haiku title
+    if ([[NSUserDefaults standardUserDefaults]  objectForKey:title]!=nil)
+        return [[NSUserDefaults standardUserDefaults] boolForKey:title];
+    
+    else{
+        return NO;
+    }
+}
+
+
 //UTILITY
 +(int) randInt:(int)low :(int)high {
     //will return an integer in between and including low, high
