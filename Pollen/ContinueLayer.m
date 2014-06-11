@@ -43,7 +43,7 @@
                                                 fontName:@"Futura" fontSize:12*scaleFactor];
                 warningLabel.position = ccp(size.width/2, size.height - (3*size.height)/4);
                 [self addChild:warningLabel];
-                [warningLabel setColor:ccWHITE];
+                [warningLabel setColor:ccRED];
                 warned=YES;
                 }
             }
@@ -62,7 +62,7 @@
         continueMenu_ = [CCMenu menuWithItems:itemResume, itemGameOver,nil];
         
         [continueMenu_ alignItemsHorizontallyWithPadding: 9*scaleFactor];
-        [continueMenu_ setPosition: ccp(size.width/2, size.height/2)];
+        [continueMenu_ setPosition: ccp(size.width/2, size.height*.30)];
         
         
         continueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Consume a Haiku to continue?"]
@@ -72,18 +72,18 @@
         [self addChild:continueLabel];
         [continueLabel setVisible:NO];
         
+        haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
+        haikuCounter_.scale=.5;
+        haikuCounter_.position = ccp(continueLabel.position.x, continueLabel.position.y-[haikuCounter_ boundingBox].size.height*.9);
+        [self addChild: haikuCounter_ ];
+        haikuCounter_.visible=NO;
         
-        
-        
-        
-        haikuLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"You are charged with %u haiku(s)", haikuNum] fontName:@"Futura" fontSize:12*scaleFactor];
-        
-        
-        haikuLabel.position = ccp(size.width/2, size.height - 96);
-        [haikuLabel setColor:ccWHITE];
+        haikuLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
+                                         fontName:@"Futura" fontSize:18*scaleFactor];
+        haikuLabel.anchorPoint = ccp(0, 1);
+        haikuLabel.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
         [self addChild:haikuLabel];
         [haikuLabel setVisible:NO];
-        
         
         
         [continueMenu_ setEnabled:NO];
@@ -118,14 +118,14 @@
     [continueMenu_ setEnabled:YES];
     [continueLabel setVisible:YES];
      [haikuLabel setVisible:YES];
+    haikuCounter_.visible=YES;
 
     if (!_paused)
         _paused=YES;
     
     
+    [self setOpacity:210];
     
-    [self setOpacity:50];
-
     
     
     
@@ -139,7 +139,8 @@
     [continueMenu_ setVisible:NO];
     [continueMenu_ setEnabled:NO];
     [continueLabel setVisible:NO];
-    [haikuLabel setVisible:NO];
+     [haikuLabel setVisible:NO];
+    haikuCounter_.visible=NO;
     
     [gameScene makeReviveCall];
     //reset on near flower
@@ -162,13 +163,8 @@
     //menu items and setup
     scaleFactor = size.height/size.width;
     
-    if (haikuNum==1){
-        
-        [haikuLabel setString: [NSString stringWithFormat:@"You are charged with %u haiku", haikuNum]];
-    }
-    else{
-        [haikuLabel setString: [NSString stringWithFormat:@"You are charged with %u haikus", haikuNum]];
-    }
+    [haikuLabel setString: [NSString stringWithFormat:@"X%i", haikuNum]];
+    
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {

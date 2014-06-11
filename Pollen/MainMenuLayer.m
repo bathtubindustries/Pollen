@@ -27,14 +27,17 @@
         CGSize size = [[CCDirector sharedDirector] winSize];
         float scaleFactor = size.height/size.width;
         
-        [self setColor:ccc3(162, 160, 36)];
-        [self setOpacity:255];
-        
         //game title
-        CCSprite *gameTitle = [CCSprite spriteWithFile:@"title.png"];
+        CCSprite * gameTitle;
+        if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
+			gameTitle = [CCSprite spriteWithFile:@"Default.png"];
+			//background.rotation = 90;
+		} else {
+			gameTitle = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
+		}
         gameTitle.position = ccp(size.width/2, size.height/2);
-        gameTitle.scale = 0.9;
-        [self addChild:gameTitle];
+        gameTitle.scale = 1;
+        [self addChild:gameTitle z:-100];
         
         
         
@@ -54,7 +57,7 @@
         CCLabelTTF *newGameLabel = [CCLabelTTF labelWithString:@"( tap anywhere to start )"
                                                       fontName:@"Futura" fontSize:14*scaleFactor];
         newGameLabel.position = ccp(size.width/2,
-                                    gameTitle.position.y - [gameTitle boundingBox].size.height*3/4);
+                                    170);
         [self addChild:newGameLabel];
         
         //menu

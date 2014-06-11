@@ -21,6 +21,8 @@
     CCLabelTTF *warningLabel;
     GameplayScene* gameScene;
     
+    CCSprite *haikuCounter_;
+    
     BOOL warned;
     NSUInteger haikuNum;
 }
