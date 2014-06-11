@@ -11,6 +11,7 @@
 
 #import "SimpleAudioEngine.h"
 #import "GameUtility.h"
+#import "SpriteLayer.h"
 
 @implementation PlayerSprite
 
@@ -112,29 +113,29 @@
 
 -(void) handleHeight:(float)h {
     #warning hacky and will not scale automatically
-    if(h > 1050 && gravityIncrement_ == 0) {
+    if(h > 300 && gravityIncrement_ == 0) {
         gravityIncrement_ = 1;
         jumpIncrement_ = 75;
-        
         NSLog(@"reached first checkpoint");
+        self.spawnLayer.treeLevel=1;
     }
-    else if(h > 1450 && gravityIncrement_ == 1) {
+    else if(h > 800 && gravityIncrement_ == 1) {
         gravityIncrement_ = 2;
         jumpIncrement_ = 235;
-        
         NSLog(@"reached second checkpoint");
+        self.spawnLayer.treeLevel=2;
     }
-    else if(h > 2000 && gravityIncrement_ == 2) {
+    else if(h > 1500 && gravityIncrement_ == 2) {
         gravityIncrement_ = 3;
         jumpIncrement_ = 260;
-        
         NSLog(@"reached third checkpoint");
+        self.spawnLayer.treeLevel=3;
     }
-    else if(h > 3000 && gravityIncrement_ == 3) {
+    else if(h > 2000 && gravityIncrement_ == 3) {
         gravityIncrement_ = 5;
         jumpIncrement_ = 325;
-        
         NSLog(@"reached fourth and final checkpoint");
+        self.spawnLayer.treeLevel=4;
     }
 }
 

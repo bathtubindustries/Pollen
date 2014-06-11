@@ -27,6 +27,9 @@
 
 #define HEIGHT_FACTOR 15.f
 
+//if you are testing or just want to see a bunch of haikus spawn, lower this to around 50 and play
+#define HAIKU_SPAWN_GAP 500
+
 @implementation SpriteLayer
 
 @synthesize playerHeight = playerHeight_;
@@ -56,6 +59,7 @@
         //player
         player_ = [PlayerSprite node];
         [self addChild:player_ z:1];
+        player_.spawnLayer = self;
         
         //spawner
         spawner_ = [[FlowerSpawner alloc] init];
@@ -75,12 +79,28 @@
         //height
         float scaleFactor = size.height/size.width;
         
+                //put this on top of high score
+        spidderEyeCounter_.anchorPoint = ccp(0, 1);
+         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeCounter.plist"];
+        spidderEyeCounter_ = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"counter1.png"]]];
+        spidderEyeCounter_.scale=1.10;
+        spidderEyeCounter_.position = ccp(1 + [spidderEyeCounter_ boundingBox].size.width/2, size.height - [spidderEyeCounter_ boundingBox].size.height/2);
+        [self addChild: spidderEyeCounter_ z:0];
+        counterAnimFrames = [[NSMutableArray alloc]init ];
+        
+        
+        
+        spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
+        spidderEyeLabel_.anchorPoint = ccp(0, 1);
+        spidderEyeLabel_.position = ccp( [spidderEyeCounter_ boundingBox].size.width*.6 , size.height-[spidderEyeCounter_ boundingBox].size.height/4);
+        [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
         
         highScore_ = [GameUtility savedHighScore];
         highScoreLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im", (int) highScore_]
                                              fontName:@"Futura" fontSize:12*scaleFactor];
         highScoreLabel_.anchorPoint = ccp(0, 1);
-        highScoreLabel_.position = ccp(4, size.height);
+        highScoreLabel_.position = ccp(4,
+                                       spidderEyeCounter_.position.y - [spidderEyeCounter_ boundingBox].size.height/2);
         [self addChild:highScoreLabel_ z:4];
         
         heightLabel_ = [CCLabelTTF labelWithString:@"0m" fontName:@"Futura" fontSize:12*scaleFactor];
@@ -88,6 +108,22 @@
         heightLabel_.position = ccp(highScoreLabel_.position.x,
                                     highScoreLabel_.position.y - [highScoreLabel_ boundingBox].size.height);
         [self addChild: heightLabel_ z:3];
+        
+        haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
+        haikuCounter_.scale=.16;
+        haikuCounter_.position = ccp(size.width - [haikuCounter_ boundingBox].size.width*1.4, size.height - [haikuCounter_ boundingBox].size.height*1.25);
+        [self addChild: haikuCounter_ z:0];
+        
+        haikuLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
+                                             fontName:@"Futura" fontSize:12*scaleFactor];
+        haikuLabel_.anchorPoint = ccp(0, 1);
+        haikuLabel_.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
+        [self addChild:haikuLabel_ z:0];
+
+
+        
+        //set to 4 to see lots of eyes drop
+        self.treeLevel=1;
         
         playerHeight_ = 0;
         
@@ -135,12 +171,13 @@
                 player_.pollenMeter += SPIDDDER_POLLEN_AMOUNT;
                 [player_ startSpiddderJump];
                 
+                [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeDrop.plist"];
+                eyeSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeDrop.png"];
+                [self addChild:eyeSpriteSheet];
+                
                 //drop an eye
                 //spidder eye animation
-                for (int i=0;i<4;i++){
-                    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeDrop.plist"];
-                    eyeSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeDrop.png"];
-                    [self addChild:eyeSpriteSheet];
+                for (int i=0;i<self.treeLevel*2;i++){
                     eyeAnimFrames = [NSMutableArray array];
                     for (int i=1; i<=16; i++) {
                         [eyeAnimFrames addObject:
@@ -151,12 +188,45 @@
                     [eyes_ addObject:[[SpidderEye alloc] init ]];
                     CCAction * flash =[CCAnimate actionWithAnimation:eyeAnim];
                     
-                    
                     ((SpidderEye*)[eyes_ lastObject]).position = ccp(spiddder_.position.x, spiddder_.position.y);
                     [[eyes_ lastObject] runAction:[CCScaleTo actionWithDuration:0.0 scale:1.5]];
                     [[eyes_ lastObject] runAction:flash];
                     [eyeSpriteSheet addChild:[eyes_ lastObject]];
                 }
+                
+                
+                [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+self.treeLevel*2)];
+                
+                [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeCounter.plist"];
+                counterSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeCounter.png"];
+                [self addChild:counterSpriteSheet];
+                
+                CCSprite * spidderCounter  = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"counter1.png"]]];
+                counterAnimFrames = [NSMutableArray array];
+                
+                for (int i=1; i<=14; i++) {
+                    if (i!=10)
+                        [counterAnimFrames addObject:
+                         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                          [NSString stringWithFormat:@"counter%d.png",i]]];
+                    else{
+                        [counterAnimFrames addObject:
+                         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                          [NSString stringWithFormat:@"count%d.png",i]]];
+                    }
+                }
+                
+                counterAnim = [CCAnimation animationWithSpriteFrames:counterAnimFrames delay:0.1f];
+                CCAction * eyeCounterFlash =[CCAnimate actionWithAnimation:counterAnim];
+                spidderCounter.visible=YES;
+                
+                [spidderCounter runAction:eyeCounterFlash];
+                spidderCounter.scale=1.25;
+                spidderCounter.position= ccp(spidderEyeCounter_.position.x, spidderEyeCounter_.position.y);
+                if (spidderEyeCounter_.visible) //sets the static counter to invisible once the animated counter appears
+                    spidderEyeCounter_.visible=NO;
+                [counterSpriteSheet addChild:spidderCounter];
+                [spidderEyeLabel_ setString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]]];
             }
         }
         
@@ -205,6 +275,7 @@
 //UPDATE
 -(void) update:(ccTime)dt
 {
+    //updates and handling height
     [player_ handleHeight:self.playerHeight];
     [player_ update:dt];
     [spawner_ handleHeight:self.playerHeight];
@@ -212,6 +283,7 @@
     [haikuSpawner_ update:dt];
     [spiddder_ update:dt];
     
+    //removes spidder eye drops when they leave screen
     if ([eyes_ count]!=0) {
         for (SpidderEye* eye in eyes_){
             if (eye.visible){
@@ -253,17 +325,18 @@
         [bgLayer setAltitude:self.playerHeight];
     }
     
-    //spawn first haiku
-    if (playerHeight_ == 0 && !scene.tutorialActive)
-        [haikuSpawner_ spawnHaiku:0];
+    //spawn haiku every specified number of meters
+    if (((int)playerHeight_ % HAIKU_SPAWN_GAP==0) && !scene.tutorialActive)
+        [haikuSpawner_ spawnHaiku:((int)playerHeight_ / HAIKU_SPAWN_GAP)];
     
-    if (playerHeight_ == 20)
-        [haikuSpawner_ spawnHaiku:0];
+
     
     
     //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
     if(playerHeight_ > highScore_) [highScoreLabel_ setString:heightLabel_.string];
+    //haiku label
+    [haikuLabel_ setString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]];
     
     //handle lose condition
     if(player_.dead) {

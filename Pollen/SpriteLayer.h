@@ -38,22 +38,41 @@
     
     CCLabelTTF *highScoreLabel_;
     CCLabelTTF *heightLabel_;
+    CCLabelTTF *spidderEyeLabel_;
+    CCLabelTTF *haikuLabel_;
     float highScore_;
     float playerHeight_;
     
     ClipSprite *pollenBar_;
     CCSprite *pollenBarBackground_;
+    CCSprite *spidderEyeCounter_;
+    CCSprite *haikuCounter_;
     
     NSMutableArray *eyes_;
     NSMutableArray *eyesToRemove_;
     
-    //anim
+    //animations
     CCAnimation *eyeAnim;
     CCSpriteBatchNode *eyeSpriteSheet;
     NSMutableArray *eyeAnimFrames;
+    
+    //more animations
+    CCAnimation *counterAnim;
+    CCSpriteBatchNode *counterSpriteSheet;
+    NSMutableArray *counterAnimFrames;
+    
+
+    
+    
+    
 }
 @property float playerHeight;
 @property(nonatomic) float topBuffer;
+
+//keeps track of what level player is on, spidder drops more eyes
+//on higher levels to encourage players to get to higher altitudes to farm spidder eyes
+//instead of just restarting game for the easy hits at the start
+@property(nonatomic, assign) int treeLevel;
 
 -(void) revivePlayer;
 
@@ -63,7 +82,6 @@
 
 -(void) setScene:(GameplayScene*)s;
 -(void) setBackgroundLayer:(TreeLayer*)l;
-
 
 //update
 -(void) update:(ccTime)dt;

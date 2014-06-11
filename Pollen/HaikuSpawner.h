@@ -11,10 +11,14 @@
 @interface HaikuSpawner : CCNode{
     
     
-        
+    CCScene * scene;
     CGSize size;
     CCLayer *spawnLayer;
     NSMutableArray *haikus;
+    
+    CCAnimation *haikuAnim;
+    CCSpriteBatchNode *haikuSpriteSheet;
+    NSMutableArray *haikuAnimFrames;
 }
 @property float yVelocity;
 -(void) update:(ccTime)dt;
