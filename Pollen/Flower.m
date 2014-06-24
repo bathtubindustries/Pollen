@@ -26,7 +26,21 @@
     //set flower img files
     [self setFiles:col];
     
-    if(self = [super initWithFile:budFile_]) {
+    if(self = [super initWithFile:[NSString stringWithFormat:@"%@.png", colorFile_] capacity:4]) {
+        animationFrames = [[NSMutableArray alloc] init];
+        for(int i = 0; i < 4; i++) {
+            [animationFrames addObject: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                                         [NSString stringWithFormat:@"%@%i.png", colorFile_, i]]];
+        }
+        
+        //CCAnimation *flowerAnimation = [CCAnimation animationWithSpriteFrames:animationFrames delay:0.1f];
+        //CCAction *animationAction = [CCRepeatForever actionWithAction:
+        //                             [CCAnimate actionWithAnimation:flowerAnimation]];
+        
+        flowerSprite_ = [CCSprite spriteWithSpriteFrame:[animationFrames objectAtIndex:0]];
+        //[flowerSprite_ runAction:animationAction];
+        [self addChild: flowerSprite_];
+        
         self.bloomHealth = FLOWER_BLOOM_HEALTH;
         self.bloomed = NO;
         self.velocity = CGPointZero;
@@ -39,10 +53,10 @@
     //set flower to new color
     color_ = col;
     [self setFiles:col];
-    if(self.bloomed)
-        [GameUtility loadTexture:bloomFile_ Into:self];
-    else
-        [GameUtility loadTexture:budFile_ Into:self];
+    if(self.bloomed);
+        //[GameUtility loadTexture:bloomFile_ Into:self];
+    else;
+        //[GameUtility loadTexture:budFile_ Into:self];
 }
 
 -(void) bloomFlowerWithPower:(float)pow {
@@ -52,14 +66,19 @@
     
     if(self.bloomHealth <= 0) {
         self.bloomed = YES;
-        [GameUtility loadTexture:bloomFile_ Into:self];
+        
+        CCAnimation *flowerAnimation = [CCAnimation animationWithSpriteFrames:animationFrames delay:0.1f];
+        CCAction *animationAction = [CCAnimate actionWithAnimation:flowerAnimation];
+        [flowerSprite_ runAction:animationAction];
     }
 }
 
 -(void) resetBloom {
     self.bloomed = NO;
     self.bloomHealth = FLOWER_BLOOM_HEALTH;
-    [GameUtility loadTexture:budFile_ Into:self];
+    
+    //[GameUtility loadTexture:budFile_ Into:self];
+    //self = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", colorFile_]];
 }
 
 //update
@@ -68,21 +87,27 @@
                         self.position.y + self.velocity.y*dt);
 }
 
+//overrides
+-(CGPoint) position { return flowerSprite_.position; }
+-(void) setPosition:(CGPoint)position {
+    flowerSprite_.position = position;
+}
+-(CGRect) boundingBox {
+    return [flowerSprite_ boundingBox];
+}
+
 //utility
 -(void) setFiles:(int)col {
     switch(col) {
         case 0:
-            budFile_ = @"flowerGreenBud.png";
-            bloomFile_ = @"flowerGreenBloom.png";
+            colorFile_ = @"redFlowerUnshaded";
             break;
         case 1:
-            budFile_ = @"flowerRedBud.png";
-            bloomFile_ = @"flowerRedBloom.png";
+            colorFile_ = @"blueFlowerUnshaded";
             break;
         case 2:
         default:
-            budFile_ = @"flowerBlueBud.png";
-            bloomFile_ = @"flowerBlueBloom.png";
+            colorFile_ = @"whiteFlowerUnshaded";
             break;
     }
 }
