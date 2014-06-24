@@ -28,7 +28,8 @@
 #define HEIGHT_FACTOR 15.f
 
 //if you are testing or just want to see a bunch of haikus spawn, lower this to around 50 and play
-#define HAIKU_SPAWN_GAP 500
+#define HAIKU_SPAWN_GAP 800
+//used to be 500
 
 @implementation SpriteLayer
 
@@ -238,7 +239,7 @@
                 if(flower.bloomed) {
                     [player_ startJump];
                 }
-                //break; //used to bloom only one flower at a time (will activate lowest flower)
+                break; //used to bloom only one flower at a time (will activate lowest flower)
             }
         }
     }

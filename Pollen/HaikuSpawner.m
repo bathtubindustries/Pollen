@@ -97,7 +97,7 @@
         haiku.visible=YES;
         [haikuSpriteSheet addChild:haiku.bgSprite];
         if (!haiku.parent){
-            [spawnLayer addChild:haikuSpriteSheet z:-1];
+            [spawnLayer addChild:haikuSpriteSheet z:-5];
             [spawnLayer addChild:haiku z:haikuSpriteSheet.zOrder+1];
         }
        

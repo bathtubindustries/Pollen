@@ -22,14 +22,6 @@
 		118BD98C19198EB2009547F0 /* Flower.m in Sources */ = {isa = PBXBuildFile; fileRef = 118BD98B19198EB2009547F0 /* Flower.m */; };
 		118BD98F19199259009547F0 /* GameUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 118BD98E19199259009547F0 /* GameUtility.m */; };
 		118BD99219199521009547F0 /* FlowerSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = 118BD99119199521009547F0 /* FlowerSpawner.m */; };
-		118BD9991919AFA1009547F0 /* flowerBlueBloom.png in Resources */ = {isa = PBXBuildFile; fileRef = 118BD9931919AFA1009547F0 /* flowerBlueBloom.png */; };
-		118BD99A1919AFA1009547F0 /* flowerBlueBud.png in Resources */ = {isa = PBXBuildFile; fileRef = 118BD9941919AFA1009547F0 /* flowerBlueBud.png */; };
-		118BD99B1919AFA1009547F0 /* flowerGreenBloom.png in Resources */ = {isa = PBXBuildFile; fileRef = 118BD9951919AFA1009547F0 /* flowerGreenBloom.png */; };
-		118BD99C1919AFA1009547F0 /* flowerGreenBud.png in Resources */ = {isa = PBXBuildFile; fileRef = 118BD9961919AFA1009547F0 /* flowerGreenBud.png */; };
-		118BD99D1919AFA1009547F0 /* flowerRedBloom.png in Resources */ = {isa = PBXBuildFile; fileRef = 118BD9971919AFA1009547F0 /* flowerRedBloom.png */; };
-		118BD99E1919AFA1009547F0 /* flowerRedBud.png in Resources */ = {isa = PBXBuildFile; fileRef = 118BD9981919AFA1009547F0 /* flowerRedBud.png */; };
-		11A7F90C191914E40086EC1B /* lolsky1.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90A191914E40086EC1B /* lolsky1.png */; };
-		11A7F90D191914E40086EC1B /* lolsky2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90B191914E40086EC1B /* lolsky2.png */; };
 		11A7F911191921860086EC1B /* pollenManAttack.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90E191921860086EC1B /* pollenManAttack.png */; };
 		11A7F912191921860086EC1B /* pollenManGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F90F191921860086EC1B /* pollenManGround.png */; };
 		11A7F913191921860086EC1B /* pollenManJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A7F910191921860086EC1B /* pollenManJump.png */; };
@@ -176,7 +168,6 @@
 		11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2041917CEED00A76121 /* Default-Landscape~ipad.png */; };
 		11E5D2931917CEEE00A76121 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2051917CEED00A76121 /* Default.png */; };
 		11E5D2941917CEEE00A76121 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2061917CEED00A76121 /* Default@2x.png */; };
-		11E5D2951917CEEE00A76121 /* game_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2071917CEED00A76121 /* game_background.png */; };
 		11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2081917CEED00A76121 /* Icon-72.png */; };
 		11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2091917CEED00A76121 /* Icon-Small-50.png */; };
 		11E5D2981917CEEE00A76121 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D20A1917CEED00A76121 /* Icon-Small.png */; };
@@ -184,7 +175,6 @@
 		11E5D29A1917CEEE00A76121 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D20C1917CEED00A76121 /* Icon.png */; };
 		11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D20D1917CEED00A76121 /* Icon@2x.png */; };
 		11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D20F1917CEED00A76121 /* iTunesArtwork */; };
-		11E5D29E1917CEEE00A76121 /* loltree.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E5D2101917CEED00A76121 /* loltree.png */; };
 		11E5D29F1917CEEE00A76121 /* SpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2121917CEED00A76121 /* SpriteLayer.m */; };
 		11E5D2A01917CEEE00A76121 /* TreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2141917CEED00A76121 /* TreeLayer.m */; };
 		2214319819319BF60065A064 /* treebase0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319719319BF60065A064 /* treebase0.png */; };
@@ -226,18 +216,6 @@
 		22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE3193009F4008B5EF5 /* muteOn.png */; };
 		22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE819304A60008B5EF5 /* checkmark.png */; };
 		22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BB6192AEBD500A9565A /* GameKitHelper.m */; };
-		C84237E819594999005300B2 /* blueFlowerShaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84237E219594999005300B2 /* blueFlowerShaded.plist */; };
-		C84237E919594999005300B2 /* blueFlowerShaded.png in Resources */ = {isa = PBXBuildFile; fileRef = C84237E319594999005300B2 /* blueFlowerShaded.png */; };
-		C84237EA19594999005300B2 /* redFlowerShaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84237E419594999005300B2 /* redFlowerShaded.plist */; };
-		C84237EB19594999005300B2 /* redFlowerShaded.png in Resources */ = {isa = PBXBuildFile; fileRef = C84237E519594999005300B2 /* redFlowerShaded.png */; };
-		C84237EC19594999005300B2 /* whiteFlowerShaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84237E619594999005300B2 /* whiteFlowerShaded.plist */; };
-		C84237ED19594999005300B2 /* whiteFlowerShaded.png in Resources */ = {isa = PBXBuildFile; fileRef = C84237E719594999005300B2 /* whiteFlowerShaded.png */; };
-		C84237F419595133005300B2 /* blueFlowerUnshaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84237EE19595133005300B2 /* blueFlowerUnshaded.plist */; };
-		C84237F519595133005300B2 /* blueFlowerUnshaded.png in Resources */ = {isa = PBXBuildFile; fileRef = C84237EF19595133005300B2 /* blueFlowerUnshaded.png */; };
-		C84237F619595133005300B2 /* redFlowerUnshaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84237F019595133005300B2 /* redFlowerUnshaded.plist */; };
-		C84237F719595133005300B2 /* redFlowerUnshaded.png in Resources */ = {isa = PBXBuildFile; fileRef = C84237F119595133005300B2 /* redFlowerUnshaded.png */; };
-		C84237F819595133005300B2 /* whiteFlowerUnshaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84237F219595133005300B2 /* whiteFlowerUnshaded.plist */; };
-		C84237F919595133005300B2 /* whiteFlowerUnshaded.png in Resources */ = {isa = PBXBuildFile; fileRef = C84237F319595133005300B2 /* whiteFlowerUnshaded.png */; };
 		C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374919354225004F44C5 /* ContinueLayer.m */; };
 		C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */; };
 		C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */; };
@@ -254,6 +232,8 @@
 		C8ADB0CB18ED51420050A930 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0CA18ED51420050A930 /* CoreGraphics.framework */; };
 		C8ADB0CD18ED51420050A930 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0CC18ED51420050A930 /* CoreText.framework */; };
 		C8ADB0CF18ED51420050A930 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0CE18ED51420050A930 /* GameKit.framework */; };
+		C8EBD16D195A34F7007DE291 /* flowersUnshaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8EBD16B195A34F7007DE291 /* flowersUnshaded.plist */; };
+		C8EBD16E195A34F7007DE291 /* flowersUnshaded.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = C8EBD16C195A34F7007DE291 /* flowersUnshaded.pvr.ccz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,14 +258,6 @@
 		118BD98E19199259009547F0 /* GameUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameUtility.m; path = Pollen/GameUtility.m; sourceTree = "<group>"; };
 		118BD99019199521009547F0 /* FlowerSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlowerSpawner.h; path = Pollen/FlowerSpawner.h; sourceTree = "<group>"; };
 		118BD99119199521009547F0 /* FlowerSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlowerSpawner.m; path = Pollen/FlowerSpawner.m; sourceTree = "<group>"; };
-		118BD9931919AFA1009547F0 /* flowerBlueBloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerBlueBloom.png; sourceTree = "<group>"; };
-		118BD9941919AFA1009547F0 /* flowerBlueBud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerBlueBud.png; sourceTree = "<group>"; };
-		118BD9951919AFA1009547F0 /* flowerGreenBloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerGreenBloom.png; sourceTree = "<group>"; };
-		118BD9961919AFA1009547F0 /* flowerGreenBud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerGreenBud.png; sourceTree = "<group>"; };
-		118BD9971919AFA1009547F0 /* flowerRedBloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerRedBloom.png; sourceTree = "<group>"; };
-		118BD9981919AFA1009547F0 /* flowerRedBud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerRedBud.png; sourceTree = "<group>"; };
-		11A7F90A191914E40086EC1B /* lolsky1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lolsky1.png; sourceTree = "<group>"; };
-		11A7F90B191914E40086EC1B /* lolsky2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lolsky2.png; sourceTree = "<group>"; };
 		11A7F90E191921860086EC1B /* pollenManAttack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManAttack.png; sourceTree = "<group>"; };
 		11A7F90F191921860086EC1B /* pollenManGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManGround.png; sourceTree = "<group>"; };
 		11A7F910191921860086EC1B /* pollenManJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenManJump.png; sourceTree = "<group>"; };
@@ -580,7 +552,6 @@
 		11E5D2041917CEED00A76121 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		11E5D2051917CEED00A76121 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		11E5D2061917CEED00A76121 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		11E5D2071917CEED00A76121 /* game_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_background.png; sourceTree = "<group>"; };
 		11E5D2081917CEED00A76121 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		11E5D2091917CEED00A76121 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		11E5D20A1917CEED00A76121 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -589,7 +560,6 @@
 		11E5D20D1917CEED00A76121 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		11E5D20E1917CEED00A76121 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E5D20F1917CEED00A76121 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		11E5D2101917CEED00A76121 /* loltree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loltree.png; sourceTree = "<group>"; };
 		11E5D2111917CEED00A76121 /* SpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteLayer.h; path = Pollen/SpriteLayer.h; sourceTree = "<group>"; };
 		11E5D2121917CEED00A76121 /* SpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteLayer.m; path = Pollen/SpriteLayer.m; sourceTree = "<group>"; };
 		11E5D2131917CEED00A76121 /* TreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TreeLayer.h; path = Pollen/TreeLayer.h; sourceTree = "<group>"; };
@@ -637,18 +607,6 @@
 		22CD0CE819304A60008B5EF5 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		22D28BB5192AEBD500A9565A /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameKitHelper.h; path = Pollen/GameKitHelper.h; sourceTree = "<group>"; };
 		22D28BB6192AEBD500A9565A /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameKitHelper.m; path = Pollen/GameKitHelper.m; sourceTree = "<group>"; };
-		C84237E219594999005300B2 /* blueFlowerShaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = blueFlowerShaded.plist; sourceTree = "<group>"; };
-		C84237E319594999005300B2 /* blueFlowerShaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueFlowerShaded.png; sourceTree = "<group>"; };
-		C84237E419594999005300B2 /* redFlowerShaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = redFlowerShaded.plist; sourceTree = "<group>"; };
-		C84237E519594999005300B2 /* redFlowerShaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redFlowerShaded.png; sourceTree = "<group>"; };
-		C84237E619594999005300B2 /* whiteFlowerShaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = whiteFlowerShaded.plist; sourceTree = "<group>"; };
-		C84237E719594999005300B2 /* whiteFlowerShaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteFlowerShaded.png; sourceTree = "<group>"; };
-		C84237EE19595133005300B2 /* blueFlowerUnshaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = blueFlowerUnshaded.plist; sourceTree = "<group>"; };
-		C84237EF19595133005300B2 /* blueFlowerUnshaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueFlowerUnshaded.png; sourceTree = "<group>"; };
-		C84237F019595133005300B2 /* redFlowerUnshaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = redFlowerUnshaded.plist; sourceTree = "<group>"; };
-		C84237F119595133005300B2 /* redFlowerUnshaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redFlowerUnshaded.png; sourceTree = "<group>"; };
-		C84237F219595133005300B2 /* whiteFlowerUnshaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = whiteFlowerUnshaded.plist; sourceTree = "<group>"; };
-		C84237F319595133005300B2 /* whiteFlowerUnshaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteFlowerUnshaded.png; sourceTree = "<group>"; };
 		C8AC374819354225004F44C5 /* ContinueLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinueLayer.h; path = Pollen/ContinueLayer.h; sourceTree = "<group>"; };
 		C8AC374919354225004F44C5 /* ContinueLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinueLayer.m; path = Pollen/ContinueLayer.m; sourceTree = "<group>"; };
 		C8AC374A19354225004F44C5 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsPickerViewController.h; path = Pollen/FriendsPickerViewController.h; sourceTree = "<group>"; };
@@ -671,6 +629,8 @@
 		C8ADB0CA18ED51420050A930 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C8ADB0CC18ED51420050A930 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		C8ADB0CE18ED51420050A930 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C8EBD16B195A34F7007DE291 /* flowersUnshaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flowersUnshaded.plist; sourceTree = "<group>"; };
+		C8EBD16C195A34F7007DE291 /* flowersUnshaded.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowersUnshaded.pvr.ccz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1174,18 +1134,8 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C84237EE19595133005300B2 /* blueFlowerUnshaded.plist */,
-				C84237EF19595133005300B2 /* blueFlowerUnshaded.png */,
-				C84237F019595133005300B2 /* redFlowerUnshaded.plist */,
-				C84237F119595133005300B2 /* redFlowerUnshaded.png */,
-				C84237F219595133005300B2 /* whiteFlowerUnshaded.plist */,
-				C84237F319595133005300B2 /* whiteFlowerUnshaded.png */,
-				C84237E219594999005300B2 /* blueFlowerShaded.plist */,
-				C84237E319594999005300B2 /* blueFlowerShaded.png */,
-				C84237E419594999005300B2 /* redFlowerShaded.plist */,
-				C84237E519594999005300B2 /* redFlowerShaded.png */,
-				C84237E619594999005300B2 /* whiteFlowerShaded.plist */,
-				C84237E719594999005300B2 /* whiteFlowerShaded.png */,
+				C8EBD16B195A34F7007DE291 /* flowersUnshaded.plist */,
+				C8EBD16C195A34F7007DE291 /* flowersUnshaded.pvr.ccz */,
 				22AA614619485E5B00931260 /* haikuColorFade-hd.plist */,
 				22AA614719485E5B00931260 /* haikuColorFade-hd.png */,
 				22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */,
@@ -1240,17 +1190,9 @@
 				11BF2C34191ABBFE00143F58 /* pollenManBoost.png */,
 				11BF2C2D191A7C9000143F58 /* pollenBar.png */,
 				11BF2C2E191A7C9000143F58 /* pollenBarBackground.png */,
-				118BD9931919AFA1009547F0 /* flowerBlueBloom.png */,
-				118BD9941919AFA1009547F0 /* flowerBlueBud.png */,
-				118BD9951919AFA1009547F0 /* flowerGreenBloom.png */,
-				118BD9961919AFA1009547F0 /* flowerGreenBud.png */,
-				118BD9971919AFA1009547F0 /* flowerRedBloom.png */,
-				118BD9981919AFA1009547F0 /* flowerRedBud.png */,
 				11A7F90E191921860086EC1B /* pollenManAttack.png */,
 				11A7F90F191921860086EC1B /* pollenManGround.png */,
 				11A7F910191921860086EC1B /* pollenManJump.png */,
-				11A7F90A191914E40086EC1B /* lolsky1.png */,
-				11A7F90B191914E40086EC1B /* lolsky2.png */,
 				115CEDAE1918049B00732687 /* title.png */,
 				115CEDA91917F0EA00732687 /* pauseButton.png */,
 				115CEDAA1917F0EA00732687 /* resumeButton.png */,
@@ -1258,7 +1200,6 @@
 				11E5D2041917CEED00A76121 /* Default-Landscape~ipad.png */,
 				11E5D2051917CEED00A76121 /* Default.png */,
 				11E5D2061917CEED00A76121 /* Default@2x.png */,
-				11E5D2071917CEED00A76121 /* game_background.png */,
 				11E5D2081917CEED00A76121 /* Icon-72.png */,
 				11E5D2091917CEED00A76121 /* Icon-Small-50.png */,
 				11E5D20A1917CEED00A76121 /* Icon-Small.png */,
@@ -1267,7 +1208,6 @@
 				11E5D20D1917CEED00A76121 /* Icon@2x.png */,
 				11E5D20E1917CEED00A76121 /* Info.plist */,
 				11E5D20F1917CEED00A76121 /* iTunesArtwork */,
-				11E5D2101917CEED00A76121 /* loltree.png */,
 			);
 			name = Resources;
 			path = Pollen/Resources;
@@ -1391,14 +1331,12 @@
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
 				11E5D2981917CEEE00A76121 /* Icon-Small.png in Resources */,
 				11E5D2941917CEEE00A76121 /* Default@2x.png in Resources */,
+				C8EBD16D195A34F7007DE291 /* flowersUnshaded.plist in Resources */,
 				22AA616319485E5B00931260 /* spidderEyeCounter-hd.png in Resources */,
 				22AA615C19485E5B00931260 /* haikuColorFade-ipadhd.plist in Resources */,
 				11A7F911191921860086EC1B /* pollenManAttack.png in Resources */,
 				22AA616B19485E5B00931260 /* spidderEyeDrop-ipadhd.png in Resources */,
-				118BD99B1919AFA1009547F0 /* flowerGreenBloom.png in Resources */,
 				22AA616619485E5B00931260 /* spidderEyeCounter.plist in Resources */,
-				C84237EA19594999005300B2 /* redFlowerShaded.plist in Resources */,
-				C84237F519595133005300B2 /* blueFlowerUnshaded.png in Resources */,
 				11BF2C46191AD31700143F58 /* tutorialMessage1.png in Resources */,
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */,
@@ -1410,13 +1348,10 @@
 				116039F2191B0D13005BABEF /* greenFlowerHit.aif in Resources */,
 				11E5D2991917CEEE00A76121 /* Icon-Small@2x.png in Resources */,
 				11BF2C4A191AD31700143F58 /* tutorialMessage5.png in Resources */,
-				C84237F719595133005300B2 /* redFlowerUnshaded.png in Resources */,
-				118BD99D1919AFA1009547F0 /* flowerRedBloom.png in Resources */,
 				11BF2C47191AD31700143F58 /* tutorialMessage2.png in Resources */,
 				22AA616519485E5B00931260 /* spidderEyeCounter-ipadhd.png in Resources */,
 				22AA615E19485E5B00931260 /* haikuColorFade.plist in Resources */,
 				22AA616219485E5B00931260 /* spidderEyeCounter-hd.plist in Resources */,
-				C84237F919595133005300B2 /* whiteFlowerUnshaded.png in Resources */,
 				22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */,
 				22AA615A19485E5B00931260 /* haikuColorFade-hd.plist in Resources */,
 				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
@@ -1431,40 +1366,31 @@
 				11BF2C30191A7C9000143F58 /* pollenBarBackground.png in Resources */,
 				22ADADA4191EC62D009A63A1 /* pollenstorebg.png in Resources */,
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
-				118BD99C1919AFA1009547F0 /* flowerGreenBud.png in Resources */,
 				2214319A19319F7D0065A064 /* Instruct.png in Resources */,
 				11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */,
-				118BD9991919AFA1009547F0 /* flowerBlueBloom.png in Resources */,
 				22ADADAC191ED341009A63A1 /* DandelionHammerLocked.png in Resources */,
 				22AA616C19485E5B00931260 /* spidderEyeDrop-sd.plist in Resources */,
-				11E5D29E1917CEEE00A76121 /* loltree.png in Resources */,
 				22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */,
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
 				11BF2C3D191ACC0C00143F58 /* pollenstore.png in Resources */,
 				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,
 				2233631C1927AC25005B12E9 /* treebody3.png in Resources */,
-				C84237E819594999005300B2 /* blueFlowerShaded.plist in Resources */,
 				11E5D28A1917CEEE00A76121 /* LICENSE_CocosDenshion.txt in Resources */,
+				C8EBD16E195A34F7007DE291 /* flowersUnshaded.pvr.ccz in Resources */,
 				22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */,
 				115CEDAF1918049B00732687 /* title.png in Resources */,
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,
 				C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */,
-				C84237F819595133005300B2 /* whiteFlowerUnshaded.plist in Resources */,
 				11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */,
 				22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */,
-				C84237E919594999005300B2 /* blueFlowerShaded.png in Resources */,
 				11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */,
-				118BD99E1919AFA1009547F0 /* flowerRedBud.png in Resources */,
 				22AA615B19485E5B00931260 /* haikuColorFade-hd.png in Resources */,
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
 				11BF2C3F191ACC0C00143F58 /* treebody1.png in Resources */,
-				C84237F619595133005300B2 /* redFlowerUnshaded.plist in Resources */,
 				2233631D1927AC25005B12E9 /* treebody4.png in Resources */,
 				22AA616719485E5B00931260 /* spidderEyeCounter.png in Resources */,
-				118BD99A1919AFA1009547F0 /* flowerBlueBud.png in Resources */,
 				11E5D27B1917CEEE00A76121 /* ChangeLog in Resources */,
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
-				C84237EB19594999005300B2 /* redFlowerShaded.png in Resources */,
 				11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */,
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
 				22AA615D19485E5B00931260 /* haikuColorFade-ipadhd.png in Resources */,
@@ -1474,15 +1400,9 @@
 				22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */,
 				116039F7191B0F74005BABEF /* swipe.wav in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
-				C84237ED19594999005300B2 /* whiteFlowerShaded.png in Resources */,
 				11BF2C2F191A7C9000143F58 /* pollenBar.png in Resources */,
-				C84237F419595133005300B2 /* blueFlowerUnshaded.plist in Resources */,
 				22AA616119485E5B00931260 /* InstructTxt.png in Resources */,
-				11E5D2951917CEEE00A76121 /* game_background.png in Resources */,
-				11A7F90C191914E40086EC1B /* lolsky1.png in Resources */,
 				22AA616A19485E5B00931260 /* spidderEyeDrop-ipadhd.plist in Resources */,
-				11A7F90D191914E40086EC1B /* lolsky2.png in Resources */,
-				C84237EC19594999005300B2 /* whiteFlowerShaded.plist in Resources */,
 				2214319819319BF60065A064 /* treebase0.png in Resources */,
 				11E5D2931917CEEE00A76121 /* Default.png in Resources */,
 				22AA616D19485E5B00931260 /* spidderEyeDrop-sd.png in Resources */,

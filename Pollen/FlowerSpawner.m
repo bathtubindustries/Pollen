@@ -26,9 +26,7 @@
     if(self = [super init]) {
         size = [[CCDirector sharedDirector] winSize];
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"redFlowerUnshaded.plist"];
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"blueFlowerUnshaded.plist"];
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"whiteFlowerUnshaded.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"flowersUnshaded.plist"];
         
         self.yVelocity = 0;
         

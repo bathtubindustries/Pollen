@@ -35,9 +35,8 @@
     if (index!=0)
     {
         self.position = ccp(self.position.x + self.velocity.x*dt,
-                        self.position.y + (self.velocity.y*dt)/2);
-    }
-    else{   //first haiku doesn't move at all
+                        self.position.y + (self.velocity.y*dt)*3/10);
+    } else {   //first haiku doesn't move at all
         self.position = ccp(self.position.x + self.velocity.x*dt,
                             self.position.y + (self.velocity.y*dt));
     }
