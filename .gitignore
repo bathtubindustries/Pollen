@@ -6,8 +6,8 @@
 #
 # Pods/
 
-UserInterfaceState.xcuserstate
-build
+*UserInterfaceState.xcuserstate
+*build
 *.pbxuser
 *.perspectivev3
 *.mode1v3
@@ -15,4 +15,4 @@ build
 *~.nib
 *~.xib
 .DS_Store
-xcuserdata/
+*xcuserdata/
