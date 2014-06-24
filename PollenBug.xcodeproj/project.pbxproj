@@ -191,6 +191,27 @@
 		2214319A19319F7D0065A064 /* Instruct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319919319F7D0065A064 /* Instruct.png */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
+		22AA615A19485E5B00931260 /* haikuColorFade-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614619485E5B00931260 /* haikuColorFade-hd.plist */; };
+		22AA615B19485E5B00931260 /* haikuColorFade-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614719485E5B00931260 /* haikuColorFade-hd.png */; };
+		22AA615C19485E5B00931260 /* haikuColorFade-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */; };
+		22AA615D19485E5B00931260 /* haikuColorFade-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614919485E5B00931260 /* haikuColorFade-ipadhd.png */; };
+		22AA615E19485E5B00931260 /* haikuColorFade.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614A19485E5B00931260 /* haikuColorFade.plist */; };
+		22AA615F19485E5B00931260 /* haikuColorFade.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614B19485E5B00931260 /* haikuColorFade.png */; };
+		22AA616019485E5B00931260 /* haikuUI.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614C19485E5B00931260 /* haikuUI.png */; };
+		22AA616119485E5B00931260 /* InstructTxt.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614D19485E5B00931260 /* InstructTxt.png */; };
+		22AA616219485E5B00931260 /* spidderEyeCounter-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614E19485E5B00931260 /* spidderEyeCounter-hd.plist */; };
+		22AA616319485E5B00931260 /* spidderEyeCounter-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614F19485E5B00931260 /* spidderEyeCounter-hd.png */; };
+		22AA616419485E5B00931260 /* spidderEyeCounter-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615019485E5B00931260 /* spidderEyeCounter-ipadhd.plist */; };
+		22AA616519485E5B00931260 /* spidderEyeCounter-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615119485E5B00931260 /* spidderEyeCounter-ipadhd.png */; };
+		22AA616619485E5B00931260 /* spidderEyeCounter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615219485E5B00931260 /* spidderEyeCounter.plist */; };
+		22AA616719485E5B00931260 /* spidderEyeCounter.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615319485E5B00931260 /* spidderEyeCounter.png */; };
+		22AA616819485E5B00931260 /* spidderEyeDrop-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615419485E5B00931260 /* spidderEyeDrop-hd.plist */; };
+		22AA616919485E5B00931260 /* spidderEyeDrop-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615519485E5B00931260 /* spidderEyeDrop-hd.png */; };
+		22AA616A19485E5B00931260 /* spidderEyeDrop-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615619485E5B00931260 /* spidderEyeDrop-ipadhd.plist */; };
+		22AA616B19485E5B00931260 /* spidderEyeDrop-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615719485E5B00931260 /* spidderEyeDrop-ipadhd.png */; };
+		22AA616C19485E5B00931260 /* spidderEyeDrop-sd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615819485E5B00931260 /* spidderEyeDrop-sd.plist */; };
+		22AA616D19485E5B00931260 /* spidderEyeDrop-sd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA615919485E5B00931260 /* spidderEyeDrop-sd.png */; };
+		22AA617019485E6D00931260 /* SpidderEye.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA616F19485E6D00931260 /* SpidderEye.m */; };
 		22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9A191E01BB009A63A1 /* ghostbust.wav */; };
 		22ADAD9E191E10CB009A63A1 /* ProductMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */; };
 		22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */; };
@@ -565,6 +586,28 @@
 		2214319919319F7D0065A064 /* Instruct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instruct.png; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
+		22AA614619485E5B00931260 /* haikuColorFade-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "haikuColorFade-hd.plist"; sourceTree = "<group>"; };
+		22AA614719485E5B00931260 /* haikuColorFade-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haikuColorFade-hd.png"; sourceTree = "<group>"; };
+		22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "haikuColorFade-ipadhd.plist"; sourceTree = "<group>"; };
+		22AA614919485E5B00931260 /* haikuColorFade-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haikuColorFade-ipadhd.png"; sourceTree = "<group>"; };
+		22AA614A19485E5B00931260 /* haikuColorFade.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = haikuColorFade.plist; sourceTree = "<group>"; };
+		22AA614B19485E5B00931260 /* haikuColorFade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haikuColorFade.png; sourceTree = "<group>"; };
+		22AA614C19485E5B00931260 /* haikuUI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haikuUI.png; sourceTree = "<group>"; };
+		22AA614D19485E5B00931260 /* InstructTxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructTxt.png; sourceTree = "<group>"; };
+		22AA614E19485E5B00931260 /* spidderEyeCounter-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "spidderEyeCounter-hd.plist"; sourceTree = "<group>"; };
+		22AA614F19485E5B00931260 /* spidderEyeCounter-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spidderEyeCounter-hd.png"; sourceTree = "<group>"; };
+		22AA615019485E5B00931260 /* spidderEyeCounter-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "spidderEyeCounter-ipadhd.plist"; sourceTree = "<group>"; };
+		22AA615119485E5B00931260 /* spidderEyeCounter-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spidderEyeCounter-ipadhd.png"; sourceTree = "<group>"; };
+		22AA615219485E5B00931260 /* spidderEyeCounter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = spidderEyeCounter.plist; sourceTree = "<group>"; };
+		22AA615319485E5B00931260 /* spidderEyeCounter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spidderEyeCounter.png; sourceTree = "<group>"; };
+		22AA615419485E5B00931260 /* spidderEyeDrop-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "spidderEyeDrop-hd.plist"; sourceTree = "<group>"; };
+		22AA615519485E5B00931260 /* spidderEyeDrop-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spidderEyeDrop-hd.png"; sourceTree = "<group>"; };
+		22AA615619485E5B00931260 /* spidderEyeDrop-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "spidderEyeDrop-ipadhd.plist"; sourceTree = "<group>"; };
+		22AA615719485E5B00931260 /* spidderEyeDrop-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spidderEyeDrop-ipadhd.png"; sourceTree = "<group>"; };
+		22AA615819485E5B00931260 /* spidderEyeDrop-sd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "spidderEyeDrop-sd.plist"; sourceTree = "<group>"; };
+		22AA615919485E5B00931260 /* spidderEyeDrop-sd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spidderEyeDrop-sd.png"; sourceTree = "<group>"; };
+		22AA616E19485E6D00931260 /* SpidderEye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpidderEye.h; path = Pollen/SpidderEye.h; sourceTree = "<group>"; };
+		22AA616F19485E6D00931260 /* SpidderEye.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpidderEye.m; path = Pollen/SpidderEye.m; sourceTree = "<group>"; };
 		22ADAD9A191E01BB009A63A1 /* ghostbust.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghostbust.wav; sourceTree = "<group>"; };
 		22ADAD9C191E10CB009A63A1 /* ProductMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductMenuItem.h; path = Pollen/ProductMenuItem.h; sourceTree = "<group>"; };
 		22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductMenuItem.m; path = Pollen/ProductMenuItem.m; sourceTree = "<group>"; };
@@ -742,6 +785,8 @@
 		11BF2C4E191ADB1100143F58 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				22AA616E19485E6D00931260 /* SpidderEye.h */,
+				22AA616F19485E6D00931260 /* SpidderEye.m */,
 				11BF2C4F191ADB3600143F58 /* Spiddderoso.h */,
 				11BF2C50191ADB3600143F58 /* Spiddderoso.m */,
 			);
@@ -1105,6 +1150,26 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22AA614619485E5B00931260 /* haikuColorFade-hd.plist */,
+				22AA614719485E5B00931260 /* haikuColorFade-hd.png */,
+				22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */,
+				22AA614919485E5B00931260 /* haikuColorFade-ipadhd.png */,
+				22AA614A19485E5B00931260 /* haikuColorFade.plist */,
+				22AA614B19485E5B00931260 /* haikuColorFade.png */,
+				22AA614C19485E5B00931260 /* haikuUI.png */,
+				22AA614D19485E5B00931260 /* InstructTxt.png */,
+				22AA614E19485E5B00931260 /* spidderEyeCounter-hd.plist */,
+				22AA614F19485E5B00931260 /* spidderEyeCounter-hd.png */,
+				22AA615019485E5B00931260 /* spidderEyeCounter-ipadhd.plist */,
+				22AA615119485E5B00931260 /* spidderEyeCounter-ipadhd.png */,
+				22AA615219485E5B00931260 /* spidderEyeCounter.plist */,
+				22AA615319485E5B00931260 /* spidderEyeCounter.png */,
+				22AA615419485E5B00931260 /* spidderEyeDrop-hd.plist */,
+				22AA615519485E5B00931260 /* spidderEyeDrop-hd.png */,
+				22AA615619485E5B00931260 /* spidderEyeDrop-ipadhd.plist */,
+				22AA615719485E5B00931260 /* spidderEyeDrop-ipadhd.png */,
+				22AA615819485E5B00931260 /* spidderEyeDrop-sd.plist */,
+				22AA615919485E5B00931260 /* spidderEyeDrop-sd.png */,
 				22CD0CE819304A60008B5EF5 /* checkmark.png */,
 				2233631A1927AC25005B12E9 /* treebody3.png */,
 				2233631B1927AC25005B12E9 /* treebody4.png */,
@@ -1285,15 +1350,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AA616919485E5B00931260 /* spidderEyeDrop-hd.png in Resources */,
 				11BF2C3E191ACC0C00143F58 /* treebase.png in Resources */,
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
 				11E5D2981917CEEE00A76121 /* Icon-Small.png in Resources */,
 				11E5D2941917CEEE00A76121 /* Default@2x.png in Resources */,
+				22AA616319485E5B00931260 /* spidderEyeCounter-hd.png in Resources */,
+				22AA615C19485E5B00931260 /* haikuColorFade-ipadhd.plist in Resources */,
 				11A7F911191921860086EC1B /* pollenManAttack.png in Resources */,
+				22AA616B19485E5B00931260 /* spidderEyeDrop-ipadhd.png in Resources */,
 				118BD99B1919AFA1009547F0 /* flowerGreenBloom.png in Resources */,
+				22AA616619485E5B00931260 /* spidderEyeCounter.plist in Resources */,
 				11BF2C46191AD31700143F58 /* tutorialMessage1.png in Resources */,
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */,
+				22AA616819485E5B00931260 /* spidderEyeDrop-hd.plist in Resources */,
 				11E5D28B1917CEEE00A76121 /* LICENSE_Kazmath.txt in Resources */,
 				11BF2C40191ACC0C00143F58 /* treebody2.png in Resources */,
 				11BF2C48191AD31700143F58 /* tutorialMessage3.png in Resources */,
@@ -1303,14 +1374,20 @@
 				11BF2C4A191AD31700143F58 /* tutorialMessage5.png in Resources */,
 				118BD99D1919AFA1009547F0 /* flowerRedBloom.png in Resources */,
 				11BF2C47191AD31700143F58 /* tutorialMessage2.png in Resources */,
+				22AA616519485E5B00931260 /* spidderEyeCounter-ipadhd.png in Resources */,
+				22AA615E19485E5B00931260 /* haikuColorFade.plist in Resources */,
+				22AA616219485E5B00931260 /* spidderEyeCounter-hd.plist in Resources */,
 				22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */,
+				22AA615A19485E5B00931260 /* haikuColorFade-hd.plist in Resources */,
 				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
 				22CD0CE4193009F4008B5EF5 /* muteOff.png in Resources */,
 				116039F6191B0F74005BABEF /* plucked.mp3 in Resources */,
 				116039FB191B1175005BABEF /* slurp.wav in Resources */,
 				115CEDAC1917F0EA00732687 /* resumeButton.png in Resources */,
+				22AA616419485E5B00931260 /* spidderEyeCounter-ipadhd.plist in Resources */,
 				116039F3191B0D13005BABEF /* redFlowerHit.aif in Resources */,
 				116039ED191B0ACE005BABEF /* mainMenu.wav in Resources */,
+				22AA616019485E5B00931260 /* haikuUI.png in Resources */,
 				11BF2C30191A7C9000143F58 /* pollenBarBackground.png in Resources */,
 				22ADADA4191EC62D009A63A1 /* pollenstorebg.png in Resources */,
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
@@ -1319,6 +1396,7 @@
 				11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */,
 				118BD9991919AFA1009547F0 /* flowerBlueBloom.png in Resources */,
 				22ADADAC191ED341009A63A1 /* DandelionHammerLocked.png in Resources */,
+				22AA616C19485E5B00931260 /* spidderEyeDrop-sd.plist in Resources */,
 				11E5D29E1917CEEE00A76121 /* loltree.png in Resources */,
 				22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */,
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
@@ -1334,25 +1412,32 @@
 				22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */,
 				11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */,
 				118BD99E1919AFA1009547F0 /* flowerRedBud.png in Resources */,
+				22AA615B19485E5B00931260 /* haikuColorFade-hd.png in Resources */,
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
 				11BF2C3F191ACC0C00143F58 /* treebody1.png in Resources */,
 				2233631D1927AC25005B12E9 /* treebody4.png in Resources */,
+				22AA616719485E5B00931260 /* spidderEyeCounter.png in Resources */,
 				118BD99A1919AFA1009547F0 /* flowerBlueBud.png in Resources */,
 				11E5D27B1917CEEE00A76121 /* ChangeLog in Resources */,
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
 				11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */,
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
+				22AA615D19485E5B00931260 /* haikuColorFade-ipadhd.png in Resources */,
+				22AA615F19485E5B00931260 /* haikuColorFade.png in Resources */,
 				11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */,
 				115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */,
 				22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */,
 				116039F7191B0F74005BABEF /* swipe.wav in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
 				11BF2C2F191A7C9000143F58 /* pollenBar.png in Resources */,
+				22AA616119485E5B00931260 /* InstructTxt.png in Resources */,
 				11E5D2951917CEEE00A76121 /* game_background.png in Resources */,
 				11A7F90C191914E40086EC1B /* lolsky1.png in Resources */,
+				22AA616A19485E5B00931260 /* spidderEyeDrop-ipadhd.plist in Resources */,
 				11A7F90D191914E40086EC1B /* lolsky2.png in Resources */,
 				2214319819319BF60065A064 /* treebase0.png in Resources */,
 				11E5D2931917CEEE00A76121 /* Default.png in Resources */,
+				22AA616D19485E5B00931260 /* spidderEyeDrop-sd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,6 +1560,7 @@
 				C8AC375C19354225004F44C5 /* Haiku.m in Sources */,
 				11E5D25A1917CEED00A76121 /* CCTransition.m in Sources */,
 				11E5D24C1917CEED00A76121 /* ccShaders.m in Sources */,
+				22AA617019485E6D00931260 /* SpidderEye.m in Sources */,
 				C8AC375D19354225004F44C5 /* HaikuSpawner.m in Sources */,
 				11E5D2661917CEED00A76121 /* CCWindow.m in Sources */,
 				11E5D2531917CEED00A76121 /* CCTextureCache.m in Sources */,

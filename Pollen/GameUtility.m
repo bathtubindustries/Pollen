@@ -47,6 +47,16 @@
 }
 
 
++(void) saveSpidderEyeCount:(NSUInteger) val{
+    [[NSUserDefaults standardUserDefaults] setInteger:val forKey:@"spidderEyeCount"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSUInteger) savedSpidderEyeCount{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"spidderEyeCount"];
+
+}
+
+
 //UTILITY
 +(int) randInt:(int)low :(int)high {
     //will return an integer in between and including low, high

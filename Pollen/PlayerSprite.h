@@ -24,6 +24,7 @@
 #define PLAYER_BOOST_DECREMENT 15.f
 #define PLAYER_BOOST_JUMP 360.f
 
+@class SpriteLayer;
 @interface PlayerSprite : CCSprite {
     //references
     CGSize size;
@@ -52,7 +53,7 @@
 @property float pollenMeter;
 @property(nonatomic) enum PlayerState state;
 @property BOOL dead;
-
+@property (nonatomic, assign) SpriteLayer* spawnLayer;
 //messages
 -(void) startAttack;
 -(void) startJump;
@@ -64,5 +65,6 @@
 
 //update
 -(void) update:(ccTime)dt;
+
 
 @end

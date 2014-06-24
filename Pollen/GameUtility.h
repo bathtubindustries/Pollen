@@ -23,6 +23,10 @@
 
 +(void) saveHaikuCount:(NSUInteger) val;
 +(NSUInteger) savedHaikuCount;
+
++(void) saveSpidderEyeCount:(NSUInteger) val;
++(NSUInteger) savedSpidderEyeCount;
+
 +(void) HaikuDiscovered: (NSString*) t discoverable: (BOOL) b;
 +(BOOL) isHaikuDiscoverable: (NSString*) title;
 
