@@ -234,7 +234,7 @@
         [player_ startAttack];
         if(player_.state != Boosting)
         for(Flower* flower in spawner_.flowers) {
-            if(!flower.bloomed && [GameUtility isCollidingRect:player_ WithRect:flower]) {
+            if(!flower.bloomed && [GameUtility isCollidingRect:player_ WithRect:(CCSprite*)flower]) {
                 [flower bloomFlowerWithPower:100];
                 if(flower.bloomed) {
                     [player_ startJump];

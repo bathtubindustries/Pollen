@@ -37,6 +37,9 @@
             tutorialLayer_ = [TutorialLayer node];
             [tutorialLayer_ setScene:self];
             [self addChild:tutorialLayer_ z:2];
+            [GameUtility equipItem:0];
+            [GameUtility itemPurchased:@"Dandelion Hammer" purchased:NO];
+            [GameUtility itemPurchased:@"SporeTwig Staff" purchased:YES];
         }
         
         lineLayer_ = [LineLayer node];

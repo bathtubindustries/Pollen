@@ -9,7 +9,8 @@
 #import "MainMenuLayer.h"
 
 #import "GameplayScene.h"
-#import "StoreLayer.h"
+
+#import "StoreScene.h"
 
 #import "SimpleAudioEngine.h"
 #import "GameUtility.h"
@@ -69,7 +70,7 @@
             [GameUtility saveHighScore:0];
             [GameUtility HaikuDiscovered:@"Instruct" discoverable:YES];
             [[CCDirector sharedDirector] replaceScene:
-             [CCTransitionSlideInB transitionWithDuration:0.5 scene:[StoreLayer scene]]];
+            [CCTransitionFadeUp transitionWithDuration:0.5 scene:[StoreScene node]]];
         }];
         [itemStore setColor:ccBLACK];
         
@@ -85,12 +86,12 @@
         
         
         // Sound on/off toggle
-        CCMenuItem *soundOnItem = [CCMenuItemImage itemFromNormalImage:@"muteOn.png"
+        CCMenuItem *soundOnItem = [CCMenuItemImage itemWithNormalImage:@"muteOn.png"
                                                          selectedImage:@"muteOn.png"
                                                                 target:nil
                                                               selector:nil];
         
-        CCMenuItem *soundOffItem = [CCMenuItemImage itemFromNormalImage:@"muteOff.png"
+        CCMenuItem *soundOffItem = [CCMenuItemImage itemWithNormalImage:@"muteOff.png"
                                                           selectedImage:@"muteOff.png"
                                                                  target:nil
                                                                selector:nil];

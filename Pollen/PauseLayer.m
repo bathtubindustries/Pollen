@@ -59,12 +59,12 @@
         }];
         
         
-        CCMenuItem *soundOnItem = [CCMenuItemImage itemFromNormalImage:@"muteOn.png"
+        CCMenuItem *soundOnItem = [CCMenuItemImage itemWithNormalImage:@"muteOn.png"
                                                          selectedImage:@"muteOn.png"
                                                                 target:nil
                                                               selector:nil];
         
-        CCMenuItem *soundOffItem = [CCMenuItemImage itemFromNormalImage:@"muteOff.png"
+        CCMenuItem *soundOffItem = [CCMenuItemImage itemWithNormalImage:@"muteOff.png"
                                                           selectedImage:@"muteOff.png"
                                                                  target:nil
                                                                selector:nil];

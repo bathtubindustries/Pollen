@@ -7,21 +7,22 @@
 //
 
 #import "CCMenuItem.h"
-#import "SFHFKeychainUtils.h"
 
 
-@interface ProductMenuItem : CCMenuItemImage{
-    
-    BOOL purchased;
-}
-    
+@interface ProductMenuItem : CCMenuItemImage
+
 -(void) productClicked: (id) sender;
 -(id) initWithProductNumber: (NSInteger) num;
--(void) loadImages;
-
+-(void) update:(ccTime)delta;
 
 @property NSInteger productNumber;
 @property (retain) NSString* productName;
+@property (nonatomic, retain) CCSprite* itemSprite;
+@property (nonatomic, assign)    BOOL consumable;
+@property (nonatomic, assign)    BOOL isIAP;
+@property (nonatomic, assign)    int eyeCost;
+@property (nonatomic,assign) CCSprite* equipSprite;
+@property (nonatomic,assign) CCSprite* lockSprite;
 
 
 

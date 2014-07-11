@@ -16,6 +16,8 @@
 @interface GameUtility : CCNode {}
 @property(nonatomic, readonly, assign) NSUInteger savedHighScore;
 @property(nonatomic, readonly, assign) NSUInteger haikuCount;
+@property(nonatomic, assign) NSMutableArray* isItemPurchased;   //lookup by product number
+@property(nonatomic, assign) NSUInteger itemEquipped; //also by product number
 
 //saving
 +(NSUInteger) savedHighScore;
@@ -29,6 +31,13 @@
 
 +(void) HaikuDiscovered: (NSString*) t discoverable: (BOOL) b;
 +(BOOL) isHaikuDiscoverable: (NSString*) title;
+
++(void) itemPurchased: (NSString*) t purchased: (BOOL) b;
++(BOOL) isItemPurchased: (NSString*) title;
+
++(void) equipItem:(NSUInteger) val;
++(NSUInteger) equippedItem;
+
 
 
 //utility

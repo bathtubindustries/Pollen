@@ -44,7 +44,6 @@
 		11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF2C52191ADD5900143F58 /* spiddderoso.png */; };
 		11BF2C56191AE8D100143F58 /* LineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF2C55191AE8D100143F58 /* LineLayer.m */; };
 		11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EA1917CEED00A76121 /* AppDelegate.m */; };
-		11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */; };
 		11E5D2171917CEED00A76121 /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0EE1917CEED00A76121 /* GameplayScene.m */; };
 		11E5D2191917CEED00A76121 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0F21917CEED00A76121 /* IntroLayer.m */; };
 		11E5D21A1917CEED00A76121 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D0F61917CEED00A76121 /* CCAction.m */; };
@@ -179,8 +178,23 @@
 		11E5D2A01917CEEE00A76121 /* TreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E5D2141917CEED00A76121 /* TreeLayer.m */; };
 		2214319819319BF60065A064 /* treebase0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319719319BF60065A064 /* treebase0.png */; };
 		2214319A19319F7D0065A064 /* Instruct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319919319F7D0065A064 /* Instruct.png */; };
+		22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171351196E138000E7CA0B /* StoreKit.framework */; };
+		22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171353196E139C00E7CA0B /* AdSupport.framework */; };
+		22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171355196E13FA00E7CA0B /* Grab.framework */; };
+		22171361196E1DD800E7CA0B /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22171360196E1DD800E7CA0B /* IAPManager.mm */; };
+		22171364196E1E7900E7CA0B /* IAPManager_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22171363196E1E7900E7CA0B /* IAPManager_objc.m */; };
+		22171367196E340F00E7CA0B /* IAPCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22171365196E340F00E7CA0B /* IAPCallback.cpp */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
+		225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */; };
+		225BBB90196FB9A5006EB721 /* eyesStore100.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8D196FB9A5006EB721 /* eyesStore100.png */; };
+		225BBB91196FB9A5006EB721 /* eyesStore250.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8E196FB9A5006EB721 /* eyesStore250.png */; };
+		225BBB92196FB9A5006EB721 /* haikuStore3.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8F196FB9A5006EB721 /* haikuStore3.png */; };
+		225BBB94196FC778006EB721 /* costEyes.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB93196FC778006EB721 /* costEyes.png */; };
+		225BBB97196FD6FC006EB721 /* StoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BBB96196FD6FC006EB721 /* StoreScene.m */; };
+		22785DE2196B135100C0E359 /* equippedOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 22785DDF196B135100C0E359 /* equippedOverlay.png */; };
+		22785DE3196B135100C0E359 /* lockedOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 22785DE0196B135100C0E359 /* lockedOverlay.png */; };
+		22785DE4196B135100C0E359 /* storeTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 22785DE1196B135100C0E359 /* storeTemplate.png */; };
 		22AA615A19485E5B00931260 /* haikuColorFade-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614619485E5B00931260 /* haikuColorFade-hd.plist */; };
 		22AA615B19485E5B00931260 /* haikuColorFade-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614719485E5B00931260 /* haikuColorFade-hd.png */; };
 		22AA615C19485E5B00931260 /* haikuColorFade-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */; };
@@ -207,9 +221,7 @@
 		22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */; };
 		22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADA1191EC4CF009A63A1 /* DandelionHammer.png */; };
 		22ADADA4191EC62D009A63A1 /* pollenstorebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADA3191EC62D009A63A1 /* pollenstorebg.png */; };
-		22ADADAC191ED341009A63A1 /* DandelionHammerLocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */; };
 		22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ADADAD191ED394009A63A1 /* lockOverlay.png */; };
-		22ADADB1191ED52D009A63A1 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */; };
 		22ADADB3191ED5AC009A63A1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADADB2191ED5AC009A63A1 /* Security.framework */; };
 		22CD0CE11930002E008B5EF5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CD0CE01930002E008B5EF5 /* MediaPlayer.framework */; };
 		22CD0CE4193009F4008B5EF5 /* muteOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE2193009F4008B5EF5 /* muteOff.png */; };
@@ -286,8 +298,6 @@
 		11BF2C55191AE8D100143F58 /* LineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineLayer.m; path = Pollen/LineLayer.m; sourceTree = "<group>"; };
 		11E5D0E91917CEED00A76121 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pollen/AppDelegate.h; sourceTree = "<group>"; };
 		11E5D0EA1917CEED00A76121 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pollen/AppDelegate.m; sourceTree = "<group>"; };
-		11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+SFGestureRecognizers.h"; path = "Pollen/CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
-		11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCNode+SFGestureRecognizers.m"; path = "Pollen/CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		11E5D0ED1917CEED00A76121 /* GameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameplayScene.h; path = Pollen/GameplayScene.h; sourceTree = "<group>"; };
 		11E5D0EE1917CEED00A76121 /* GameplayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameplayScene.m; path = Pollen/GameplayScene.m; sourceTree = "<group>"; };
 		11E5D0F11917CEED00A76121 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = Pollen/IntroLayer.h; sourceTree = "<group>"; };
@@ -566,8 +576,28 @@
 		11E5D2141917CEED00A76121 /* TreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TreeLayer.m; path = Pollen/TreeLayer.m; sourceTree = "<group>"; };
 		2214319719319BF60065A064 /* treebase0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebase0.png; sourceTree = "<group>"; };
 		2214319919319F7D0065A064 /* Instruct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instruct.png; sourceTree = "<group>"; };
+		22171351196E138000E7CA0B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		22171353196E139C00E7CA0B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		22171355196E13FA00E7CA0B /* Grab.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Grab.framework; path = ../../../../Downloads/Grab.framework; sourceTree = "<group>"; };
+		22171358196E155E00E7CA0B /* HgString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HgString.h; path = Pollen/HgString.h; sourceTree = "<group>"; };
+		2217135F196E1DD800E7CA0B /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPManager.h; path = Pollen/IAPManager.h; sourceTree = "<group>"; };
+		22171360196E1DD800E7CA0B /* IAPManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IAPManager.mm; path = Pollen/IAPManager.mm; sourceTree = "<group>"; };
+		22171362196E1E7900E7CA0B /* IAPManager_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPManager_objc.h; path = Pollen/IAPManager_objc.h; sourceTree = "<group>"; };
+		22171363196E1E7900E7CA0B /* IAPManager_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAPManager_objc.m; path = Pollen/IAPManager_objc.m; sourceTree = "<group>"; };
+		22171365196E340F00E7CA0B /* IAPCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IAPCallback.cpp; path = Pollen/IAPCallback.cpp; sourceTree = "<group>"; };
+		22171366196E340F00E7CA0B /* IAPCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPCallback.h; path = Pollen/IAPCallback.h; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
+		225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeTemplateConsumable.png; sourceTree = "<group>"; };
+		225BBB8D196FB9A5006EB721 /* eyesStore100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyesStore100.png; sourceTree = "<group>"; };
+		225BBB8E196FB9A5006EB721 /* eyesStore250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyesStore250.png; sourceTree = "<group>"; };
+		225BBB8F196FB9A5006EB721 /* haikuStore3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haikuStore3.png; sourceTree = "<group>"; };
+		225BBB93196FC778006EB721 /* costEyes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = costEyes.png; sourceTree = "<group>"; };
+		225BBB95196FD6FC006EB721 /* StoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreScene.h; sourceTree = "<group>"; };
+		225BBB96196FD6FC006EB721 /* StoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreScene.m; sourceTree = "<group>"; };
+		22785DDF196B135100C0E359 /* equippedOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = equippedOverlay.png; sourceTree = "<group>"; };
+		22785DE0196B135100C0E359 /* lockedOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockedOverlay.png; sourceTree = "<group>"; };
+		22785DE1196B135100C0E359 /* storeTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeTemplate.png; sourceTree = "<group>"; };
 		22AA614619485E5B00931260 /* haikuColorFade-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "haikuColorFade-hd.plist"; sourceTree = "<group>"; };
 		22AA614719485E5B00931260 /* haikuColorFade-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haikuColorFade-hd.png"; sourceTree = "<group>"; };
 		22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "haikuColorFade-ipadhd.plist"; sourceTree = "<group>"; };
@@ -596,10 +626,7 @@
 		22ADAD9F191EC4C4009A63A1 /* sporeTwigStaff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sporeTwigStaff.png; sourceTree = "<group>"; };
 		22ADADA1191EC4CF009A63A1 /* DandelionHammer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DandelionHammer.png; sourceTree = "<group>"; };
 		22ADADA3191EC62D009A63A1 /* pollenstorebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollenstorebg.png; sourceTree = "<group>"; };
-		22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DandelionHammerLocked.png; sourceTree = "<group>"; };
 		22ADADAD191ED394009A63A1 /* lockOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOverlay.png; sourceTree = "<group>"; };
-		22ADADAF191ED52D009A63A1 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHFKeychainUtils.h; path = Pollen/SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHFKeychainUtils.m; path = Pollen/SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		22ADADB2191ED5AC009A63A1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22CD0CE01930002E008B5EF5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		22CD0CE2193009F4008B5EF5 /* muteOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muteOff.png; sourceTree = "<group>"; };
@@ -638,6 +665,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */,
+				22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */,
+				22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */,
 				22CD0CE11930002E008B5EF5 /* MediaPlayer.framework in Frameworks */,
 				22ADADB3191ED5AC009A63A1 /* Security.framework in Frameworks */,
 				C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */,
@@ -659,6 +689,7 @@
 		113296D71917DED600F3D78E /* Pollen */ = {
 			isa = PBXGroup;
 			children = (
+				22171357196E149700E7CA0B /* Store */,
 				22D28BB8192AFE8A00A9565A /* GameCenter */,
 				113296D81917DF2400F3D78E /* Gameplay */,
 				113296D91917DF3D00F3D78E /* Common_Etc */,
@@ -683,12 +714,6 @@
 		113296D91917DF3D00F3D78E /* Common_Etc */ = {
 			isa = PBXGroup;
 			children = (
-				22ADAD9C191E10CB009A63A1 /* ProductMenuItem.h */,
-				22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */,
-				22ADADAF191ED52D009A63A1 /* SFHFKeychainUtils.h */,
-				22ADADB0191ED52D009A63A1 /* SFHFKeychainUtils.m */,
-				11E5D0EB1917CEED00A76121 /* CCNode+SFGestureRecognizers.h */,
-				11E5D0EC1917CEED00A76121 /* CCNode+SFGestureRecognizers.m */,
 				11E5D1FC1917CEED00A76121 /* MainMenuLayer.h */,
 				11E5D1FD1917CEED00A76121 /* MainMenuLayer.m */,
 				115CEDA61917EBB800732687 /* PauseLayer.h */,
@@ -734,8 +759,6 @@
 				11E5D2141917CEED00A76121 /* TreeLayer.m */,
 				11BF2C36191AC6FC00143F58 /* TutorialLayer.h */,
 				11BF2C37191AC6FC00143F58 /* TutorialLayer.m */,
-				11BF2C4B191AD5F200143F58 /* StoreLayer.h */,
-				11BF2C4C191AD5F200143F58 /* StoreLayer.m */,
 				11BF2C54191AE8D100143F58 /* LineLayer.h */,
 				11BF2C55191AE8D100143F58 /* LineLayer.m */,
 				C8AC374D19354225004F44C5 /* GameOverLayer.h */,
@@ -1134,6 +1157,14 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				225BBB93196FC778006EB721 /* costEyes.png */,
+				225BBB8D196FB9A5006EB721 /* eyesStore100.png */,
+				225BBB8E196FB9A5006EB721 /* eyesStore250.png */,
+				225BBB8F196FB9A5006EB721 /* haikuStore3.png */,
+				225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */,
+				22785DDF196B135100C0E359 /* equippedOverlay.png */,
+				22785DE0196B135100C0E359 /* lockedOverlay.png */,
+				22785DE1196B135100C0E359 /* storeTemplate.png */,
 				C8EBD16B195A34F7007DE291 /* flowersUnshaded.plist */,
 				C8EBD16C195A34F7007DE291 /* flowersUnshaded.pvr.ccz */,
 				22AA614619485E5B00931260 /* haikuColorFade-hd.plist */,
@@ -1162,7 +1193,6 @@
 				22CD0CE2193009F4008B5EF5 /* muteOff.png */,
 				22CD0CE3193009F4008B5EF5 /* muteOn.png */,
 				22ADADAD191ED394009A63A1 /* lockOverlay.png */,
-				22ADADAB191ED341009A63A1 /* DandelionHammerLocked.png */,
 				22ADADA3191EC62D009A63A1 /* pollenstorebg.png */,
 				22ADADA1191EC4CF009A63A1 /* DandelionHammer.png */,
 				2214319919319F7D0065A064 /* Instruct.png */,
@@ -1224,6 +1254,26 @@
 			name = Haikus;
 			sourceTree = "<group>";
 		};
+		22171357196E149700E7CA0B /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				22171365196E340F00E7CA0B /* IAPCallback.cpp */,
+				22171366196E340F00E7CA0B /* IAPCallback.h */,
+				22171362196E1E7900E7CA0B /* IAPManager_objc.h */,
+				22171363196E1E7900E7CA0B /* IAPManager_objc.m */,
+				2217135F196E1DD800E7CA0B /* IAPManager.h */,
+				22171360196E1DD800E7CA0B /* IAPManager.mm */,
+				22171358196E155E00E7CA0B /* HgString.h */,
+				22ADAD9C191E10CB009A63A1 /* ProductMenuItem.h */,
+				22ADAD9D191E10CB009A63A1 /* ProductMenuItem.m */,
+				11BF2C4C191AD5F200143F58 /* StoreLayer.m */,
+				11BF2C4B191AD5F200143F58 /* StoreLayer.h */,
+				225BBB95196FD6FC006EB721 /* StoreScene.h */,
+				225BBB96196FD6FC006EB721 /* StoreScene.m */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		22D28BB8192AFE8A00A9565A /* GameCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1259,6 +1309,9 @@
 		C8ADB0BB18ED51420050A930 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22171355196E13FA00E7CA0B /* Grab.framework */,
+				22171353196E139C00E7CA0B /* AdSupport.framework */,
+				22171351196E138000E7CA0B /* StoreKit.framework */,
 				22CD0CE01930002E008B5EF5 /* MediaPlayer.framework */,
 				22ADADB2191ED5AC009A63A1 /* Security.framework */,
 				C8ADB0BC18ED51420050A930 /* QuartzCore.framework */,
@@ -1303,6 +1356,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = bathtubindustries;
+				TargetAttributes = {
+					C8ADB0B818ED51420050A930 = {
+						DevelopmentTeam = 3G5PX5MFS4;
+					};
+				};
 			};
 			buildConfigurationList = C8ADB0B418ED51420050A930 /* Build configuration list for PBXProject "PollenBug" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1326,6 +1384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */,
 				22AA616919485E5B00931260 /* spidderEyeDrop-hd.png in Resources */,
 				11BF2C3E191ACC0C00143F58 /* treebase.png in Resources */,
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
@@ -1337,6 +1396,7 @@
 				11A7F911191921860086EC1B /* pollenManAttack.png in Resources */,
 				22AA616B19485E5B00931260 /* spidderEyeDrop-ipadhd.png in Resources */,
 				22AA616619485E5B00931260 /* spidderEyeCounter.plist in Resources */,
+				225BBB90196FB9A5006EB721 /* eyesStore100.png in Resources */,
 				11BF2C46191AD31700143F58 /* tutorialMessage1.png in Resources */,
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */,
@@ -1360,6 +1420,7 @@
 				116039FB191B1175005BABEF /* slurp.wav in Resources */,
 				115CEDAC1917F0EA00732687 /* resumeButton.png in Resources */,
 				22AA616419485E5B00931260 /* spidderEyeCounter-ipadhd.plist in Resources */,
+				225BBB94196FC778006EB721 /* costEyes.png in Resources */,
 				116039F3191B0D13005BABEF /* redFlowerHit.aif in Resources */,
 				116039ED191B0ACE005BABEF /* mainMenu.wav in Resources */,
 				22AA616019485E5B00931260 /* haikuUI.png in Resources */,
@@ -1368,7 +1429,6 @@
 				11E5D2911917CEEE00A76121 /* Default-568h@2x.png in Resources */,
 				2214319A19319F7D0065A064 /* Instruct.png in Resources */,
 				11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */,
-				22ADADAC191ED341009A63A1 /* DandelionHammerLocked.png in Resources */,
 				22AA616C19485E5B00931260 /* spidderEyeDrop-sd.plist in Resources */,
 				22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */,
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
@@ -1391,16 +1451,21 @@
 				22AA616719485E5B00931260 /* spidderEyeCounter.png in Resources */,
 				11E5D27B1917CEEE00A76121 /* ChangeLog in Resources */,
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
+				225BBB92196FB9A5006EB721 /* haikuStore3.png in Resources */,
 				11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */,
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
 				22AA615D19485E5B00931260 /* haikuColorFade-ipadhd.png in Resources */,
 				22AA615F19485E5B00931260 /* haikuColorFade.png in Resources */,
+				225BBB91196FB9A5006EB721 /* eyesStore250.png in Resources */,
 				11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */,
+				22785DE3196B135100C0E359 /* lockedOverlay.png in Resources */,
 				115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */,
+				22785DE4196B135100C0E359 /* storeTemplate.png in Resources */,
 				22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */,
 				116039F7191B0F74005BABEF /* swipe.wav in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
 				11BF2C2F191A7C9000143F58 /* pollenBar.png in Resources */,
+				22785DE2196B135100C0E359 /* equippedOverlay.png in Resources */,
 				22AA616119485E5B00931260 /* InstructTxt.png in Resources */,
 				22AA616A19485E5B00931260 /* spidderEyeDrop-ipadhd.plist in Resources */,
 				2214319819319BF60065A064 /* treebase0.png in Resources */,
@@ -1418,7 +1483,6 @@
 			files = (
 				11E5D2411917CEED00A76121 /* CCParticleBatchNode.m in Sources */,
 				11E5D2711917CEED00A76121 /* TransformUtils.m in Sources */,
-				11E5D2161917CEED00A76121 /* CCNode+SFGestureRecognizers.m in Sources */,
 				11E5D2701917CEED00A76121 /* TGAlib.m in Sources */,
 				11E5D2231917CEED00A76121 /* CCActionPageTurn3D.m in Sources */,
 				11E5D24A1917CEED00A76121 /* CCScheduler.m in Sources */,
@@ -1452,6 +1516,7 @@
 				11E5D27E1917CEEE00A76121 /* matrix.c in Sources */,
 				11E5D2521917CEED00A76121 /* CCTextureAtlas.m in Sources */,
 				11E5D25E1917CEED00A76121 /* CCDirectorIOS.m in Sources */,
+				225BBB97196FD6FC006EB721 /* StoreScene.m in Sources */,
 				118BD98C19198EB2009547F0 /* Flower.m in Sources */,
 				11BF2C4D191AD5F200143F58 /* StoreLayer.m in Sources */,
 				11E5D2511917CEED00A76121 /* CCTexture2D.m in Sources */,
@@ -1463,6 +1528,7 @@
 				11E5D2631917CEED00A76121 /* CCDirectorMac.m in Sources */,
 				11E5D2501917CEED00A76121 /* CCSpriteFrameCache.m in Sources */,
 				11E5D2771917CEEE00A76121 /* CocosDenshion.m in Sources */,
+				22171364196E1E7900E7CA0B /* IAPManager_objc.m in Sources */,
 				C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */,
 				11E5D26F1917CEED00A76121 /* NSThread+performBlock.m in Sources */,
 				11E5D25D1917CEED00A76121 /* cocos2d.m in Sources */,
@@ -1514,6 +1580,7 @@
 				11E5D21E1917CEED00A76121 /* CCActionGrid.m in Sources */,
 				11E5D2801917CEEE00A76121 /* mat4.c in Sources */,
 				11E5D27A1917CEEE00A76121 /* aabb.c in Sources */,
+				22171361196E1DD800E7CA0B /* IAPManager.mm in Sources */,
 				11E5D24F1917CEED00A76121 /* CCSpriteFrame.m in Sources */,
 				11E5D26B1917CEED00A76121 /* CCProfiling.m in Sources */,
 				11E5D22E1917CEED00A76121 /* CCDirector.m in Sources */,
@@ -1546,11 +1613,11 @@
 				11E5D2361917CEED00A76121 /* CCGrid.m in Sources */,
 				11E5D2581917CEED00A76121 /* CCTMXTiledMap.m in Sources */,
 				11E5D2681917CEED00A76121 /* CCArray.m in Sources */,
-				22ADADB1191ED52D009A63A1 /* SFHFKeychainUtils.m in Sources */,
 				11E5D22A1917CEED00A76121 /* CCCamera.m in Sources */,
 				11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */,
 				11E5D2281917CEED00A76121 /* CCAnimationCache.m in Sources */,
 				C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */,
+				22171367196E340F00E7CA0B /* IAPCallback.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1601,8 +1668,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ericnelson/Downloads,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pollen/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Pollen/libs/kazmath/include\"";
@@ -1613,6 +1687,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PollenBug;
+				PROVISIONING_PROFILE = "82473D91-F8DE-4694-94A3-1B979CF5F495";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1622,7 +1697,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ericnelson/Downloads,
+				);
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pollen/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Pollen/libs/kazmath/include\"";
@@ -1633,6 +1715,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PollenBug;
+				PROVISIONING_PROFILE = "82473D91-F8DE-4694-94A3-1B979CF5F495";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

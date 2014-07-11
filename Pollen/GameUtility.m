@@ -46,6 +46,22 @@
     }
 }
 
++(void) itemPurchased: (NSString*) title purchased:(BOOL)b {
+    [[NSUserDefaults standardUserDefaults] setBool:b  forKey:title];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(BOOL) isItemPurchased: (NSString*) title{
+    
+    //if userdefaults contains a key with this haiku title
+    if ([[NSUserDefaults standardUserDefaults]  objectForKey:title]!=nil)
+        return [[NSUserDefaults standardUserDefaults] boolForKey:title];
+    
+    else{
+        return NO;
+    }
+}
+
 
 +(void) saveSpidderEyeCount:(NSUInteger) val{
     [[NSUserDefaults standardUserDefaults] setInteger:val forKey:@"spidderEyeCount"];
@@ -55,6 +71,18 @@
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"spidderEyeCount"];
 
 }
+
+
++(void) equipItem:(NSUInteger) val{
+    [[NSUserDefaults standardUserDefaults] setInteger:val forKey:@"itemEquipped"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSUInteger) equippedItem{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"itemEquipped"];
+    
+}
+
+
 
 
 //UTILITY
