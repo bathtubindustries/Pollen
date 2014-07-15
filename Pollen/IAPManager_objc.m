@@ -352,8 +352,10 @@ static NSMutableDictionary* g_iapProducts = nil;
 
 +(void) loadPurchaseData:(NSSet *)products
 {
+    
     SKProductsRequest* prodReq = [[SKProductsRequest alloc] initWithProductIdentifiers:products];
         NSLog(@"purch?");
+    
     prodReq.delegate = catalogDelegate;
     [prodReq start];
 }

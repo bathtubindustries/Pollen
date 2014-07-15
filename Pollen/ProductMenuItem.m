@@ -10,6 +10,7 @@
 #import "GameUtility.h"
 #import "IAPManager_objc.h"
 #import "StoreLayer.h"
+#import "UIBAlertView.h"
 
 
 @implementation ProductMenuItem
@@ -253,11 +254,30 @@
         
         if (item.isIAP)  //if realmoney involved
         {
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Purchase in progress" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+           /* UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Purchase in progress" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
             [alert show];
             [IAPManager_objc initManager];
-            [IAPManager_objc loadPurchaseData:[NSSet setWithObject:[StoreLayer productIDforName:name] ]];
+            [IAPManager_objc loadPurchaseData:[NSSet setWithObject:[StoreLayer productIDforName:name] ]];*/
             
+            
+            UIBAlertView *alert = [[UIBAlertView alloc] initWithTitle:@"Confirmation" message:@"Purchase?" cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes",nil];
+            [alert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+                if (didCancel) {
+                    return;
+                }
+                switch (selectedIndex) {
+                    case 1:
+                    {
+                        
+                        UIAlertView *alert2 = [[[UIAlertView alloc] initWithTitle:@"Confirmed!" message:@"Hang out for a few moments while your purchase is completed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+                        [alert2 show];
+                        
+                        [IAPManager_objc initManager];
+                        [IAPManager_objc loadPurchaseData:[NSSet setWithObject:[StoreLayer productIDforName:name] ]];
+                        break;
+                    }
+                }
+            }];
  
             
         }

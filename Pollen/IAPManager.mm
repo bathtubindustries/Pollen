@@ -34,7 +34,7 @@ void IAPManager::completePurchase(const char *product, const char *data, int res
             
             [alert show];
         }
-        else if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpidderosoPeepers100"].location != NSNotFound)//product is 100 peepers
+        else if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpiderrosoPeepers100"].location != NSNotFound)//product is 100 peepers
         {
             [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+100];
             UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"100 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];

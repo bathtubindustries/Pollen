@@ -47,7 +47,7 @@
     //for the text overlaying the animated background
     
     //prevents multiple spawns of first haiku
-    if ([GameUtility isHaikuDiscoverable:haiku.title] || index!=0){
+    if ([GameUtility isHaikuDiscoverable:haiku.title]){ 
         
         
         //prevents the same haiku from being spawned multiple times once a certain altitude is reached

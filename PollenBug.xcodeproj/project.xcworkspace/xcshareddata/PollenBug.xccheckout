@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>EAA867E8-95A8-4EAB-A8A2-67188710AC91</string>
+	<string>54CC5D4C-FCB6-49BA-AF7F-AC3C63332F17</string>
 	<key>IDESourceControlProjectName</key>
 	<string>PollenBug</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FF1BC6C3-083A-4B48-9783-26AEE4984A3A</key>
-		<string>https://github.com/manocha/Pollen.git</string>
+		<key>A22C0514-333B-46F3-B55D-06F8FC7DCBD8</key>
+		<string>https://github.com/bathtubindustries/Pollen.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PollenBug.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FF1BC6C3-083A-4B48-9783-26AEE4984A3A</key>
+		<key>A22C0514-333B-46F3-B55D-06F8FC7DCBD8</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/manocha/Pollen.git</string>
+	<string>https://github.com/bathtubindustries/Pollen.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FF1BC6C3-083A-4B48-9783-26AEE4984A3A</string>
+	<string>A22C0514-333B-46F3-B55D-06F8FC7DCBD8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FF1BC6C3-083A-4B48-9783-26AEE4984A3A</string>
+			<string>A22C0514-333B-46F3-B55D-06F8FC7DCBD8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Pollen</string>
 		</dict>

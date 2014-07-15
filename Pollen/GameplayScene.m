@@ -40,6 +40,7 @@
             [GameUtility equipItem:0];
             [GameUtility itemPurchased:@"Dandelion Hammer" purchased:NO];
             [GameUtility itemPurchased:@"SporeTwig Staff" purchased:YES];
+#warning add additional wands here
         }
         
         lineLayer_ = [LineLayer node];

@@ -29,7 +29,7 @@ NSMutableDictionary* productIDs;
         productIDs = [[NSMutableDictionary dictionary] retain];
         
         [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers250" forKey:@"250 Spidderoso Peepers"];
-        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers100" forKey:@"100 Spidderoso Peepers"];
+        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpiderrosoPeepers100" forKey:@"100 Spidderoso Peepers"];
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
         float scaleFactor = winSize.height/winSize.width;
