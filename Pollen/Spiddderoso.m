@@ -7,10 +7,12 @@
 //
 
 #import "Spiddderoso.h"
-
+#import "SpriteLayer.h"
 #import "cocos2d.h"
 
 #define SPIDDDER_INIT_VELOCITY 200.f
+#define SPIDDDER_COMBO_VELOCITY 115.f
+#define SPIDDDER_COMBO_VELOCITY_FALL -95.f
 #define SPIDDDER_VELOCITY_INCREMENT 30.f
 #define SPIDDDER_VELOCITY_DECREMENT 10.f
 #define SPIDDDER_CEILING 500.f
@@ -27,7 +29,7 @@
         
         self.velocity = CGPointZero;
         self.position = ccp(size.width/2, size.height);
-        
+        isComboMode=NO;
         self.waitingDisconnect = NO;
     }
     return self;
@@ -45,6 +47,22 @@
     }
 }
 
+-(void) setComboMode:(BOOL)combo shouldFall:(BOOL)fall{
+    isComboMode=combo;
+    if (fall)
+    {
+        shouldFall=YES;
+    }
+    else
+    {
+        shouldFall=NO;
+    }
+    if (!combo)
+    {
+        shouldFall=NO;
+    }
+}
+
 //UPDATE
 -(void) update:(ccTime)dt {
     //set visibility for optimization
@@ -52,6 +70,12 @@
         self.visible = NO;
     else
         self.visible = YES;
+
+    if (isComboMode)
+    {
+        
+        self.velocity = ccp(self.velocity.x, (shouldFall) ? SPIDDDER_COMBO_VELOCITY_FALL : SPIDDDER_COMBO_VELOCITY);
+    }
     
     //add velocity to position
     self.position = ccp(self.position.x + self.velocity.x*dt,

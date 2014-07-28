@@ -110,6 +110,10 @@
     [GameUtility loadTexture:@"pollenManBoost.png" Into:self];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"plucked.mp3"];
 }
+-(void)startComboBoost
+{
+    state_=ComboBoost;
+}
 
 -(void) handleHeight:(float)h {
     #warning hacky and will not scale automatically
@@ -143,56 +147,56 @@
 -(void) update:(ccTime)dt
 {
     //ATTACK STATE UPDATE
-    if(state_ == Attacking) {
-        if(attackResetTimer_ > 0)
-            attackResetTimer_ -= dt;
-        else {
-            state_ = Jumping;
-            [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+    if (state_ != ComboBoost && state_ != Combo)
+    {
+        if(state_ == Attacking) {
+            if(attackResetTimer_ > 0)
+                attackResetTimer_ -= dt;
+            else {
+                state_ = Jumping;
+                [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+            }
         }
-    }
-    
-    //CHECK+HANDLE BOOSTING
-    if(self.pollenMeter >= PLAYER_MAX_POLLEN) {
-        [self startBoost];
-    }
-    if(state_ == Boosting) {
-        self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
-        if(self.pollenMeter <= 0) {
-            state_ = Jumping;
-            [GameUtility loadTexture:@"pollenManJump.png" Into:self];
-            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        
+        //CHECK+HANDLE BOOSTING
+        
+        if(state_ == Boosting) {
+            self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
+            if(self.pollenMeter <= 0) {
+                state_ = Jumping;
+                [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+                [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+            }
         }
-    }
-    
-    //Y BOUNDS AND VELOCITIES
-    //update if above bottom edge
-    if(state_ != OnGround) {
-        if(self.position.y > -[self boundingBox].size.height/2) {
-            //update the velocity with gravity
-            if(self.extraYVelocity > 0)
-                self.extraYVelocity += PLAYER_GRAVITY-gravityIncrement_;
-            if(self.extraYVelocity < 0)
-                self.extraYVelocity = 0;
+        
+        //Y BOUNDS AND VELOCITIES
+        //update if above bottom edge
+        if(state_ != OnGround) {
+            if(self.position.y > -[self boundingBox].size.height/2) {
+                //update the velocity with gravity
+                if(self.extraYVelocity > 0)
+                    self.extraYVelocity += PLAYER_GRAVITY-gravityIncrement_;
+                if(self.extraYVelocity < 0)
+                    self.extraYVelocity = 0;
 
-            if(self.extraYVelocity < -(PLAYER_GRAVITY-gravityIncrement_)) {
-                self.velocity = ccp(self.velocity.x,
-                                    self.velocity.y + (PLAYER_GRAVITY-gravityIncrement_) + self.extraYVelocity);
+                if(self.extraYVelocity < -(PLAYER_GRAVITY-gravityIncrement_)) {
+                    self.velocity = ccp(self.velocity.x,
+                                        self.velocity.y + (PLAYER_GRAVITY-gravityIncrement_) + self.extraYVelocity);
+                }
+            } else {
+                self.velocity = CGPointZero;
+                self.dead = YES;
+                [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
             }
         } else {
-            self.velocity = CGPointZero;
-            self.dead = YES;
-            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-        }
-    } else {
-        //reset to bottom edge if below (do not account for rotated box)
-        if(self.position.y < self.contentSize.height*self.scale/2) {
-            self.position = ccp(self.position.x, self.contentSize.height*self.scale/2);
-            //zero velocity if below bottom edge
-            self.velocity = CGPointZero;
+            //reset to bottom edge if below (do not account for rotated box)
+            if(self.position.y < self.contentSize.height*self.scale/2) {
+                self.position = ccp(self.position.x, self.contentSize.height*self.scale/2);
+                //zero velocity if below bottom edge
+                self.velocity = CGPointZero;
+            }
         }
     }
-    
     //X BOUNDS AND VELOCITIES
     //bound x within screen
     if(self.position.x > size.width - [self boundingBox].size.width/2) {
@@ -237,11 +241,33 @@
     
     //UPDATE
     //update sprite with velocity
-    self.position = ccp(self.position.x + self.velocity.x*dt,
+    if (state_ != ComboBoost )
+    {
+        self.position = ccp(self.position.x + self.velocity.x*dt,
                         self.position.y + self.velocity.y*dt);
+    }
+    //rise to spidder altitude if in comboboost
+    else if (state_ == ComboBoost)
+    {
+        self.velocity = ccp(self.velocity.x, PLAYER_COMBO_BOOST);
+        self.extraYVelocity=PLAYER_COMBO_BOOST;
+        
+        if (self.position.y >= size.height*.80)
+        {
+            self.velocity = ccp(self.velocity.x, 0);
+            self.position = ccp(self.position.x + self.velocity.x*dt,
+                                size.height*.80);
+        }
+        else
+        {
+            self.position = ccp(self.position.x + self.velocity.x*dt,
+                                self.position.y + self.velocity.y*dt);
+        }
+    }
+    
     
     //HANDLE EXTRA Y VEL
-    if(self.position.y > size.height/2) {
+    if(self.position.y > size.height/2 && state_!=ComboBoost && state_ != Combo) {
         self.extraYVelocity = self.velocity.y;
         self.velocity = ccp(self.velocity.x, 0);
         self.position = ccp(self.position.x, size.height/2);

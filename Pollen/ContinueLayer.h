@@ -7,7 +7,6 @@
 //
 
 #import "CCLayer.h"
-#import "cocos2d.h"
 #import "GameOverLayer.h"
 #import "GameUtility.h"
 #import "GameplayScene.h"

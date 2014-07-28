@@ -24,6 +24,8 @@
 #define PLAYER_BOOST_DECREMENT 15.f
 #define PLAYER_BOOST_JUMP 360.f
 
+#define PLAYER_COMBO_BOOST 300.0f
+
 @class SpriteLayer;
 @interface PlayerSprite : CCSprite {
     //references
@@ -34,7 +36,9 @@
         OnGround = 0,
         Jumping,
         Attacking,
-        Boosting
+        Boosting,
+        ComboBoost,
+        Combo,
     };
     enum PlayerState state_;
     BOOL dead_;
@@ -60,9 +64,9 @@
 -(void) startSpiddderJump;
 -(void) startSwipe;
 -(void) startBoost;
+-(void) startComboBoost;
 
 -(void) handleHeight:(float)h;
-
 //update
 -(void) update:(ccTime)dt;
 

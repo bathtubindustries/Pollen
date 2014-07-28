@@ -10,6 +10,8 @@
 
 #import "cocos2d.h"
 
+#define ARC4RANDOM_MAX 0x100000000
+
 @implementation GameUtility
 
 //SAVING
@@ -89,6 +91,10 @@
 +(int) randInt:(int)low :(int)high {
     //will return an integer in between and including low, high
     return (arc4random()%(high-low+1))+low;
+}
+
++(double)randDub:(double)low : (double) high {
+    return ((double)arc4random() / ARC4RANDOM_MAX * (high - low)) + low;
 }
 
 +(void) loadTexture:(NSString *)fn Into:(CCSprite*)s {

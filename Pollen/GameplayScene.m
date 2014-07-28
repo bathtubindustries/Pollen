@@ -14,7 +14,6 @@
 #import "LineLayer.h"
 #import "PauseLayer.h"
 #import "ContinueLayer.h"
-
 #import "GameUtility.h"
 
 @implementation GameplayScene
@@ -71,13 +70,16 @@
 -(void) activateContinueCheck: (NSInteger) score{[continueLayer_ checkForContinue];}
 
 
-
 -(void) update:(ccTime)dt
 {
     if(!pauseLayer_.paused && !continueLayer_.paused) {
         [continueLayer_ update:dt];
         [bgLayer_ update:dt];
         [spriteLayer_ update:dt];
+    }
+    if (pauseLayer_.paused)
+    {
+        [spriteLayer_ pauseCombo];
     }
 }
 

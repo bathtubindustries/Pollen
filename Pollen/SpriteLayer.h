@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 bathtubindustries. All rights reserved.
 //
 
+
 #import "cocos2d.h"
 
 @class GameplayScene;
@@ -15,7 +16,7 @@
 @class FlowerSpawner;
 @class Spiddderoso;
 @class HaikuSpawner;
-
+@class ComboLayer;
 @class ClipSprite;
 
 
@@ -24,15 +25,15 @@
 @interface SpriteLayer : CCLayer {
     //references
     CGSize size;
+    float scaleFactor;
     GameplayScene *scene;
     TreeLayer *bgLayer;
-    
+    ComboLayer * comboLayer_;
     //members
     PlayerSprite *player_;
     FlowerSpawner *spawner_;
     Spiddderoso *spiddder_;
     HaikuSpawner *haikuSpawner_;
-    
     
     CGPoint touchBeganLocation_;
     
@@ -61,9 +62,10 @@
     CCSpriteBatchNode *counterSpriteSheet;
     NSMutableArray *counterAnimFrames;
     
-
-    
-    
+    CCLayer * comboLayer;
+    BOOL touchEnabled;
+    BOOL comboTransitionStarted;
+    BOOL comboPaused;
     
 }
 @property float playerHeight;
@@ -76,6 +78,9 @@
 
 -(void) revivePlayer;
 
+-(void) pauseCombo;
+-(void) startComboTransition;
+-(void) comboEnded;
 //setters
 -(float) getPollenMeter;
 -(float) getHeight;

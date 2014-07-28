@@ -25,7 +25,10 @@
 #import "HaikuSpawner.h"
 #import "Haiku.h"
 
+#import "ComboLayer.h"
+
 #define HEIGHT_FACTOR 15.f
+#define END_COMBO_POLLEN_AMOUNT PLAYER_MAX_POLLEN/2
 
 //if you are testing or just want to see a bunch of haikus spawn, lower this to around 50 and play
 #define HAIKU_SPAWN_GAP 800
@@ -42,7 +45,8 @@
         //setup
         size = [[CCDirector sharedDirector] winSize];
         self.accelerometerEnabled = YES;
-        
+        touchEnabled=YES;
+        comboPaused=NO;
         //pollen meter
         pollenBarBackground_ = [CCSprite spriteWithFile:@"pollenBarBackground.png"];
         pollenBarBackground_.position = ccp(size.width/2,
@@ -57,10 +61,6 @@
         //section off top of screen
         size.height -= [pollenBarBackground_ boundingBox].size.height;
         
-        //player
-        player_ = [PlayerSprite node];
-        [self addChild:player_ z:1];
-        player_.spawnLayer = self;
         
         //spawner
         spawner_ = [[FlowerSpawner alloc] init];
@@ -77,8 +77,13 @@
         eyes_ = [[NSMutableArray alloc] init];
         eyesToRemove_ = [[NSMutableArray alloc] init];
         
+        //player
+        player_ = [PlayerSprite node];
+        [self addChild:player_ z:3];
+        player_.spawnLayer = self;
+        
         //height
-        float scaleFactor = size.height/size.width;
+        scaleFactor = size.height/size.width;
         
                 //put this on top of high score
         spidderEyeCounter_.anchorPoint = ccp(0, 1);
@@ -86,7 +91,7 @@
         spidderEyeCounter_ = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"counter1.png"]]];
         spidderEyeCounter_.scale=1.10;
         spidderEyeCounter_.position = ccp(1 + [spidderEyeCounter_ boundingBox].size.width/2, size.height - [spidderEyeCounter_ boundingBox].size.height/2);
-        [self addChild: spidderEyeCounter_ z:0];
+        [self addChild: spidderEyeCounter_ z:3];
         counterAnimFrames = [[NSMutableArray alloc]init ];
         
         
@@ -131,6 +136,11 @@
         //music
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
+        //combo fx
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"bloop1.wav"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"bloop2.wav"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"bloop3.wav"];
+        
         
     }
     return self;
@@ -151,12 +161,12 @@
 //INPUT
 -(void) registerWithTouchDispatcher {
     [[CCDirector sharedDirector].touchDispatcher
-        addTargetedDelegate:self priority:2 swallowsTouches:YES];
+        addTargetedDelegate:self priority:2 swallowsTouches:NO];
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
     
-    if(scene && ![scene isPausedWithMenu])
+    if(scene && ![scene isPausedWithMenu] && touchEnabled)
     if(location.x > 0 && location.x < size.width &&
        location.y > 0 && location.y < size.height) {
         touchBeganLocation_ = location;
@@ -276,6 +286,16 @@
 //UPDATE
 -(void) update:(ccTime)dt
 {
+    
+    
+    //AFTER COMBO CHANGE : touchEnabled=yes, comboTransitionstarted=no
+    
+    if (comboPaused && player_.state==Combo)
+    {
+        [comboLayer_ resumeSchedulerAndActions];
+        comboPaused=NO;
+    }
+    
     //updates and handling height
     [player_ handleHeight:self.playerHeight];
     [player_ update:dt];
@@ -283,6 +303,59 @@
     [spawner_ update:dt];
     [haikuSpawner_ update:dt];
     [spiddder_ update:dt];
+    if ([[self children] containsObject:comboLayer_])
+    {
+        [comboLayer_ update:dt];
+    }
+    
+    if (player_.state == ComboBoost)
+    {
+        
+        if (player_.position.y >= spiddder_.position.y-50*scaleFactor || spiddder_.waitingDisconnect){
+            
+            player_.state=Combo;
+            spiddder_.waitingDisconnect=NO;
+            [spiddder_ setComboMode:YES shouldFall:NO];
+            
+        }
+    }
+    else if (player_.state == Combo)
+    {
+        
+        player_.velocity = CGPointMake(player_.velocity.x,0 );
+        player_.extraYVelocity = spiddder_.velocity.y;
+        if (!comboTransitionStarted)
+        {
+            
+            comboLayer_ = [ComboLayer node];
+            [comboLayer_ setSpawnLayer:self];
+            [self addChild:comboLayer_ z:10];
+            [comboLayer_ setScene:scene];
+            //[player_ setZOrder:player_.zOrder+10]; player might be confused on mechanic if bug is still on closest layer
+            [spiddder_ setZOrder:spiddder_.zOrder+10];
+            spiddder_.position= CGPointMake (spiddder_.position.x, size.height*8/9);
+            [self startComboTransition];
+        }
+        comboTransitionStarted=YES; //dont set this to false until state is no longer combo
+    }
+    if (player_.pollenMeter >= PLAYER_MAX_POLLEN )
+    {
+        [player_ startComboBoost];
+        player_.pollenMeter= player_.pollenMeter= END_COMBO_POLLEN_AMOUNT;
+        //if spidder is too far away, have him fall down to meet player
+        if (spiddder_.position.y - player_.position.y >=200)
+        {
+            [spiddder_ setComboMode:YES shouldFall:YES];
+        }
+        else
+        {
+            [spiddder_ setComboMode:YES shouldFall:NO];
+        }
+    }
+    if (player_.state == ComboBoost)
+    {
+        touchEnabled=NO;
+    }
     
     //removes spidder eye drops when they leave screen
     if ([eyes_ count]!=0) {
@@ -307,7 +380,7 @@
     
     //update pollen meter
     [self updatePollenBar];
-    
+
     //handle extra velocity
     if(bgLayer) {
         [bgLayer setYVelocity:player_.extraYVelocity];
@@ -329,9 +402,6 @@
     //spawn haiku every specified number of meters
     if (((int)playerHeight_ % HAIKU_SPAWN_GAP==0) && !scene.tutorialActive)
         [haikuSpawner_ spawnHaiku:((int)playerHeight_ / HAIKU_SPAWN_GAP)];
-    
-
-    
     
     //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
@@ -387,6 +457,64 @@
     player_.position = respawnPoint;
     player_.dead=NO;
     [player_ startJump];
+    
+}
+
+
+-(void) startComboTransition
+{
+    CCSprite* banner= [CCSprite spriteWithFile:@"comboBanner1.png"];
+    banner.position = ccp(-banner.contentSize.width *scaleFactor, size.height/2);
+    [self addChild:banner z:15];
+    banner.visible=YES;
+    [banner runAction:[CCSequence actionWithArray:[NSArray arrayWithObjects:
+                                                   [CCMoveTo actionWithDuration:.15 position:ccp(size.width/2,size.height/2)],
+                                                   [CCDelayTime actionWithDuration:.2],
+                                                   [CCCallBlock actionWithBlock:^(void){
+                                                    [banner setTexture:[[CCTextureCache sharedTextureCache] addImage:@"comboBanner2.png"]];
+                                                    }],
+                                                   [CCDelayTime actionWithDuration:.2],
+                                                   [CCCallBlock actionWithBlock:^(void){
+                                                    [banner setTexture:[[CCTextureCache sharedTextureCache] addImage:@"comboBanner1.png"]];
+                                                    }],
+                                                   [CCDelayTime actionWithDuration:.2],
+                                                   [CCCallBlock actionWithBlock:^(void){
+                                                    [banner setTexture:[[CCTextureCache sharedTextureCache] addImage:@"comboBanner2.png"]];
+                                                    }],
+                                                   [CCDelayTime actionWithDuration:.2],
+                                                   [CCCallBlock actionWithBlock:^(void){
+                                                    [banner setTexture:[[CCTextureCache sharedTextureCache] addImage:@"comboBanner1.png"]];
+                                                    }],
+                                                    [CCDelayTime actionWithDuration:.2],
+                                                    [CCCallBlock actionWithBlock:^(void){
+                                                    [banner setTexture:[[CCTextureCache sharedTextureCache] addImage:@"comboBanner2.png"]];
+                                                    }],
+                                                   [CCMoveTo actionWithDuration:.15 position:ccp(size.width+banner.contentSize.width*scaleFactor,size.height/2)],
+                                                   [CCCallBlock actionWithBlock:^(void){
+                                                    banner.visible=NO;
+                                                    [self removeChild:banner];
+                                                    }],
+                                                   nil]]
+     ];
+    
+}
+
+
+-(void) pauseCombo{
+    if ([[self children] containsObject:comboLayer_] && player_.state==Combo)
+    {
+        [comboLayer_ pauseSchedulerAndActions];
+        comboPaused=YES;
+    }
+}
+-(void) comboEnded{
+    [self removeChild:comboLayer_];
+    touchEnabled=YES;
+    comboTransitionStarted=NO;
+    [spiddder_ setComboMode:NO shouldFall:NO];
+    player_.pollenMeter= END_COMBO_POLLEN_AMOUNT;
+    [player_ startBoost];
+    comboPaused=NO;
     
 }
 

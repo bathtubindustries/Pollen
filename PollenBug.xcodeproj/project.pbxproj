@@ -184,6 +184,15 @@
 		22171361196E1DD800E7CA0B /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22171360196E1DD800E7CA0B /* IAPManager.mm */; };
 		22171364196E1E7900E7CA0B /* IAPManager_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22171363196E1E7900E7CA0B /* IAPManager_objc.m */; };
 		22171367196E340F00E7CA0B /* IAPCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22171365196E340F00E7CA0B /* IAPCallback.cpp */; };
+		222178C6197892300052FAA5 /* ComboLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 222178C5197892300052FAA5 /* ComboLayer.m */; };
+		222178C91978E1A90052FAA5 /* comboBanner1.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178C71978E1A90052FAA5 /* comboBanner1.png */; };
+		222178CA1978E1A90052FAA5 /* comboBanner2.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178C81978E1A90052FAA5 /* comboBanner2.png */; };
+		222178CC1980BC640052FAA5 /* redNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178CB1980BC640052FAA5 /* redNode.png */; };
+		222178CE198431190052FAA5 /* successNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178CD198431190052FAA5 /* successNode.png */; };
+		222178D01984383F0052FAA5 /* feedbackNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178CF1984383F0052FAA5 /* feedbackNode.png */; };
+		222178D419846A9A0052FAA5 /* bloop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 222178D119846A9A0052FAA5 /* bloop1.wav */; };
+		222178D519846A9A0052FAA5 /* bloop2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 222178D219846A9A0052FAA5 /* bloop2.wav */; };
+		222178D619846A9A0052FAA5 /* bloop3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 222178D319846A9A0052FAA5 /* bloop3.wav */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
 		225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */; };
@@ -229,6 +238,9 @@
 		22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE3193009F4008B5EF5 /* muteOn.png */; };
 		22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE819304A60008B5EF5 /* checkmark.png */; };
 		22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BB6192AEBD500A9565A /* GameKitHelper.m */; };
+		22DE834B1974E28D0030B0CD /* ComboNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834A1974E28D0030B0CD /* ComboNode.m */; };
+		22DE834E1974E2A50030B0CD /* ComboNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */; };
+		22DE83501974EA250030B0CD /* yellowNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DE834F1974EA250030B0CD /* yellowNode.png */; };
 		C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374919354225004F44C5 /* ContinueLayer.m */; };
 		C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */; };
 		C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */; };
@@ -587,6 +599,16 @@
 		22171363196E1E7900E7CA0B /* IAPManager_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAPManager_objc.m; path = Pollen/IAPManager_objc.m; sourceTree = "<group>"; };
 		22171365196E340F00E7CA0B /* IAPCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IAPCallback.cpp; path = Pollen/IAPCallback.cpp; sourceTree = "<group>"; };
 		22171366196E340F00E7CA0B /* IAPCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPCallback.h; path = Pollen/IAPCallback.h; sourceTree = "<group>"; };
+		222178C4197892300052FAA5 /* ComboLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboLayer.h; sourceTree = "<group>"; };
+		222178C5197892300052FAA5 /* ComboLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboLayer.m; sourceTree = "<group>"; };
+		222178C71978E1A90052FAA5 /* comboBanner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comboBanner1.png; sourceTree = "<group>"; };
+		222178C81978E1A90052FAA5 /* comboBanner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comboBanner2.png; sourceTree = "<group>"; };
+		222178CB1980BC640052FAA5 /* redNode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redNode.png; sourceTree = "<group>"; };
+		222178CD198431190052FAA5 /* successNode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = successNode.png; sourceTree = "<group>"; };
+		222178CF1984383F0052FAA5 /* feedbackNode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedbackNode.png; sourceTree = "<group>"; };
+		222178D119846A9A0052FAA5 /* bloop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bloop1.wav; sourceTree = "<group>"; };
+		222178D219846A9A0052FAA5 /* bloop2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bloop2.wav; sourceTree = "<group>"; };
+		222178D319846A9A0052FAA5 /* bloop3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bloop3.wav; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
 		225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeTemplateConsumable.png; sourceTree = "<group>"; };
@@ -637,6 +659,11 @@
 		22CD0CE819304A60008B5EF5 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		22D28BB5192AEBD500A9565A /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameKitHelper.h; path = Pollen/GameKitHelper.h; sourceTree = "<group>"; };
 		22D28BB6192AEBD500A9565A /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameKitHelper.m; path = Pollen/GameKitHelper.m; sourceTree = "<group>"; };
+		22DE83491974E28D0030B0CD /* ComboNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNode.h; sourceTree = "<group>"; };
+		22DE834A1974E28D0030B0CD /* ComboNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboNode.m; sourceTree = "<group>"; };
+		22DE834C1974E2A50030B0CD /* ComboNodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNodeFactory.h; sourceTree = "<group>"; };
+		22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboNodeFactory.m; sourceTree = "<group>"; };
+		22DE834F1974EA250030B0CD /* yellowNode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowNode.png; sourceTree = "<group>"; };
 		C8AC374819354225004F44C5 /* ContinueLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinueLayer.h; path = Pollen/ContinueLayer.h; sourceTree = "<group>"; };
 		C8AC374919354225004F44C5 /* ContinueLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinueLayer.m; path = Pollen/ContinueLayer.m; sourceTree = "<group>"; };
 		C8AC374A19354225004F44C5 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsPickerViewController.h; path = Pollen/FriendsPickerViewController.h; sourceTree = "<group>"; };
@@ -705,6 +732,7 @@
 		113296D81917DF2400F3D78E /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
+				22DE83481974E26C0030B0CD /* Combo */,
 				2214319B1931AB6A0065A064 /* Haikus */,
 				11BF2C4E191ADB1100143F58 /* Enemies */,
 				113296DB1917DF9A00F3D78E /* Flowers */,
@@ -768,6 +796,8 @@
 				C8AC374E19354225004F44C5 /* GameOverLayer.m */,
 				C8AC374819354225004F44C5 /* ContinueLayer.h */,
 				C8AC374919354225004F44C5 /* ContinueLayer.m */,
+				222178C4197892300052FAA5 /* ComboLayer.h */,
+				222178C5197892300052FAA5 /* ComboLayer.m */,
 			);
 			name = Layers_Scenes;
 			sourceTree = "<group>";
@@ -1160,6 +1190,15 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				222178D119846A9A0052FAA5 /* bloop1.wav */,
+				222178D219846A9A0052FAA5 /* bloop2.wav */,
+				222178D319846A9A0052FAA5 /* bloop3.wav */,
+				222178CF1984383F0052FAA5 /* feedbackNode.png */,
+				222178CD198431190052FAA5 /* successNode.png */,
+				222178CB1980BC640052FAA5 /* redNode.png */,
+				222178C71978E1A90052FAA5 /* comboBanner1.png */,
+				222178C81978E1A90052FAA5 /* comboBanner2.png */,
+				22DE834F1974EA250030B0CD /* yellowNode.png */,
 				225BBB93196FC778006EB721 /* costEyes.png */,
 				225BBB8D196FB9A5006EB721 /* eyesStore100.png */,
 				225BBB8E196FB9A5006EB721 /* eyesStore250.png */,
@@ -1291,6 +1330,17 @@
 			name = GameCenter;
 			sourceTree = "<group>";
 		};
+		22DE83481974E26C0030B0CD /* Combo */ = {
+			isa = PBXGroup;
+			children = (
+				22DE83491974E28D0030B0CD /* ComboNode.h */,
+				22DE834A1974E28D0030B0CD /* ComboNode.m */,
+				22DE834C1974E2A50030B0CD /* ComboNodeFactory.h */,
+				22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */,
+			);
+			name = Combo;
+			sourceTree = "<group>";
+		};
 		C8ADB0B018ED51420050A930 = {
 			isa = PBXGroup;
 			children = (
@@ -1390,6 +1440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */,
+				222178CE198431190052FAA5 /* successNode.png in Resources */,
 				22AA616919485E5B00931260 /* spidderEyeDrop-hd.png in Resources */,
 				11BF2C3E191ACC0C00143F58 /* treebase.png in Resources */,
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
@@ -1408,6 +1459,9 @@
 				22AA616819485E5B00931260 /* spidderEyeDrop-hd.plist in Resources */,
 				11E5D28B1917CEEE00A76121 /* LICENSE_Kazmath.txt in Resources */,
 				11BF2C40191ACC0C00143F58 /* treebody2.png in Resources */,
+				222178CA1978E1A90052FAA5 /* comboBanner2.png in Resources */,
+				222178D619846A9A0052FAA5 /* bloop3.wav in Resources */,
+				222178C91978E1A90052FAA5 /* comboBanner1.png in Resources */,
 				11BF2C48191AD31700143F58 /* tutorialMessage3.png in Resources */,
 				116039F1191B0D13005BABEF /* blueFlowerHit.aif in Resources */,
 				116039F2191B0D13005BABEF /* greenFlowerHit.aif in Resources */,
@@ -1415,6 +1469,7 @@
 				11BF2C4A191AD31700143F58 /* tutorialMessage5.png in Resources */,
 				11BF2C47191AD31700143F58 /* tutorialMessage2.png in Resources */,
 				22AA616519485E5B00931260 /* spidderEyeCounter-ipadhd.png in Resources */,
+				222178D519846A9A0052FAA5 /* bloop2.wav in Resources */,
 				22AA615E19485E5B00931260 /* haikuColorFade.plist in Resources */,
 				22AA616219485E5B00931260 /* spidderEyeCounter-hd.plist in Resources */,
 				22ADADAE191ED394009A63A1 /* lockOverlay.png in Resources */,
@@ -1437,9 +1492,11 @@
 				22AA616C19485E5B00931260 /* spidderEyeDrop-sd.plist in Resources */,
 				22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */,
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
+				222178CC1980BC640052FAA5 /* redNode.png in Resources */,
 				11BF2C3D191ACC0C00143F58 /* pollenstore.png in Resources */,
 				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,
 				2233631C1927AC25005B12E9 /* treebody3.png in Resources */,
+				22DE83501974EA250030B0CD /* yellowNode.png in Resources */,
 				11E5D28A1917CEEE00A76121 /* LICENSE_CocosDenshion.txt in Resources */,
 				C8EBD16E195A34F7007DE291 /* flowersUnshaded.pvr.ccz in Resources */,
 				22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */,
@@ -1448,6 +1505,8 @@
 				C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */,
 				11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */,
 				22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */,
+				222178D01984383F0052FAA5 /* feedbackNode.png in Resources */,
+				222178D419846A9A0052FAA5 /* bloop1.wav in Resources */,
 				11E5D2921917CEEE00A76121 /* Default-Landscape~ipad.png in Resources */,
 				22AA615B19485E5B00931260 /* haikuColorFade-hd.png in Resources */,
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
@@ -1508,6 +1567,7 @@
 				11BF2C56191AE8D100143F58 /* LineLayer.m in Sources */,
 				11E5D2761917CEEE00A76121 /* CDXPropertyModifierAction.m in Sources */,
 				11E5D22F1917CEED00A76121 /* CCDrawingPrimitives.m in Sources */,
+				22DE834E1974E2A50030B0CD /* ComboNodeFactory.m in Sources */,
 				11E5D2721917CEED00A76121 /* ZipUtils.m in Sources */,
 				11E5D23B1917CEED00A76121 /* CCMenu.m in Sources */,
 				11E5D2551917CEED00A76121 /* CCTileMapAtlas.m in Sources */,
@@ -1562,6 +1622,7 @@
 				11E5D28E1917CEEE00A76121 /* MainMenuLayer.m in Sources */,
 				11E5D2791917CEEE00A76121 /* SimpleAudioEngine.m in Sources */,
 				11E5D2391917CEED00A76121 /* CCLabelTTF.m in Sources */,
+				22DE834B1974E28D0030B0CD /* ComboNode.m in Sources */,
 				11E5D2201917CEED00A76121 /* CCActionInstant.m in Sources */,
 				11E5D25F1917CEED00A76121 /* CCES2Renderer.m in Sources */,
 				11E5D22C1917CEED00A76121 /* CCConfiguration.m in Sources */,
@@ -1618,6 +1679,7 @@
 				11E5D2731917CEEE00A76121 /* CDAudioManager.m in Sources */,
 				11E5D2361917CEED00A76121 /* CCGrid.m in Sources */,
 				11E5D2581917CEED00A76121 /* CCTMXTiledMap.m in Sources */,
+				222178C6197892300052FAA5 /* ComboLayer.m in Sources */,
 				11E5D2681917CEED00A76121 /* CCArray.m in Sources */,
 				11E5D22A1917CEED00A76121 /* CCCamera.m in Sources */,
 				11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */,
@@ -1693,7 +1755,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "E9B046A4-2B0D-492B-A40B-503F5B4BC9DB";
+				PROVISIONING_PROFILE = "4727C636-6A50-4F38-AA21-6081D0C51CEA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1721,7 +1783,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "E9B046A4-2B0D-492B-A40B-503F5B4BC9DB";
+				PROVISIONING_PROFILE = "4727C636-6A50-4F38-AA21-6081D0C51CEA";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

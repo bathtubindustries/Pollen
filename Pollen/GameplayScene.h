@@ -14,6 +14,7 @@
 @class TutorialLayer;
 @class LineLayer;
 @class ContinueLayer;
+@class ComboLayer;
 
 @interface GameplayScene : CCScene {
     TreeLayer *bgLayer_;
@@ -30,7 +31,6 @@
 -(BOOL) isPausedWithMenu;
 -(void) activateContinueCheck: (NSInteger)score;
 -(void) makeReviveCall;
-
 -(void) update:(ccTime)dt;
 
 @end

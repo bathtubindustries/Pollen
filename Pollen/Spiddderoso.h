@@ -8,7 +8,9 @@
 
 #import "CCSprite.h"
 
-#define SPIDDDER_POLLEN_AMOUNT 10.f
+#define SPIDDDER_POLLEN_AMOUNT 3.f
+
+@class SpriteLayer;
 
 @interface Spiddderoso : CCSprite {
     //references
@@ -17,8 +19,12 @@
     //members
     BOOL waitingDisconnect_;
     
+    BOOL isComboMode;
+    BOOL shouldFall;
     float extraYVel_;
     CGPoint velocity_;
+    
+    SpriteLayer* spawnLayer;
 }
 @property CGPoint velocity;
 @property BOOL waitingDisconnect;
@@ -28,5 +34,6 @@
 -(void) updateSpeed;
 //update
 -(void) update:(ccTime)dt;
+-(void) setComboMode:(BOOL)combo shouldFall:(BOOL) fall;
 
 @end

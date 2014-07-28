@@ -42,6 +42,7 @@
 
 //utility
 +(int) randInt:(int)low :(int)high;
++(double) randDub:(double)low :(double)high;
 +(void) loadTexture:(NSString*)fn Into:(CCSprite*)s;
 +(BOOL) isCollidingRect:(CCSprite*)s1 WithRect:(CCSprite*)s2;
 
