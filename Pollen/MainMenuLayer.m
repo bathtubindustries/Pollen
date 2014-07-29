@@ -31,10 +31,10 @@
         //game title
         CCSprite * gameTitle;
         if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-			gameTitle = [CCSprite spriteWithFile:@"Default.png"];
+			gameTitle = [CCSprite spriteWithFile:@"MainMenu.png"];
 			//background.rotation = 90;
 		} else {
-			gameTitle = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
+			gameTitle = [CCSprite spriteWithFile:@"MainMenu-Landscape~ipad.png"];
 		}
         gameTitle.position = ccp(size.width/2, size.height/2);
         gameTitle.scale = 1;
@@ -211,13 +211,16 @@
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     float scaleFactor = size.height/size.width;
-    float dur1 = [GameUtility randDub:.6 :.9];
-    float dur2 = dur1-.2;
-    float dur3 = dur2-.1;
-    CCMoveBy * down1 =[CCMoveBy actionWithDuration:dur1 position:CGPointMake(0, -6*scaleFactor)];
-    CCMoveBy * down2 =[CCMoveBy actionWithDuration:dur2 position:CGPointMake(0, -2.75*scaleFactor)];
-    CCMoveBy * down3 =[CCMoveBy actionWithDuration:dur3 position:CGPointMake(0, -1*scaleFactor)];
-    id seq = [CCSequence actions: down1,down2,down3,[down3 reverse],[down2 reverse],[down1 reverse],nil];
+    float dur1 = [GameUtility randDub:.3 :.45];
+    float dur2 = dur1-.1;
+    float dur3 = dur2-.05;
+    
+    CCMoveBy * down00 =[CCMoveBy actionWithDuration:dur3 position:CGPointMake(0, -.5*scaleFactor)];
+    CCMoveBy * down0 =[CCMoveBy actionWithDuration:dur2 position:CGPointMake(0, -1.3*scaleFactor)];
+    CCMoveBy * down1 =[CCMoveBy actionWithDuration:dur1 position:CGPointMake(0, -3*scaleFactor)];
+    CCMoveBy * down2 =[CCMoveBy actionWithDuration:dur2 position:CGPointMake(0, -1.3*scaleFactor)];
+    CCMoveBy * down3 =[CCMoveBy actionWithDuration:dur3 position:CGPointMake(0, -.5*scaleFactor)];
+    id seq = [CCSequence actions: down00, down0, down1,down2,down3,[down3 reverse],[down2 reverse],[down1 reverse], [down0 reverse], [down00 reverse], nil];
     id repeat = [CCRepeatForever actionWithAction:seq];
     
     [sprite runAction:repeat];
