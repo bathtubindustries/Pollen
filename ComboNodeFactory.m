@@ -59,29 +59,44 @@
 {
     NSMutableArray *spawns = [NSMutableArray array];
     float duration=0;
+    self.nodeCount=waveCount+4;
     if (waveCount ==1){
-        duration=1.5;
+        duration=1.4;
     }
     else if (waveCount==2)
     {
-        duration=1.3;
+        duration=1.2;
     }
     else if (waveCount==3)
     {
-        duration=1.15;
+        duration=1.12;
     }
     else if (waveCount==4)
     {
         duration=1.0;
     }
-    else
+    else if (waveCount<10)
     {
         duration=.88;
     }
-    for (int i=1; i<=9; i++)
+    else if (waveCount<15)
+    {
+        duration=.80;
+    }
+    else {
+        duration=.74;
+    }
+    for (int i=1; i<=self.nodeCount; i++)
     {
 
-        [spawns addObject:[CCDelayTime actionWithDuration:duration/i]];
+        float spawnIntervalDelay;
+        spawnIntervalDelay=(i>6) ? duration/6 : duration/i;
+        if (i==1 && waveCount!=1)
+        {
+            spawnIntervalDelay*=.2;
+        }
+        
+        [spawns addObject:[CCDelayTime actionWithDuration:(i>6) ? duration/6 : duration/i]];
         [spawns addObject:[CCCallBlock actionWithBlock:^(void){
             
             ComboNode *nod =[[[ComboNode alloc]initWithIndex:i] autorelease];

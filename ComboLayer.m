@@ -126,7 +126,7 @@
                     
                     
                     
-                    if (node.index==9)
+                    if (node.index==[factory nodeCount])
                     {
                         waveCount++;
                         [factory spawnWave:waveCount];
@@ -141,9 +141,5 @@
 
     return YES;
 }
--(void) dealloc {
-    //[scene endCombo]  resets spidder and player(?) Z
-    //[spawner_ dealloc];
-    [super dealloc];
-}
+
 @end

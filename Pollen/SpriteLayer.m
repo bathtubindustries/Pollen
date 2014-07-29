@@ -288,8 +288,6 @@
 {
     
     
-    //AFTER COMBO CHANGE : touchEnabled=yes, comboTransitionstarted=no
-    
     if (comboPaused && player_.state==Combo)
     {
         [comboLayer_ resumeSchedulerAndActions];
@@ -341,7 +339,7 @@
     if (player_.pollenMeter >= PLAYER_MAX_POLLEN )
     {
         [player_ startComboBoost];
-        player_.pollenMeter= player_.pollenMeter= END_COMBO_POLLEN_AMOUNT;
+        player_.pollenMeter=END_COMBO_POLLEN_AMOUNT;
         //if spidder is too far away, have him fall down to meet player
         if (spiddder_.position.y - player_.position.y >=200)
         {
@@ -503,12 +501,14 @@
 -(void) pauseCombo{
     if ([[self children] containsObject:comboLayer_] && player_.state==Combo)
     {
-        [comboLayer_ pauseSchedulerAndActions];
+        [comboLayer_ pauseSchedulerAndActions]; //interrupts the ccaction that spawns all nodes
         comboPaused=YES;
     }
 }
 -(void) comboEnded{
     [self removeChild:comboLayer_];
+    
+    
     touchEnabled=YES;
     comboTransitionStarted=NO;
     [spiddder_ setComboMode:NO shouldFall:NO];

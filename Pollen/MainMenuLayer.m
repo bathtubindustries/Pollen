@@ -38,9 +38,59 @@
 		}
         gameTitle.position = ccp(size.width/2, size.height/2);
         gameTitle.scale = 1;
-        [self addChild:gameTitle z:-100];
+        [self addChild:gameTitle z:-103];
         
         
+        NSMutableArray * circles = [NSMutableArray arrayWithObjects:[CCSprite spriteWithFile:@"breathingDot.png"],[CCSprite spriteWithFile:@"breathingDot.png"],[CCSprite spriteWithFile:@"breathingDot.png"],[CCSprite spriteWithFile:@"breathingDot.png"], nil];
+        int index=1;
+        
+        for (CCSprite* circle  in circles)
+        {
+            circle.scale= [GameUtility randDub:.4 :.9];
+            CCDelayTime *delay = [CCDelayTime actionWithDuration:[GameUtility randDub:.0 :1.0]];
+            if (index==1)
+            {
+                circle.position=CGPointMake(-40 * scaleFactor + size.width/2, 65+scaleFactor+ size.height/2);
+                circle.scale+=.5;
+            }
+            else if (index==2)
+            {
+                circle.position=CGPointMake([circle boundingBox].size.width/2, size.height);
+            }
+            else if (index==3)
+            {
+                circle.position=CGPointMake(size.width -[circle boundingBox].size.width*2, -55*scaleFactor + size.height/2);
+            }
+            else
+            {
+                circle.position=ccp(5*scaleFactor, 5*scaleFactor);
+            }
+            [self addChild:circle z:-99];
+            
+            id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatScaleForSprite:) data:(CCSprite*)circle];
+            id seq = [CCSequence actions:delay,trigger,nil];
+            [circle runAction:seq];
+            index++;
+        }
+
+        
+        
+        NSMutableArray * letters = [NSMutableArray arrayWithObjects:[CCSprite spriteWithFile:@"letterP.png"],[CCSprite spriteWithFile:@"letterO.png"],[CCSprite spriteWithFile:@"letterL1.png"],[CCSprite spriteWithFile:@"letterL2.png"],[CCSprite spriteWithFile:@"letterE.png"],[CCSprite spriteWithFile:@"letterN.png"], nil];
+        
+        int positioner=1;
+        for (CCSprite* letter in letters)
+        {
+            CCDelayTime *delay = [CCDelayTime actionWithDuration:[GameUtility randDub:.0 :1.0]];
+            int adjustO = (positioner==2)?5:0;
+            int adjustN = (positioner==6)?-5:0;
+            letter.position = CGPointMake((-15-adjustO-adjustN)*scaleFactor + positioner*[letter boundingBox].size.width/2 , size.height/2);
+            letter.scale=.75;
+            [self addChild:letter z:-100];
+            id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatBounceForSprite:) data:(CCSprite*)letter];
+            id seq = [CCSequence actions:delay,trigger,nil];
+            [letter runAction:seq];
+            positioner++;
+        }
         
         
         
@@ -157,8 +207,30 @@
 }
 
 
+- (void) triggerRepeatBounceForSprite:(CCSprite*) sprite
+{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    float scaleFactor = size.height/size.width;
+    float dur1 = [GameUtility randDub:.6 :.9];
+    float dur2 = dur1-.2;
+    float dur3 = dur2-.1;
+    CCMoveBy * down1 =[CCMoveBy actionWithDuration:dur1 position:CGPointMake(0, -6*scaleFactor)];
+    CCMoveBy * down2 =[CCMoveBy actionWithDuration:dur2 position:CGPointMake(0, -2.75*scaleFactor)];
+    CCMoveBy * down3 =[CCMoveBy actionWithDuration:dur3 position:CGPointMake(0, -1*scaleFactor)];
+    id seq = [CCSequence actions: down1,down2,down3,[down3 reverse],[down2 reverse],[down1 reverse],nil];
+    id repeat = [CCRepeatForever actionWithAction:seq];
+    
+    [sprite runAction:repeat];
+}
 
-
+- (void) triggerRepeatScaleForSprite:(CCSprite*) sprite
+{
+    CCScaleBy * scale1 = [CCScaleBy actionWithDuration:2.3 scale:[GameUtility randDub:1.8 :2.2]];
+    id seq = [CCSequence actions: scale1, [scale1 reverse],nil];
+    id repeat = [CCRepeatForever actionWithAction:seq];
+    
+    [sprite runAction:repeat];
+}
 
 
 

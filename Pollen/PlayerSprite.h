@@ -39,6 +39,7 @@
         Boosting,
         ComboBoost,
         Combo,
+        ComboEnding
     };
     enum PlayerState state_;
     BOOL dead_;
