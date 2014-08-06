@@ -376,6 +376,10 @@ didSelectRowAtIndexPath:
              sendScoreChallengeToPlayers:playerIds
              withScore:_score message:
              self.challengeMessage.text];
+            
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Challenge sent" message:@"Take that." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+            
+            [alert show];
         }
         
         if (self.challengeButtonPressedBlock) {

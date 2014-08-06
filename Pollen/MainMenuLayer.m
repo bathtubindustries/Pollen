@@ -15,6 +15,8 @@
 #import "SimpleAudioEngine.h"
 #import "GameUtility.h"
 
+#import "HaikuLayer.h"
+
 @implementation MainMenuLayer
 
 -(id) init {
@@ -23,7 +25,14 @@
 -(id) initWithScore:(float)prevScore {
     if(self = [super init]) {
         
-       
+        if ([GameUtility savedHighScore] <=0)
+        {
+            [GameUtility isTutorialNeeded:YES];
+        }
+        else
+        {
+            [GameUtility isTutorialNeeded:NO];
+        }
         
         CGSize size = [[CCDirector sharedDirector] winSize];
         float scaleFactor = size.height/size.width;
@@ -46,12 +55,13 @@
         
         for (CCSprite* circle  in circles)
         {
-            circle.scale= [GameUtility randDub:.4 :.9];
-            CCDelayTime *delay = [CCDelayTime actionWithDuration:[GameUtility randDub:.0 :1.0]];
+            double scaleOne = (index==1) ? .5 : 0;
+            CCScaleTo * initScale = [CCScaleTo actionWithDuration:2.3 scale:[GameUtility randDub:.4 :.9] + scaleOne];
+            
+            circle.scale=0.0;
             if (index==1)
             {
                 circle.position=CGPointMake(-40 * scaleFactor + size.width/2, 65+scaleFactor+ size.height/2);
-                circle.scale+=.5;
             }
             else if (index==2)
             {
@@ -68,7 +78,7 @@
             [self addChild:circle z:-99];
             
             id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatScaleForSprite:) data:(CCSprite*)circle];
-            id seq = [CCSequence actions:delay,trigger,nil];
+            id seq = [CCSequence actions:initScale,trigger,nil];
             [circle runAction:seq];
             index++;
         }
@@ -80,14 +90,15 @@
         int positioner=1;
         for (CCSprite* letter in letters)
         {
+            CCDelayTime *initialDelay = [CCDelayTime actionWithDuration:1.5];
             CCDelayTime *delay = [CCDelayTime actionWithDuration:[GameUtility randDub:.0 :1.0]];
             int adjustO = (positioner==2)?5:0;
             int adjustN = (positioner==6)?-5:0;
             letter.position = CGPointMake((-15-adjustO-adjustN)*scaleFactor + positioner*[letter boundingBox].size.width/2 , size.height/2);
             letter.scale=.75;
-            [self addChild:letter z:-100];
+            [self addChild:letter z:1];
             id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatBounceForSprite:) data:(CCSprite*)letter];
-            id seq = [CCSequence actions:delay,trigger,nil];
+            id seq = [CCSequence actions:initialDelay,delay,trigger,nil];
             [letter runAction:seq];
             positioner++;
         }
@@ -96,44 +107,57 @@
         
         //high score label
         if(!([GameUtility savedHighScore] == 0 && prevScore == 0)) {
-            CCLabelTTF *highScoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im / %im",
-                                                                      (int) prevScore, (int) [GameUtility savedHighScore]]
-                                                           fontName:@"Futura" fontSize:20*scaleFactor];
+            CCLabelTTF *highScoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im",
+                                                                       (int) [GameUtility savedHighScore]]
+                                                           fontName:@"Futura" fontSize:24*scaleFactor];
             highScoreLabel.position = ccp(size.width/2, size.height - 32);
             [highScoreLabel setColor:ccBLACK];
             [self addChild:highScoreLabel];
         }
         
-        //tap to play
-        CCLabelTTF *newGameLabel = [CCLabelTTF labelWithString:@"( tap anywhere to start )"
-                                                      fontName:@"Futura" fontSize:14*scaleFactor];
-        newGameLabel.position = ccp(size.width/2,
-                                    170);
-        [self addChild:newGameLabel];
         
         //menu
-        [CCMenuItemFont setFontName:@"Futura"];
+        [CCMenuItemFont setFontName:@"Chalkduster"];
         [CCMenuItemFont setFontSize:(24*scaleFactor)];
         
         CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
-            #warning store button acting as score reset - debug only!
-            [GameUtility saveHighScore:0];
-            [GameUtility HaikuDiscovered:@"Instruct" discoverable:YES];
             [[CCDirector sharedDirector] replaceScene:
             [CCTransitionFadeUp transitionWithDuration:0.5 scene:[StoreScene node]]];
         }];
         [itemStore setColor:ccBLACK];
         
         
+        CCMenuItem *play = [CCMenuItemFont itemWithString:@"play" block:^(id sender) {
+            [MainMenuLayer startGame];
+            
+            
+        }];
+        [play setColor:ccBLACK];
         
         
-        CCMenuItem *leaderBoard = [CCMenuItemFont itemWithString:@"leaderboard" block:^(id sender) {
+
+
+
+        CCMenu *menu = [CCMenu menuWithItems:play, itemStore, nil];
+		[menu alignItemsVerticallyWithPadding:2*scaleFactor];
+        [menu setPosition:ccp(size.width/2, 80*scaleFactor)];
+		[self addChild:menu];
+        
+        
+        CCMenuItem *leaderBoard = [CCMenuItemImage itemWithNormalImage:@"leaderIcon.png" selectedImage:@"leaderIcon.png" disabledImage:nil block:^(id sender){
             [self showLeaderboard];
             
             
         }];
-        [leaderBoard setColor:ccBLACK];
         
+        CCMenuItem *haikuWrite = [CCMenuItemImage itemWithNormalImage:@"heartIcon.png" selectedImage:@"heartIcon.png" disabledImage:nil block:^(id sender){
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[HaikuLayer scene] ]];
+        }];
+        
+        CCMenuItem *tutIcon = [CCMenuItemImage itemWithNormalImage:@"tutorialIcon.png" selectedImage:@"tutorialIcon.png" disabledImage:nil block:^(id sender){
+            [GameUtility isTutorialNeeded:YES];
+            [MainMenuLayer startGame];
+        }];
         
         // Sound on/off toggle
         CCMenuItem *soundOnItem = [CCMenuItemImage itemWithNormalImage:@"muteOn.png"
@@ -156,14 +180,39 @@
             soundToggleItem = [CCMenuItemToggle itemWithTarget:self
                                                       selector:@selector(soundButtonTapped:)
                                                          items:soundOnItem, soundOffItem, nil];
-
-
-        CCMenu *menu = [CCMenu menuWithItems:itemStore, leaderBoard, soundToggleItem, nil];
-		[menu alignItemsVerticallyWithPadding:2*scaleFactor];
-        [menu setPosition:ccp(size.width/2, 80)];
-		[self addChild:menu];
+        CCMenu *iconMenu = [CCMenu menuWithItems:leaderBoard,haikuWrite,tutIcon, soundToggleItem,nil];
+        
+        [iconMenu alignItemsHorizontallyWithPadding:10*scaleFactor];
+        [iconMenu setPosition:ccp(size.width/2, 20*scaleFactor)];
+		[self addChild:iconMenu];
         
         
+        
+        
+        
+        spidderEyeCounter_ = [CCSprite spriteWithFile:@"spidEyeCounter.png"];
+        spidderEyeCounter_.anchorPoint = ccp(0, 1);
+        spidderEyeCounter_.scaleX=1.2;
+        spidderEyeCounter_.position = ccp(size.width- [spidderEyeCounter_ boundingBox].size.width, size.height);
+        [self addChild: spidderEyeCounter_ z:3];
+        
+        
+        spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
+        spidderEyeLabel_.anchorPoint = ccp(0, 1);
+        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.5 , size.height-[spidderEyeCounter_ boundingBox].size.height/8);
+        [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
+        
+        haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
+        haikuCounter_.scale=.16;
+        haikuCounter_.position = ccp([haikuCounter_ boundingBox].size.width/1.85, size.height - [haikuCounter_ boundingBox].size.height/2);
+        [self addChild: haikuCounter_ z:0];
+        
+        haikuLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
+                                         fontName:@"Futura" fontSize:12*scaleFactor];
+        haikuLabel_.anchorPoint = ccp(0, 1);
+        haikuLabel_.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
+        [self addChild:haikuLabel_ z:0];
+
         
         
         //music
@@ -254,7 +303,7 @@
      addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event {
-    [MainMenuLayer startGame];
+    
     
     return YES;
 }

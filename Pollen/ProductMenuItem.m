@@ -11,6 +11,7 @@
 #import "IAPManager_objc.h"
 #import "StoreLayer.h"
 #import "UIBAlertView.h"
+#import "SimpleAudioEngine.h"
 
 
 @implementation ProductMenuItem
@@ -54,11 +55,11 @@
         
         CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"house" fontName:@"Futura" fontSize:10*scaleFactor];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(self.contentSize.width/2, label.position.y-10*scaleFactor);
+        labelPrice.position = CGPointMake(6*scaleFactor +self.contentSize.width/2, label.position.y-14*scaleFactor);
         [self addChild:labelPrice];
         
         CCSprite *imagePrice = [CCSprite spriteWithFile:@"costEyes.png"];
-        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width, labelPrice.position.y);
+        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width +2*scaleFactor, labelPrice.position.y);
         [self addChild:imagePrice];
 
         self.lockSprite = [[CCSprite spriteWithFile:@"lockedOverlay.png"] retain];
@@ -101,11 +102,11 @@
         
         CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"1000" fontName:@"Futura" fontSize:10*scaleFactor];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-10*scaleFactor);
+        labelPrice.position = CGPointMake(6*scaleFactor +self.contentSize.width/2,  label.position.y-14*scaleFactor);
         [self addChild:labelPrice];
         
         CCSprite *imagePrice = [CCSprite spriteWithFile:@"costEyes.png"];
-        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width, labelPrice.position.y);
+        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width+2*scaleFactor, labelPrice.position.y);
         [self addChild:imagePrice];
         
         self.lockSprite = [[CCSprite spriteWithFile:@"lockedOverlay.png"] retain];
@@ -141,7 +142,7 @@
         CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:5*scaleFactor];
         label.color = labelColor;
         label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-20*scaleFactor);
-        [self addChild:label];
+        //[self addChild:label];
         
         CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"$ 0.99" fontName:@"Futura" fontSize:10*scaleFactor];
         labelPrice.color = labelColor;
@@ -149,7 +150,8 @@
         [self addChild:labelPrice];
         
         self.itemSprite = [CCSprite spriteWithFile:@"eyesStore100.png"];
-        self.itemSprite.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2);
+        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor +self.contentSize.height/2);
+        self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
     
     }
@@ -165,7 +167,7 @@
         CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:5*scaleFactor];
         label.color = labelColor;
         label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-20*scaleFactor);
-        [self addChild:label];
+        //[self addChild:label];
         
         
         CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"$ 1.99" fontName:@"Futura" fontSize:10*scaleFactor];
@@ -174,7 +176,8 @@
         [self addChild:labelPrice];
         
         self.itemSprite = [CCSprite spriteWithFile:@"eyesStore250.png"];
-        self.itemSprite.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2);
+        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor +self.contentSize.height/2);
+        self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
         
     }
@@ -191,11 +194,11 @@
         CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:7*scaleFactor];
         label.color = labelColor;
         label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-20*scaleFactor);
-        [self addChild:label];
+        //[self addChild:label];
         
         CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"150" fontName:@"Futura" fontSize:10*scaleFactor];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-10*scaleFactor);
+        labelPrice.position = CGPointMake(4*scaleFactor+self.contentSize.width/2,  label.position.y-10*scaleFactor);
         [self addChild:labelPrice];
         
         CCSprite *imagePrice = [CCSprite spriteWithFile:@"costEyes.png"];
@@ -203,7 +206,8 @@
         [self addChild:imagePrice];
         
         self.itemSprite = [CCSprite spriteWithFile:@"haikuStore3.png"];
-        self.itemSprite.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2);
+        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor + self.contentSize.height/2);
+        self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
         
     }
@@ -247,6 +251,8 @@
         
         
         [GameUtility equipItem:item.productNumber];
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"wandSelect.aiff"];
         
     }
     else

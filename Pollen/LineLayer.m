@@ -33,7 +33,7 @@
     if(spriteLayer) {
         //draw pollen meter lines
         glLineWidth((GLfloat) 50.f);
-        for(int i = 0; i < (PLAYER_MAX_POLLEN/PLAYER_SWIPE_AMOUNT)-1; i++) {
+       /* for(int i = 0; i < (PLAYER_MAX_POLLEN/PLAYER_SWIPE_AMOUNT)-1; i++) {
             int tabWidth;
             if([spriteLayer getPollenMeter] >= (i+1)*PLAYER_SWIPE_AMOUNT) {
                 ccDrawColor4B(255, 255, 255, 255);
@@ -47,7 +47,7 @@
             CGPoint rectSize = ccp(tabWidth + rectOrigin.x, [spriteLayer getHeight] - size.height + rectOrigin.y);
             ccDrawRect(rectOrigin, rectSize);
         }
-    }
+    */}
 }
 
 @end

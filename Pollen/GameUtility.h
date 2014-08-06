@@ -38,7 +38,8 @@
 +(void) equipItem:(NSUInteger) val;
 +(NSUInteger) equippedItem;
 
-
++(void) isTutorialNeeded: (BOOL) needed;
++(BOOL) needsTutorial;
 
 //utility
 +(int) randInt:(int)low :(int)high;

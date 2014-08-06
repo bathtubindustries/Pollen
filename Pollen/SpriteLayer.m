@@ -37,29 +37,35 @@
 @implementation SpriteLayer
 
 @synthesize playerHeight = playerHeight_;
--(float) topBuffer { return [pollenBarBackground_ boundingBox].size.height; }
+-(float) topBuffer { return spidderEyeCounter_.contentSize.height-1; }
 
 -(id) init {
     if(self = [super init])
     {
         //setup
         size = [[CCDirector sharedDirector] winSize];
+        scaleFactor = size.height/size.width;
         self.accelerometerEnabled = YES;
         touchEnabled=YES;
         comboPaused=NO;
         //pollen meter
-        pollenBarBackground_ = [CCSprite spriteWithFile:@"pollenBarBackground.png"];
-        pollenBarBackground_.position = ccp(size.width/2,
-                                            size.height - [pollenBarBackground_ boundingBox].size.height/2);
-        [self addChild:pollenBarBackground_ z:1000];
+        pollenBarBackground_ = [CCSprite spriteWithFile:@"tubeBack.png"];
+        pollenBarBackground_.position = ccp(pollenBarBackground_.boundingBox.size.width/2,
+                                            size.height-pollenBarBackground_.boundingBox.size.height/2);
+        [self addChild:pollenBarBackground_ z:500];
         
-        pollenBar_ = [ClipSprite spriteWithFile:@"pollenBar.png"];
-        pollenBar_.position = pollenBarBackground_.position;
-        [pollenBar_ setClip:ccp(0, 0) :ccp(0, [pollenBar_ boundingBox].size.height)];
-        [self addChild:pollenBar_ z:1001];
+        pollenBar_ = [ClipSprite spriteWithFile:@"tubeFull.png"];
+        pollenBar_.position = ccp(pollenBarBackground_.position.x - pollenBar_.boundingBox.size.width-4*scaleFactor, pollenBarBackground_.position.y-10*scaleFactor);
+        [pollenBar_ setClip:ccp(0, 0) :ccp([pollenBar_ boundingBox].size.height ,0)];
+        [self addChild:pollenBar_ z:501];
+        
+        pollenBarTube_ = [CCSprite spriteWithFile:@"tubeEmpty.png"];
+        pollenBarTube_.position = ccp(pollenBarBackground_.position.x-pollenBarTube_.boundingBox.size.width+2*scaleFactor,
+                                            pollenBarBackground_.position.y-15*scaleFactor);
+        [self addChild:pollenBarTube_ z:502];
         
         //section off top of screen
-        size.height -= [pollenBarBackground_ boundingBox].size.height;
+        //size.height -= [pollenBarBackground_ boundingBox].size.height;
         
         
         //spawner
@@ -81,41 +87,45 @@
         player_ = [PlayerSprite node];
         [self addChild:player_ z:3];
         player_.spawnLayer = self;
-        
-        //height
-        scaleFactor = size.height/size.width;
+
         
                 //put this on top of high score
+        spidderEyeCounter_ = [CCSprite spriteWithFile:@"spidEyeCounter.png"];
         spidderEyeCounter_.anchorPoint = ccp(0, 1);
-         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeCounter.plist"];
-        spidderEyeCounter_ = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"counter1.png"]]];
-        spidderEyeCounter_.scale=1.10;
-        spidderEyeCounter_.position = ccp(1 + [spidderEyeCounter_ boundingBox].size.width/2, size.height - [spidderEyeCounter_ boundingBox].size.height/2);
+        spidderEyeCounter_.scaleX=1.2;
+        spidderEyeCounter_.position = ccp(size.width- [spidderEyeCounter_ boundingBox].size.width, size.height);
         [self addChild: spidderEyeCounter_ z:3];
-        counterAnimFrames = [[NSMutableArray alloc]init ];
         
         
         
         spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
         spidderEyeLabel_.anchorPoint = ccp(0, 1);
-        spidderEyeLabel_.position = ccp( [spidderEyeCounter_ boundingBox].size.width*.6 , size.height-[spidderEyeCounter_ boundingBox].size.height/4);
+        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.5 , size.height-[spidderEyeCounter_ boundingBox].size.height/8);
         [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
+        
+        scoreLeaf_ = [CCSprite spriteWithFile:@"scoreLeaf.png"];
+        scoreLeaf_.position= ccp(scoreLeaf_.boundingBox.size.width/2,size.height-scoreLeaf_.boundingBox.size.height/2);
+        scoreLeaf_.scaleX=1.1;
+        [self addChild:scoreLeaf_];
+        
         
         highScore_ = [GameUtility savedHighScore];
         highScoreLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im", (int) highScore_]
                                              fontName:@"Futura" fontSize:12*scaleFactor];
         highScoreLabel_.anchorPoint = ccp(0, 1);
-        highScoreLabel_.position = ccp(4,
-                                       spidderEyeCounter_.position.y - [spidderEyeCounter_ boundingBox].size.height/2);
+        highScoreLabel_.position = ccp(4*scaleFactor,
+                                       size.height-3*scaleFactor);
+        [highScoreLabel_ setColor:ccBLACK];
         [self addChild:highScoreLabel_ z:4];
         
         heightLabel_ = [CCLabelTTF labelWithString:@"0m" fontName:@"Futura" fontSize:12*scaleFactor];
         heightLabel_.anchorPoint = ccp(0, 1);
         heightLabel_.position = ccp(highScoreLabel_.position.x,
                                     highScoreLabel_.position.y - [highScoreLabel_ boundingBox].size.height);
+        [heightLabel_ setColor:ccBLACK];
         [self addChild: heightLabel_ z:3];
         
-        haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
+        /*haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
         haikuCounter_.scale=.16;
         haikuCounter_.position = ccp(size.width - [haikuCounter_ boundingBox].size.width*1.4, size.height - [haikuCounter_ boundingBox].size.height*1.25);
         [self addChild: haikuCounter_ z:0];
@@ -124,7 +134,7 @@
                                              fontName:@"Futura" fontSize:12*scaleFactor];
         haikuLabel_.anchorPoint = ccp(0, 1);
         haikuLabel_.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
-        [self addChild:haikuLabel_ z:0];
+        [self addChild:haikuLabel_ z:0];*/
 
 
         
@@ -208,35 +218,7 @@
                 
                 [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+self.treeLevel*2)];
                 
-                [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeCounter.plist"];
-                counterSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeCounter.png"];
-                [self addChild:counterSpriteSheet];
-                
-                CCSprite * spidderCounter  = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"counter1.png"]]];
-                counterAnimFrames = [NSMutableArray array];
-                
-                for (int i=1; i<=14; i++) {
-                    if (i!=10)
-                        [counterAnimFrames addObject:
-                         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                          [NSString stringWithFormat:@"counter%d.png",i]]];
-                    else{
-                        [counterAnimFrames addObject:
-                         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                          [NSString stringWithFormat:@"count%d.png",i]]];
-                    }
-                }
-                
-                counterAnim = [CCAnimation animationWithSpriteFrames:counterAnimFrames delay:0.1f];
-                CCAction * eyeCounterFlash =[CCAnimate actionWithAnimation:counterAnim];
-                spidderCounter.visible=YES;
-                
-                [spidderCounter runAction:eyeCounterFlash];
-                spidderCounter.scale=1.25;
-                spidderCounter.position= ccp(spidderEyeCounter_.position.x, spidderEyeCounter_.position.y);
-                if (spidderEyeCounter_.visible) //sets the static counter to invisible once the animated counter appears
-                    spidderEyeCounter_.visible=NO;
-                [counterSpriteSheet addChild:spidderCounter];
+
                 [spidderEyeLabel_ setString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]]];
             }
         }
@@ -327,10 +309,10 @@
             
             comboLayer_ = [ComboLayer node];
             [comboLayer_ setSpawnLayer:self];
-            [self addChild:comboLayer_ z:10];
+            [self addChild:comboLayer_ z:1000];
             [comboLayer_ setScene:scene];
             //[player_ setZOrder:player_.zOrder+10]; player might be confused on mechanic if bug is still on closest layer
-            [spiddder_ setZOrder:spiddder_.zOrder+10];
+            [spiddder_ setZOrder:spiddder_.zOrder+1000];
             spiddder_.position= CGPointMake (spiddder_.position.x, size.height*8/9);
             [self startComboTransition];
         }
@@ -404,8 +386,6 @@
     //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
     if(playerHeight_ > highScore_) [highScoreLabel_ setString:heightLabel_.string];
-    //haiku label
-    [haikuLabel_ setString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]];
     
     //handle lose condition
     if(player_.dead) {
@@ -463,7 +443,7 @@
 {
     CCSprite* banner= [CCSprite spriteWithFile:@"comboBanner1.png"];
     banner.position = ccp(-banner.contentSize.width *scaleFactor, size.height/2);
-    [self addChild:banner z:15];
+    [self addChild:banner z:1015];
     banner.visible=YES;
     [banner runAction:[CCSequence actionWithArray:[NSArray arrayWithObjects:
                                                    [CCMoveTo actionWithDuration:.15 position:ccp(size.width/2,size.height/2)],
@@ -533,8 +513,8 @@
     bgLayer = l;
 }
 -(void) updatePollenBar {
-    pollenBar_.clipSize = ccp([pollenBar_ boundingBox].size.width*(player_.pollenMeter/PLAYER_MAX_POLLEN),
-                              pollenBar_.clipSize.y);
+    pollenBar_.clipSize = ccp(pollenBar_.clipSize.x,
+                                 [pollenBar_ boundingBox].size.height*(player_.pollenMeter/PLAYER_MAX_POLLEN));
 }
 
 @end

@@ -84,7 +84,14 @@
     
 }
 
++(BOOL) needsTutorial{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"tutorialNeeded"];
+}
 
++(void) isTutorialNeeded: (BOOL) needed{
+    [[NSUserDefaults standardUserDefaults] setBool:needed forKey:@"tutorialNeeded"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 
 //UTILITY

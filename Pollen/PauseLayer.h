@@ -19,6 +19,8 @@
     
     CCMenu *pauseMenu_;
     CCSprite *pauseButton_;
+    CCSprite *pauseLeaf_;
+    CCSprite *pauseBox_;
     
     CCTexture2D *pauseButtonTexture_;
     CCTexture2D *resumeButtonTexture_;

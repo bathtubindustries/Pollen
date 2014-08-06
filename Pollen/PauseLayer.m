@@ -13,7 +13,7 @@
 
 #import "SimpleAudioEngine.h"
 
-#define PAUSED_OPACITY 100
+#define PAUSED_OPACITY 160
 
 @implementation PauseLayer
 
@@ -47,14 +47,20 @@
         [self addChild:pauseButton_];
         
         //menu items and setup
+        
         scaleFactor = size.height/size.width;
-        [CCMenuItemFont setFontName:@"Futura"];
-        [CCMenuItemFont setFontSize:(24*scaleFactor)];
+        
+        pauseBox_ = [CCSprite spriteWithFile:@"pauseBox.png"];
+        pauseBox_.position=ccp(size.width/2,size.height/2);
+        [self addChild:pauseBox_];
+        
+        [CCMenuItemFont setFontName:@"Chalkduster"];
+        [CCMenuItemFont setFontSize:(18*scaleFactor)];
         
         CCMenuItem *itemResume = [CCMenuItemFont itemWithString:@"resume" block:^(id sender) {
             [self togglePauseMenu];
         }];
-        CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"main menu" block:^(id sender) {
+        CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"menu" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
         }];
         
@@ -85,11 +91,12 @@
         pauseMenu_ = [CCMenu menuWithItems:itemResume, itemMainMenu, soundToggleItem, nil];
         
         
-        [pauseMenu_ alignItemsVerticallyWithPadding: 3*scaleFactor];
+        [pauseMenu_ alignItemsVerticallyWithPadding: 1.5*scaleFactor];
         [pauseMenu_ setPosition: ccp(size.width/2, size.height/2)];
         
         [pauseMenu_ setEnabled:NO];
         [pauseMenu_ setVisible:NO];
+        [pauseBox_ setVisible:NO];
         [self addChild:pauseMenu_];
     }
     return self;
@@ -167,6 +174,7 @@
     pausedWithMenu_ = YES;
     [pauseMenu_ setVisible:YES];
     [pauseMenu_ setEnabled:YES];
+    [pauseBox_ setVisible:YES];
 }
 -(void) resumeWithMenu {
     if(paused_ && !alreadyPaused_)
@@ -182,6 +190,7 @@
     pausedWithMenu_ = NO;
     [pauseMenu_ setVisible:NO];
     [pauseMenu_ setEnabled:NO];
+    [pauseBox_ setVisible:NO];
 }
 
 -(void) togglePauseMenu {

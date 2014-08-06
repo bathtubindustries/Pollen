@@ -10,7 +10,6 @@
 
 #define FLOWER_BLOOM_HEALTH 100.f
 #define FLOWER_POLLEN_AMOUNT 3.f
-#warning giving a little more pollen so testers can test combomode
 
 #define FLOWER_WIDTH 80.f
 #define FLOWER_HEIGHT 100.f

@@ -9,9 +9,11 @@
 #import "CCLayer.h"
 #import "cocos2d.h"
 
-@interface GameOverLayer : CCLayer
+@interface GameOverLayer : CCLayer <GKLeaderboardViewControllerDelegate> 
 @property float playerScore;
 -(id) initWithScore: (float)score;
+- (void) showLeaderboard;
+- (void) leaderboardViewControllerDidFinish: (GKLeaderboardViewController *)viewController;
 +(CCScene*) sceneWithScore:(float)prevScore;
 +(CCScene*) scene;
 @end

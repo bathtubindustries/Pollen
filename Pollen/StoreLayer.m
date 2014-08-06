@@ -16,14 +16,37 @@ NSMutableDictionary* productIDs;
 
 -(id) init {
     if(self = [super init]) {
-        CCSprite *img = [CCSprite spriteWithFile:@"pollenstorebg.png"];
+        
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        float scaleFactor = winSize.height/winSize.width;
+        
+        CCSprite *img = [CCSprite spriteWithFile:@"treebody1.png"];
         img.anchorPoint = ccp(0, 0);
         img.position = ccp(0, 0);
         [self addChild:img];
         
-# warning GIVING FREE EYES TO TESTERS
+    # warning GIVING FREE EYES TO TESTERS
         [GameUtility saveSpidderEyeCount:1500];
         
+        
+        CCLabelTTF* backOut = [CCLabelTTF labelWithString:@"▲ back ▲" fontName:@"Chalkduster" fontSize:12*scaleFactor];
+        backOut.anchorPoint = ccp(0, 1);
+        backOut.position = ccp( -backOut.contentSize.width/2 + winSize.width/2 , winSize.height);
+        [self addChild: backOut];
+        [backOut setColor:ccc3(255, 224, 51)];
+        
+        
+        CCLabelTTF* pollinatorsLabel = [CCLabelTTF labelWithString:@"pollinators" fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        pollinatorsLabel.anchorPoint = ccp(0, 1);
+        pollinatorsLabel.position = ccp( -pollinatorsLabel.contentSize.width/2 + winSize.width/2 , winSize.height*.89);
+        [self addChild: pollinatorsLabel];
+        [pollinatorsLabel setColor:ccc3(255, 224, 51)];
+        
+        CCLabelTTF* packsLabel = [CCLabelTTF labelWithString:@"consumables" fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        packsLabel.anchorPoint = ccp(0, 1);
+        packsLabel.position = ccp( -packsLabel.contentSize.width/2 + winSize.width/2 , winSize.height*.38);
+        [self addChild: packsLabel];
+        [packsLabel setColor:ccc3(255, 224, 51)];
         
         products = [[NSMutableArray array] retain];
         productIDs = [[NSMutableDictionary dictionary] retain];
@@ -31,8 +54,7 @@ NSMutableDictionary* productIDs;
         [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers250" forKey:@"250 Spidderoso Peepers"];
         [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpiderrosoPeepers100" forKey:@"100 Spidderoso Peepers"];
         
-        CGSize winSize = [CCDirector sharedDirector].winSize;
-        float scaleFactor = winSize.height/winSize.width;
+        
         
         ProductMenuItem * sporeTwig = [[ProductMenuItem alloc]initWithProductNumber:0];
         sporeTwig.position = ccp(winSize.width/2 - sporeTwig.activeArea.size.width/1.38, winSize.height - sporeTwig.activeArea.size.height);
@@ -54,27 +76,28 @@ NSMutableDictionary* productIDs;
         [products addObject:Eyes250];
         [products addObject:Haikus3];
         
+        
+        
         CCMenu *storeMenu = [CCMenu menuWithItems:sporeTwig,Dandelion,Eyes100,Eyes250,Haikus3, nil];
         storeMenu.position = CGPointZero;
         [self addChild:storeMenu];
-        
-        
-        spidderEyeCounter_.anchorPoint = ccp(0, 1);
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeCounter.plist"];
-        spidderEyeCounter_ = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"counter1.png"]]];
-        spidderEyeCounter_.scale=1.10;
-        spidderEyeCounter_.position = ccp(1 + [spidderEyeCounter_ boundingBox].size.width/2, winSize.height - [spidderEyeCounter_ boundingBox].size.height/2);
-        [self addChild: spidderEyeCounter_ z:0];
 
+        
+        spidderEyeCounter_ = [CCSprite spriteWithFile:@"spidEyeCounter.png"];
+        spidderEyeCounter_.anchorPoint = ccp(0, 1);
+        spidderEyeCounter_.scaleX=1.2;
+        spidderEyeCounter_.position = ccp(winSize.width- [spidderEyeCounter_ boundingBox].size.width, winSize.height);
+        [self addChild: spidderEyeCounter_ z:3];
+        
+        
         spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
         spidderEyeLabel_.anchorPoint = ccp(0, 1);
-        spidderEyeLabel_.position = ccp( [spidderEyeCounter_ boundingBox].size.width*.6 , winSize.height-[spidderEyeCounter_ boundingBox].size.height/4);
+        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.5 , winSize.height-[spidderEyeCounter_ boundingBox].size.height/8);
         [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
-        
-        
+
         haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
         haikuCounter_.scale=.16;
-        haikuCounter_.position = ccp(winSize.width - [haikuCounter_ boundingBox].size.width*1.4, spidderEyeCounter_.position.y);
+        haikuCounter_.position = ccp([haikuCounter_ boundingBox].size.width/1.85, winSize.height - [haikuCounter_ boundingBox].size.height/2);
         [self addChild: haikuCounter_ z:0];
         
         haikuLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
@@ -82,7 +105,7 @@ NSMutableDictionary* productIDs;
         haikuLabel_.anchorPoint = ccp(0, 1);
         haikuLabel_.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
         [self addChild:haikuLabel_ z:0];
-
+        
         
         
     }

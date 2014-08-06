@@ -31,15 +31,13 @@
         [spriteLayer_ setBackgroundLayer:bgLayer_];
         [self addChild:spriteLayer_ z:1];
         
-        if([GameUtility savedHighScore] == 0) {
+        if([GameUtility needsTutorial]) {
             _tutorialActive=YES;
             tutorialLayer_ = [TutorialLayer node];
             [tutorialLayer_ setScene:self];
             [self addChild:tutorialLayer_ z:2];
             [GameUtility equipItem:0];
-            [GameUtility itemPurchased:@"Dandelion Hammer" purchased:NO];
-            [GameUtility itemPurchased:@"SporeTwig Staff" purchased:YES];
-#warning add additional wands here
+            [GameUtility isTutorialNeeded:NO];
         }
         
         lineLayer_ = [LineLayer node];
@@ -64,11 +62,17 @@
 -(void) pause { [pauseLayer_ pause]; }
 -(void) resume { [pauseLayer_ resume]; }
 -(BOOL) isPausedWithMenu { return (pauseLayer_.pausedWithMenu || continueLayer_.paused); }
-
+-(void) hidePause{pauseLayer_.visible=NO;}
+-(void) showPause{pauseLayer_.visible=YES;}
 //continue screen
 -(void) makeReviveCall{ [spriteLayer_ revivePlayer];}
--(void) activateContinueCheck: (NSInteger) score{[continueLayer_ checkForContinue];}
+-(void) activateContinueCheck: (NSInteger) score{
+    continueLayer_.playerScore=score;
+    [continueLayer_ checkForContinue];}
 
+-(float) getScore{
+    return spriteLayer_.playerHeight;
+}
 
 -(void) update:(ccTime)dt
 {

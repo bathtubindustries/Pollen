@@ -8,6 +8,7 @@
 
 #import "StoreScene.h"
 #import "StoreLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation StoreScene
 
@@ -18,7 +19,8 @@
         storeLayer_ = [StoreLayer node];
         [self addChild:storeLayer_ z:1];
         [self scheduleUpdate];
-        
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"wandSelect.aiff"];
+        [[SimpleAudioEngine sharedEngine] setEffectsVolume:[[SimpleAudioEngine sharedEngine] effectsVolume]];
     }
     return self;
 }

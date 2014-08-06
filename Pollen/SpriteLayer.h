@@ -46,8 +46,10 @@
     
     ClipSprite *pollenBar_;
     CCSprite *pollenBarBackground_;
+    CCSprite *pollenBarTube_;
     CCSprite *spidderEyeCounter_;
     CCSprite *haikuCounter_;
+    CCSprite *scoreLeaf_;
     
     NSMutableArray *eyes_;
     NSMutableArray *eyesToRemove_;
@@ -56,11 +58,6 @@
     CCAnimation *eyeAnim;
     CCSpriteBatchNode *eyeSpriteSheet;
     NSMutableArray *eyeAnimFrames;
-    
-    //more animations
-    CCAnimation *counterAnim;
-    CCSpriteBatchNode *counterSpriteSheet;
-    NSMutableArray *counterAnimFrames;
     
     CCLayer * comboLayer;
     BOOL touchEnabled;

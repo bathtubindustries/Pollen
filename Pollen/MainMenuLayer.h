@@ -12,6 +12,10 @@
 @interface MainMenuLayer : CCLayerColor <GKLeaderboardViewControllerDelegate>  {
 
     float volumeLevel;
+    CCSprite *spidderEyeCounter_;
+    CCLabelTTF *spidderEyeLabel_;
+    CCSprite *haikuCounter_;
+    CCLabelTTF *haikuLabel_;
 }
 
 -(id) initWithScore:(float)prevScore;

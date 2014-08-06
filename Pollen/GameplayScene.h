@@ -32,5 +32,7 @@
 -(void) activateContinueCheck: (NSInteger)score;
 -(void) makeReviveCall;
 -(void) update:(ccTime)dt;
-
+-(void) hidePause;
+-(void) showPause;
+-(float) getScore;
 @end

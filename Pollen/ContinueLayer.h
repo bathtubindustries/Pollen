@@ -21,12 +21,14 @@
     GameplayScene* gameScene;
     
     CCSprite *haikuCounter_;
+    CCLabelTTF *reviveHaikuText;
     
     BOOL warned;
+    int haikuCost;
     NSUInteger haikuNum;
 }
 @property BOOL paused;
-@property NSInteger playerScore;
+@property float playerScore;
 
 +(CCScene*) scene;
 
