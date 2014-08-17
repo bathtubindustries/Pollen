@@ -9,24 +9,47 @@
 #import "HaikuSpawner.h"
 #import "Haiku.h"
 #import "GameUtility.h"
-
+#import <Firebase/Firebase.h>
 
 
 @implementation HaikuSpawner
 - (id) init{
     if (self = [super init]){
-        
+        haikuBank = [[NSMutableArray alloc] init];
+        haikusAdded = [[NSMutableArray alloc] init];
+        lastHeightSpawned=0;
+
         size = [[CCDirector sharedDirector] winSize];
         
-        haikus = [[NSMutableArray alloc] init];
-        for (int i=0;i<100;i++){
-            [haikus addObject:[[Haiku alloc] initWithFileAndTitleAndIndex:@"InstructTxt.png" title:@"Instruct" index:i]];
-        }
-        haikusAlreadySpawnedThisRound = [[NSMutableArray alloc] init];
-        for (int i=0;i<100;i++){
-            [haikusAlreadySpawnedThisRound addObject:@NO];
+        if ([GameUtility firebaseHaikuCount]!=0)
+        {
+            Firebase* myRootRef = [[Firebase alloc] initWithUrl:@"https://ytl3fdvvuk7.firebaseio-demo.com/Haikus"];
+
+            [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+                
+                int index=0;
+                for( FDataSnapshot* datum in snapshot.children )
+                {
+                    NSDictionary*dict = [datum value];
+                    
+                    if ([[dict objectForKey:@"approved"] isEqualToString:@"yes"])
+                    {
+                        Haiku * poem = [[Haiku alloc] initWithDictionary:dict];
+                        [haikuBank addObject:poem];
+                        index++;
+                    }
+                }
+                
+            }];
         }
 
+        else
+        {
+            for (int i=0;i<1;i++){
+                [haikuBank addObject:[[Haiku alloc] initHardCoded]];
+            }
+        }
+        
         
         
     }
@@ -39,71 +62,28 @@
 }
 
 
--(void) spawnHaiku: (int) index{
+-(void) spawnHaiku: (int) height{
     
-    Haiku * haiku =[haikus objectAtIndex:index];
+    //make a new haiku with initHaikuWithHaiku or something, parenting is preventing spawns
     
-//use haiku discovered just to prevent multiple spawns within same round. use orig haiku class AS IS
-    //for the text overlaying the animated background
+    Haiku * haiku =[[Haiku alloc] initWithHaiku:[haikuBank objectAtIndex:[GameUtility randInt:0 :[haikuBank count]-1]]];
     
-    //prevents multiple spawns of first haiku
-    if ([GameUtility isHaikuDiscoverable:haiku.title]){ 
+      //prevents the same haiku from being spawned multiple times once a certain altitude is reached
+    if (lastHeightSpawned != height)
+    {
+        lastHeightSpawned=height;
+        [haikusAdded addObject:haiku];
+        
+        haiku.position = ccp(size.width/2, size.height/2);
         
         
-        //prevents the same haiku from being spawned multiple times once a certain altitude is reached
-        if (haiku.parent)
-        {
-            return;
-        }
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"haikuColorFade.plist"];
-        haikuSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"haikuColorFade.png"];
-        
-        
-        //animate haiku
-        haikuAnimFrames= [[NSMutableArray alloc] init];
-        haiku.bgSprite  = [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"haiku1.png"]]];
-        for (int i=1; i<=8; i++) {
-            if (i!=2){
-                [haikuAnimFrames addObject:
-                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                  [NSString stringWithFormat:@"haiku%d.png",i]]];
-            }
-            else{
-                [haikuAnimFrames addObject:
-                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                  [NSString stringWithFormat:@"haiku%dg.png",i]]];
-            }
-        }
-        
-        haikuAnim = [CCAnimation animationWithSpriteFrames:haikuAnimFrames delay:0.18f];
-        CCAction * haikuFade =[CCAnimate actionWithAnimation:haikuAnim];
-        
-        [haiku.bgSprite runAction:haikuFade];
-        
-        if (index!=0)
-        {
-            haiku.bgSprite.position = ccp(size.width/2,3*size.height/4);
-            haiku.position = ccp(size.width/2, 3*size.height/4);
-        }
-        else
-        {
-            haiku.bgSprite.position = ccp(size.width/2, size.height/2);
-            haiku.position = ccp(size.width/2, size.height/2);
-        }
-        
-        haiku.bgSprite.scale=2.0;
-        haiku.bgSprite.visible=YES;
         haiku.visible=YES;
-        [haikuSpriteSheet addChild:haiku.bgSprite];
-        if (!haiku.parent){
-            [spawnLayer addChild:haikuSpriteSheet z:-5];
-            [spawnLayer addChild:haiku z:haikuSpriteSheet.zOrder+1];
+
+        if (![[spawnLayer children] containsObject:haiku]){
+            [spawnLayer addChild:haiku z:-4];
         }
-       
-        //permanently logs that player has discovered this haiku
+        
         [GameUtility saveHaikuCount:[GameUtility savedHaikuCount]+1];
-        [GameUtility HaikuDiscovered:haiku.title discoverable: NO];
         
     }
     
@@ -115,21 +95,18 @@
     
     //add poem.color animation
     
-    for(int i = 0; i < [haikus count]; i++) {
-        Haiku *poem = [haikus objectAtIndex:i];
+    for(int i = 0; i < [haikusAdded count]; i++) {
+        Haiku *poem = [haikusAdded objectAtIndex:i];
         
         if(poem.visible) {
             //update haiku velocity
             poem.velocity = ccp(poem.velocity.x, self.yVelocity);
-            
-            //first Haiku doesn't move at all
             
             [poem update:dt];
         }
         
         if(poem.position.y < -[poem boundingBox].size.height) {
             poem.visible = NO;
-            poem.bgSprite.visible=NO;
         }
     }
     

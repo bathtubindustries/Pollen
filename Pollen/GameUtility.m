@@ -9,6 +9,7 @@
 #import "GameUtility.h"
 
 #import "cocos2d.h"
+#import <Firebase/Firebase.h>
 
 #define ARC4RANDOM_MAX 0x100000000
 
@@ -37,7 +38,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+(BOOL) isHaikuDiscoverable: (NSString*) title{
++(BOOL) isHaikuDiscovered: (NSString*) title{
     
     //if userdefaults contains a key with this haiku title
     if ([[NSUserDefaults standardUserDefaults]  objectForKey:title]!=nil)
@@ -115,6 +116,42 @@
 
 +(BOOL) isCollidingRect:(CCSprite*)s1 WithRect:(CCSprite*)s2 {
     return CGRectIntersectsRect([s1 boundingBox], [s2 boundingBox]);
+}
+
++(void) countFirebaseHaikus
+{
+    Firebase* myRootRef = [[Firebase alloc] initWithUrl:@"https://ytl3fdvvuk7.firebaseio-demo.com/Haikus"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"onlineHaikuCount"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"approvedHaikuCount"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        int approvedIndex=0;
+        int index=0;
+        for( FDataSnapshot* datum in snapshot.children )
+        {
+           
+            if (datum)
+                index++;
+             NSDictionary* dict = [datum value];
+            if ([[dict objectForKey:@"approved"] isEqualToString:@"yes"])
+                approvedIndex++;
+            
+            
+        }
+        [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"onlineHaikuCount"];
+        [[NSUserDefaults standardUserDefaults] setInteger:approvedIndex forKey:@"approvedHaikuCount"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }];
+}
+
++(int) approvedFirebaseHaikuCount
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"approvedHaikuCount"];
+}
++(int) firebaseHaikuCount
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"onlineHaikuCount"];
 }
 
 @end

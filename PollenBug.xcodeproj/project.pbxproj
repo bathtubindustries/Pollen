@@ -178,7 +178,7 @@
 		2214319819319BF60065A064 /* treebase0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319719319BF60065A064 /* treebase0.png */; };
 		2214319A19319F7D0065A064 /* Instruct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319919319F7D0065A064 /* Instruct.png */; };
 		22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171351196E138000E7CA0B /* StoreKit.framework */; };
-		22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171353196E139C00E7CA0B /* AdSupport.framework */; };
+		22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171353196E139C00E7CA0B /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171355196E13FA00E7CA0B /* Grab.framework */; };
 		22171361196E1DD800E7CA0B /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22171360196E1DD800E7CA0B /* IAPManager.mm */; };
 		22171364196E1E7900E7CA0B /* IAPManager_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22171363196E1E7900E7CA0B /* IAPManager_objc.m */; };
@@ -230,7 +230,25 @@
 		227F550719917200009D7230 /* leaderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227F550319917200009D7230 /* leaderIcon.png */; };
 		227F550819917200009D7230 /* tutorialIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227F550419917200009D7230 /* tutorialIcon.png */; };
 		227F550C1991D6A9009D7230 /* wandSelect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 227F550B1991D6A9009D7230 /* wandSelect.aiff */; };
-		227F550F1992015F009D7230 /* HaikuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F550E1992015F009D7230 /* HaikuLayer.m */; };
+		227F59D21996C398009D7230 /* ContinueLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59D11996C398009D7230 /* ContinueLayer.m */; };
+		227F59D71996C43A009D7230 /* CocosScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59D41996C43A009D7230 /* CocosScrollView.m */; };
+		227F59D81996C43A009D7230 /* ScrollNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59D61996C43A009D7230 /* ScrollNode.m */; };
+		227F59DF1996C4BB009D7230 /* Haiku.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DA1996C4BB009D7230 /* Haiku.m */; };
+		227F59E01996C4BB009D7230 /* HaikuGalleryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */; };
+		227F59E11996C4BB009D7230 /* HaikuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DE1996C4BB009D7230 /* HaikuLayer.m */; };
+		227F59E61996C639009D7230 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E51996C639009D7230 /* Firebase.framework */; };
+		227F59E81996C68A009D7230 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E71996C68A009D7230 /* libicucore.dylib */; };
+		227F59EA1996C692009D7230 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E91996C692009D7230 /* CFNetwork.framework */; };
+		227F59EC1996C6A4009D7230 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59EB1996C6A4009D7230 /* libc++.dylib */; };
+		227F59EE1996C6DB009D7230 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59ED1996C6DB009D7230 /* SystemConfiguration.framework */; };
+		227F59FC19972D61009D7230 /* WritingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59FA19972D61009D7230 /* WritingViewController.m */; };
+		227F59FE1997359F009D7230 /* WritingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227F59FB19972D61009D7230 /* WritingViewController.xib */; };
+		227F5A01199B1A31009D7230 /* HaikuSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F5A00199B1A31009D7230 /* HaikuSpawner.m */; };
+		229CC78319A05A3F001DE7E1 /* eyesStore150.png in Resources */ = {isa = PBXBuildFile; fileRef = 229CC78119A05A3F001DE7E1 /* eyesStore150.png */; };
+		229CC78419A05A3F001DE7E1 /* eyesStore350.png in Resources */ = {isa = PBXBuildFile; fileRef = 229CC78219A05A3F001DE7E1 /* eyesStore350.png */; };
+		229CC78619A05E8A001DE7E1 /* eyesStore1500.png in Resources */ = {isa = PBXBuildFile; fileRef = 229CC78519A05E8A001DE7E1 /* eyesStore1500.png */; };
+		229CC78819A060B3001DE7E1 /* eyesStore3500.png in Resources */ = {isa = PBXBuildFile; fileRef = 229CC78719A060B3001DE7E1 /* eyesStore3500.png */; };
+		229CC78A19A06140001DE7E1 /* haikuStore30.png in Resources */ = {isa = PBXBuildFile; fileRef = 229CC78919A06140001DE7E1 /* haikuStore30.png */; };
 		22AA615A19485E5B00931260 /* haikuColorFade-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614619485E5B00931260 /* haikuColorFade-hd.plist */; };
 		22AA615B19485E5B00931260 /* haikuColorFade-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614719485E5B00931260 /* haikuColorFade-hd.png */; };
 		22AA615C19485E5B00931260 /* haikuColorFade-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */; };
@@ -266,12 +284,9 @@
 		22DE834B1974E28D0030B0CD /* ComboNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834A1974E28D0030B0CD /* ComboNode.m */; };
 		22DE834E1974E2A50030B0CD /* ComboNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */; };
 		22DE83501974EA250030B0CD /* yellowNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DE834F1974EA250030B0CD /* yellowNode.png */; };
-		C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374919354225004F44C5 /* ContinueLayer.m */; };
 		C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */; };
 		C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */; };
 		C8AC375A19354225004F44C5 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374E19354225004F44C5 /* GameOverLayer.m */; };
-		C8AC375C19354225004F44C5 /* Haiku.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC375219354225004F44C5 /* Haiku.m */; };
-		C8AC375D19354225004F44C5 /* HaikuSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC375419354225004F44C5 /* HaikuSpawner.m */; };
 		C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BC18ED51420050A930 /* QuartzCore.framework */; };
 		C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0BE18ED51420050A930 /* OpenGLES.framework */; };
 		C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0C018ED51420050A930 /* OpenAL.framework */; };
@@ -673,8 +688,32 @@
 		227F550319917200009D7230 /* leaderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaderIcon.png; sourceTree = "<group>"; };
 		227F550419917200009D7230 /* tutorialIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialIcon.png; sourceTree = "<group>"; };
 		227F550B1991D6A9009D7230 /* wandSelect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = wandSelect.aiff; sourceTree = "<group>"; };
-		227F550D1992015F009D7230 /* HaikuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HaikuLayer.h; path = Pollen/HaikuLayer.h; sourceTree = "<group>"; };
-		227F550E1992015F009D7230 /* HaikuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HaikuLayer.m; path = Pollen/HaikuLayer.m; sourceTree = "<group>"; };
+		227F59D11996C398009D7230 /* ContinueLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinueLayer.m; path = Pollen/ContinueLayer.m; sourceTree = "<group>"; };
+		227F59D31996C43A009D7230 /* CocosScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosScrollView.h; sourceTree = "<group>"; };
+		227F59D41996C43A009D7230 /* CocosScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosScrollView.m; sourceTree = "<group>"; };
+		227F59D51996C43A009D7230 /* ScrollNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollNode.h; sourceTree = "<group>"; };
+		227F59D61996C43A009D7230 /* ScrollNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollNode.m; sourceTree = "<group>"; };
+		227F59D91996C4BB009D7230 /* Haiku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haiku.h; sourceTree = "<group>"; };
+		227F59DA1996C4BB009D7230 /* Haiku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haiku.m; sourceTree = "<group>"; };
+		227F59DB1996C4BB009D7230 /* HaikuGalleryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaikuGalleryLayer.h; sourceTree = "<group>"; };
+		227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuGalleryLayer.m; sourceTree = "<group>"; };
+		227F59DD1996C4BB009D7230 /* HaikuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaikuLayer.h; sourceTree = "<group>"; };
+		227F59DE1996C4BB009D7230 /* HaikuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuLayer.m; sourceTree = "<group>"; };
+		227F59E51996C639009D7230 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
+		227F59E71996C68A009D7230 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		227F59E91996C692009D7230 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		227F59EB1996C6A4009D7230 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		227F59ED1996C6DB009D7230 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		227F59F919972D61009D7230 /* WritingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritingViewController.h; sourceTree = "<group>"; };
+		227F59FA19972D61009D7230 /* WritingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritingViewController.m; sourceTree = "<group>"; };
+		227F59FB19972D61009D7230 /* WritingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WritingViewController.xib; sourceTree = "<group>"; };
+		227F59FF199B1A31009D7230 /* HaikuSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HaikuSpawner.h; path = Pollen/HaikuSpawner.h; sourceTree = "<group>"; };
+		227F5A00199B1A31009D7230 /* HaikuSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HaikuSpawner.m; path = Pollen/HaikuSpawner.m; sourceTree = "<group>"; };
+		229CC78119A05A3F001DE7E1 /* eyesStore150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyesStore150.png; sourceTree = "<group>"; };
+		229CC78219A05A3F001DE7E1 /* eyesStore350.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyesStore350.png; sourceTree = "<group>"; };
+		229CC78519A05E8A001DE7E1 /* eyesStore1500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyesStore1500.png; sourceTree = "<group>"; };
+		229CC78719A060B3001DE7E1 /* eyesStore3500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyesStore3500.png; sourceTree = "<group>"; };
+		229CC78919A06140001DE7E1 /* haikuStore30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haikuStore30.png; sourceTree = "<group>"; };
 		22AA614619485E5B00931260 /* haikuColorFade-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "haikuColorFade-hd.plist"; sourceTree = "<group>"; };
 		22AA614719485E5B00931260 /* haikuColorFade-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haikuColorFade-hd.png"; sourceTree = "<group>"; };
 		22AA614819485E5B00931260 /* haikuColorFade-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "haikuColorFade-ipadhd.plist"; sourceTree = "<group>"; };
@@ -716,16 +755,11 @@
 		22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboNodeFactory.m; sourceTree = "<group>"; };
 		22DE834F1974EA250030B0CD /* yellowNode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowNode.png; sourceTree = "<group>"; };
 		C8AC374819354225004F44C5 /* ContinueLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinueLayer.h; path = Pollen/ContinueLayer.h; sourceTree = "<group>"; };
-		C8AC374919354225004F44C5 /* ContinueLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinueLayer.m; path = Pollen/ContinueLayer.m; sourceTree = "<group>"; };
 		C8AC374A19354225004F44C5 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsPickerViewController.h; path = Pollen/FriendsPickerViewController.h; sourceTree = "<group>"; };
 		C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsPickerViewController.m; path = Pollen/FriendsPickerViewController.m; sourceTree = "<group>"; };
 		C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendsPickerViewController.xib; path = Pollen/FriendsPickerViewController.xib; sourceTree = "<group>"; };
 		C8AC374D19354225004F44C5 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverLayer.h; path = Pollen/GameOverLayer.h; sourceTree = "<group>"; };
 		C8AC374E19354225004F44C5 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverLayer.m; path = Pollen/GameOverLayer.m; sourceTree = "<group>"; };
-		C8AC375119354225004F44C5 /* Haiku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Haiku.h; path = Pollen/Haiku.h; sourceTree = "<group>"; };
-		C8AC375219354225004F44C5 /* Haiku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Haiku.m; path = Pollen/Haiku.m; sourceTree = "<group>"; };
-		C8AC375319354225004F44C5 /* HaikuSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HaikuSpawner.h; path = Pollen/HaikuSpawner.h; sourceTree = "<group>"; };
-		C8AC375419354225004F44C5 /* HaikuSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HaikuSpawner.m; path = Pollen/HaikuSpawner.m; sourceTree = "<group>"; };
 		C8ADB0B918ED51420050A930 /* PollenBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollenBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8ADB0BC18ED51420050A930 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8ADB0BE18ED51420050A930 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -746,6 +780,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227F59EE1996C6DB009D7230 /* SystemConfiguration.framework in Frameworks */,
+				227F59EA1996C692009D7230 /* CFNetwork.framework in Frameworks */,
+				227F59EC1996C6A4009D7230 /* libc++.dylib in Frameworks */,
+				227F59E81996C68A009D7230 /* libicucore.dylib in Frameworks */,
 				22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */,
 				22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */,
 				22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */,
@@ -761,6 +799,7 @@
 				C8ADB0C918ED51420050A930 /* Foundation.framework in Frameworks */,
 				C8ADB0C318ED51420050A930 /* AudioToolbox.framework in Frameworks */,
 				C8ADB0CF18ED51420050A930 /* GameKit.framework in Frameworks */,
+				227F59E61996C639009D7230 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,11 +885,9 @@
 				C8AC374D19354225004F44C5 /* GameOverLayer.h */,
 				C8AC374E19354225004F44C5 /* GameOverLayer.m */,
 				C8AC374819354225004F44C5 /* ContinueLayer.h */,
-				C8AC374919354225004F44C5 /* ContinueLayer.m */,
+				227F59D11996C398009D7230 /* ContinueLayer.m */,
 				222178C4197892300052FAA5 /* ComboLayer.h */,
 				222178C5197892300052FAA5 /* ComboLayer.m */,
-				227F550D1992015F009D7230 /* HaikuLayer.h */,
-				227F550E1992015F009D7230 /* HaikuLayer.m */,
 			);
 			name = Layers_Scenes;
 			sourceTree = "<group>";
@@ -867,6 +904,10 @@
 		115CEDAD1917F89F00732687 /* etc */ = {
 			isa = PBXGroup;
 			children = (
+				227F59D31996C43A009D7230 /* CocosScrollView.h */,
+				227F59D41996C43A009D7230 /* CocosScrollView.m */,
+				227F59D51996C43A009D7230 /* ScrollNode.h */,
+				227F59D61996C43A009D7230 /* ScrollNode.m */,
 				11E5D0E91917CEED00A76121 /* AppDelegate.h */,
 				11E5D0EA1917CEED00A76121 /* AppDelegate.m */,
 				11E5D0F11917CEED00A76121 /* IntroLayer.h */,
@@ -1243,6 +1284,11 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				229CC78919A06140001DE7E1 /* haikuStore30.png */,
+				229CC78719A060B3001DE7E1 /* eyesStore3500.png */,
+				229CC78519A05E8A001DE7E1 /* eyesStore1500.png */,
+				229CC78119A05A3F001DE7E1 /* eyesStore150.png */,
+				229CC78219A05A3F001DE7E1 /* eyesStore350.png */,
 				227F550B1991D6A9009D7230 /* wandSelect.aiff */,
 				227F550119917200009D7230 /* challengeIcon.png */,
 				227F550219917200009D7230 /* heartIcon.png */,
@@ -1365,10 +1411,17 @@
 		2214319B1931AB6A0065A064 /* Haikus */ = {
 			isa = PBXGroup;
 			children = (
-				C8AC375119354225004F44C5 /* Haiku.h */,
-				C8AC375219354225004F44C5 /* Haiku.m */,
-				C8AC375319354225004F44C5 /* HaikuSpawner.h */,
-				C8AC375419354225004F44C5 /* HaikuSpawner.m */,
+				227F59FF199B1A31009D7230 /* HaikuSpawner.h */,
+				227F5A00199B1A31009D7230 /* HaikuSpawner.m */,
+				227F59D91996C4BB009D7230 /* Haiku.h */,
+				227F59DA1996C4BB009D7230 /* Haiku.m */,
+				227F59DB1996C4BB009D7230 /* HaikuGalleryLayer.h */,
+				227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */,
+				227F59DD1996C4BB009D7230 /* HaikuLayer.h */,
+				227F59DE1996C4BB009D7230 /* HaikuLayer.m */,
+				227F59F919972D61009D7230 /* WritingViewController.h */,
+				227F59FA19972D61009D7230 /* WritingViewController.m */,
+				227F59FB19972D61009D7230 /* WritingViewController.xib */,
 			);
 			name = Haikus;
 			sourceTree = "<group>";
@@ -1441,6 +1494,11 @@
 		C8ADB0BB18ED51420050A930 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				227F59ED1996C6DB009D7230 /* SystemConfiguration.framework */,
+				227F59EB1996C6A4009D7230 /* libc++.dylib */,
+				227F59E91996C692009D7230 /* CFNetwork.framework */,
+				227F59E71996C68A009D7230 /* libicucore.dylib */,
+				227F59E51996C639009D7230 /* Firebase.framework */,
 				22171355196E13FA00E7CA0B /* Grab.framework */,
 				22171353196E139C00E7CA0B /* AdSupport.framework */,
 				22171351196E138000E7CA0B /* StoreKit.framework */,
@@ -1516,6 +1574,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227F59FE1997359F009D7230 /* WritingViewController.xib in Resources */,
 				2217AF12198BFA9400CD56C0 /* tubeFull.png in Resources */,
 				225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */,
 				222178CE198431190052FAA5 /* successNode.png in Resources */,
@@ -1532,6 +1591,7 @@
 				22AA616619485E5B00931260 /* spidderEyeCounter.plist in Resources */,
 				2217AF0C198846DC00CD56C0 /* MainMenu@2x.png in Resources */,
 				225BBB90196FB9A5006EB721 /* eyesStore100.png in Resources */,
+				229CC78619A05E8A001DE7E1 /* eyesStore1500.png in Resources */,
 				11BF2C46191AD31700143F58 /* tutorialMessage1.png in Resources */,
 				11E5D2891917CEEE00A76121 /* LICENSE_cocos2d.txt in Resources */,
 				22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */,
@@ -1579,12 +1639,14 @@
 				2214319A19319F7D0065A064 /* Instruct.png in Resources */,
 				2217AF11198BFA9400CD56C0 /* tubeEmpty.png in Resources */,
 				11BF2C35191ABBFE00143F58 /* pollenManBoost.png in Resources */,
+				229CC78A19A06140001DE7E1 /* haikuStore30.png in Resources */,
 				22AA616C19485E5B00931260 /* spidderEyeDrop-sd.plist in Resources */,
 				22ADADA0191EC4C4009A63A1 /* sporeTwigStaff.png in Resources */,
 				116039F9191B1006005BABEF /* xylophone.wav in Resources */,
 				222178CC1980BC640052FAA5 /* redNode.png in Resources */,
 				222178E419870E850052FAA5 /* breathingDot.png in Resources */,
 				11BF2C3D191ACC0C00143F58 /* pollenstore.png in Resources */,
+				229CC78819A060B3001DE7E1 /* eyesStore3500.png in Resources */,
 				2217AF1E198C883900CD56C0 /* menuBoxRight.png in Resources */,
 				11A7F913191921860086EC1B /* pollenManJump.png in Resources */,
 				2233631C1927AC25005B12E9 /* treebody3.png in Resources */,
@@ -1609,6 +1671,7 @@
 				11E5D2781917CEEE00A76121 /* README.md in Resources */,
 				11BF2C3F191ACC0C00143F58 /* treebody1.png in Resources */,
 				2233631D1927AC25005B12E9 /* treebody4.png in Resources */,
+				229CC78319A05A3F001DE7E1 /* eyesStore150.png in Resources */,
 				22AA616719485E5B00931260 /* spidderEyeCounter.png in Resources */,
 				11E5D27B1917CEEE00A76121 /* ChangeLog in Resources */,
 				11E5D27C1917CEEE00A76121 /* CMakeLists.txt in Resources */,
@@ -1616,6 +1679,7 @@
 				2217AF10198BFA9400CD56C0 /* tubeBack.png in Resources */,
 				11E5D29D1917CEEE00A76121 /* iTunesArtwork in Resources */,
 				11E5D29B1917CEEE00A76121 /* Icon@2x.png in Resources */,
+				229CC78419A05A3F001DE7E1 /* eyesStore350.png in Resources */,
 				22AA615D19485E5B00931260 /* haikuColorFade-ipadhd.png in Resources */,
 				22AA615F19485E5B00931260 /* haikuColorFade.png in Resources */,
 				222178E01986EC370052FAA5 /* letterN.png in Resources */,
@@ -1647,6 +1711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E5D2411917CEED00A76121 /* CCParticleBatchNode.m in Sources */,
+				227F59FC19972D61009D7230 /* WritingViewController.m in Sources */,
 				11E5D2711917CEED00A76121 /* TransformUtils.m in Sources */,
 				11E5D2701917CEED00A76121 /* TGAlib.m in Sources */,
 				11E5D2231917CEED00A76121 /* CCActionPageTurn3D.m in Sources */,
@@ -1682,6 +1747,7 @@
 				11E5D21F1917CEED00A76121 /* CCActionGrid3D.m in Sources */,
 				11E5D27E1917CEEE00A76121 /* matrix.c in Sources */,
 				11E5D2521917CEED00A76121 /* CCTextureAtlas.m in Sources */,
+				227F59D71996C43A009D7230 /* CocosScrollView.m in Sources */,
 				11E5D25E1917CEED00A76121 /* CCDirectorIOS.m in Sources */,
 				225BBB97196FD6FC006EB721 /* StoreScene.m in Sources */,
 				118BD98C19198EB2009547F0 /* Flower.m in Sources */,
@@ -1702,10 +1768,12 @@
 				22ADAD9E191E10CB009A63A1 /* ProductMenuItem.m in Sources */,
 				11E5D2471917CEED00A76121 /* CCProgressTimer.m in Sources */,
 				11E5D2641917CEED00A76121 /* CCEventDispatcher.m in Sources */,
+				227F5A01199B1A31009D7230 /* HaikuSpawner.m in Sources */,
 				11E5D2861917CEEE00A76121 /* vec2.c in Sources */,
 				11E5D28D1917CEEE00A76121 /* main.m in Sources */,
 				11E5D2151917CEED00A76121 /* AppDelegate.m in Sources */,
 				11E5D26C1917CEED00A76121 /* ccUtils.c in Sources */,
+				227F59D21996C398009D7230 /* ContinueLayer.m in Sources */,
 				11E5D2541917CEED00A76121 /* CCTexturePVR.m in Sources */,
 				115CEDA81917EBB800732687 /* PauseLayer.m in Sources */,
 				11E5D26D1917CEED00A76121 /* CCVertex.m in Sources */,
@@ -1715,11 +1783,13 @@
 				11E5D2321917CEED00A76121 /* ccFPSImages.m in Sources */,
 				11E5D21D1917CEED00A76121 /* CCActionEase.m in Sources */,
 				11E5D25C1917CEED00A76121 /* CCTransitionProgress.m in Sources */,
+				227F59E01996C4BB009D7230 /* HaikuGalleryLayer.m in Sources */,
 				11E5D23D1917CEED00A76121 /* CCMotionStreak.m in Sources */,
 				11E5D27F1917CEEE00A76121 /* mat3.c in Sources */,
 				11E5D2741917CEEE00A76121 /* CDOpenALSupport.m in Sources */,
 				22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */,
 				11E5D2621917CEED00A76121 /* CCTouchHandler.m in Sources */,
+				227F59D81996C43A009D7230 /* ScrollNode.m in Sources */,
 				11E5D28E1917CEEE00A76121 /* MainMenuLayer.m in Sources */,
 				11E5D2791917CEEE00A76121 /* SimpleAudioEngine.m in Sources */,
 				11E5D2391917CEED00A76121 /* CCLabelTTF.m in Sources */,
@@ -1728,9 +1798,9 @@
 				11E5D25F1917CEED00A76121 /* CCES2Renderer.m in Sources */,
 				11E5D22C1917CEED00A76121 /* CCConfiguration.m in Sources */,
 				11E5D21C1917CEED00A76121 /* CCActionCatmullRom.m in Sources */,
+				227F59E11996C4BB009D7230 /* HaikuLayer.m in Sources */,
 				11E5D2331917CEED00A76121 /* CCGLProgram.m in Sources */,
 				11E5D2651917CEED00A76121 /* CCGLView.m in Sources */,
-				227F550F1992015F009D7230 /* HaikuLayer.m in Sources */,
 				11E5D2441917CEED00A76121 /* CCParticleSystemQuad.m in Sources */,
 				11E5D2401917CEED00A76121 /* CCParallaxNode.m in Sources */,
 				11E5D2451917CEED00A76121 /* CCPhysicsDebugNode.m in Sources */,
@@ -1740,6 +1810,7 @@
 				11E5D25B1917CEED00A76121 /* CCTransitionPageTurn.m in Sources */,
 				11E5D2601917CEED00A76121 /* CCGLView.m in Sources */,
 				11E5D23E1917CEED00A76121 /* CCNode+Debug.m in Sources */,
+				227F59DF1996C4BB009D7230 /* Haiku.m in Sources */,
 				11E5D2381917CEED00A76121 /* CCLabelBMFont.m in Sources */,
 				11E5D23C1917CEED00A76121 /* CCMenuItem.m in Sources */,
 				11E5D2291917CEED00A76121 /* CCAtlasNode.m in Sources */,
@@ -1761,11 +1832,9 @@
 				11E5D29F1917CEEE00A76121 /* SpriteLayer.m in Sources */,
 				11E5D2821917CEEE00A76121 /* plane.c in Sources */,
 				11E5D2811917CEEE00A76121 /* neon_matrix_impl.c in Sources */,
-				C8AC375C19354225004F44C5 /* Haiku.m in Sources */,
 				11E5D25A1917CEED00A76121 /* CCTransition.m in Sources */,
 				11E5D24C1917CEED00A76121 /* ccShaders.m in Sources */,
 				22AA617019485E6D00931260 /* SpidderEye.m in Sources */,
-				C8AC375D19354225004F44C5 /* HaikuSpawner.m in Sources */,
 				11E5D2661917CEED00A76121 /* CCWindow.m in Sources */,
 				11E5D2531917CEED00A76121 /* CCTextureCache.m in Sources */,
 				11E5D22B1917CEED00A76121 /* CCClippingNode.m in Sources */,
@@ -1786,7 +1855,6 @@
 				11E5D22A1917CEED00A76121 /* CCCamera.m in Sources */,
 				11BF2C51191ADB3600143F58 /* Spiddderoso.m in Sources */,
 				11E5D2281917CEED00A76121 /* CCAnimationCache.m in Sources */,
-				C8AC375719354225004F44C5 /* ContinueLayer.m in Sources */,
 				22171367196E340F00E7CA0B /* IAPCallback.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1838,7 +1906,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1855,9 +1923,10 @@
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "E9B046A4-2B0D-492B-A40B-503F5B4BC9DB";
+				PROVISIONING_PROFILE = "5538F25F-D8E5-4C6F-B980-031F73729F79";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1867,7 +1936,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1883,9 +1952,10 @@
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "E9B046A4-2B0D-492B-A40B-503F5B4BC9DB";
+				PROVISIONING_PROFILE = "5538F25F-D8E5-4C6F-B980-031F73729F79";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

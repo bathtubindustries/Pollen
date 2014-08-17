@@ -134,7 +134,7 @@
     else if (num==2){
         self = [ProductMenuItem itemWithNormalImage:@"storeTemplateConsumable.png" selectedImage:@"storeTemplateConsumable.png" target:self selector:@selector(productClicked:)];
         [self setIsEnabled:YES];
-        [self setProductName:@"100 Spidderoso Peepers"];
+        [self setProductName:@"150 Spidderoso Peepers"];
         
         self.isIAP= true;
         self.consumable=true;
@@ -149,7 +149,7 @@
         labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-10*scaleFactor);
         [self addChild:labelPrice];
         
-        self.itemSprite = [CCSprite spriteWithFile:@"eyesStore100.png"];
+        self.itemSprite = [CCSprite spriteWithFile:@"eyesStore1500.png"];
         self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor +self.contentSize.height/2);
         self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
@@ -159,7 +159,7 @@
     else if (num==3){
         self = [ProductMenuItem itemWithNormalImage:@"storeTemplateConsumable.png" selectedImage:@"storeTemplateConsumable.png" target:self selector:@selector(productClicked:)];
         [self setIsEnabled:YES];
-        [self setProductName:@"250 Spidderoso Peepers"];
+        [self setProductName:@"350 Spidderoso Peepers"];
         
         self.isIAP= true;
         self.consumable=true;
@@ -175,7 +175,7 @@
         labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-10*scaleFactor);
         [self addChild:labelPrice];
         
-        self.itemSprite = [CCSprite spriteWithFile:@"eyesStore250.png"];
+        self.itemSprite = [CCSprite spriteWithFile:@"eyesStore3500.png"];
         self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor +self.contentSize.height/2);
         self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
@@ -205,7 +205,7 @@
         imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width, labelPrice.position.y);
         [self addChild:imagePrice];
         
-        self.itemSprite = [CCSprite spriteWithFile:@"haikuStore3.png"];
+        self.itemSprite = [CCSprite spriteWithFile:@"haikuStore30.png"];
         self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor + self.contentSize.height/2);
         self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
@@ -275,7 +275,7 @@
                     case 1:
                     {
                         
-                        UIAlertView *alert2 = [[[UIAlertView alloc] initWithTitle:@"Confirmed!" message:@"Hang out for a few moments while your purchase is completed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+                        UIAlertView *alert2 = [[[UIAlertView alloc] initWithTitle:@"In Progress" message:@"Hang out for a few moments while your purchase is processed and be sure you have an internet connection." delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
                         [alert2 show];
                         
                         [IAPManager_objc initManager];
@@ -308,7 +308,7 @@
             }
             else
             {
-                UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Not enough peepers" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Aw man", nil] autorelease];
+                UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Not enough spider peepers" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Aw man", nil] autorelease];
                 
                 [alert show];
             }

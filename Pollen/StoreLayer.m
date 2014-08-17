@@ -51,8 +51,8 @@ NSMutableDictionary* productIDs;
         products = [[NSMutableArray array] retain];
         productIDs = [[NSMutableDictionary dictionary] retain];
         
-        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers250" forKey:@"250 Spidderoso Peepers"];
-        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpiderrosoPeepers100" forKey:@"100 Spidderoso Peepers"];
+        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers250" forKey:@"350 Spidderoso Peepers"];
+        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpiderrosoPeepers100" forKey:@"150 Spidderoso Peepers"];
         
         
         
@@ -120,8 +120,14 @@ NSMutableDictionary* productIDs;
 
 -(void) update:(ccTime)dt
 {
-    [spidderEyeLabel_ setString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]]];
+    if ([spidderEyeLabel_.string intValue] != [GameUtility savedSpidderEyeCount])
+    {
+        [spidderEyeLabel_ setString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]]];
+    }
+    if ([haikuLabel_.string intValue] != [GameUtility savedHaikuCount])
+    {
     [haikuLabel_ setString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]];
+    }
     
     for (ProductMenuItem* item in products)
     {

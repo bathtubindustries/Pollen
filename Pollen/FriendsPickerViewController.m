@@ -32,7 +32,13 @@ GameKitHelperProtocol> {
 -(void) onScoresSubmitted:(bool)success{
     
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+}
 - (id)initWithScore:(int64_t) score {
     self = [super
             initWithNibName:
@@ -57,7 +63,7 @@ GameKitHelperProtocol> {
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.challengeMessage.delegate=self;
     }
     return self;
 }
@@ -71,6 +77,9 @@ GameKitHelperProtocol> {
      style:UIBarButtonItemStylePlain
      target:self
      action:@selector(cancelButtonPressed:)];
+    
+    self.challengeMessage.delegate=self;
+    [self.challengeMessage setReturnKeyType:UIReturnKeyDone];
     
     UIBarButtonItem *challengeButton =
     [[UIBarButtonItem alloc]

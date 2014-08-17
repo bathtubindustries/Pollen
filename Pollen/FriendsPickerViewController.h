@@ -13,7 +13,7 @@ typedef void
 typedef void
 (^FriendsPickerChallengeButtonPressed)();
 
-@interface FriendsPickerViewController : UIViewController
+@interface FriendsPickerViewController : UIViewController<UITextFieldDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIImageView *bgImage;
 
@@ -32,5 +32,7 @@ challengeButtonPressedBlock;
 -(id)initWithScore:(int64_t) score;
 -(void)onScoresOfFriendsToChallengeListReceived:(NSArray*) scores;
 -(void) onPlayerInfoReceived:(NSArray*)players ;
+- (void)textFieldDidEndEditing:(UITextField *)textField;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

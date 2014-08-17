@@ -31,7 +31,7 @@
 #define END_COMBO_POLLEN_AMOUNT PLAYER_MAX_POLLEN/2
 
 //if you are testing or just want to see a bunch of haikus spawn, lower this to around 50 and play
-#define HAIKU_SPAWN_GAP 800
+#define HAIKU_SPAWN_GAP 350
 //used to be 500
 
 @implementation SpriteLayer
@@ -99,8 +99,8 @@
         
         
         spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
-        spidderEyeLabel_.anchorPoint = ccp(0, 1);
-        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.5 , size.height-[spidderEyeCounter_ boundingBox].size.height/8);
+        spidderEyeLabel_.anchorPoint = ccp(.5, .5);
+        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/1.7 , size.height-[spidderEyeCounter_ boundingBox].size.height/1.9);
         [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
         
         scoreLeaf_ = [CCSprite spriteWithFile:@"scoreLeaf.png"];
@@ -219,7 +219,7 @@
                 [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+self.treeLevel*2)];
                 
 
-                [spidderEyeLabel_ setString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]]];
+                
             }
         }
         
@@ -287,6 +287,14 @@
     {
         [comboLayer_ update:dt];
     }
+    if ([spidderEyeLabel_.string intValue] != [GameUtility savedSpidderEyeCount])
+    {
+        [spidderEyeLabel_ setString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]]];
+        CCScaleBy * scale1 = [CCScaleTo actionWithDuration:.15 scale:1.5];
+        CCScaleBy * scale2 = [CCScaleTo actionWithDuration:.15 scale:1.0];
+        id seq = [CCSequence actions: scale1, scale2,nil];
+        [spidderEyeLabel_ runAction:seq];
+    }
     
     if (player_.state == ComboBoost)
     {
@@ -313,6 +321,8 @@
             [comboLayer_ setScene:scene];
             //[player_ setZOrder:player_.zOrder+10]; player might be confused on mechanic if bug is still on closest layer
             [spiddder_ setZOrder:spiddder_.zOrder+1000];
+            [spidderEyeCounter_ setZOrder:spiddder_.zOrder+1000];
+            [spidderEyeLabel_ setZOrder:spiddder_.zOrder+1000];
             spiddder_.position= CGPointMake (spiddder_.position.x, size.height*8/9);
             [self startComboTransition];
         }
@@ -380,8 +390,10 @@
     }
     
     //spawn haiku every specified number of meters
-    if (((int)playerHeight_ % HAIKU_SPAWN_GAP==0) && !scene.tutorialActive)
+    if (((int)playerHeight_ % HAIKU_SPAWN_GAP==0) && !scene.tutorialActive && (int)playerHeight_!=0)
+    {
         [haikuSpawner_ spawnHaiku:((int)playerHeight_ / HAIKU_SPAWN_GAP)];
+    }
     
     //score labels
     [heightLabel_ setString:[NSString stringWithFormat:@"%im", (int)round(self.playerHeight)]];
@@ -479,6 +491,7 @@
 
 
 -(void) pauseCombo{
+    
     if ([[self children] containsObject:comboLayer_] && player_.state==Combo)
     {
         [comboLayer_ pauseSchedulerAndActions]; //interrupts the ccaction that spawns all nodes
@@ -486,7 +499,15 @@
     }
 }
 -(void) comboEnded{
+    
     [self removeChild:comboLayer_];
+    
+    
+    [spiddder_ setZOrder:spiddder_.zOrder-1000];
+    [spidderEyeCounter_ setZOrder:spiddder_.zOrder-1000];
+    [spidderEyeLabel_ setZOrder:spiddder_.zOrder-1000];
+    
+    
     
     
     touchEnabled=YES;
@@ -494,6 +515,7 @@
     [spiddder_ setComboMode:NO shouldFall:NO];
     player_.pollenMeter= END_COMBO_POLLEN_AMOUNT;
     [player_ startBoost];
+    player_.comboEnding=YES;
     comboPaused=NO;
     
 }

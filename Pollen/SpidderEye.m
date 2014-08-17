@@ -11,7 +11,7 @@
 @implementation SpidderEye
 -(id)init{
     if (self = [super initWithSpriteFrameName:@"eye1.png"]){
-        self.velocity = ccp((rand()%800-400), rand()%8);
+        self.velocity = ccp((rand()%600-300), rand()%5);
         size =[[CCDirector sharedDirector] winSize];
     }
     return self;

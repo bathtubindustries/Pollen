@@ -41,6 +41,8 @@
         Combo,
         ComboEnding
     };
+    
+    
     enum PlayerState state_;
     BOOL dead_;
     
@@ -58,6 +60,7 @@
 @property float pollenMeter;
 @property(nonatomic) enum PlayerState state;
 @property BOOL dead;
+@property (nonatomic, assign) BOOL comboEnding;
 @property (nonatomic, assign) SpriteLayer* spawnLayer;
 //messages
 -(void) startAttack;

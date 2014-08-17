@@ -173,6 +173,7 @@
         //update if above bottom edge
         if(state_ != OnGround) {
             if(self.position.y > -[self boundingBox].size.height/2) {
+                
                 //update the velocity with gravity
                 if(self.extraYVelocity > 0)
                     self.extraYVelocity += PLAYER_GRAVITY-gravityIncrement_;
@@ -182,7 +183,14 @@
                 if(self.extraYVelocity < -(PLAYER_GRAVITY-gravityIncrement_)) {
                     self.velocity = ccp(self.velocity.x,
                                         self.velocity.y + (PLAYER_GRAVITY-gravityIncrement_) + self.extraYVelocity);
+                
                 }
+                if (self.comboEnding)
+                {
+                    self.velocity= CGPointMake(self.velocity.x, self.velocity.y+480);
+                    self.comboEnding=NO;
+                }
+                
             } else {
                 self.velocity = CGPointZero;
                 self.dead = YES;

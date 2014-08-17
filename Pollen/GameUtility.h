@@ -30,7 +30,7 @@
 +(NSUInteger) savedSpidderEyeCount;
 
 +(void) HaikuDiscovered: (NSString*) t discoverable: (BOOL) b;
-+(BOOL) isHaikuDiscoverable: (NSString*) title;
++(BOOL) isHaikuDiscovered: (NSString*) title;
 
 +(void) itemPurchased: (NSString*) t purchased: (BOOL) b;
 +(BOOL) isItemPurchased: (NSString*) title;
@@ -40,6 +40,10 @@
 
 +(void) isTutorialNeeded: (BOOL) needed;
 +(BOOL) needsTutorial;
+
++(void) countFirebaseHaikus;
++(int) firebaseHaikuCount;
++(int) approvedFirebaseHaikuCount;
 
 //utility
 +(int) randInt:(int)low :(int)high;

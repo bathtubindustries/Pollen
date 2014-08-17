@@ -10,7 +10,7 @@
 #import "GameplayScene.h"
 #import "MainMenuLayer.h"
 #import "FriendsPickerViewController.h"
-#import "HaikuLayer.h"
+#import "HaikuGalleryLayer.h"
 
 @implementation GameOverLayer
 -(id) initWithScore:(float)score {
@@ -120,7 +120,7 @@
         challText.scaleX = 1/(itemChallenge.scaleX);
         
         CCMenuItemImage *itemHaiku = [CCMenuItemImage itemWithNormalImage:@"UIBox.png" selectedImage:@"UIBox.png" disabledImage:nil block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[HaikuLayer scene] ]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[HaikuGalleryLayer scene] ]];
         }];
         itemHaiku.scaleY=.4;
         itemHaiku.scaleX=.95;

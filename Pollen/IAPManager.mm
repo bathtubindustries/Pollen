@@ -29,25 +29,25 @@ void IAPManager::completePurchase(const char *product, const char *data, int res
         
         if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpidderosoPeepers250"].location != NSNotFound)//product is 250 peepers
         {
-            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+250];
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"250 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+350];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"350 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
             
             [alert show];
         }
         else if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpiderrosoPeepers100"].location != NSNotFound)//product is 100 peepers
         {
-            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+100];
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"100 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+150];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"150 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
             
             [alert show];
         }
         
 	} else {
 		//todo: purchase failed, tell user to stop waiting and/or try again.
-        NSLog(@"purchfail");
+       /* NSLog(@"purchfail");
         UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Purchase failed" message:@"Check your connection and try again" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
         
-        [alert show];
+        [alert show];*/
         
 	}
 }

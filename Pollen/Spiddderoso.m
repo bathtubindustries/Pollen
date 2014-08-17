@@ -60,6 +60,7 @@
     if (!combo)
     {
         shouldFall=NO;
+        shouldRise=YES;
     }
 }
 
@@ -76,10 +77,18 @@
         
         self.velocity = ccp(self.velocity.x, (shouldFall) ? SPIDDDER_COMBO_VELOCITY_FALL : SPIDDDER_COMBO_VELOCITY);
     }
+    if (shouldRise)
+    {
+        riseSpeedBoost=250;
+        self.velocity = ccp(self.velocity.x, self.velocity.y+riseSpeedBoost);
+        shouldRise=NO;
+    }
     
     //add velocity to position
     self.position = ccp(self.position.x + self.velocity.x*dt,
                         self.position.y + (self.velocity.y+extraYVel_)*dt);
+    
+    riseSpeedBoost= (riseSpeedBoost >=10) ? riseSpeedBoost/100 : 0;
     
     //decrement if too high
     if(self.position.y - size.height > SPIDDDER_CEILING) {

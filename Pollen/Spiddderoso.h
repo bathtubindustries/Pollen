@@ -21,6 +21,8 @@
     
     BOOL isComboMode;
     BOOL shouldFall;
+    BOOL shouldRise;
+    float riseSpeedBoost;
     float extraYVel_;
     CGPoint velocity_;
     

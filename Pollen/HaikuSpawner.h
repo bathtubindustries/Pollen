@@ -14,16 +14,18 @@
     CCScene * scene;
     CGSize size;
     CCLayer *spawnLayer;
-    NSMutableArray *haikus;
+    NSMutableArray *haikuBank;
+    NSMutableArray *haikusAdded;
     
     CCAnimation *haikuAnim;
     CCSpriteBatchNode *haikuSpriteSheet;
     NSMutableArray *haikuAnimFrames;
-    NSMutableArray *haikusAlreadySpawnedThisRound;
+    
+    int lastHeightSpawned;
 }
 @property float yVelocity;
 -(void) update:(ccTime)dt;
 -(void) setSpawnLayer:(CCLayer*)l;
--(void) spawnHaiku: (int) index;
+-(void) spawnHaiku: (int) height;
 
 @end

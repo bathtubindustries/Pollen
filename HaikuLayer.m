@@ -8,6 +8,7 @@
 
 #import "HaikuLayer.h"
 #import "MainMenuLayer.h"
+#import "Haiku.h"
 
 @implementation HaikuLayer
 
@@ -39,6 +40,8 @@
         backOut2.position = ccp( 5*scaleFactor, -40*scaleFactor + winSize.height/2);
         [self addChild: backOut2];
         [backOut2 setColor:ccc3(255, 224, 51)];
+        
+        
     }
     return self;
 }

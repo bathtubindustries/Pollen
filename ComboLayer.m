@@ -12,6 +12,7 @@
 #import "GameUtility.h"
 #import "ComboNode.h"
 #import "SpriteLayer.h"
+#import "SpidderEye.h"
 #import "SimpleAudioEngine.h"
 
 @implementation ComboLayer
@@ -20,6 +21,9 @@
 {
         if (self = [super init])
         {
+            size= [[CCDirector sharedDirector] winSize];
+             scaleFactor= size.height/size.width;
+            
             buffer = [[CCLayerColor alloc] initWithColor:ccc4(106, 35, 193, 190)];
             //[buffer setOpacity:190];
             [self addChild:buffer z:10];
@@ -29,6 +33,8 @@
             waveCount=1;
             activeIndexForWave=1;
             
+            eyes_ = [[NSMutableArray alloc] init];
+            eyesToRemove_ = [[NSMutableArray alloc] init];
             
         }
     return self;
@@ -77,6 +83,20 @@
     [factory update:delta];
     factory.waveCount=waveCount;
     }
+    //removes spidder eye drops when they leave screen
+    if ([eyes_ count]!=0) {
+        for (SpidderEye* eye in eyes_){
+            if (eye.visible){
+                [eye update:delta];
+            }
+            else{
+                [eyesToRemove_ addObject:eye];
+            }
+        }
+    }
+    
+    [eyes_ removeObjectsInArray:eyesToRemove_];
+    [eyesToRemove_ removeAllObjects];
     
 }
 
@@ -127,7 +147,34 @@
                     
                     
                     if (node.index==[factory nodeCount])
-                    {
+                    {//swame
+                        
+                        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeDrop.plist"];
+                        eyeSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeDrop.png"];
+                        [self addChild:eyeSpriteSheet z:1000];
+                        
+                        //drop an eye
+                        //spidder eye animation
+                        
+                            eyeAnimFrames = [NSMutableArray array];
+                            for (int i=1; i<=16; i++) {
+                                [eyeAnimFrames addObject:
+                                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                                  [NSString stringWithFormat:@"eye%d.png",i]]];
+                            }
+                            eyeAnim = [CCAnimation animationWithSpriteFrames:eyeAnimFrames delay:0.1f];
+                            [eyes_ addObject:[[SpidderEye alloc] init ]];
+                            CCAction * flash =[CCAnimate actionWithAnimation:eyeAnim];
+                            
+                            ((SpidderEye*)[eyes_ lastObject]).position = ccp(size.width/2, size.height*.90);
+                            [[eyes_ lastObject] runAction:[CCScaleTo actionWithDuration:0.0 scale:1.5]];
+                            [[eyes_ lastObject] runAction:flash];
+                            [eyeSpriteSheet addChild:[eyes_ lastObject]];
+                        
+                        
+                        
+                        [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+1)];
+                        
                         waveCount++;
                         [factory spawnWave:waveCount];
                         activeIndexForWave=1;

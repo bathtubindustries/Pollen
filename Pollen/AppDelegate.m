@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
-
+#import "Grab/Grab.h"
 
 @implementation MyNavigationController
 
@@ -167,6 +167,11 @@
 }
 
 
+-(void) applicationDidFinishLaunching:(UIApplication *)application
+{
+#warning replace with App store ID
+    [Grab initWithSecret:123456789];
+}
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
 {

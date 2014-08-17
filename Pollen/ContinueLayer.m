@@ -30,7 +30,7 @@
         
        
         
-        CCMenuItemImage *itemRevive = [CCMenuItemImage itemWithNormalImage:@"menuBoxLeft.png" selectedImage:@"menuBoxLeft.png" disabledImage:nil block:^(id sender){
+        CCMenuItemImage *itemRevive = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png" selectedImage:@"menuBoxRight.png" disabledImage:nil block:^(id sender){
             if ([GameUtility savedHaikuCount]>= haikuCost){
                 [GameUtility saveHaikuCount:([GameUtility savedHaikuCount]-haikuCost)];
                 [self resumeWithContinue];
@@ -53,27 +53,27 @@
         [itemRevive addChild:reviveText];
         reviveText.scale=1*(1/itemRevive.scale);
         
-        CCMenuItemImage *itemScores = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png" selectedImage:@"menuBoxRight.png" disabledImage:nil block:^(id sender){
+        CCMenuItemImage *itemScores = [CCMenuItemImage itemWithNormalImage:@"menuBoxLeft.png" selectedImage:@"menuBoxLeft.png" disabledImage:nil block:^(id sender){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameOverLayer sceneWithScore:self.playerScore]]];
         
         }];
         itemScores.scale=1.2;
-        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:@"scores" fontName:@"Chalkduster" fontSize:20*scaleFactor];
+        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:@"restart" fontName:@"Chalkduster" fontSize:18*scaleFactor];
         [scoreText setColor:ccc3(255, 224, 51)];
         [itemScores addChild:scoreText];
         scoreText.scale=1.0*(1/itemRevive.scale);
         
         
         
-        continueMenu_ = [CCMenu menuWithItems:itemRevive, itemScores,nil];
+        continueMenu_ = [CCMenu menuWithItems:itemScores, itemRevive, nil];
         
         [continueMenu_ alignItemsHorizontallyWithPadding: 1*scaleFactor];
         [continueMenu_ setPosition: ccp(size.width/2, size.height*.19)];
         
         
         
-        reviveText.position=ccp(itemRevive.position.x +itemRevive.contentSize.width +6*scaleFactor, itemRevive.position.y+(itemRevive.contentSize.height/2)+3*scaleFactor);
-        scoreText.position=ccp(itemScores.position.x-6*scaleFactor, itemScores.position.y  +itemScores.contentSize.height/2);
+        reviveText.position=ccp(itemRevive.position.x -6*scaleFactor, itemRevive.position.y+(itemRevive.contentSize.height/2)+2*scaleFactor);
+        scoreText.position=ccp(itemScores.position.x+itemScores.contentSize.width+6*scaleFactor, itemScores.position.y +0*scaleFactor +itemScores.contentSize.height/2);
         
         CCSprite *haikuSubtract = [CCSprite spriteWithFile:@"haikuUI.png"];
         haikuSubtract.scaleY=.15 *(1/itemRevive.scale);
@@ -96,21 +96,21 @@
         
         haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
         haikuCounter_.scale=.80;
-        haikuCounter_.position = ccp(continueLabel.position.x, continueLabel.position.y-[haikuCounter_ boundingBox].size.height*.8);
+        haikuCounter_.position = ccp((size.width/2)-10*scaleFactor , (size.height/2)+10*scaleFactor);
         [self addChild: haikuCounter_ ];
         haikuCounter_.visible=NO;
         id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatBounceForSprite:) data:(CCSprite*)haikuCounter_];
         [haikuCounter_ runAction:trigger];
         
         CCSprite *frown = [CCSprite spriteWithFile: @"frowns.png"];
-        frown.position=ccp(haikuCounter_.position.x-10*scaleFactor, haikuCounter_.position.y-100*scaleFactor);
+        frown.position=ccp(haikuCounter_.position.x-10*scaleFactor, haikuCounter_.position.y-103*scaleFactor);
         [haikuCounter_ addChild:frown];
         frown.scale=(1/haikuCounter_.scale);
         
         haikuLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
                                          fontName:@"Futura" fontSize:18*scaleFactor];
         haikuLabel.anchorPoint = ccp(0, 1);
-        haikuLabel.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y-haikuCounter_.boundingBox.size.height/2);
+        haikuLabel.position = ccp(haikuCounter_.position.x+5*scaleFactor+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y-haikuCounter_.boundingBox.size.height/2);
         haikuLabel.scaleX=1/haikuCounter_.scaleX;
         haikuLabel.scaleY=1/haikuCounter_.scaleY;
         [haikuCounter_ addChild:haikuLabel];

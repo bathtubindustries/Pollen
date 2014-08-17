@@ -12,6 +12,8 @@
 @class SpriteLayer;
 
 @interface ComboLayer : CCLayer{
+    CGSize size;
+    float scaleFactor;
 
     CCLayerColor *buffer;
     ComboNodeFactory *factory;
@@ -19,6 +21,14 @@
     int activeIndexForWave;
     GameplayScene *scene;
     SpriteLayer* spawnLayer;
+    
+    NSMutableArray *eyes_;
+    NSMutableArray *eyesToRemove_;
+    
+    //animations
+    CCAnimation *eyeAnim;
+    CCSpriteBatchNode *eyeSpriteSheet;
+    NSMutableArray *eyeAnimFrames;
 }
 
 @property (nonatomic, assign) BOOL waveInterrupted;

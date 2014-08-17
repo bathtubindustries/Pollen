@@ -15,7 +15,7 @@
 #import "SimpleAudioEngine.h"
 #import "GameUtility.h"
 
-#import "HaikuLayer.h"
+#import "HaikuGalleryLayer.h"
 
 @implementation MainMenuLayer
 
@@ -151,7 +151,7 @@
         }];
         
         CCMenuItem *haikuWrite = [CCMenuItemImage itemWithNormalImage:@"heartIcon.png" selectedImage:@"heartIcon.png" disabledImage:nil block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[HaikuLayer scene] ]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[HaikuGalleryLayer scene] ]];
         }];
         
         CCMenuItem *tutIcon = [CCMenuItemImage itemWithNormalImage:@"tutorialIcon.png" selectedImage:@"tutorialIcon.png" disabledImage:nil block:^(id sender){
