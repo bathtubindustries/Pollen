@@ -9,12 +9,14 @@
 #import "CCNode.h"
 #import "Haiku.h"
 
+@class SpriteLayer;
+
 @interface HaikuSpawner : CCNode{
     
     
     CCScene * scene;
     CGSize size;
-    CCLayer *spawnLayer;
+    SpriteLayer *spawnLayer;
     NSMutableArray *haikuBank;
     NSMutableArray *haikusAdded;
     
@@ -26,7 +28,7 @@
 }
 @property float yVelocity;
 -(void) update:(ccTime)dt;
--(void) setSpawnLayer:(CCLayer*)l;
+-(void) setSpawnLayer:(SpriteLayer*)l;
 -(void) spawnHaiku: (int) height;
 -(Haiku*) getRandomHaiku;
 @end

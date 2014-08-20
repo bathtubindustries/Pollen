@@ -173,7 +173,7 @@
     
     haikuLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
                                     fontName:@"Futura" fontSize:18*scaleFactor];
-    haikuLabel.position = ccp(toFeature.position.x-7*scaleFactor+toFeature.contentSize.width/2,toFeature.position.y-toFeature.contentSize.height/2);
+    haikuLabel.position = ccp(toFeature.position.x-30*scaleFactor+toFeature.contentSize.width/2,toFeature.position.y-50*scaleFactor -toFeature.contentSize.height/2);
     haikuLabel.anchorPoint = ccp(0, 1);
     [toFeature addChild:haikuLabel];
    

@@ -37,6 +37,7 @@
 @implementation SpriteLayer
 
 @synthesize playerHeight = playerHeight_;
+@synthesize comboLayer = comboLayer_;
 -(float) topBuffer { return spidderEyeCounter_.contentSize.height-1; }
 
 -(id) init {
@@ -312,7 +313,7 @@
         
         player_.velocity = CGPointMake(player_.velocity.x,0 );
         player_.extraYVelocity = spiddder_.velocity.y;
-        if (!comboTransitionStarted)
+        if (!self.comboTransitionStarted)
         {
             
             comboLayer_ = [ComboLayer node];
@@ -325,8 +326,10 @@
             [spidderEyeLabel_ setZOrder:spiddder_.zOrder+1000];
             spiddder_.position= CGPointMake (spiddder_.position.x, size.height*8/9);
             [self startComboTransition];
+            self.comboTransitionStarted=YES;
         }
-        comboTransitionStarted=YES; //dont set this to false until state is no longer combo
+        self.comboTransitionStarted=YES; //dont set this to false until state is no longer combo
+        
     }
     if (player_.pollenMeter >= PLAYER_MAX_POLLEN )
     {
@@ -507,11 +510,11 @@
     [spidderEyeCounter_ setZOrder:spiddder_.zOrder-1000];
     [spidderEyeLabel_ setZOrder:spiddder_.zOrder-1000];
     
-    
+
     
     
     touchEnabled=YES;
-    comboTransitionStarted=NO;
+    self.comboTransitionStarted=NO;
     [spiddder_ setComboMode:NO shouldFall:NO];
     player_.pollenMeter= END_COMBO_POLLEN_AMOUNT;
     [player_ startBoost];

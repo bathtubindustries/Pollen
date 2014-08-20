@@ -10,6 +10,8 @@
 #import "Haiku.h"
 #import "GameUtility.h"
 #import <Firebase/Firebase.h>
+#import "SpriteLayer.h"
+#import "ComboLayer.h"
 
 
 @implementation HaikuSpawner
@@ -57,7 +59,7 @@
     
 }
 
--(void) setSpawnLayer:(CCLayer *)l{
+-(void) setSpawnLayer:(SpriteLayer *)l{
     spawnLayer=l;
 }
 
@@ -79,9 +81,19 @@
         
         haiku.visible=YES;
 
-        if (![[spawnLayer children] containsObject:haiku]){
+        if (spawnLayer.comboTransitionStarted)
+        {
+            spawnLayer.comboLayer.haikuSpawned=haiku;
+            [spawnLayer.comboLayer addChild:spawnLayer.comboLayer.haikuSpawned z:11];
+            
+        }
+        else
+        {
             [spawnLayer addChild:haiku z:-4];
         }
+        
+            
+        
         
         [GameUtility saveHaikuCount:[GameUtility savedHaikuCount]+1];
         

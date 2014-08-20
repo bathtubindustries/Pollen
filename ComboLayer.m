@@ -14,6 +14,7 @@
 #import "SpriteLayer.h"
 #import "SpidderEye.h"
 #import "SimpleAudioEngine.h"
+#import "Haiku.h"
 
 @implementation ComboLayer
 
@@ -73,6 +74,12 @@
 -(void) onExit {
     [super onExit];
     [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
+    
+    if ([self.children containsObject:self.haikuSpawned])
+    {
+        [self removeChild:self.haikuSpawned];
+        [spawnLayer addChild:self.haikuSpawned z:-4];
+    }
     
 }
 

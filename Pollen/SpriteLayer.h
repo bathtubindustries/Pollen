@@ -61,13 +61,15 @@
     
     CCLayer * comboLayer;
     BOOL touchEnabled;
-    BOOL comboTransitionStarted;
     BOOL comboPaused;
     
 }
 @property float playerHeight;
 @property(nonatomic) float topBuffer;
 
+@property (nonatomic, assign) ComboLayer * comboLayer;  //public prop so haikus can be added during combomode
+
+@property (nonatomic, assign) BOOL comboTransitionStarted;
 //keeps track of what level player is on, spidder drops more eyes
 //on higher levels to encourage players to get to higher altitudes to farm spidder eyes
 //instead of just restarting game for the easy hits at the start

@@ -10,6 +10,7 @@
 @class GameplayScene;
 @class ComboNodeFactory;
 @class SpriteLayer;
+@class Haiku;
 
 @interface ComboLayer : CCLayer{
     CGSize size;
@@ -32,7 +33,7 @@
 }
 
 @property (nonatomic, assign) BOOL waveInterrupted;
-
+@property (nonatomic, assign)Haiku * haikuSpawned;
 -(void) update:(ccTime)delta;
 -(void) setScene:(GameplayScene*)s;
 -(GameplayScene*) getScene;
