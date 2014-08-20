@@ -103,9 +103,20 @@
         haikuCounter_.visible=NO;
         id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatBounceForSprite:) data:(CCSprite*)haikuCounter_];
         [haikuCounter_ runAction:trigger];*/
-        
-        
+        toFeature =[[Haiku alloc] initHardCoded];
+        toFeature.scale=1.0;
+        toFeature.position=ccp((size.width/2)-10*scaleFactor , (size.height/2)+20*scaleFactor);
+        [self addChild:toFeature];
+        toFeature.visible=NO;
+        id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatBounceForSprite:) data:(CCSprite*)toFeature];
+        [toFeature runAction:trigger];
     
+        haikuLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
+                                        fontName:@"Futura" fontSize:18*scaleFactor];
+        haikuLabel.anchorPoint = ccp(0, 1);
+        haikuLabel.position = ccp(toFeature.position.x-7*scaleFactor+toFeature.contentSize.width/2,toFeature.position.y-toFeature.contentSize.height/2);
+        
+        [toFeature addChild:haikuLabel];
         
         CCSprite *frown = [CCSprite spriteWithFile: @"frowns.png"];
         frown.position=ccp(haikuCounter_.position.x-10*scaleFactor, haikuCounter_.position.y-103*scaleFactor);
@@ -143,35 +154,29 @@
 
 
 -(void) checkForContinue {
-    
-    size = [[CCDirector sharedDirector] winSize];
-    
     float scaleFactor = size.height/size.width;
-    
     
     [gameScene hidePause];
     [continueMenu_ setVisible:YES];
     [continueMenu_ setEnabled:YES];
     [continueLabel setVisible:YES];
-     [haikuLabel setVisible:YES];
-    haikuCounter_.visible=YES;
     
-    
-    
+    [toFeature removeChild:haikuLabel];
+    [self removeChild:toFeature];
     toFeature =[randSpawner getRandomHaiku];
-    toFeature.scale=1.0;
+    toFeature.visible=YES;
     toFeature.position=ccp((size.width/2)-10*scaleFactor , (size.height/2)+20*scaleFactor);
     [self addChild:toFeature];
-    toFeature.visible=YES;
     id trigger = [CCCallFuncND actionWithTarget:self selector:@selector(triggerRepeatBounceForSprite:) data:(CCSprite*)toFeature];
     [toFeature runAction:trigger];
     
+    
     haikuLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
                                     fontName:@"Futura" fontSize:18*scaleFactor];
-    haikuLabel.anchorPoint = ccp(0, 1);
     haikuLabel.position = ccp(toFeature.position.x-7*scaleFactor+toFeature.contentSize.width/2,toFeature.position.y-toFeature.contentSize.height/2);
-
+    haikuLabel.anchorPoint = ccp(0, 1);
     [toFeature addChild:haikuLabel];
+   
     [haikuLabel setVisible:YES];
     
     [reviveHaikuText setString:[NSString stringWithFormat:@" -%d",haikuCost ]];
