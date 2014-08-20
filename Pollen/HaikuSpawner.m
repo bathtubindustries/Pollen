@@ -90,6 +90,12 @@
 }
 
 
+-(Haiku*) getRandomHaiku
+{
+    int index = [GameUtility randInt:0 :([haikuBank count]-1)];
+    return [haikuBank objectAtIndex:index];
+}
+
 
 -(void) update:(ccTime)dt{
     

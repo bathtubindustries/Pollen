@@ -11,6 +11,7 @@
 #import "MainMenuLayer.h"
 #import "FriendsPickerViewController.h"
 #import "HaikuGalleryLayer.h"
+#import "GameUtility.h"
 
 @implementation GameOverLayer
 -(id) initWithScore:(float)score {
@@ -197,7 +198,7 @@
         bestText2.scaleX=(1/scoreBg.scaleX);
         bestText2.position= ccp(scoreBg.position.x-bestText2.contentSize.width-40*scaleFactor,scoreBg.position.y-scoreBg.contentSize.height-15*scaleFactor);
         
-        CCLabelTTF *bestScoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)score ] fontName:@"Futura" fontSize:14*scaleFactor];
+        CCLabelTTF *bestScoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)[GameUtility savedHighScore] ] fontName:@"Futura" fontSize:14*scaleFactor];
         [bestScoreText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:bestScoreText];
         bestScoreText.scaleY=(1/scoreBg.scaleY);

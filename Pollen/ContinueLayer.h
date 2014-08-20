@@ -10,6 +10,7 @@
 #import "GameOverLayer.h"
 #import "GameUtility.h"
 #import "GameplayScene.h"
+#import "HaikuSpawner.h"
 
 @interface ContinueLayer : CCLayerColor{
     
@@ -19,9 +20,10 @@
     CCLabelTTF *haikuLabel;
     CCLabelTTF *warningLabel;
     GameplayScene* gameScene;
-    
+    HaikuSpawner * randSpawner;
     CCSprite *haikuCounter_;
     CCLabelTTF *reviveHaikuText;
+    Haiku * toFeature;
     
     BOOL warned;
     int haikuCost;

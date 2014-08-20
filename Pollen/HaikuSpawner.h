@@ -7,6 +7,7 @@
 //
 
 #import "CCNode.h"
+#import "Haiku.h"
 
 @interface HaikuSpawner : CCNode{
     
@@ -27,5 +28,5 @@
 -(void) update:(ccTime)dt;
 -(void) setSpawnLayer:(CCLayer*)l;
 -(void) spawnHaiku: (int) height;
-
+-(Haiku*) getRandomHaiku;
 @end
