@@ -179,7 +179,6 @@
 		2214319A19319F7D0065A064 /* Instruct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319919319F7D0065A064 /* Instruct.png */; };
 		22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171351196E138000E7CA0B /* StoreKit.framework */; };
 		22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171353196E139C00E7CA0B /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171355196E13FA00E7CA0B /* Grab.framework */; };
 		22171361196E1DD800E7CA0B /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22171360196E1DD800E7CA0B /* IAPManager.mm */; };
 		22171364196E1E7900E7CA0B /* IAPManager_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22171363196E1E7900E7CA0B /* IAPManager_objc.m */; };
 		22171367196E340F00E7CA0B /* IAPCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22171365196E340F00E7CA0B /* IAPCallback.cpp */; };
@@ -211,6 +210,8 @@
 		222178E11986EC370052FAA5 /* letterO.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178DB1986EC370052FAA5 /* letterO.png */; };
 		222178E21986EC370052FAA5 /* letterP.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178DC1986EC370052FAA5 /* letterP.png */; };
 		222178E419870E850052FAA5 /* breathingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178E319870E850052FAA5 /* breathingDot.png */; };
+		2228556919CD1F840036F059 /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228556819CD1F840036F059 /* Grab.framework */; };
+		2228556B19CD1F8F0036F059 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228556A19CD1F8F0036F059 /* Firebase.framework */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
 		225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */; };
@@ -236,7 +237,6 @@
 		227F59DF1996C4BB009D7230 /* Haiku.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DA1996C4BB009D7230 /* Haiku.m */; };
 		227F59E01996C4BB009D7230 /* HaikuGalleryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */; };
 		227F59E11996C4BB009D7230 /* HaikuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DE1996C4BB009D7230 /* HaikuLayer.m */; };
-		227F59E61996C639009D7230 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E51996C639009D7230 /* Firebase.framework */; };
 		227F59E81996C68A009D7230 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E71996C68A009D7230 /* libicucore.dylib */; };
 		227F59EA1996C692009D7230 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E91996C692009D7230 /* CFNetwork.framework */; };
 		227F59EC1996C6A4009D7230 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59EB1996C6A4009D7230 /* libc++.dylib */; };
@@ -630,7 +630,6 @@
 		2214319919319F7D0065A064 /* Instruct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instruct.png; sourceTree = "<group>"; };
 		22171351196E138000E7CA0B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		22171353196E139C00E7CA0B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		22171355196E13FA00E7CA0B /* Grab.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Grab.framework; path = ../../../../Downloads/Grab.framework; sourceTree = "<group>"; };
 		22171358196E155E00E7CA0B /* HgString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HgString.h; path = Pollen/HgString.h; sourceTree = "<group>"; };
 		2217135F196E1DD800E7CA0B /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPManager.h; path = Pollen/IAPManager.h; sourceTree = "<group>"; };
 		22171360196E1DD800E7CA0B /* IAPManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IAPManager.mm; path = Pollen/IAPManager.mm; sourceTree = "<group>"; };
@@ -667,6 +666,8 @@
 		222178DB1986EC370052FAA5 /* letterO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letterO.png; sourceTree = "<group>"; };
 		222178DC1986EC370052FAA5 /* letterP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letterP.png; sourceTree = "<group>"; };
 		222178E319870E850052FAA5 /* breathingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breathingDot.png; sourceTree = "<group>"; };
+		2228556819CD1F840036F059 /* Grab.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Grab.framework; path = ../../../Downloads/Grab.framework; sourceTree = "<group>"; };
+		2228556A19CD1F8F0036F059 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
 		225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeTemplateConsumable.png; sourceTree = "<group>"; };
@@ -699,7 +700,6 @@
 		227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuGalleryLayer.m; sourceTree = "<group>"; };
 		227F59DD1996C4BB009D7230 /* HaikuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaikuLayer.h; sourceTree = "<group>"; };
 		227F59DE1996C4BB009D7230 /* HaikuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuLayer.m; sourceTree = "<group>"; };
-		227F59E51996C639009D7230 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		227F59E71996C68A009D7230 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		227F59E91996C692009D7230 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		227F59EB1996C6A4009D7230 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -780,11 +780,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227F59EE1996C6DB009D7230 /* SystemConfiguration.framework in Frameworks */,
+				C8ADB0C918ED51420050A930 /* Foundation.framework in Frameworks */,
 				227F59EA1996C692009D7230 /* CFNetwork.framework in Frameworks */,
+				227F59EE1996C6DB009D7230 /* SystemConfiguration.framework in Frameworks */,
 				227F59EC1996C6A4009D7230 /* libc++.dylib in Frameworks */,
 				227F59E81996C68A009D7230 /* libicucore.dylib in Frameworks */,
-				22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */,
 				22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */,
 				22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */,
 				22CD0CE11930002E008B5EF5 /* MediaPlayer.framework in Frameworks */,
@@ -794,12 +794,12 @@
 				C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */,
 				C8ADB0C518ED51420050A930 /* AVFoundation.framework in Frameworks */,
 				C8ADB0CB18ED51420050A930 /* CoreGraphics.framework in Frameworks */,
+				2228556919CD1F840036F059 /* Grab.framework in Frameworks */,
+				2228556B19CD1F8F0036F059 /* Firebase.framework in Frameworks */,
 				C8ADB0CD18ED51420050A930 /* CoreText.framework in Frameworks */,
 				C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */,
-				C8ADB0C918ED51420050A930 /* Foundation.framework in Frameworks */,
 				C8ADB0C318ED51420050A930 /* AudioToolbox.framework in Frameworks */,
 				C8ADB0CF18ED51420050A930 /* GameKit.framework in Frameworks */,
-				227F59E61996C639009D7230 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1498,8 +1498,8 @@
 				227F59EB1996C6A4009D7230 /* libc++.dylib */,
 				227F59E91996C692009D7230 /* CFNetwork.framework */,
 				227F59E71996C68A009D7230 /* libicucore.dylib */,
-				227F59E51996C639009D7230 /* Firebase.framework */,
-				22171355196E13FA00E7CA0B /* Grab.framework */,
+				2228556A19CD1F8F0036F059 /* Firebase.framework */,
+				2228556819CD1F840036F059 /* Grab.framework */,
 				22171353196E139C00E7CA0B /* AdSupport.framework */,
 				22171351196E138000E7CA0B /* StoreKit.framework */,
 				22CD0CE01930002E008B5EF5 /* MediaPlayer.framework */,
@@ -1906,7 +1906,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1926,7 +1926,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "5538F25F-D8E5-4C6F-B980-031F73729F79";
+				PROVISIONING_PROFILE = "c339d635-8a99-4e18-a089-9e7208c73d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1936,7 +1936,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1955,7 +1955,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "5538F25F-D8E5-4C6F-B980-031F73729F79";
+				PROVISIONING_PROFILE = "c339d635-8a99-4e18-a089-9e7208c73d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
