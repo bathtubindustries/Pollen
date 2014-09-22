@@ -19,8 +19,7 @@
 @class ComboLayer;
 @class ClipSprite;
 
-
-#define INITIAL_FLOWER_AMOUNT 6
+#define INITIAL_FLOWER_AMOUNT 8 //was 6
 
 @interface SpriteLayer : CCLayer {
     //references

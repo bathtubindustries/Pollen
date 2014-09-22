@@ -8,15 +8,16 @@
 
 #import "cocos2d.h"
 
-#define PLAYER_XACCEL 2150.f
-#define PLAYER_XMAXSPEED 445.f
+#define PLAYER_XACCEL 2760.f //was 2650
+#define PLAYER_XMAXSPEED 440.f
 
 #define PLAYER_GRAVITY -15.f
 #define PLAYER_JUMP 555.f
 #define PLAYER_INITAL_JUMP 800.f
 #define PLAYER_SPIDDDER_JUMP 660.f
 
-#define PLAYER_ATTACK_RESET 0.14f
+#define PLAYER_ATTACK_RESET 0.22f
+#define PLAYER_ATTACK_FRAME_DELAY 0.05f
 
 #define PLAYER_MAX_POLLEN 90.f
 #define PLAYER_SWIPE_AMOUNT 30.f
@@ -26,12 +27,18 @@
 
 #define PLAYER_COMBO_BOOST 300.0f
 
+#define PLAYER_WIDTH 72.f //80.f
+#define PLAYER_HEIGHT 83.7f //93.f
+
 @class SpriteLayer;
-@interface PlayerSprite : CCSprite {
+@interface PlayerSprite : CCSpriteBatchNode {
     //references
     CGSize size;
     
-    //members    
+    //members
+    NSMutableArray *animationFrames;
+    CCSprite *playerSprite_;
+    
     enum PlayerState {
         OnGround = 0,
         Jumping,
@@ -62,8 +69,15 @@
 @property BOOL dead;
 @property (nonatomic, assign) BOOL comboEnding;
 @property (nonatomic, assign) SpriteLayer* spawnLayer;
+
+//overrides
+@property CGPoint position;
+@property float rotation;
+//@property CGRect boundingBox;
+
 //messages
 -(void) startAttack;
+-(void) startAttack:(unsigned short) dir;
 -(void) startJump;
 -(void) startSpiddderJump;
 -(void) startSwipe;

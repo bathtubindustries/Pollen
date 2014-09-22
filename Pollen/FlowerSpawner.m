@@ -12,9 +12,9 @@
 #import "SpriteLayer.h"
 #import "GameUtility.h"
 
-#define MIN_FLOWERS 2
-#define HEIGHT_INCREMENT 400
-#define HEIGHT_OFFSET 250
+#define MIN_FLOWERS 3
+#define HEIGHT_INCREMENT 295 //was 400
+#define HEIGHT_OFFSET 60 //was 250
 
 @implementation FlowerSpawner
 
@@ -46,12 +46,20 @@
 }
 
 -(void) setParticleAmount:(int)n {
-    if([flowers_ count] < n) {
-        for(int i = 0; i < n-numParticles_; i++) {
+    if([flowers_ count] == 0 && [flowers_ count] < n) { //will not add particles after first spawning
+        float particleDistance = size.height/(n-1);
+        unsigned short extraParticles = 0;
+        while(extraParticles * particleDistance < FLOWER_HEIGHT) extraParticles++;
+        NSLog(@"%i", extraParticles);
+        
+        for(int i = 0; i < n+extraParticles; i++) {
             Flower *particle = [Flower node];
             particle.visible = YES;
-            particle.position = ccp([GameUtility randInt:0 :size.width],
-                                    size.height/2 + (i+1)*(size.height/(n-numParticles_-1)));
+            
+            //flip i
+            float xbuf = i*(size.width/(n+extraParticles));
+            particle.position = ccp([GameUtility randInt:size.width/2-xbuf :size.width/2+xbuf+1],
+                                    size.height/2 + (i+1)*(size.height/(n-1)));
                                                 //warning; might not work if adding particles
             
             [flowers_ addObject:particle];
@@ -65,7 +73,7 @@
         Flower *flower = [flowers_ objectAtIndex:i];
         if(flower.visible == NO) {
             //create top buffer to make sure particles are evenly spread out
-            int buffer = size.height/numParticles_;
+            int buffer = size.height/(numParticles_-1);
             //subtract distance from last flower to top of screen
             int j = i-1; if(j < 0) j = [flowers_ count]-1;
             Flower *prevFlower = [flowers_ objectAtIndex:j];
@@ -74,9 +82,9 @@
             if(buffer < [flower boundingBox].size.height/2)
                 buffer = [flower boundingBox].size.height/2;
             
-            flower.position = ccp([GameUtility randInt:[flower boundingBox].size.width/4
+            flower.position = ccp([GameUtility randInt:[flower boundingBox].size.width/4 //x
                                                       :size.width - [flower boundingBox].size.width/4],
-                                  size.height + buffer);
+                                  size.height + buffer);                                 //y
             
             [flower setColor:[GameUtility randInt:0 :2]];
             [flower resetBloom];
@@ -95,7 +103,8 @@
         if((h > (nextHeightChange-1)*HEIGHT_INCREMENT + HEIGHT_OFFSET) &&
            (self.flowerAmount > INITIAL_FLOWER_AMOUNT-nextHeightChange)) {
             [self setParticleAmount:self.flowerAmount-1];
-            //NSLog(@"flower amount: %i", self.flowerAmount);
+            
+            NSLog(@"height: %f, flower amount: %i", h, self.flowerAmount);
         }
     }
     //NSLog(@"iterator: %i", nextHeightChange);
@@ -117,13 +126,14 @@
 
             if(flower.position.y < -[flower boundingBox].size.height) {
                 flower.visible = NO;
+                displayedParticles--;//
             }
             
-            if(i < numParticles_) {
+            /*if(i < numParticles_) {
                 if(flower.visible == NO) {
                     displayedParticles--;
                 }
-            }
+            }*/
         }
         
         if(displayedParticles < numParticles_) {

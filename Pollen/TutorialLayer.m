@@ -15,18 +15,22 @@
 
 @implementation TutorialLayer
 
+@synthesize tutorialState = tutorialState_;
+@synthesize waitingEvent = waitingEvent_;
+
 -(id) init {
     if(self = [super init]) {
         size = [[CCDirector sharedDirector] winSize];
         
-        currentMessage_ = 0;
+        waitingEvent_ = NO;
+        tutorialState_ = 0;
+
         messages_ = [[NSMutableArray alloc] init];
-        
         for(int i = 0; i < MESSAGE_COUNT; i++)
             [messages_ addObject:[CCSprite spriteWithFile:[NSString stringWithFormat:@"tutorialMessage%i.png", i+1]]];
         
         for(CCSprite *message in messages_) {
-            message.position = ccp(size.width/2, size.height/2 - 20);
+            message.position = ccp(size.width/2, size.height/2);
             message.visible = NO;
             [self addChild:message];
         }
@@ -42,35 +46,48 @@
 -(void) onEnter {
     [super onEnter];
     [[CCDirector sharedDirector].touchDispatcher
-     addTargetedDelegate:self priority:1 swallowsTouches:YES];
+     addTargetedDelegate:self priority:1 swallowsTouches:NO];
 }
 -(void) dealloc {
     [messages_ dealloc];
     [super dealloc];
 }
 
+//UTILITY
 -(void) setScene:(GameplayScene*)s{
     scene=s;
+}
+-(void) updateMessages {
+    for(int i = 0; i < [messages_ count]; i++) {
+        CCSprite *message = [messages_ objectAtIndex:i];
+        if(i == tutorialState_ && !waitingEvent_) {
+            message.visible = YES;
+        } else {
+            message.visible = NO;
+        }
+    }
 }
 
 //INPUT
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event {
-    currentMessage_++;
-    if(currentMessage_ >= [messages_ count]) {
+    if(!waitingEvent_) {
+        if(tutorialState_ >= Tilt)
+            waitingEvent_ = YES;
+        if(tutorialState_ >= Tap)
+            [scene resume];
+        
+        tutorialState_++;
+       [[SimpleAudioEngine sharedEngine] playEffect:@"xylophone.wav"];
+    }
+    
+    
+    if(tutorialState_ >= [messages_ count]) {
         CCSprite *message = [messages_ objectAtIndex:[messages_ count]-1];
         message.visible = NO;
         scene.tutorialActive=NO;
         [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
     } else {
-        for(int i = 0; i < [messages_ count]; i++) {
-            CCSprite *message = [messages_ objectAtIndex:i];
-            if(i == currentMessage_) {
-                message.visible = YES;
-            } else {
-                message.visible = NO;
-            }
-        }
-       [[SimpleAudioEngine sharedEngine] playEffect:@"xylophone.wav"];
+        [self updateMessages];
     }
     
     return YES;

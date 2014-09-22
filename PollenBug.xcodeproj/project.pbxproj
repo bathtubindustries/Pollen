@@ -179,7 +179,6 @@
 		2214319A19319F7D0065A064 /* Instruct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2214319919319F7D0065A064 /* Instruct.png */; };
 		22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171351196E138000E7CA0B /* StoreKit.framework */; };
 		22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171353196E139C00E7CA0B /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22171355196E13FA00E7CA0B /* Grab.framework */; };
 		22171361196E1DD800E7CA0B /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22171360196E1DD800E7CA0B /* IAPManager.mm */; };
 		22171364196E1E7900E7CA0B /* IAPManager_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22171363196E1E7900E7CA0B /* IAPManager_objc.m */; };
 		22171367196E340F00E7CA0B /* IAPCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22171365196E340F00E7CA0B /* IAPCallback.cpp */; };
@@ -236,7 +235,6 @@
 		227F59DF1996C4BB009D7230 /* Haiku.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DA1996C4BB009D7230 /* Haiku.m */; };
 		227F59E01996C4BB009D7230 /* HaikuGalleryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */; };
 		227F59E11996C4BB009D7230 /* HaikuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 227F59DE1996C4BB009D7230 /* HaikuLayer.m */; };
-		227F59E61996C639009D7230 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E51996C639009D7230 /* Firebase.framework */; };
 		227F59E81996C68A009D7230 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E71996C68A009D7230 /* libicucore.dylib */; };
 		227F59EA1996C692009D7230 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59E91996C692009D7230 /* CFNetwork.framework */; };
 		227F59EC1996C6A4009D7230 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 227F59EB1996C6A4009D7230 /* libc++.dylib */; };
@@ -284,6 +282,12 @@
 		22DE834B1974E28D0030B0CD /* ComboNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834A1974E28D0030B0CD /* ComboNode.m */; };
 		22DE834E1974E2A50030B0CD /* ComboNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */; };
 		22DE83501974EA250030B0CD /* yellowNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DE834F1974EA250030B0CD /* yellowNode.png */; };
+		C804325D19C8B87000D0946A /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804325C19C8B87000D0946A /* Firebase.framework */; };
+		C804325F19C8B89B00D0946A /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804325E19C8B89B00D0946A /* Grab.framework */; };
+		C8A0D58E19C9A5A700F4FDD6 /* pollenManHammer.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A0D58A19C9A5A700F4FDD6 /* pollenManHammer.plist */; };
+		C8A0D58F19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = C8A0D58B19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz */; };
+		C8A0D59019C9A5A700F4FDD6 /* pollenManWand.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A0D58C19C9A5A700F4FDD6 /* pollenManWand.plist */; };
+		C8A0D59119C9A5A700F4FDD6 /* pollenManWand.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = C8A0D58D19C9A5A700F4FDD6 /* pollenManWand.pvr.ccz */; };
 		C8AC375819354225004F44C5 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */; };
 		C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8AC374C19354225004F44C5 /* FriendsPickerViewController.xib */; };
 		C8AC375A19354225004F44C5 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC374E19354225004F44C5 /* GameOverLayer.m */; };
@@ -630,7 +634,6 @@
 		2214319919319F7D0065A064 /* Instruct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instruct.png; sourceTree = "<group>"; };
 		22171351196E138000E7CA0B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		22171353196E139C00E7CA0B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		22171355196E13FA00E7CA0B /* Grab.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Grab.framework; path = ../../../../Downloads/Grab.framework; sourceTree = "<group>"; };
 		22171358196E155E00E7CA0B /* HgString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HgString.h; path = Pollen/HgString.h; sourceTree = "<group>"; };
 		2217135F196E1DD800E7CA0B /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPManager.h; path = Pollen/IAPManager.h; sourceTree = "<group>"; };
 		22171360196E1DD800E7CA0B /* IAPManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IAPManager.mm; path = Pollen/IAPManager.mm; sourceTree = "<group>"; };
@@ -699,7 +702,6 @@
 		227F59DC1996C4BB009D7230 /* HaikuGalleryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuGalleryLayer.m; sourceTree = "<group>"; };
 		227F59DD1996C4BB009D7230 /* HaikuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaikuLayer.h; sourceTree = "<group>"; };
 		227F59DE1996C4BB009D7230 /* HaikuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaikuLayer.m; sourceTree = "<group>"; };
-		227F59E51996C639009D7230 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		227F59E71996C68A009D7230 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		227F59E91996C692009D7230 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		227F59EB1996C6A4009D7230 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -754,6 +756,12 @@
 		22DE834C1974E2A50030B0CD /* ComboNodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNodeFactory.h; sourceTree = "<group>"; };
 		22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboNodeFactory.m; sourceTree = "<group>"; };
 		22DE834F1974EA250030B0CD /* yellowNode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowNode.png; sourceTree = "<group>"; };
+		C804325C19C8B87000D0946A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		C804325E19C8B89B00D0946A /* Grab.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Grab.framework; sourceTree = "<group>"; };
+		C8A0D58A19C9A5A700F4FDD6 /* pollenManHammer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pollenManHammer.plist; sourceTree = "<group>"; };
+		C8A0D58B19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = pollenManHammer.pvr.ccz; sourceTree = "<group>"; };
+		C8A0D58C19C9A5A700F4FDD6 /* pollenManWand.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pollenManWand.plist; sourceTree = "<group>"; };
+		C8A0D58D19C9A5A700F4FDD6 /* pollenManWand.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = pollenManWand.pvr.ccz; sourceTree = "<group>"; };
 		C8AC374819354225004F44C5 /* ContinueLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinueLayer.h; path = Pollen/ContinueLayer.h; sourceTree = "<group>"; };
 		C8AC374A19354225004F44C5 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsPickerViewController.h; path = Pollen/FriendsPickerViewController.h; sourceTree = "<group>"; };
 		C8AC374B19354225004F44C5 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsPickerViewController.m; path = Pollen/FriendsPickerViewController.m; sourceTree = "<group>"; };
@@ -784,22 +792,22 @@
 				227F59EA1996C692009D7230 /* CFNetwork.framework in Frameworks */,
 				227F59EC1996C6A4009D7230 /* libc++.dylib in Frameworks */,
 				227F59E81996C68A009D7230 /* libicucore.dylib in Frameworks */,
-				22171356196E13FA00E7CA0B /* Grab.framework in Frameworks */,
 				22171354196E139C00E7CA0B /* AdSupport.framework in Frameworks */,
 				22171352196E138000E7CA0B /* StoreKit.framework in Frameworks */,
 				22CD0CE11930002E008B5EF5 /* MediaPlayer.framework in Frameworks */,
 				22ADADB3191ED5AC009A63A1 /* Security.framework in Frameworks */,
 				C8ADB0C118ED51420050A930 /* OpenAL.framework in Frameworks */,
+				C804325D19C8B87000D0946A /* Firebase.framework in Frameworks */,
 				C8ADB0C718ED51420050A930 /* UIKit.framework in Frameworks */,
 				C8ADB0BD18ED51420050A930 /* QuartzCore.framework in Frameworks */,
 				C8ADB0C518ED51420050A930 /* AVFoundation.framework in Frameworks */,
+				C804325F19C8B89B00D0946A /* Grab.framework in Frameworks */,
 				C8ADB0CB18ED51420050A930 /* CoreGraphics.framework in Frameworks */,
 				C8ADB0CD18ED51420050A930 /* CoreText.framework in Frameworks */,
 				C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */,
 				C8ADB0C918ED51420050A930 /* Foundation.framework in Frameworks */,
 				C8ADB0C318ED51420050A930 /* AudioToolbox.framework in Frameworks */,
 				C8ADB0CF18ED51420050A930 /* GameKit.framework in Frameworks */,
-				227F59E61996C639009D7230 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1284,6 +1292,10 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C8A0D58A19C9A5A700F4FDD6 /* pollenManHammer.plist */,
+				C8A0D58B19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz */,
+				C8A0D58C19C9A5A700F4FDD6 /* pollenManWand.plist */,
+				C8A0D58D19C9A5A700F4FDD6 /* pollenManWand.pvr.ccz */,
 				229CC78919A06140001DE7E1 /* haikuStore30.png */,
 				229CC78719A060B3001DE7E1 /* eyesStore3500.png */,
 				229CC78519A05E8A001DE7E1 /* eyesStore1500.png */,
@@ -1498,8 +1510,8 @@
 				227F59EB1996C6A4009D7230 /* libc++.dylib */,
 				227F59E91996C692009D7230 /* CFNetwork.framework */,
 				227F59E71996C68A009D7230 /* libicucore.dylib */,
-				227F59E51996C639009D7230 /* Firebase.framework */,
-				22171355196E13FA00E7CA0B /* Grab.framework */,
+				C804325C19C8B87000D0946A /* Firebase.framework */,
+				C804325E19C8B89B00D0946A /* Grab.framework */,
 				22171353196E139C00E7CA0B /* AdSupport.framework */,
 				22171351196E138000E7CA0B /* StoreKit.framework */,
 				22CD0CE01930002E008B5EF5 /* MediaPlayer.framework */,
@@ -1577,6 +1589,7 @@
 				227F59FE1997359F009D7230 /* WritingViewController.xib in Resources */,
 				2217AF12198BFA9400CD56C0 /* tubeFull.png in Resources */,
 				225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */,
+				C8A0D59119C9A5A700F4FDD6 /* pollenManWand.pvr.ccz in Resources */,
 				222178CE198431190052FAA5 /* successNode.png in Resources */,
 				22AA616919485E5B00931260 /* spidderEyeDrop-hd.png in Resources */,
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
@@ -1585,6 +1598,7 @@
 				C8EBD16D195A34F7007DE291 /* flowersUnshaded.plist in Resources */,
 				22AA616319485E5B00931260 /* spidderEyeCounter-hd.png in Resources */,
 				22AA615C19485E5B00931260 /* haikuColorFade-ipadhd.plist in Resources */,
+				C8A0D58F19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz in Resources */,
 				227F54FE199087AE009D7230 /* UIBox.png in Resources */,
 				11A7F911191921860086EC1B /* pollenManAttack.png in Resources */,
 				22AA616B19485E5B00931260 /* spidderEyeDrop-ipadhd.png in Resources */,
@@ -1661,6 +1675,7 @@
 				11E5D2961917CEEE00A76121 /* Icon-72.png in Resources */,
 				C8AC375919354225004F44C5 /* FriendsPickerViewController.xib in Resources */,
 				11BF2C53191ADD5900143F58 /* spiddderoso.png in Resources */,
+				C8A0D59019C9A5A700F4FDD6 /* pollenManWand.plist in Resources */,
 				22ADADA2191EC4CF009A63A1 /* DandelionHammer.png in Resources */,
 				222178D01984383F0052FAA5 /* feedbackNode.png in Resources */,
 				222178DE1986EC370052FAA5 /* letterL1.png in Resources */,
@@ -1686,6 +1701,7 @@
 				225BBB91196FB9A5006EB721 /* eyesStore250.png in Resources */,
 				11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */,
 				22785DE3196B135100C0E359 /* lockedOverlay.png in Resources */,
+				C8A0D58E19C9A5A700F4FDD6 /* pollenManHammer.plist in Resources */,
 				115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */,
 				22785DE4196B135100C0E359 /* storeTemplate.png in Resources */,
 				22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */,
@@ -1906,12 +1922,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Sheehan (G2XTYK3Y54)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Sheehan (G2XTYK3Y54)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ericnelson/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INPUT_FILETYPE = automatic;
@@ -1926,7 +1943,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "5538F25F-D8E5-4C6F-B980-031F73729F79";
+				PROVISIONING_PROFILE = "A3A1F5F2-53F5-4E53-858B-EB19B5AEF8FF";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1936,12 +1953,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Sheehan (G2XTYK3Y54)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Sheehan (G2XTYK3Y54)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ericnelson/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1955,7 +1973,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "5538F25F-D8E5-4C6F-B980-031F73729F79";
+				PROVISIONING_PROFILE = "A3A1F5F2-53F5-4E53-858B-EB19B5AEF8FF";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

@@ -21,19 +21,46 @@
 @synthesize state = state_;
 @synthesize dead = dead_;
 
--(id)init{
-    if(self = [super initWithFile:@"pollenManGround.png"]) {
+-(id) init {
+    NSString *fn;
+    if([GameUtility equippedItem] == 0) {
+        fn = @"pollenManWand";
+    }
+    else if([GameUtility equippedItem] == 1) {
+        fn = @"pollenManHammer";
+    }
+    
+    if(self = [super initWithFile:[NSString stringWithFormat:@"%@.pvr.ccz", fn] capacity:16]) {
         size = [[CCDirector sharedDirector] winSize];
-        [self setScale:0.9];
+        
+        animationFrames = [[NSMutableArray alloc] init];
+        [animationFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Ground.png", fn]]];
+        for(int i = 0; i < 3; i++) {
+            [animationFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Idle%i.png", fn, i]]];
+        }
+        for(int i = 0; i < 4; i++) {
+            [animationFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Up%i.png", fn, i]]];
+        }
+        for(int i = 0; i < 4; i++) {
+            [animationFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Down%i.png", fn, i]]];
+        }
+        for(int i = 0; i < 4; i++) {
+            [animationFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Side%i.png", fn, i]]];
+        }
+        
+        //start with ground frame
+        playerSprite_ = [CCSprite spriteWithSpriteFrame:[animationFrames objectAtIndex:0]];
+        [playerSprite_ setScale:0.81f];
+        [self addChild: playerSprite_];
+        
+        self.position = ccp(size.width/2, [self boundingBox].size.height/2);
+        self.velocity = CGPointZero;
+        self.extraYVelocity = 0;
         
         state_ = OnGround;
         self.dead = NO;
         attackResetTimer_ = 0;
         self.pollenMeter = 0.f;
-        
-        self.position = ccp(size.width/2, [self boundingBox].size.height/2);
-        self.velocity = CGPointZero;
-        self.extraYVelocity = 0;
         
         gravityIncrement_ = 0;
         jumpIncrement_ = 0;
@@ -50,17 +77,34 @@
 
 //MESSAGES
 -(void) startAttack {
+    [self startAttack:0];
+} //direction: 1 = up, 2 = down, 3 = side
+-(void) startAttack:(unsigned short)dir {
+    if(dir == 0) dir = 3;
+    else if(dir != 0 && attackResetTimer_ < PLAYER_ATTACK_FRAME_DELAY) {
+        //reset if starting another attack before extra timer delay has run down
+        attackResetTimer_ = 0;
+        [playerSprite_ stopAllActions];
+        state_ = Jumping;
+    }
+
     if(state_ == OnGround) {
         //start jumping if on ground
         state_ = Jumping;
-        [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+        [playerSprite_ setDisplayFrame:[animationFrames objectAtIndex:1]];
+        
         self.velocity = ccp(self.velocity.x, PLAYER_INITAL_JUMP);
         self.rotation = 0;
     } else if(state_ == Jumping) {
         //start attacking
         state_ = Attacking;
         attackResetTimer_ = PLAYER_ATTACK_RESET;
-        [GameUtility loadTexture:@"pollenManAttack.png" Into:self];
+        
+        CCAnimation *attackAnimation = [CCAnimation animationWithSpriteFrames:[animationFrames subarrayWithRange:NSMakeRange(4*dir, 4)]
+                                                                        delay:PLAYER_ATTACK_FRAME_DELAY];
+        CCAction *animationAction = [CCAnimate actionWithAnimation:attackAnimation];
+        [playerSprite_ stopAllActions];
+        [playerSprite_ runAction:animationAction];
     } else if(state_ == Boosting) {
         self.velocity = ccp(self.velocity.x, PLAYER_BOOST_JUMP);
     }
@@ -105,19 +149,28 @@
     }
 }
 
--(void) startBoost{
+-(void) startBoost {
     state_ = Boosting;
-    [GameUtility loadTexture:@"pollenManBoost.png" Into:self];
+    
+    CCAnimation *boostAnimation = [CCAnimation animationWithSpriteFrames:[animationFrames subarrayWithRange:NSMakeRange(5, 2)] delay:PLAYER_ATTACK_FRAME_DELAY];
+    CCAction *animationAction = [CCAnimate actionWithAnimation:boostAnimation];
+    [playerSprite_ stopAllActions];
+    [playerSprite_ runAction:[CCRepeatForever actionWithAction:(CCActionInterval*)animationAction]];
+    
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"plucked.mp3"];
 }
--(void)startComboBoost
-{
+-(void)startComboBoost {
     state_=ComboBoost;
+    
+    CCAnimation *boostAnimation = [CCAnimation animationWithSpriteFrames:[animationFrames subarrayWithRange:NSMakeRange(5, 2)] delay:PLAYER_ATTACK_FRAME_DELAY];
+    CCAction *animationAction = [CCAnimate actionWithAnimation:boostAnimation];
+    [playerSprite_ stopAllActions];
+    [playerSprite_ runAction:[CCRepeatForever actionWithAction:(CCActionInterval*)animationAction]];
 }
 
 -(void) handleHeight:(float)h {
     #warning hacky and will not scale automatically
-    if(h > 300 && gravityIncrement_ == 0) {
+    if(h > 300 && gravityIncrement_ != 1 && !(self.spawnLayer.treeLevel > 1)) {
         gravityIncrement_ = 1;
         jumpIncrement_ = 75;
         NSLog(@"reached first checkpoint");
@@ -125,21 +178,27 @@
     }
     else if(h > 800 && gravityIncrement_ == 1) {
         gravityIncrement_ = 2;
-        jumpIncrement_ = 235;
+        jumpIncrement_ = 175;
         NSLog(@"reached second checkpoint");
         self.spawnLayer.treeLevel=2;
     }
     else if(h > 1500 && gravityIncrement_ == 2) {
         gravityIncrement_ = 3;
-        jumpIncrement_ = 260;
+        jumpIncrement_ = 225;
         NSLog(@"reached third checkpoint");
         self.spawnLayer.treeLevel=3;
     }
     else if(h > 2000 && gravityIncrement_ == 3) {
-        gravityIncrement_ = 5;
-        jumpIncrement_ = 325;
-        NSLog(@"reached fourth and final checkpoint");
+        gravityIncrement_ = 6;
+        jumpIncrement_ = 290;
+        NSLog(@"reached fourth checkpoint");
         self.spawnLayer.treeLevel=4;
+    }
+    else if(h > 4000 && gravityIncrement_ == 6) {
+        gravityIncrement_ = 8;
+        jumpIncrement_ = 350;
+        NSLog(@"reached fifth and final checkpoint");
+        self.spawnLayer.treeLevel = 4;
     }
 }
 
@@ -150,23 +209,43 @@
     if (state_ != ComboBoost && state_ != Combo)
     {
         if(state_ == Attacking) {
-            if(attackResetTimer_ > 0)
+            if(attackResetTimer_ > 0) {
                 attackResetTimer_ -= dt;
-            else {
+                
+#warning idk seems v hacky
+                if(jumpIncrement_ < 75)
+                gravityIncrement_ = PLAYER_GRAVITY*0.4f;
+            } else {
                 state_ = Jumping;
-                [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+                [playerSprite_ setDisplayFrame:[animationFrames objectAtIndex:1]];
+                
+#warning idk seems v hacky
+                if(jumpIncrement_ < 75)
+                gravityIncrement_ = PLAYER_GRAVITY*0.25f;
             }
         }
         
         //CHECK+HANDLE BOOSTING
-        
         if(state_ == Boosting) {
             self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
             if(self.pollenMeter <= 0) {
                 state_ = Jumping;
-                [GameUtility loadTexture:@"pollenManJump.png" Into:self];
+                [playerSprite_ stopAllActions];
+                [playerSprite_ setDisplayFrame:[animationFrames objectAtIndex:1]];
                 [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
             }
+        }
+        
+        if(state_ == Jumping) {
+            if((self.velocity.y + self.extraYVelocity > 0) &&
+               (self.velocity.y + self.extraYVelocity < 60)) {
+                [playerSprite_ setDisplayFrame:[animationFrames objectAtIndex:2]];
+            }
+            else if(self.velocity.y < 0) {
+                [playerSprite_ setDisplayFrame:[animationFrames objectAtIndex:3]];
+            }
+            
+            //NSLog(@"y velocity: %f, extra y velocity: %f", self.velocity.y, self.extraYVelocity);
         }
         
         //Y BOUNDS AND VELOCITIES
@@ -225,7 +304,7 @@
             self.velocity = ccp(-PLAYER_XMAXSPEED, self.velocity.y);
 
         //round down small velocities
-        if(abs(self.velocity.x) < 0.05f) {
+        if(abs(self.velocity.x) < 20.f) { //was 0.05f) {
             self.velocity = ccp(0, self.velocity.y);
         }
     } else {
@@ -280,6 +359,21 @@
         self.velocity = ccp(self.velocity.x, 0);
         self.position = ccp(self.position.x, size.height/2);
     }
+}
+
+//OVERRIDES
+-(CGPoint) position { return playerSprite_.position; }
+-(void) setPosition:(CGPoint)position {
+    playerSprite_.position = position;
+}
+
+-(float) rotation { return playerSprite_.rotation; }
+-(void) setRotation:(float)rotation {
+    playerSprite_.rotation = rotation;
+}
+
+-(CGRect) boundingBox {
+    return  CGRectMake(self.position.x - PLAYER_WIDTH/2, self.position.y - PLAYER_HEIGHT/2, PLAYER_WIDTH, PLAYER_HEIGHT);
 }
 
 @end

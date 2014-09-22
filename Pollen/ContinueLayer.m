@@ -32,7 +32,7 @@
         randSpawner = [[HaikuSpawner alloc] init];
        
         
-        CCMenuItemImage *itemRevive = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png" selectedImage:@"menuBoxRight.png" disabledImage:nil block:^(id sender){
+        CCMenuItemImage *itemRevive = [CCMenuItemImage itemWithNormalImage:@"menuBoxLeft.png" selectedImage:@"menuBoxLeft.png" disabledImage:nil block:^(id sender){
             if ([GameUtility savedHaikuCount]>= haikuCost){
                 [GameUtility saveHaikuCount:([GameUtility savedHaikuCount]-haikuCost)];
                 [self resumeWithContinue];
@@ -55,27 +55,29 @@
         [itemRevive addChild:reviveText];
         reviveText.scale=1*(1/itemRevive.scale);
         
-        CCMenuItemImage *itemScores = [CCMenuItemImage itemWithNormalImage:@"menuBoxLeft.png" selectedImage:@"menuBoxLeft.png" disabledImage:nil block:^(id sender){
+        CCMenuItemImage *itemScores = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png" selectedImage:@"menuBoxRight.png" disabledImage:nil block:^(id sender){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameOverLayer sceneWithScore:self.playerScore]]];
         
         }];
         itemScores.scale=1.2;
-        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:@"restart" fontName:@"Chalkduster" fontSize:18*scaleFactor];
+        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:@"next>" fontName:@"Chalkduster" fontSize:18*scaleFactor];
         [scoreText setColor:ccc3(255, 224, 51)];
         [itemScores addChild:scoreText];
         scoreText.scale=1.0*(1/itemRevive.scale);
         
         
         
-        continueMenu_ = [CCMenu menuWithItems:itemScores, itemRevive, nil];
+        continueMenu_ = [CCMenu menuWithItems:itemRevive, itemScores, nil];
         
         [continueMenu_ alignItemsHorizontallyWithPadding: 1*scaleFactor];
         [continueMenu_ setPosition: ccp(size.width/2, size.height*.19)];
         
         
         
-        reviveText.position=ccp(itemRevive.position.x -6*scaleFactor, itemRevive.position.y+(itemRevive.contentSize.height/2)+2*scaleFactor);
-        scoreText.position=ccp(itemScores.position.x+itemScores.contentSize.width+6*scaleFactor, itemScores.position.y +0*scaleFactor +itemScores.contentSize.height/2);
+        reviveText.position = ccp(itemRevive.contentSize.width/2 - 2*scaleFactor,
+                                  itemRevive.contentSize.height/2 + 3*scaleFactor);
+        scoreText.position = ccp(itemScores.contentSize.width/2 + 1*scaleFactor,
+                                 itemScores.contentSize.height/2 - 3*scaleFactor);
         
         CCSprite *haikuSubtract = [CCSprite spriteWithFile:@"haikuUI.png"];
         haikuSubtract.scaleY=.15 *(1/itemRevive.scale);
@@ -157,8 +159,13 @@
     float scaleFactor = size.height/size.width;
     
     [gameScene hidePause];
+    
+    [continueMenu_ setOpacity:0];
+    [continueMenu_ runAction:[CCFadeIn actionWithDuration:0.75f]];
+    [self scheduleOnce:@selector(setMenuEnabled) delay:0.75f];
+    
+    [continueMenu_ setEnabled:NO];
     [continueMenu_ setVisible:YES];
-    [continueMenu_ setEnabled:YES];
     [continueLabel setVisible:YES];
     
     [toFeature removeChild:haikuLabel];
@@ -180,16 +187,11 @@
     [haikuLabel setVisible:YES];
     
     [reviveHaikuText setString:[NSString stringWithFormat:@" -%d",haikuCost ]];
-
-    if (!_paused)
+    
+    if(!_paused)
         _paused=YES;
     
-    
     [self setOpacity:210];
-    
-    
-    
-    
 }
 -(void) resumeWithContinue {
     
@@ -232,12 +234,15 @@
     scaleFactor = size.height/size.width;
     
     [haikuLabel setString: [NSString stringWithFormat:@"X%i", haikuNum]];
-    
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     
     return YES;
+}
+
+-(void) setMenuEnabled {
+    [continueMenu_ setEnabled:YES];
 }
 
 - (void) triggerRepeatBounceForSprite:(CCSprite*) sprite

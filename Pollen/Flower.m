@@ -35,6 +35,7 @@
         }
         
         flowerSprite_ = [CCSprite spriteWithSpriteFrame:[animationFrames objectAtIndex:0]];
+        flowerSprite_.scale = 0.9f;
         [self addChild: flowerSprite_];
         
         self.bloomHealth = FLOWER_BLOOM_HEALTH;

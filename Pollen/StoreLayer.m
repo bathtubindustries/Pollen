@@ -25,15 +25,15 @@ NSMutableDictionary* productIDs;
         img.position = ccp(0, 0);
         [self addChild:img];
         
-    # warning GIVING FREE EYES TO TESTERS
-        [GameUtility saveSpidderEyeCount:1500];
+    //#warning GIVING FREE EYES TO TESTERS
+        //[GameUtility saveSpidderEyeCount:1500];
         
         
-        CCLabelTTF* backOut = [CCLabelTTF labelWithString:@"▲ back ▲" fontName:@"Chalkduster" fontSize:12*scaleFactor];
+        CCLabelTTF* backOut = [CCLabelTTF labelWithString:@"▲back▲" fontName:@"Chalkduster" fontSize:17*scaleFactor];
         backOut.anchorPoint = ccp(0, 1);
-        backOut.position = ccp( -backOut.contentSize.width/2 + winSize.width/2 , winSize.height);
+        backOut.position = ccp( -backOut.contentSize.width/2 + winSize.width/2 , winSize.height - 3*scaleFactor);
         [self addChild: backOut];
-        [backOut setColor:ccc3(255, 224, 51)];
+        [backOut setColor:ccc3(235, 204, 31)];
         
         
         CCLabelTTF* pollinatorsLabel = [CCLabelTTF labelWithString:@"pollinators" fontName:@"Chalkduster" fontSize:14*scaleFactor];
@@ -63,7 +63,8 @@ NSMutableDictionary* productIDs;
         Dandelion.position = ccp(winSize.width - Dandelion.activeArea.size.width/1.38, winSize.height - Dandelion.activeArea.size.height);
         
         ProductMenuItem * Eyes100 = [[ProductMenuItem alloc]initWithProductNumber:2];
-        Eyes100.position = ccp(sporeTwig.position.x-10*scaleFactor,sporeTwig.position.y-sporeTwig.contentSize.height);
+        Eyes100.position = ccp(sporeTwig.position.x-10*scaleFactor,
+                               sporeTwig.position.y-sporeTwig.contentSize.height - 4*scaleFactor);
         
         ProductMenuItem * Eyes250 = [[ProductMenuItem alloc]initWithProductNumber:3];
         Eyes250.position = ccp(Eyes100.position.x+Eyes100.contentSize.width,Eyes100.position.y);
@@ -85,24 +86,27 @@ NSMutableDictionary* productIDs;
         
         spidderEyeCounter_ = [CCSprite spriteWithFile:@"spidEyeCounter.png"];
         spidderEyeCounter_.anchorPoint = ccp(0, 1);
-        spidderEyeCounter_.scaleX=1.2;
+        spidderEyeCounter_.scale = 1.15;
         spidderEyeCounter_.position = ccp(winSize.width- [spidderEyeCounter_ boundingBox].size.width, winSize.height);
         [self addChild: spidderEyeCounter_ z:3];
         
         
-        spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
+        spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [GameUtility savedSpidderEyeCount]]
+                                              fontName:@"Futura" fontSize:11.4f*scaleFactor];
         spidderEyeLabel_.anchorPoint = ccp(0, 1);
-        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.5 , winSize.height-[spidderEyeCounter_ boundingBox].size.height/8);
-        [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
+        spidderEyeLabel_.position = ccp(spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.6,
+                                        winSize.height - 1*scaleFactor);
+        [self addChild:spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
 
         haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
-        haikuCounter_.scale=.16;
-        haikuCounter_.position = ccp([haikuCounter_ boundingBox].size.width/1.85, winSize.height - [haikuCounter_ boundingBox].size.height/2);
+        haikuCounter_.scale=.15;
+        haikuCounter_.position = ccp([haikuCounter_ boundingBox].size.width/1.85,
+                                     winSize.height - [haikuCounter_ boundingBox].size.height/2 + 3*scaleFactor);
         [self addChild: haikuCounter_ z:0];
         
         haikuLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
                                          fontName:@"Futura" fontSize:12*scaleFactor];
-        haikuLabel_.anchorPoint = ccp(0, 1);
+        haikuLabel_.anchorPoint = ccp(0, 0.6);
         haikuLabel_.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
         [self addChild:haikuLabel_ z:0];
         

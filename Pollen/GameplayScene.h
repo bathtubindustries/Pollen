@@ -26,6 +26,9 @@
 }
 
 @property BOOL tutorialActive;
+@property BOOL waitingEvent;
+@property(nonatomic) enum TutorialState tutorialState;
+
 -(void) pause;
 -(void) resume;
 -(BOOL) isPausedWithMenu;
@@ -35,4 +38,8 @@
 -(void) hidePause;
 -(void) showPause;
 -(float) getScore;
+
+//tutorial shit
+-(void) sendTutorialEvent:(enum TutorialState)state;
+
 @end

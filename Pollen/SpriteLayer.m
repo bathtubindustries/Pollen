@@ -26,6 +26,7 @@
 #import "Haiku.h"
 
 #import "ComboLayer.h"
+#import "TutorialLayer.h"
 
 #define HEIGHT_FACTOR 15.f
 #define END_COMBO_POLLEN_AMOUNT PLAYER_MAX_POLLEN/2
@@ -56,8 +57,8 @@
         [self addChild:pollenBarBackground_ z:500];
         
         pollenBar_ = [ClipSprite spriteWithFile:@"tubeFull.png"];
-        pollenBar_.position = ccp(pollenBarBackground_.position.x - pollenBar_.boundingBox.size.width-4*scaleFactor, pollenBarBackground_.position.y-10*scaleFactor);
-        [pollenBar_ setClip:ccp(0, 0) :ccp([pollenBar_ boundingBox].size.height ,0)];
+        pollenBar_.position = ccp(pollenBarBackground_.position.x - pollenBar_.boundingBox.size.width-4*scaleFactor, pollenBarBackground_.position.y - 12.5*scaleFactor);
+        [pollenBar_ setClip:ccp(0, 0) :ccp([pollenBar_ boundingBox].size.height, 0)];
         [self addChild:pollenBar_ z:501];
         
         pollenBarTube_ = [CCSprite spriteWithFile:@"tubeEmpty.png"];
@@ -73,7 +74,6 @@
         spawner_ = [[FlowerSpawner alloc] init];
         [spawner_ setSpawnLayer:self];
         [spawner_ setParticleAmount:INITIAL_FLOWER_AMOUNT];
-        
         haikuSpawner_ = [[HaikuSpawner alloc]init];
         [haikuSpawner_ setSpawnLayer:self];
         
@@ -85,6 +85,9 @@
         eyesToRemove_ = [[NSMutableArray alloc] init];
         
         //player
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pollenManWand.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pollenManHammer.plist"];
+        
         player_ = [PlayerSprite node];
         [self addChild:player_ z:3];
         player_.spawnLayer = self;
@@ -93,15 +96,15 @@
                 //put this on top of high score
         spidderEyeCounter_ = [CCSprite spriteWithFile:@"spidEyeCounter.png"];
         spidderEyeCounter_.anchorPoint = ccp(0, 1);
-        spidderEyeCounter_.scaleX=1.2;
+        //spidderEyeCounter_.scaleX=1.2;
         spidderEyeCounter_.position = ccp(size.width- [spidderEyeCounter_ boundingBox].size.width, size.height);
         [self addChild: spidderEyeCounter_ z:3];
         
         
         
         spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[GameUtility savedSpidderEyeCount]] fontName:@"Futura" fontSize:10*scaleFactor];
-        spidderEyeLabel_.anchorPoint = ccp(.5, .5);
-        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/1.7 , size.height-[spidderEyeCounter_ boundingBox].size.height/1.9);
+        spidderEyeLabel_.anchorPoint = ccp(0, 1);
+        spidderEyeLabel_.position = ccp( spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.55 , size.height-1.f);
         [self addChild: spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
         
         scoreLeaf_ = [CCSprite spriteWithFile:@"scoreLeaf.png"];
@@ -115,7 +118,7 @@
                                              fontName:@"Futura" fontSize:12*scaleFactor];
         highScoreLabel_.anchorPoint = ccp(0, 1);
         highScoreLabel_.position = ccp(4*scaleFactor,
-                                       size.height-3*scaleFactor);
+                                       size.height-1*scaleFactor);
         [highScoreLabel_ setColor:ccBLACK];
         [self addChild:highScoreLabel_ z:4];
         
@@ -187,7 +190,7 @@
             if(player_.state == OnGround)
                 [spiddder_ updateSpeed];
             
-            if([GameUtility isCollidingRect:player_ WithRect:spiddder_]) {
+            if([GameUtility isCollidingRect:(CCSprite*)player_ WithRect:spiddder_]) {
                 spiddder_.waitingDisconnect = YES;
                 [spiddder_ updateSpeed];
                 player_.pollenMeter += SPIDDDER_POLLEN_AMOUNT;
@@ -224,17 +227,35 @@
             }
         }
         
-        [player_ startAttack];
+        //start attack & check start jump
+        BOOL flowerCollided = false;
+        unsigned short direction = 0; //for animation
+        
         if(player_.state != Boosting)
         for(Flower* flower in spawner_.flowers) {
-            if(!flower.bloomed && [GameUtility isCollidingRect:player_ WithRect:(CCSprite*)flower]) {
+            if(!flower.bloomed && [GameUtility isCollidingRect:(CCSprite*)player_ WithRect:(CCSprite*)flower]) {
                 [flower bloomFlowerWithPower:100];
                 if(flower.bloomed) {
                     [player_ startJump];
                 }
+                
+                flowerCollided = true;
+                if(player_.position.y < flower.position.y + [flower boundingBox].size.height/3 && //pos < bottom edge
+                   player_.position.y > flower.position.y - [flower boundingBox].size.height*3/10) //pos > top edge
+                    direction = 3; //side
+                else if(player_.position.y > flower.position.y + [flower boundingBox].size.height/3) //pos > bottom edge
+                    direction = 2; //down
+                else if(player_.position.y < flower.position.y - [flower boundingBox].size.height*3/10) //pos < top edge
+                    direction = 1; //up
+                
                 break; //used to bloom only one flower at a time (will activate lowest flower)
             }
         }
+        
+        if(flowerCollided && direction != 0)
+            [player_ startAttack: direction];
+        else
+            [player_ startAttack];
     }
     
     return YES;
@@ -269,7 +290,8 @@
 //UPDATE
 -(void) update:(ccTime)dt
 {
-    
+    if(scene.tutorialActive && scene.waitingEvent)
+        [self checkTutorialEvents];
     
     if (comboPaused && player_.state==Combo)
     {
@@ -367,7 +389,7 @@
     
     
     //update spiddder
-    if(spiddder_.waitingDisconnect && ![GameUtility isCollidingRect:player_ WithRect:spiddder_]) {
+    if(spiddder_.waitingDisconnect && ![GameUtility isCollidingRect:(CCSprite*)player_ WithRect:spiddder_]) {
         spiddder_.waitingDisconnect = NO;
     }
     
@@ -422,6 +444,31 @@
         //Checks if player wants to continue by consuming a haiku
         
         [scene  activateContinueCheck: playerHeight_];
+    }
+}
+
+-(void) checkTutorialEvents {
+    if(scene.tutorialState == Tap) {
+        for(Flower *f in spawner_.flowers)
+            if([GameUtility isCollidingRect:(CCSprite*)player_ WithRect:(CCSprite*)f]) {
+                [scene sendTutorialEvent:Tap];
+                break;
+            }
+    }
+    else if(scene.tutorialState == Swipe) {
+        if(self.getPollenMeter > PLAYER_SWIPE_AMOUNT/2) {
+            BOOL collidingFlower = NO;
+            for(Flower *f in spawner_.flowers) {
+                if([GameUtility isCollidingRect:(CCSprite*)player_ WithRect:(CCSprite*)f]) {
+                    collidingFlower = YES;
+                    break;
+                }
+            }
+            
+            if(!collidingFlower) {
+                [scene sendTutorialEvent:Swipe];
+            }
+        }
     }
 }
 
@@ -540,6 +587,19 @@
 -(void) updatePollenBar {
     pollenBar_.clipSize = ccp(pollenBar_.clipSize.x,
                                  [pollenBar_ boundingBox].size.height*(player_.pollenMeter/PLAYER_MAX_POLLEN));
+
+    if(player_.pollenMeter >= PLAYER_SWIPE_AMOUNT &&
+       pollenBar_.color.r == 255 &&
+       pollenBar_.color.g == 255 &&
+       pollenBar_.color.b == 255) {
+        pollenBar_.color = ccc3(80, 224, 61); //color change
+    }
+    else if(player_.pollenMeter < PLAYER_SWIPE_AMOUNT &&
+            pollenBar_.color.r != 255 &&
+            pollenBar_.color.g != 255 &&
+            pollenBar_.color.b != 255) {
+        pollenBar_.color = ccc3(255, 255, 255);
+    }
 }
 
 @end

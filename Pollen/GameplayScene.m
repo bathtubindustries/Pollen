@@ -87,4 +87,32 @@
     }
 }
 
+//property
+-(BOOL) waitingEvent {
+    if(tutorialLayer_) return tutorialLayer_.waitingEvent;
+    else return NO;
+}
+-(void) setWaitingEvent:(BOOL)we {
+    tutorialLayer_.waitingEvent = we;
+}
+
+-(enum TutorialState) tutorialState {
+    return tutorialLayer_.tutorialState;
+}
+
+//TUTORIAL SHIT
+-(void) sendTutorialEvent:(enum TutorialState)state {
+    if(tutorialLayer_ && tutorialLayer_.waitingEvent) {
+        tutorialLayer_.waitingEvent = NO;
+        [tutorialLayer_ updateMessages];
+        
+        [self pause];
+        
+        if(state == Tap)
+            NSLog(@"received tap event");
+        else if(state == Swipe)
+            NSLog(@"received swipe event");
+    }
+}
+
 @end

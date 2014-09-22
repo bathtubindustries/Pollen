@@ -35,7 +35,7 @@
             [[CCDirector sharedDirector] replaceScene:
              [CCTransitionFadeUp transitionWithDuration:0.5 scene:[GameplayScene node]]];
         }];
-        itemRetry.scaleY=.75;
+        itemRetry.scaleY=1.0;
         itemRetry.scaleX=1.15;
         CCLabelTTF *retryText = [CCLabelTTF labelWithString:@"retry" fontName:@"Chalkduster" fontSize:14*scaleFactor];
         [retryText setColor:ccc3(255, 224, 51)];
@@ -48,7 +48,7 @@
              [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer sceneWithScore:_playerScore]]];
             
         }];
-        mainMenuItem.scaleY=.75;
+        mainMenuItem.scaleY=1.0;
         mainMenuItem.scaleX=1.15;
         CCLabelTTF *mainMenuText = [CCLabelTTF labelWithString:@"menu" fontName:@"Chalkduster" fontSize:14*scaleFactor];
         [mainMenuText setColor:ccc3(255, 224, 51)];

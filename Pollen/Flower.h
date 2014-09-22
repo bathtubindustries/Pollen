@@ -11,8 +11,8 @@
 #define FLOWER_BLOOM_HEALTH 100.f
 #define FLOWER_POLLEN_AMOUNT 3.f
 
-#define FLOWER_WIDTH 80.f
-#define FLOWER_HEIGHT 100.f
+#define FLOWER_WIDTH 72.f //80.f
+#define FLOWER_HEIGHT 90.f //100.f
 //90 x 147
 
 @interface Flower : CCSpriteBatchNode {
