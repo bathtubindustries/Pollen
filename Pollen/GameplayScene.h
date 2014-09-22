@@ -40,6 +40,7 @@
 -(float) getScore;
 
 //tutorial shit
+@property(nonatomic) float tutorialTimer;
 -(void) sendTutorialEvent:(enum TutorialState)state;
 
 @end

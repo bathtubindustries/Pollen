@@ -10,13 +10,14 @@
 #import "SpriteLayer.h"
 #import "cocos2d.h"
 
-#define SPIDDDER_INIT_VELOCITY 200.f
-#define SPIDDDER_COMBO_VELOCITY 78.f
+#define SPIDDDER_COMBO_VELOCITY 120.f //was 78
 #define SPIDDDER_COMBO_VELOCITY_FALL -95.f
-#define SPIDDDER_VELOCITY_INCREMENT 60.f //was 30.f
+#define SPIDDDER_VELOCITY_INCREMENT 50.f //was 30.f
 #define SPIDDDER_VELOCITY_DECREMENT 10.f
 #define SPIDDDER_CEILING 500.f
 #define SPIDDDER_RETURN_TIME 0.5f
+
+#define SPIDDDER_ROTATION_DEGREES 7.f
 
 @implementation Spiddderoso
 
@@ -74,12 +75,13 @@
     else
         self.visible = YES;
 
-    if (self.rotation>24)
+    //rotations
+    if (self.rotation > SPIDDDER_ROTATION_DEGREES)
     {
         shouldSwangRight=NO;
     }
     
-    else if (self.rotation < -24)
+    else if (self.rotation < -SPIDDDER_ROTATION_DEGREES)
     {
         shouldSwangRight=YES;
     }
@@ -87,14 +89,15 @@
     
     if (shouldSwangRight)
     {
-        self.rotation+=(isComboMode ? 1:.3);
+        self.rotation+=(isComboMode ? 0.7:0.3);
     }
     
     else
     {
-        self.rotation-=(isComboMode ? 1:.3);
+        self.rotation-=(isComboMode ? 0.7:0.3);
     }
     
+    //combo mode
     if (isComboMode)
     {
         

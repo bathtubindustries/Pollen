@@ -11,12 +11,13 @@
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
 
-#define MESSAGE_COUNT 5
+#define MESSAGE_COUNT 6
 
 @implementation TutorialLayer
 
 @synthesize tutorialState = tutorialState_;
 @synthesize waitingEvent = waitingEvent_;
+@synthesize messageLockTimer = messageLockTimer_;
 
 -(id) init {
     if(self = [super init]) {
@@ -38,6 +39,8 @@
         CCSprite *firstMessage = [messages_ objectAtIndex:0];
         firstMessage.visible = YES;
         
+        messageLockTimer_ = MESSAGE_LOCK_TIME;
+        
         //sounds
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"xylophone.wav"];
     }
@@ -48,7 +51,16 @@
     [[CCDirector sharedDirector].touchDispatcher
      addTargetedDelegate:self priority:1 swallowsTouches:NO];
 }
+-(void) onExit {
+    if(scene)
+        scene.tutorialActive = NO;
+    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
+}
 -(void) dealloc {
+    if(scene)
+        scene.tutorialActive = NO;
+    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
+    
     [messages_ dealloc];
     [super dealloc];
 }
@@ -68,26 +80,36 @@
     }
 }
 
+//UPDATE
+-(void) update:(ccTime)dt {
+    if(messageLockTimer_ > 0)
+        messageLockTimer_ -= dt;
+    else if(messageLockTimer_ < 0)
+        messageLockTimer_ = 0;
+}
+
 //INPUT
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event {
-    if(!waitingEvent_) {
-        if(tutorialState_ >= Tilt)
-            waitingEvent_ = YES;
-        if(tutorialState_ >= Tap)
-            [scene resume];
+    if(scene && ![scene isPausedWithMenu] && messageLockTimer_ == 0) {
+        if(!waitingEvent_) {
+            if(tutorialState_ >= Tilt)
+                waitingEvent_ = YES;
+            if(tutorialState_ >= Tap)
+                [scene resume];
+            
+            tutorialState_++;
+           [[SimpleAudioEngine sharedEngine] playEffect:@"xylophone.wav"];
+        }
         
-        tutorialState_++;
-       [[SimpleAudioEngine sharedEngine] playEffect:@"xylophone.wav"];
-    }
-    
-    
-    if(tutorialState_ >= [messages_ count]) {
-        CCSprite *message = [messages_ objectAtIndex:[messages_ count]-1];
-        message.visible = NO;
-        scene.tutorialActive=NO;
-        [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
-    } else {
-        [self updateMessages];
+        //iterate messages or end tutorial
+        if(tutorialState_ >= [messages_ count]) {
+            CCSprite *message = [messages_ objectAtIndex:[messages_ count]-1];
+            message.visible = NO;
+            scene.tutorialActive=NO;
+            [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
+        } else {
+            [self updateMessages];
+        }
     }
     
     return YES;

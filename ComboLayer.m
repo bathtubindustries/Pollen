@@ -148,7 +148,7 @@
 
                     
                     [node.feedbackNode runAction:[CCSequence actionWithArray:[NSArray arrayWithArray:(NSArray*)successActions]]];
-                    [node runAction:[CCScaleTo actionWithDuration:.3 scale:.1]];
+                    [node runAction:[CCScaleTo actionWithDuration:.3 scale:.25]]; //was .1
                     [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"bloop%d.wav",[GameUtility randInt:1 :3]]];
                     
                     

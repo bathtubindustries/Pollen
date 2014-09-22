@@ -11,9 +11,15 @@
 
 @interface GameOverLayer : CCLayer <GKLeaderboardViewControllerDelegate> 
 @property float playerScore;
--(id) initWithScore: (float)score;
+
+-(id) initWithScore:(float)score;
+-(id) initWithScore:(float)score toTutorial:(BOOL)tut;
+
 - (void) showLeaderboard;
 - (void) leaderboardViewControllerDidFinish: (GKLeaderboardViewController *)viewController;
-+(CCScene*) sceneWithScore:(float)prevScore;
+
 +(CCScene*) scene;
++(CCScene*) sceneWithScore:(float)prevScore;
++(CCScene*) sceneWithScore:(float)prevScore toTutorial:(BOOL)tut;
+
 @end

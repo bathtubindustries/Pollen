@@ -303,6 +303,7 @@
 		C8ADB0CB18ED51420050A930 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0CA18ED51420050A930 /* CoreGraphics.framework */; };
 		C8ADB0CD18ED51420050A930 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0CC18ED51420050A930 /* CoreText.framework */; };
 		C8ADB0CF18ED51420050A930 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ADB0CE18ED51420050A930 /* GameKit.framework */; };
+		C8B0222419D0899900165F44 /* tutorialMessage6.png in Resources */ = {isa = PBXBuildFile; fileRef = C8B0222319D0899900165F44 /* tutorialMessage6.png */; };
 		C8EBD16D195A34F7007DE291 /* flowersUnshaded.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8EBD16B195A34F7007DE291 /* flowersUnshaded.plist */; };
 		C8EBD16E195A34F7007DE291 /* flowersUnshaded.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = C8EBD16C195A34F7007DE291 /* flowersUnshaded.pvr.ccz */; };
 /* End PBXBuildFile section */
@@ -783,6 +784,7 @@
 		C8ADB0CA18ED51420050A930 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C8ADB0CC18ED51420050A930 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		C8ADB0CE18ED51420050A930 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C8B0222319D0899900165F44 /* tutorialMessage6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialMessage6.png; sourceTree = "<group>"; };
 		C8EBD16B195A34F7007DE291 /* flowersUnshaded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flowersUnshaded.plist; sourceTree = "<group>"; };
 		C8EBD16C195A34F7007DE291 /* flowersUnshaded.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowersUnshaded.pvr.ccz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1298,6 +1300,7 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C8B0222319D0899900165F44 /* tutorialMessage6.png */,
 				C8A0D58A19C9A5A700F4FDD6 /* pollenManHammer.plist */,
 				C8A0D58B19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz */,
 				C8A0D58C19C9A5A700F4FDD6 /* pollenManWand.plist */,
@@ -1706,6 +1709,7 @@
 				222178E01986EC370052FAA5 /* letterN.png in Resources */,
 				225BBB91196FB9A5006EB721 /* eyesStore250.png in Resources */,
 				11BF2C49191AD31700143F58 /* tutorialMessage4.png in Resources */,
+				C8B0222419D0899900165F44 /* tutorialMessage6.png in Resources */,
 				22785DE3196B135100C0E359 /* lockedOverlay.png in Resources */,
 				C8A0D58E19C9A5A700F4FDD6 /* pollenManHammer.plist in Resources */,
 				115CEDAB1917F0EA00732687 /* pauseButton.png in Resources */,

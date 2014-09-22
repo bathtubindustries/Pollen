@@ -14,7 +14,11 @@
 #import "GameUtility.h"
 
 @implementation GameOverLayer
+
 -(id) initWithScore:(float)score {
+    return [self initWithScore:score toTutorial:NO];
+}
+-(id) initWithScore:(float)score toTutorial:(BOOL)tut {
     if(self = [super init]) {
         CCSprite *img = [CCSprite spriteWithFile:@"treebase0.png"];
         img.anchorPoint = ccp(0, 0);
@@ -31,10 +35,13 @@
         
         //bottom menu
         
-        CCMenuItemImage *itemRetry = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png" selectedImage:@"menuBoxRight.png" disabledImage:nil block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:
-             [CCTransitionFadeUp transitionWithDuration:0.5 scene:[GameplayScene node]]];
-        }];
+        CCMenuItemImage *itemRetry = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png"
+                                                            selectedImage:@"menuBoxRight.png"
+                                                            disabledImage:nil block:^(id sender){
+                                                                if(tut) [GameUtility isTutorialNeeded:YES];
+                                                                [[CCDirector sharedDirector] replaceScene:
+                                                                 [CCTransitionFadeUp transitionWithDuration:0.5 scene:[GameplayScene node]]];
+                                                            }];
         itemRetry.scaleY=1.0;
         itemRetry.scaleX=1.15;
         CCLabelTTF *retryText = [CCLabelTTF labelWithString:@"retry" fontName:@"Chalkduster" fontSize:14*scaleFactor];
@@ -257,8 +264,15 @@
 
 //UTILITY
 +(CCScene*) sceneWithScore:(float)prevScore {
+    return [GameOverLayer sceneWithScore:prevScore toTutorial:NO];
+}
++(CCScene*) sceneWithScore:(float)prevScore toTutorial:(BOOL)tut {
     CCScene *scene = [CCScene node];
-    GameOverLayer *layer = [[[GameOverLayer alloc] initWithScore:prevScore] autorelease];
+    
+    GameOverLayer *layer;
+    if(tut) layer = [[[GameOverLayer alloc] initWithScore:prevScore toTutorial:YES] autorelease];
+    else    layer = [[[GameOverLayer alloc] initWithScore:prevScore] autorelease];
+    
     [scene addChild:layer];
     return scene;
 }

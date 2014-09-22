@@ -177,6 +177,9 @@
         addTargetedDelegate:self priority:2 swallowsTouches:NO];
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    if(scene.tutorialActive && scene.tutorialTimer != 0)
+        return YES;
+    
     CGPoint location = [self convertTouchToNodeSpace:touch];
     
     if(scene && ![scene isPausedWithMenu] && touchEnabled)
@@ -255,6 +258,9 @@
             [player_ startAttack: direction];
         else
             [player_ startAttack];
+        
+        if(scene.tutorialActive && scene.tutorialState > Haikus)
+            [scene activateContinueCheck:playerHeight_];
     }
     
     return YES;
@@ -290,7 +296,7 @@
 -(void) update:(ccTime)dt
 {
     if(scene.tutorialActive && scene.waitingEvent)
-        [self checkTutorialEvents];
+        [self checkTutorialEvents:dt];
     
     if (comboPaused && player_.state==Combo)
     {
@@ -437,17 +443,22 @@
         
         player_.dead = NO; //so no repeat transition is activated
         
-        
-        
-        
-        //Checks if player wants to continue by consuming a haiku
-        
-        [scene  activateContinueCheck: playerHeight_];
+        if(scene.tutorialActive) {
+            if(scene.waitingEvent && scene.tutorialState == Haikus)
+                [scene sendTutorialEvent:Haikus];
+            else
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5
+                                                                                             scene:[GameOverLayer sceneWithScore:playerHeight_ toTutorial:YES]]];
+        } else {
+            //Checks if player wants to continue by consuming a haiku
+            [scene  activateContinueCheck: playerHeight_];
+        }
     }
 }
 
--(void) checkTutorialEvents {
+-(void) checkTutorialEvents:(ccTime)dt {
     if(scene.tutorialState == Tap) {
+        //activate if in flower hitting distance
         for(Flower *f in spawner_.flowers)
             if([GameUtility isCollidingRect:(CCSprite*)player_ WithRect:(CCSprite*)f]) {
                 [scene sendTutorialEvent:Tap];
@@ -455,7 +466,9 @@
             }
     }
     else if(scene.tutorialState == Swipe) {
-        if(self.getPollenMeter > PLAYER_SWIPE_AMOUNT/2) {
+        spiddder_.velocity = ccp(spiddder_.velocity.x, 390.f); //hardcoded var
+        
+        if(self.getPollenMeter >= PLAYER_SWIPE_AMOUNT/2) {
             BOOL collidingFlower = NO;
             for(Flower *f in spawner_.flowers) {
                 if([GameUtility isCollidingRect:(CCSprite*)player_ WithRect:(CCSprite*)f]) {
@@ -464,9 +477,45 @@
                 }
             }
             
-            if(!collidingFlower) {
+            //activate if player needs to swipe or before pollen meter is maxed
+            if(self.getPollenMeter < PLAYER_SWIPE_AMOUNT*2) {
+                if((!collidingFlower && player_.position.y < size.height/2 && player_.velocity.y < PLAYER_JUMP/3) ||
+                   (player_.position.y < [player_ boundingBox].size.height)) {
+                    if(self.getPollenMeter < PLAYER_SWIPE_AMOUNT)
+                        player_.pollenMeter = PLAYER_SWIPE_AMOUNT;
+                    
+                    [scene sendTutorialEvent:Swipe];
+                }
+            } else {
                 [scene sendTutorialEvent:Swipe];
             }
+        }
+    }
+    else if(scene.tutorialState == Spiddder) {
+        //keep spiddder low
+        if(spiddder_.position.y > size.height - [spiddder_ boundingBox].size.height/4) {
+            spiddder_.velocity = ccp(spiddder_.velocity.x, -40.f); //hardcoded var
+        } else {
+            spiddder_.position = ccp(spiddder_.position.x,
+                                     size.height - [spiddder_ boundingBox].size.height/4);
+        }
+        
+        //activate if in hitting distance
+        if([GameUtility isCollidingRect:(CCSprite*)player_ WithRect:spiddder_]) {
+            spiddder_.velocity = ccp(spiddder_.velocity.x, SPIDDDER_INIT_VELOCITY);
+            [scene sendTutorialEvent:Spiddder];
+        }
+    }
+    else if(scene.tutorialState == CatchMyEye) {
+        //supplement pollen meter
+        if([self getPollenMeter] < PLAYER_MAX_POLLEN - FLOWER_POLLEN_AMOUNT) {
+            player_.pollenMeter += FLOWER_POLLEN_AMOUNT*dt; //hardcoded var
+        }
+        else {
+            //activate if max pollen
+            [scene sendTutorialEvent:CatchMyEye];
+            if([self getPollenMeter] >= PLAYER_MAX_POLLEN - FLOWER_POLLEN_AMOUNT)
+                player_.pollenMeter = PLAYER_MAX_POLLEN;
         }
     }
 }

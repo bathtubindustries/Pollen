@@ -76,6 +76,10 @@
 
 -(void) update:(ccTime)dt
 {
+    if(!self.isPausedWithMenu) {
+        [tutorialLayer_ update:dt];
+    }
+    
     if(!pauseLayer_.paused && !continueLayer_.paused) {
         [continueLayer_ update:dt];
         [bgLayer_ update:dt];
@@ -99,12 +103,16 @@
 -(enum TutorialState) tutorialState {
     return tutorialLayer_.tutorialState;
 }
+-(float) tutorialTimer {
+    return tutorialLayer_.messageLockTimer;
+}
 
 //TUTORIAL SHIT
 -(void) sendTutorialEvent:(enum TutorialState)state {
     if(tutorialLayer_ && tutorialLayer_.waitingEvent) {
         tutorialLayer_.waitingEvent = NO;
         [tutorialLayer_ updateMessages];
+        tutorialLayer_.messageLockTimer = MESSAGE_LOCK_TIME;
         
         [self pause];
         
@@ -112,6 +120,12 @@
             NSLog(@"received tap event");
         else if(state == Swipe)
             NSLog(@"received swipe event");
+        else if(state == Spiddder)
+            NSLog(@"received spiddder event");
+        else if(state == CatchMyEye)
+            NSLog(@"received catch my eye event");
+        else if(state == Haikus)
+            NSLog(@"received haikus event");
     }
 }
 

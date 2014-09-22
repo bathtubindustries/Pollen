@@ -8,6 +8,7 @@
 
 #import "CCSprite.h"
 
+#define SPIDDDER_INIT_VELOCITY 200.f
 #define SPIDDDER_POLLEN_AMOUNT 3.f
 
 @class SpriteLayer;

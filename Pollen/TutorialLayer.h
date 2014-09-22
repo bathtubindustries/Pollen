@@ -9,6 +9,8 @@
 #import "CCLayer.h"
 #import "GameplayScene.h"
 
+#define MESSAGE_LOCK_TIME 0.8f
+
 @interface TutorialLayer : CCLayer {
     //references
     CGSize size;
@@ -20,18 +22,21 @@
         Tap,
         Swipe,
         Spiddder,
-        CatchMyEye//,
-        //Haikus
+        CatchMyEye,
+        Haikus
     };
     
     //members
     BOOL waitingEvent_;
     enum TutorialState tutorialState_;
+    
+    float messageLockTimer_;
 
     NSMutableArray *messages_;
 }
 @property enum TutorialState tutorialState;
 @property BOOL waitingEvent;
+@property float messageLockTimer;
 
 -(void) setScene:(GameplayScene *) s;
 -(void) updateMessages;
@@ -39,16 +44,6 @@
 @end
 
 /*
-1) story (tap to start)
-
-2) tilt left/right
-
-3) tap to bloom
-
-4) swipe to jump
-
-5) attack spiddder for his eyes
-
 6) fill up meter -> catch my eye
 
 7) haikus = extra lives
