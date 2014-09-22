@@ -81,16 +81,16 @@
         
         haiku.visible=YES;
 
-        if (spawnLayer.comboTransitionStarted)
+        /*if (spawnLayer.comboTransitionStarted)
         {
             spawnLayer.comboLayer.haikuSpawned=haiku;
             [spawnLayer.comboLayer addChild:spawnLayer.comboLayer.haikuSpawned z:11];
             
-        }
-        else
-        {
+        }*/
+        //else
+        //{
             [spawnLayer addChild:haiku z:-4];
-        }
+        //}
         
             
         
