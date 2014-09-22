@@ -36,7 +36,7 @@
             
             if(node.visible) {
                 //update node velocity
-                node.velocity = ccp(node.velocity.x, node.velocity.y-self.waveCount);
+                node.velocity = ccp(node.velocity.x, node.velocity.y- ((self.waveCount <+ 3) ? self.waveCount*2 : self.waveCount*1.4));
                 [node update:dt];
                
             }
@@ -61,30 +61,34 @@
     float duration=0;
     self.nodeCount=waveCount+4;
     if (waveCount ==1){
-        duration=1.4;
+        duration=1.15;
     }
     else if (waveCount==2)
     {
-        duration=1.2;
+        duration=1.05;
     }
     else if (waveCount==3)
     {
-        duration=1.12;
+        duration=.95;
     }
     else if (waveCount==4)
     {
-        duration=1.0;
+        duration=.85;
     }
     else if (waveCount<10)
     {
-        duration=.88;
+        duration=.75;
     }
     else if (waveCount<15)
     {
-        duration=.80;
+        duration=.69;
     }
-    else {
-        duration=.74;
+    else if (waveCount<20){
+        duration=.64;
+    }
+    else if (waveCount<25)
+    {
+        
     }
     for (int i=1; i<=self.nodeCount; i++)
     {

@@ -20,8 +20,12 @@
     BOOL waitingDisconnect_;
     
     BOOL isComboMode;
+    
     BOOL shouldFall;
     BOOL shouldRise;
+    
+    BOOL shouldSwangRight;
+    
     float riseSpeedBoost;
     float extraYVel_;
     CGPoint velocity_;

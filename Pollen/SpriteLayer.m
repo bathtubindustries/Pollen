@@ -31,8 +31,7 @@
 #define END_COMBO_POLLEN_AMOUNT PLAYER_MAX_POLLEN/2
 
 //if you are testing or just want to see a bunch of haikus spawn, lower this to around 50 and play
-#define HAIKU_SPAWN_GAP 350
-//used to be 500
+#define HAIKU_SPAWN_GAP 650
 
 @implementation SpriteLayer
 
@@ -95,7 +94,7 @@
         spidderEyeCounter_.anchorPoint = ccp(0, 1);
         spidderEyeCounter_.scaleX=1.2;
         spidderEyeCounter_.position = ccp(size.width- [spidderEyeCounter_ boundingBox].size.width, size.height);
-        [self addChild: spidderEyeCounter_ z:3];
+        [self addChild: spidderEyeCounter_ z:8];
         
         
         
@@ -217,7 +216,7 @@
                 }
                 
                 
-                [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+self.treeLevel*2)];
+                [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+self.treeLevel)];
                 
 
                 

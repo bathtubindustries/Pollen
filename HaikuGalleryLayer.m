@@ -89,14 +89,14 @@
     [scrollNode.menu addChild:itemWrite];
     itemWrite.position=ccp( 100*scaleFactor, size.height-90*scaleFactor);
     
-    [CCMenuItemFont setFontSize:10*scaleFactor];
+    [CCMenuItemFont setFontSize:14*scaleFactor];
     CCMenuItem *back = [CCMenuItemFont itemWithString:@"back" block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:
          [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
     }];
     [back setColor:ccc3(38,95,120)];
      CCMenu *backMenu = [CCMenu menuWithItems:back, nil];
-    backMenu.position= ccp(size.width-20*scaleFactor, size.height-90*scaleFactor);
+    backMenu.position= ccp(size.width-20*scaleFactor, size.height-78*scaleFactor);
     
     [self addChild:backMenu];
     

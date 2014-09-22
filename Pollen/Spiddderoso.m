@@ -31,6 +31,8 @@
         self.position = ccp(size.width/2, size.height);
         isComboMode=NO;
         self.waitingDisconnect = NO;
+        shouldSwangRight=YES;
+        
     }
     return self;
 }
@@ -72,6 +74,27 @@
     else
         self.visible = YES;
 
+    if (self.rotation>24)
+    {
+        shouldSwangRight=NO;
+    }
+    
+    else if (self.rotation < -24)
+    {
+        shouldSwangRight=YES;
+    }
+    
+    
+    if (shouldSwangRight)
+    {
+        self.rotation+=(isComboMode ? 1:.3);
+    }
+    
+    else
+    {
+        self.rotation-=(isComboMode ? 1:.3);
+    }
+    
     if (isComboMode)
     {
         

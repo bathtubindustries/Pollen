@@ -25,9 +25,6 @@ NSMutableDictionary* productIDs;
         img.position = ccp(0, 0);
         [self addChild:img];
         
-    # warning GIVING FREE EYES TO TESTERS
-        [GameUtility saveSpidderEyeCount:1500];
-        
         
         CCLabelTTF* backOut = [CCLabelTTF labelWithString:@"▲ back ▲" fontName:@"Chalkduster" fontSize:12*scaleFactor];
         backOut.anchorPoint = ccp(0, 1);

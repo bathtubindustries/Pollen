@@ -148,13 +148,18 @@
 
                     
                     [node.feedbackNode runAction:[CCSequence actionWithArray:[NSArray arrayWithArray:(NSArray*)successActions]]];
-                    [node runAction:[CCScaleTo actionWithDuration:.5 scale:1.3]];
+                    [node runAction:[CCScaleTo actionWithDuration:.3 scale:.1]];
                     [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"bloop%d.wav",[GameUtility randInt:1 :3]]];
                     
                     
                     
                     if (node.index==[factory nodeCount])
                     {//swame
+                        
+                        waveCount++;
+                        [factory spawnWave:waveCount];
+                        activeIndexForWave=1;
+                        node.visible=NO;
                         
                         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spidderEyeDrop.plist"];
                         eyeSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"spidderEyeDrop.png"];
@@ -173,7 +178,8 @@
                             [eyes_ addObject:[[SpidderEye alloc] init ]];
                             CCAction * flash =[CCAnimate actionWithAnimation:eyeAnim];
                             
-                            ((SpidderEye*)[eyes_ lastObject]).position = ccp(size.width/2, size.height*.90);
+                            ((SpidderEye*)[eyes_ lastObject]).position = ccp(node.position.x, node.position.y);
+                            ((SpidderEye*)[eyes_ lastObject]).velocity = ccp(node.velocity.x, node.velocity.y);
                             [[eyes_ lastObject] runAction:[CCScaleTo actionWithDuration:0.0 scale:1.5]];
                             [[eyes_ lastObject] runAction:flash];
                             [eyeSpriteSheet addChild:[eyes_ lastObject]];
@@ -182,9 +188,7 @@
                         
                         [GameUtility saveSpidderEyeCount:([GameUtility savedSpidderEyeCount]+1)];
                         
-                        waveCount++;
-                        [factory spawnWave:waveCount];
-                        activeIndexForWave=1;
+                        
                     }
                         
                     break;
