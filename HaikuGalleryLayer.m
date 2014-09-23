@@ -144,7 +144,7 @@
     
     // alternatively you could just set the content size
     // but now you are responsible for making sure your content starts at the right position
-    [scrollNode setScrollViewContentSize:CGSizeMake(300, (size.height*scaleFactor*.5)+([GameUtility approvedFirebaseHaikuCount]==0 ? 1: [GameUtility approvedFirebaseHaikuCount]) *   250   *1.1)];
+    [scrollNode setScrollViewContentSize:CGSizeMake(300, (size.height*scaleFactor*.5)+([GameUtility approvedFirebaseHaikuCount]==0 ? 1: [GameUtility approvedFirebaseHaikuCount]) *   250   *1.1 - 180.f)]; //hacky fix
     
     scrollNode.showScrollBars = YES;
 }
