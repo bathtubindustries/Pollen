@@ -210,8 +210,6 @@
 		222178E11986EC370052FAA5 /* letterO.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178DB1986EC370052FAA5 /* letterO.png */; };
 		222178E21986EC370052FAA5 /* letterP.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178DC1986EC370052FAA5 /* letterP.png */; };
 		222178E419870E850052FAA5 /* breathingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178E319870E850052FAA5 /* breathingDot.png */; };
-		2228556919CD1F840036F059 /* Grab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228556819CD1F840036F059 /* Grab.framework */; };
-		2228556B19CD1F8F0036F059 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228556A19CD1F8F0036F059 /* Firebase.framework */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
 		225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */; };
@@ -673,8 +671,6 @@
 		222178DB1986EC370052FAA5 /* letterO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letterO.png; sourceTree = "<group>"; };
 		222178DC1986EC370052FAA5 /* letterP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letterP.png; sourceTree = "<group>"; };
 		222178E319870E850052FAA5 /* breathingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breathingDot.png; sourceTree = "<group>"; };
-		2228556819CD1F840036F059 /* Grab.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Grab.framework; path = ../../../Downloads/Grab.framework; sourceTree = "<group>"; };
-		2228556A19CD1F8F0036F059 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
 		225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeTemplateConsumable.png; sourceTree = "<group>"; };
@@ -810,8 +806,6 @@
 				C8ADB0C518ED51420050A930 /* AVFoundation.framework in Frameworks */,
 				C804325F19C8B89B00D0946A /* Grab.framework in Frameworks */,
 				C8ADB0CB18ED51420050A930 /* CoreGraphics.framework in Frameworks */,
-				2228556919CD1F840036F059 /* Grab.framework in Frameworks */,
-				2228556B19CD1F8F0036F059 /* Firebase.framework in Frameworks */,
 				C8ADB0CD18ED51420050A930 /* CoreText.framework in Frameworks */,
 				C8ADB0BF18ED51420050A930 /* OpenGLES.framework in Frameworks */,
 				C8ADB0C318ED51420050A930 /* AudioToolbox.framework in Frameworks */,

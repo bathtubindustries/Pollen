@@ -20,7 +20,7 @@
         size = [[CCDirector sharedDirector] winSize];
         
         warned=NO;
-        haikuCost=1;
+        haikuCost=2;
         
         float scaleFactor=1;
         //menu items and setup
@@ -33,8 +33,8 @@
        
         
         CCMenuItemImage *itemRevive = [CCMenuItemImage itemWithNormalImage:@"menuBoxLeft.png" selectedImage:@"menuBoxLeft.png" disabledImage:nil block:^(id sender){
-            if ([GameUtility savedHaikuCount]>= haikuCost){
-                [GameUtility saveHaikuCount:([GameUtility savedHaikuCount]-haikuCost)];
+            if ([GameUtility savedHaikuCount]>= [GameUtility fib:haikuCost]){
+                [GameUtility saveHaikuCount:([GameUtility savedHaikuCount]-[GameUtility fib:haikuCost])];
                 [self resumeWithContinue];
             }
             else{
@@ -85,7 +85,7 @@
         haikuSubtract.position=ccp(reviveText.position.x-[haikuSubtract boundingBox].size.width/2, reviveText.position.y-haikuSubtract.boundingBox.size.height+8*scaleFactor);
         [itemRevive addChild:haikuSubtract];
         
-        reviveHaikuText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@" -%d",haikuCost ] fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        reviveHaikuText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@" -%d",[GameUtility fib:haikuCost]] fontName:@"Chalkduster" fontSize:14*scaleFactor];
         [reviveHaikuText setColor:ccc3(255, 224, 51)];
         [itemRevive addChild:reviveHaikuText];
         
@@ -186,7 +186,7 @@
    
     [haikuLabel setVisible:YES];
     
-    [reviveHaikuText setString:[NSString stringWithFormat:@" -%d",haikuCost ]];
+    [reviveHaikuText setString:[NSString stringWithFormat:@" -%d",[GameUtility fib:haikuCost] ]];
     
     if(!_paused)
         _paused=YES;

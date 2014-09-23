@@ -46,6 +46,7 @@
 +(int) approvedFirebaseHaikuCount;
 
 //utility
++(int) fib:(int)n;
 +(int) randInt:(int)low :(int)high;
 +(double) randDub:(double)low :(double)high;
 +(void) loadTexture:(NSString*)fn Into:(CCSprite*)s;

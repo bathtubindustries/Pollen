@@ -96,6 +96,14 @@
 
 
 //UTILITY
+//fibonacci
++(int) fib:(int)n {
+    if(n == 1) return 1;
+    else if(n == 2) return 1;
+    else if(n > 2) return ([GameUtility fib:(n-1)]+[GameUtility fib:(n-2)]);
+    else return 0;
+}
+
 +(int) randInt:(int)low :(int)high {
     //will return an integer in between and including low, high
     return (arc4random()%(high-low+1))+low;
