@@ -21,6 +21,9 @@
 @synthesize state = state_;
 @synthesize dead = dead_;
 
+#define END_COMBO_POLLEN_AMOUNT (PLAYER_MAX_POLLEN/2)
+
+
 -(id) init {
     NSString *fn;
     if([GameUtility equippedItem] == 0) {
@@ -105,7 +108,7 @@
         CCAction *animationAction = [CCAnimate actionWithAnimation:attackAnimation];
         [playerSprite_ stopAllActions];
         [playerSprite_ runAction:animationAction];
-    } else if(state_ == Boosting) {
+    } else if(state_ != Boosting) {
         self.velocity = ccp(self.velocity.x, PLAYER_BOOST_JUMP);
     }
 }
@@ -226,6 +229,7 @@
         
         //CHECK+HANDLE BOOSTING
         if(state_ == Boosting) {
+            self.velocity = ccp(self.velocity.x, 40.0 + PLAYER_BOOST_JUMP * ((self.pollenMeter/(PLAYER_MAX_POLLEN*5))) );
             self.pollenMeter -= PLAYER_BOOST_DECREMENT*dt;
             if(self.pollenMeter <= 0) {
                 state_ = Jumping;
@@ -265,8 +269,9 @@
                 }
                 if (self.comboEnding)
                 {
-                    self.velocity= CGPointMake(self.velocity.x, self.velocity.y+480);
+                    self.velocity= CGPointMake(self.velocity.x, self.velocity.y+850);
                     self.comboEnding=NO;
+                    self.pollenMeter=END_COMBO_POLLEN_AMOUNT;
                 }
                 
             } else {
@@ -338,11 +343,11 @@
         self.velocity = ccp(self.velocity.x, PLAYER_COMBO_BOOST);
         self.extraYVelocity=PLAYER_COMBO_BOOST;
         
-        if (self.position.y >= size.height*.80)
+        if (self.position.y >= size.height*.65)
         {
             self.velocity = ccp(self.velocity.x, 0);
             self.position = ccp(self.position.x + self.velocity.x*dt,
-                                size.height*.80);
+                                size.height*.65);
         }
         else
         {

@@ -204,7 +204,7 @@
                 
                 //drop an eye
                 //spidder eye animation
-                for (int i=0;i<self.treeLevel*2;i++){
+                for (int i=0;i<self.treeLevel;i++){
                     eyeAnimFrames = [NSMutableArray array];
                     for (int i=1; i<=16; i++) {
                         [eyeAnimFrames addObject:
@@ -256,7 +256,7 @@
         
         if(flowerCollided && direction != 0)
             [player_ startAttack: direction];
-        else
+        else if (player_.state != Boosting)
             [player_ startAttack];
         
         if(scene.tutorialActive && scene.tutorialState > Haikus)
@@ -271,18 +271,20 @@
 
 -(void) ccTouchEnded:(UITouch*)touch withEvent:(UIEvent*)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
-    
-    if(scene && ![scene isPausedWithMenu]) {
-        CGPoint swipe = ccpSub(location, touchBeganLocation_);
-        float swipeLength = ccpLength(swipe);
-        
-        if(swipeLength > 25 && swipeLength < 400) {
-            //begin swipe
-            if(player_.pollenMeter >= PLAYER_SWIPE_AMOUNT) {
-                [player_ startSwipe];
+    if (player_.state!=Combo && player_.state!=ComboBoost && player_.state!=ComboEnding)
+        if(scene && ![scene isPausedWithMenu]) {
+            CGPoint swipe = ccpSub(location, touchBeganLocation_);
+            float swipeLength = ccpLength(swipe);
+            
+            if(swipeLength > 25 && swipeLength < 400) {
+                //begin swipe
+                if(player_.pollenMeter >= PLAYER_SWIPE_AMOUNT) {
+                    [player_ startSwipe];
+                }
             }
         }
-    }
+    
+    
 }
 
 -(void) accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration {
@@ -361,7 +363,7 @@
     if (player_.pollenMeter >= PLAYER_MAX_POLLEN )
     {
         [player_ startComboBoost];
-        player_.pollenMeter=END_COMBO_POLLEN_AMOUNT;
+        player_.pollenMeter-=1;//so that pollen meter isn't full and trying to start another combo
         //if spidder is too far away, have him fall down to meet player
         if (spiddder_.position.y - player_.position.y >=200)
         {
