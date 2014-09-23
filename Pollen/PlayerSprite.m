@@ -21,9 +21,6 @@
 @synthesize state = state_;
 @synthesize dead = dead_;
 
-#define END_COMBO_POLLEN_AMOUNT (PLAYER_MAX_POLLEN/2)
-
-
 -(id) init {
     NSString *fn;
     if([GameUtility equippedItem] == 0) {
@@ -98,7 +95,18 @@
         
         self.velocity = ccp(self.velocity.x, PLAYER_INITAL_JUMP);
         self.rotation = 0;
-    } else if(state_ == Jumping) {
+    } else if(state_ == Jumping || state_ == Boosting) {
+        if(state_ == Boosting) {
+            if(pollenMeter_ > PLAYER_SWIPE_AMOUNT*2)
+                pollenMeter_ = PLAYER_SWIPE_AMOUNT/2;
+            else if(pollenMeter_ < PLAYER_SWIPE_AMOUNT*2 && pollenMeter_ > PLAYER_SWIPE_AMOUNT)
+                pollenMeter_ = PLAYER_SWIPE_AMOUNT/4;
+            else if(pollenMeter_ < PLAYER_SWIPE_AMOUNT)
+                pollenMeter_ = 0;
+
+            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        }
+        
         //start attacking
         state_ = Attacking;
         attackResetTimer_ = PLAYER_ATTACK_RESET;
@@ -108,8 +116,6 @@
         CCAction *animationAction = [CCAnimate actionWithAnimation:attackAnimation];
         [playerSprite_ stopAllActions];
         [playerSprite_ runAction:animationAction];
-    } else if(state_ != Boosting) {
-        self.velocity = ccp(self.velocity.x, PLAYER_BOOST_JUMP);
     }
 }
 -(void) startJump {
@@ -269,9 +275,9 @@
                 }
                 if (self.comboEnding)
                 {
-                    self.velocity= CGPointMake(self.velocity.x, self.velocity.y+850);
+                    //self.velocity= CGPointMake(self.velocity.x, self.velocity.y+850);
                     self.comboEnding=NO;
-                    self.pollenMeter=END_COMBO_POLLEN_AMOUNT;
+                    self.pollenMeter = PLAYER_MAX_POLLEN-1;
                 }
                 
             } else {
@@ -340,14 +346,14 @@
     //rise to spidder altitude if in comboboost
     else if (state_ == ComboBoost)
     {
-        self.velocity = ccp(self.velocity.x, PLAYER_COMBO_BOOST);
+        self.velocity = ccp(self.velocity.x/4, PLAYER_COMBO_BOOST);
         self.extraYVelocity=PLAYER_COMBO_BOOST;
         
-        if (self.position.y >= size.height*.65)
+        if (self.position.y >= size.height*.5)
         {
             self.velocity = ccp(self.velocity.x, 0);
             self.position = ccp(self.position.x + self.velocity.x*dt,
-                                size.height*.65);
+                                size.height*.5);
         }
         else
         {

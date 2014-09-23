@@ -256,7 +256,7 @@
         
         if(flowerCollided && direction != 0)
             [player_ startAttack: direction];
-        else if (player_.state != Boosting)
+        else
             [player_ startAttack];
         
         if(scene.tutorialActive && scene.tutorialState > Haikus)
@@ -271,20 +271,19 @@
 
 -(void) ccTouchEnded:(UITouch*)touch withEvent:(UIEvent*)event {
     CGPoint location = [self convertTouchToNodeSpace:touch];
-    if (player_.state!=Combo && player_.state!=ComboBoost && player_.state!=ComboEnding)
-        if(scene && ![scene isPausedWithMenu]) {
-            CGPoint swipe = ccpSub(location, touchBeganLocation_);
-            float swipeLength = ccpLength(swipe);
-            
-            if(swipeLength > 25 && swipeLength < 400) {
-                //begin swipe
-                if(player_.pollenMeter >= PLAYER_SWIPE_AMOUNT) {
-                    [player_ startSwipe];
-                }
+    
+    if(player_.state!=Combo && player_.state!=ComboBoost && player_.state!=ComboEnding)
+    if(scene && ![scene isPausedWithMenu]) {
+        CGPoint swipe = ccpSub(location, touchBeganLocation_);
+        float swipeLength = ccpLength(swipe);
+        
+        if(swipeLength > 25 && swipeLength < 400) {
+            //begin swipe
+            if(player_.pollenMeter >= PLAYER_SWIPE_AMOUNT) {
+                [player_ startSwipe];
             }
         }
-    
-    
+    }
 }
 
 -(void) accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration {
@@ -329,7 +328,8 @@
     if (player_.state == ComboBoost)
     {
         
-        if (player_.position.y >= spiddder_.position.y-50*scaleFactor || spiddder_.waitingDisconnect){
+        //player_.position.y >= spiddder_.position.y-50*scaleFactor
+        if (spiddder_.position.y <= size.height*8/9 || spiddder_.waitingDisconnect){ //?????
             
             player_.state=Combo;
             spiddder_.waitingDisconnect=NO;
@@ -353,7 +353,7 @@
             [spiddder_ setZOrder:spiddder_.zOrder+1000];
             [spidderEyeCounter_ setZOrder:spiddder_.zOrder+1000];
             [spidderEyeLabel_ setZOrder:spiddder_.zOrder+1000];
-            spiddder_.position= CGPointMake (spiddder_.position.x, size.height*8/9);
+            spiddder_.position= CGPointMake (spiddder_.position.x, size.height*8/9); //hardcoded
             [self startComboTransition];
             self.comboTransitionStarted=YES;
         }
@@ -363,9 +363,9 @@
     if (player_.pollenMeter >= PLAYER_MAX_POLLEN )
     {
         [player_ startComboBoost];
-        player_.pollenMeter-=1;//so that pollen meter isn't full and trying to start another combo
+        player_.pollenMeter -= 1;//so that pollen meter isn't full and trying to start another combo
         //if spidder is too far away, have him fall down to meet player
-        if (spiddder_.position.y - player_.position.y >=200)
+        if (spiddder_.position.y > size.height*8/9) //(spiddder_.position.y - player_.position.y >=200) //????
         {
             [spiddder_ setComboMode:YES shouldFall:YES];
         }
@@ -468,7 +468,7 @@
             }
     }
     else if(scene.tutorialState == Swipe) {
-        spiddder_.velocity = ccp(spiddder_.velocity.x, 390.f); //hardcoded var
+        spiddder_.velocity = ccp(spiddder_.velocity.x, 395.f); //hardcoded var
         
         if(self.getPollenMeter >= PLAYER_SWIPE_AMOUNT/2) {
             BOOL collidingFlower = NO;
@@ -528,7 +528,7 @@
     CGPoint respawnPoint;
     BOOL respawnFound=NO;
    
-    player_.pollenMeter= PLAYER_MAX_POLLEN/2;
+    player_.pollenMeter= PLAYER_MAX_POLLEN-1;
     [player_ startBoost];
     
     //find a good flower to respawn above
