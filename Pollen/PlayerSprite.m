@@ -177,25 +177,25 @@
         self.spawnLayer.treeLevel=1;
     }
     else if(h > 800 && gravityIncrement_ == 1) {
-        gravityIncrement_ = 2;
+        gravityIncrement_ = 2.5;
         jumpIncrement_ = 175;
         NSLog(@"reached second checkpoint");
         self.spawnLayer.treeLevel=2;
     }
-    else if(h > 1500 && gravityIncrement_ == 2) {
-        gravityIncrement_ = 3;
+    else if(h > 1500 && gravityIncrement_ == 2.5) {
+        gravityIncrement_ = 4;
         jumpIncrement_ = 225;
         NSLog(@"reached third checkpoint");
         self.spawnLayer.treeLevel=3;
     }
-    else if(h > 2000 && gravityIncrement_ == 3) {
-        gravityIncrement_ = 6;
+    else if(h > 2000 && gravityIncrement_ == 4) {
+        gravityIncrement_ = 7;
         jumpIncrement_ = 290;
         NSLog(@"reached fourth checkpoint");
         self.spawnLayer.treeLevel=4;
     }
-    else if(h > 4000 && gravityIncrement_ == 6) {
-        gravityIncrement_ = 8;
+    else if(h > 4000 && gravityIncrement_ == 7) {
+        gravityIncrement_ = 10.75; //meant to be pretty hard (still playable... screwy with old boost mode)
         jumpIncrement_ = 350;
         NSLog(@"reached fifth and final checkpoint");
         self.spawnLayer.treeLevel = 4;
@@ -209,17 +209,16 @@
     if (state_ != ComboBoost && state_ != Combo)
     {
         if(state_ == Attacking) {
+#warning idk jumpincrement stuff seems v hacky
             if(attackResetTimer_ > 0) {
                 attackResetTimer_ -= dt;
                 
-#warning idk seems v hacky
                 if(jumpIncrement_ < 75)
                 gravityIncrement_ = PLAYER_GRAVITY*0.4f;
             } else {
                 state_ = Jumping;
                 [playerSprite_ setDisplayFrame:[animationFrames objectAtIndex:1]];
                 
-#warning idk seems v hacky
                 if(jumpIncrement_ < 75)
                 gravityIncrement_ = PLAYER_GRAVITY*0.25f;
             }
