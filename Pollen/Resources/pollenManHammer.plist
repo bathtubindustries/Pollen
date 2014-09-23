@@ -7,11 +7,11 @@
             <key>pollenManHammerDown0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1226,264},{150,204}}</string>
+                <string>{{1552,2},{150,204}}</string>
                 <key>offset</key>
                 <string>{5,30}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,46},{150,204}}</string>
                 <key>sourceSize</key>
@@ -20,11 +20,11 @@
             <key>pollenManHammerDown1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1605,246},{130,228}}</string>
+                <string>{{1420,2},{130,228}}</string>
                 <key>offset</key>
                 <string>{3,26}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{139,38},{130,228}}</string>
                 <key>sourceSize</key>
@@ -33,24 +33,24 @@
             <key>pollenManHammerDown2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{682,284},{140,264}}</string>
+                <string>{{412,2},{140,304}}</string>
                 <key>offset</key>
-                <string>{11,-5}</string>
+                <string>{11,-26}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{142,51},{140,264}}</string>
+                <string>{{142,52},{140,304}}</string>
                 <key>sourceSize</key>
                 <string>{402,356}</string>
             </dict>
             <key>pollenManHammerDown3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{412,290},{136,268}}</string>
+                <string>{{1098,2},{136,268}}</string>
                 <key>offset</key>
                 <string>{11,-44}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{144,88},{136,268}}</string>
                 <key>sourceSize</key>
@@ -59,11 +59,11 @@
             <key>pollenManHammerGround.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1432,250},{171,175}}</string>
+                <string>{{1480,232},{171,175}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{171,175}}</string>
                 <key>sourceSize</key>
@@ -72,11 +72,11 @@
             <key>pollenManHammerIdle0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1772,2},{236,206}}</string>
+                <string>{{742,290},{236,206}}</string>
                 <key>offset</key>
                 <string>{-50,-4}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{33,79},{236,206}}</string>
                 <key>sourceSize</key>
@@ -85,11 +85,11 @@
             <key>pollenManHammerIdle1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1170,2},{260,182}}</string>
+                <string>{{480,308},{260,182}}</string>
                 <key>offset</key>
                 <string>{-46,7}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{25,80},{260,182}}</string>
                 <key>sourceSize</key>
@@ -98,7 +98,7 @@
             <key>pollenManHammerIdle2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1354,2},{246,182}}</string>
+                <string>{{1236,2},{246,182}}</string>
                 <key>offset</key>
                 <string>{-25,42}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>pollenManHammerSide0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,2},{276,200}}</string>
+                <string>{{896,2},{276,200}}</string>
                 <key>offset</key>
                 <string>{-63,-13}</string>
                 <key>rotated</key>
@@ -137,11 +137,11 @@
             <key>pollenManHammerSide2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{956,2},{264,212}}</string>
+                <string>{{980,280},{264,212}}</string>
                 <key>offset</key>
                 <string>{69,-7}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{138,79},{264,212}}</string>
                 <key>sourceSize</key>
@@ -163,7 +163,7 @@
             <key>pollenManHammerUp0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{412,2},{190,286}}</string>
+                <string>{{554,2},{190,286}}</string>
                 <key>offset</key>
                 <string>{-1,35}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>pollenManHammerUp1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{604,2},{148,280}}</string>
+                <string>{{746,2},{148,280}}</string>
                 <key>offset</key>
                 <string>{-4,26}</string>
                 <key>rotated</key>
@@ -189,7 +189,7 @@
             <key>pollenManHammerUp2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{948,280},{144,276}}</string>
+                <string>{{202,352},{144,276}}</string>
                 <key>offset</key>
                 <string>{-3,28}</string>
                 <key>rotated</key>
@@ -202,7 +202,7 @@
             <key>pollenManHammerUp3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1538,2},{232,242}}</string>
+                <string>{{1246,250},{232,242}}</string>
                 <key>offset</key>
                 <string>{-6,38}</string>
                 <key>rotated</key>
@@ -220,9 +220,9 @@
             <key>realTextureFileName</key>
             <string>pollenManHammer.pvr.ccz</string>
             <key>size</key>
-            <string>{1980,428}</string>
+            <string>{1705,498}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:fd21b3b38773d817ec9c71bd9d9cfa07:5471b9cd96a9562b68df6e2d79dcd883:46fa9af3d39b72e749a0e24751733a8e$</string>
+            <string>$TexturePacker:SmartUpdate:cf007616c6392f834b472d2c1e27ecb3:b05cede882549c587ed9ceccf5ecf885:46fa9af3d39b72e749a0e24751733a8e$</string>
             <key>textureFileName</key>
             <string>pollenManHammer.pvr.ccz</string>
         </dict>
