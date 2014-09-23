@@ -8,6 +8,8 @@
 
 #import "cocos2d.h"
 
+#define SIZE_HEIGHT 480.f
+
 @interface FlowerSpawner : CCNode {
     //references
     CGSize size;

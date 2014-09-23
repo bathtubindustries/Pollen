@@ -20,21 +20,18 @@
 }
 -(id) initWithScore:(float)score toTutorial:(BOOL)tut {
     if(self = [super init]) {
-        CCSprite *img = [CCSprite spriteWithFile:@"treebase0.png"];
-        img.anchorPoint = ccp(0, 0);
-        img.position = ccp(0, 0);
-        [self addChild:img];
-        
-        _playerScore=score;
-        
-        
-        
         CGSize winSize = [CCDirector sharedDirector].winSize;
         float scaleFactor = winSize.height/winSize.width;
         
+        _playerScore=score;
+        
+        CCSprite *img = [CCSprite spriteWithFile:@"treebase0.png"];
+        img.anchorPoint = ccp(0, 0);
+        img.position = ccp(0, 0);
+        img.scaleY = winSize.height/(960.f/2.f);
+        [self addChild:img];
         
         //bottom menu
-        
         CCMenuItemImage *itemRetry = [CCMenuItemImage itemWithNormalImage:@"menuBoxRight.png"
                                                             selectedImage:@"menuBoxRight.png"
                                                             disabledImage:nil block:^(id sender){
@@ -93,8 +90,8 @@
         CCLabelTTF *leaderText = [CCLabelTTF labelWithString:@"check the leaderboards" fontName:@"Chalkduster" fontSize:11*scaleFactor];
         [leaderText setColor:ccc3(255, 224, 51)];
         [itemLeaderBoard addChild:leaderText];
+        leaderText.scaleX = (1/(itemLeaderBoard.scaleX))*(([itemLeaderBoard boundingBox].size.width - 10.f)/[leaderText boundingBox].size.width);
         leaderText.scaleY = 1/(itemLeaderBoard.scaleY);
-        leaderText.scaleX = 1/(itemLeaderBoard.scaleX);
 
         
         CCMenuItemImage *itemChallenge = [CCMenuItemImage itemWithNormalImage:@"UIBox.png" selectedImage:@"UIBox.png" disabledImage:nil block:^(id sender){
@@ -117,7 +114,7 @@
         
         CCSprite *challIcon = [CCSprite spriteWithFile:@"challengeIcon.png"];
         challIcon.scaleY = 1/(itemChallenge.scaleY);
-        challIcon.scaleX = 1/(itemChallenge.scaleX);
+        challIcon.scaleX = 1/(itemChallenge.scaleX)*(([itemLeaderBoard boundingBox].size.width - 10.f)/[leaderText boundingBox].size.width);
         challIcon.position=ccp(itemChallenge.position.x -20*scaleFactor, challIcon.position.y+36*scaleFactor);
         [itemChallenge addChild:challIcon];
         
@@ -150,8 +147,8 @@
         [topMenu alignItemsVerticallyWithPadding: 3.0*scaleFactor];
         [topMenu setPosition: ccp(10*scaleFactor + winSize.width/2, winSize.height*.80)];
         
-        haikuText.position = ccp(haikuIcon.position.x+33*scaleFactor+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y);
-        challText.position = ccp(haikuIcon.position.x+20*scaleFactor+challText.boundingBox.size.width/1.7,haikuIcon.position.y);
+        haikuText.position = ccp(haikuIcon.position.x+25*scaleFactor+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y);
+        challText.position = ccp(haikuIcon.position.x+12*scaleFactor+challText.boundingBox.size.width/1.7,haikuIcon.position.y);
         leaderText.position=ccp (leaderIcon.position.x+11*scaleFactor+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y);
         
         
@@ -163,7 +160,7 @@
         
         CCSprite * divider = [CCSprite spriteWithFile:@"scoreDivider.png"];
         divider.scale=1.0;
-        divider.position = ccp(scoreBg.position.x-(scoreBg.contentSize.width/1.7) +4*scaleFactor, scoreBg.position.y-scoreBg.contentSize.height);
+        divider.position = ccp(scoreBg.position.x-(scoreBg.contentSize.width/1.7) +4*scaleFactor, scoreBg.position.y-scoreBg.contentSize.height - 10*scaleFactor);
         divider.rotation=10;
         [scoreBg addChild:divider];
         

@@ -116,8 +116,8 @@
         highScoreLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%im", (int) highScore_]
                                              fontName:@"Futura" fontSize:12*scaleFactor];
         highScoreLabel_.anchorPoint = ccp(0, 1);
-        highScoreLabel_.position = ccp(4*scaleFactor,
-                                       size.height-1*scaleFactor);
+        highScoreLabel_.position = ccp(3/scaleFactor,
+                                       size.height-0.5/scaleFactor);
         [highScoreLabel_ setColor:ccBLACK];
         [self addChild:highScoreLabel_ z:4];
         
@@ -495,11 +495,11 @@
     }
     else if(scene.tutorialState == Spiddder) {
         //keep spiddder low
-        if(spiddder_.position.y > size.height - [spiddder_ boundingBox].size.height/4) {
+        if(spiddder_.position.y > size.height/2 + [spiddder_ boundingBox].size.height/2) {
             spiddder_.velocity = ccp(spiddder_.velocity.x, -40.f); //hardcoded var
         } else {
             spiddder_.position = ccp(spiddder_.position.x,
-                                     size.height - [spiddder_ boundingBox].size.height/4);
+                                     size.height/2 + [spiddder_ boundingBox].size.height/2);
         }
         
         //activate if in hitting distance

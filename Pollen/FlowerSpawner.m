@@ -47,7 +47,7 @@
 
 -(void) setParticleAmount:(int)n {
     if([flowers_ count] == 0 && [flowers_ count] < n) { //will not add particles after first spawning
-        float particleDistance = size.height/(n-1);
+        float particleDistance = SIZE_HEIGHT/(n-1);
         unsigned short extraParticles = 0;
         while(extraParticles * particleDistance < FLOWER_HEIGHT) extraParticles++;
         NSLog(@"%i", extraParticles);
@@ -59,7 +59,7 @@
             //flip i
             float xbuf = i*(size.width/(n+extraParticles));
             particle.position = ccp([GameUtility randInt:size.width/2-xbuf :size.width/2+xbuf+1],
-                                    size.height/2 + (i+1)*(size.height/(n-1)));
+                                    size.height/2 + (i+1)*(SIZE_HEIGHT/(n-1)));
                                                 //warning; might not work if adding particles
             
             [flowers_ addObject:particle];
@@ -73,7 +73,7 @@
         Flower *flower = [flowers_ objectAtIndex:i];
         if(flower.visible == NO) {
             //create top buffer to make sure particles are evenly spread out
-            int buffer = size.height/(numParticles_-1);
+            int buffer = SIZE_HEIGHT/(numParticles_-1);
             //subtract distance from last flower to top of screen
             int j = i-1; if(j < 0) j = [flowers_ count]-1;
             Flower *prevFlower = [flowers_ objectAtIndex:j];
