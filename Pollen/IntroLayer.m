@@ -42,8 +42,26 @@
 
 		CCSprite *background;
 		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-			background = [CCSprite spriteWithFile:@"Default.png"];
-			//background.rotation = 90;
+            //NSLog(@"size height bruh BRUH %f", [[CCDirector sharedDirector] winSize].height);
+            
+            if([[CCDirector sharedDirector] winSize].height > 480.f) {
+                background = [CCSprite spriteWithFile:@"Default-568h@2x.png"];
+                
+                if([[CCDirector sharedDirector] winSize].height == 568.f) {
+                    NSLog(@"loading the big file");
+                } else {
+                    CGPoint scaleFactor = ccp(size.width/320.f, size.height/568.f);
+                    background.scaleX = scaleFactor.x;
+                    background.scaleY = scaleFactor.y;
+                    
+                    NSLog(@"loading the big file & scaling");
+                }
+            } else {
+                background = [CCSprite spriteWithFile:@"Default@2x.png"];
+                
+                NSLog(@"loading the small file");
+            }
+            //background.rotation = 90;
 		} else {
 			background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
 		}

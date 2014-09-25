@@ -182,37 +182,43 @@
     if(h > 300 && gravityIncrement_ != 1 && !(self.spawnLayer.treeLevel > 1)) {
         gravityIncrement_ = 1;
         jumpIncrement_ = 75;
-        NSLog(@"reached first checkpoint");
+        NSLog(@"reached first checkpoint %f", h);
         self.spawnLayer.treeLevel=1;
     }
     else if(h > 800 && gravityIncrement_ == 1) {
         gravityIncrement_ = 2.5;
         jumpIncrement_ = 175;
-        NSLog(@"reached second checkpoint");
+        NSLog(@"reached second checkpoint %f", h);
         self.spawnLayer.treeLevel=2;
     }
     else if(h > 1500 && gravityIncrement_ == 2.5) {
         gravityIncrement_ = 4;
         jumpIncrement_ = 225;
-        NSLog(@"reached third checkpoint");
+        NSLog(@"reached third checkpoint %f", h);
         self.spawnLayer.treeLevel=3;
     }
     else if(h > 2000 && gravityIncrement_ == 4) {
         gravityIncrement_ = 7;
         jumpIncrement_ = 290;
-        NSLog(@"reached fourth checkpoint");
+        NSLog(@"reached fourth checkpoint %f", h);
         self.spawnLayer.treeLevel=4;
     }
     else if(h > 4000 && gravityIncrement_ == 7) {
-        gravityIncrement_ = 10.8; //meant to be pretty hard (still playable... screwy with old boost mode)
+        gravityIncrement_ = 10.5; //meant to be pretty hard (still playable... screwy with old boost mode)
         jumpIncrement_ = 350;
-        NSLog(@"reached fifth checkpoint");
+        NSLog(@"reached fifth checkpoint %f", h);
         self.spawnLayer.treeLevel = 4;
     }
-    else if(h > 6000 && gravityIncrement_ == 10.8) {
-        gravityIncrement_ = 14;
-        jumpIncrement_ = 375;
-        NSLog(@"reached sixth checkpoint. final");
+    else if(h > 6000 && gravityIncrement_ == 10.5) {
+        gravityIncrement_ = 16.5;
+        jumpIncrement_ = 385;
+        NSLog(@"reached sixth checkpoint %f", h);
+        self.spawnLayer.treeLevel = 4;
+    }
+    else if(h > 9000 && gravityIncrement_ == 16.5) {
+        gravityIncrement_ = 22;
+        jumpIncrement_ = 420;
+        NSLog(@"reached seventh checkpoint %f", h);
         self.spawnLayer.treeLevel = 4;
     }
 }
