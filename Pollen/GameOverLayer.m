@@ -90,7 +90,7 @@
         CCLabelTTF *leaderText = [CCLabelTTF labelWithString:@"check the leaderboard" fontName:@"Chalkduster" fontSize:15*scaleFactor.x];
         [leaderText setColor:ccc3(255, 224, 51)];
         [itemLeaderBoard addChild:leaderText];
-        leaderText.scaleX = (1/(itemLeaderBoard.scaleX))*(([itemLeaderBoard boundingBox].size.width - 10.f)/[leaderText boundingBox].size.width);
+        leaderText.scaleX = (1/(itemLeaderBoard.scaleX));
         leaderText.scaleY = 1/(itemLeaderBoard.scaleY);
 
         
@@ -144,12 +144,12 @@
         
         CCMenu* topMenu = [CCMenu menuWithItems:itemLeaderBoard,itemChallenge, itemHaiku, nil];
         
-        [topMenu alignItemsVerticallyWithPadding: 3.0*scaleFactor.y];
+        [topMenu alignItemsVerticallyWithPadding: 3.0];
         [topMenu setPosition: ccp(10*scaleFactor.x + winSize.width/2, winSize.height*.80)];
         
-        haikuText.position = ccp(haikuIcon.position.x+25*scaleFactor.x+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y);
-        challText.position = ccp(haikuIcon.position.x+12*scaleFactor.x+challText.boundingBox.size.width/1.7,haikuIcon.position.y);
-        leaderText.position=ccp (leaderIcon.position.x+11*scaleFactor.x+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y);
+        haikuText.position = ccp(haikuIcon.position.x+40*scaleFactor.x+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y+4);
+        challText.position = ccp(haikuIcon.position.x+25*scaleFactor.x+challText.boundingBox.size.width/1.7,haikuIcon.position.y+4);
+        leaderText.position=ccp (leaderIcon.position.x+25*scaleFactor.x+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y+4);
         
         
         
