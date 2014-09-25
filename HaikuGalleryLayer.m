@@ -28,7 +28,8 @@
 
 -(void) load {
     CGSize size = [[CCDirector sharedDirector] winSize];
-    float scaleFactor = size.height/size.width;
+    float scaleFactor = size.height/size.width; //designed for 960/640
+    const float constScaleFactor = 960.f/640.f;
     scrollNode = [ScrollNode nodeWithSize:CGSizeMake(size.width, size.height)];
 
     // is full screen so we don't need clipping
@@ -41,7 +42,7 @@
     
 
     
-    CCLabelTTF* GalleryLabel = [CCLabelTTF labelWithString:@"player submitted haikus " fontName:@"Chalkduster" fontSize:14*scaleFactor];
+    CCLabelTTF* GalleryLabel = [CCLabelTTF labelWithString:@"player submitted haikus " fontName:@"Chalkduster" fontSize:14*constScaleFactor];
     
     [GalleryLabel setColor:ccBLACK];
     CCMenuItemLabel *label1= [CCMenuItemLabel itemWithLabel:GalleryLabel];
@@ -50,7 +51,7 @@
     [scrollNode.menu addChild:label1];
     
     
-    CCLabelTTF* GalleryLabel0 = [CCLabelTTF labelWithString:@"The haikus that spawn for players  " fontName:@"Chalkduster" fontSize:10*scaleFactor];
+    CCLabelTTF* GalleryLabel0 = [CCLabelTTF labelWithString:@"The haikus that spawn for players  " fontName:@"Chalkduster" fontSize:10*constScaleFactor];
     
     [GalleryLabel0 setColor:ccc3(57,23,37)];
     CCMenuItemLabel *label0= [CCMenuItemLabel itemWithLabel:GalleryLabel0];
@@ -59,7 +60,7 @@
     [scrollNode.menu addChild:label0];
     
     
-    CCLabelTTF* GalleryLabel2 = [CCLabelTTF labelWithString:@"in the game come from you." fontName:@"Chalkduster" fontSize:10*scaleFactor];
+    CCLabelTTF* GalleryLabel2 = [CCLabelTTF labelWithString:@"in the game come from you." fontName:@"Chalkduster" fontSize:10*constScaleFactor];
     
     [GalleryLabel2 setColor:ccc3(57,23,37)];
     CCMenuItemLabel *label3= [CCMenuItemLabel itemWithLabel:GalleryLabel2];
@@ -87,7 +88,9 @@
     writeText.scaleX = 1/(itemWrite.scaleX);
     writeText.position= ccp(itemWrite.position.x +itemWrite.contentSize.width/2, itemWrite.position.y+itemWrite.contentSize.height/2);
     [scrollNode.menu addChild:itemWrite];
-    itemWrite.position=ccp( 100*scaleFactor, size.height-90*scaleFactor);
+    
+    itemWrite.anchorPoint = ccp(0.5, 0.5);
+    itemWrite.position=ccp(size.width/2, size.height-90*scaleFactor);
     
     [CCMenuItemFont setFontSize:14*scaleFactor];
     CCMenuItem *back = [CCMenuItemFont itemWithString:@"back" block:^(id sender) {

@@ -24,6 +24,8 @@
 }
 -(id) initWithScore:(float)prevScore {
     if(self = [super init]) {
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        float scaleFactor = size.height/size.width;
         
         if ([GameUtility savedHighScore] <=0)
         {
@@ -34,9 +36,6 @@
             [GameUtility isTutorialNeeded:NO];
         }
         
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        float scaleFactor = size.height/size.width;
-        
         //game title
         CCSprite * gameTitle;
         if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
@@ -46,7 +45,7 @@
 			gameTitle = [CCSprite spriteWithFile:@"MainMenu-Landscape~ipad.png"];
 		}
         gameTitle.position = ccp(size.width/2, size.height/2);
-        gameTitle.scale = 1;
+        gameTitle.scaleY = scaleFactor;
         [self addChild:gameTitle z:-103];
         
         

@@ -204,9 +204,15 @@
         self.spawnLayer.treeLevel=4;
     }
     else if(h > 4000 && gravityIncrement_ == 7) {
-        gravityIncrement_ = 10.75; //meant to be pretty hard (still playable... screwy with old boost mode)
+        gravityIncrement_ = 10.8; //meant to be pretty hard (still playable... screwy with old boost mode)
         jumpIncrement_ = 350;
-        NSLog(@"reached fifth and final checkpoint");
+        NSLog(@"reached fifth checkpoint");
+        self.spawnLayer.treeLevel = 4;
+    }
+    else if(h > 6000 && gravityIncrement_ == 10.8) {
+        gravityIncrement_ = 14;
+        jumpIncrement_ = 375;
+        NSLog(@"reached sixth checkpoint. final");
         self.spawnLayer.treeLevel = 4;
     }
 }

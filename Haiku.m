@@ -8,8 +8,6 @@
 
 #import "Haiku.h"
 
-
-
 @implementation Haiku
 
 //

@@ -18,11 +18,13 @@ NSMutableDictionary* productIDs;
     if(self = [super init]) {
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        float scaleFactor = winSize.height/winSize.width;
+        float bgFactor = winSize.height/(960/2);
+        float scaleFactor = (winSize.height/winSize.width) * bgFactor;
         
         CCSprite *img = [CCSprite spriteWithFile:@"treebody1.png"];
         img.anchorPoint = ccp(0, 0);
         img.position = ccp(0, 0);
+        img.scale = bgFactor;
         [self addChild:img];
         
     //#warning GIVING FREE EYES TO TESTERS
