@@ -39,7 +39,19 @@
         //game title
         CCSprite * gameTitle;
         if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-			gameTitle = [CCSprite spriteWithFile:@"MainMenu.png"];
+            if(size.height > 480.f) {
+                gameTitle = [CCSprite spriteWithFile:@"MainMenu-568h@2x.png"];
+                
+                if(size.height != 568.f) {
+                    CGPoint scaleFactor = ccp(size.width/320.f, size.height/568.f);
+                    gameTitle.scaleX = scaleFactor.x;
+                    gameTitle.scaleY = scaleFactor.y;
+                }
+            } else {
+                gameTitle = [CCSprite spriteWithFile:@"MainMenu@2x.png"];
+                //might need to be MainMenu@2x.png
+            }
+
 			//background.rotation = 90;
 		} else {
 			gameTitle = [CCSprite spriteWithFile:@"MainMenu-Landscape~ipad.png"];
