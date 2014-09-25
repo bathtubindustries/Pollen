@@ -9,7 +9,7 @@
 #import "CCSprite.h"
 
 #define FLOWER_BLOOM_HEALTH 100.f
-#define FLOWER_POLLEN_AMOUNT 2.5f
+#define FLOWER_POLLEN_AMOUNT 2.25f
 
 #define FLOWER_WIDTH 72.f //80.f
 #define FLOWER_HEIGHT 90.f //100.f
