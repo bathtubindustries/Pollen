@@ -94,15 +94,15 @@ NSMutableDictionary* productIDs;
         spidderEyeCounter_ = [CCSprite spriteWithFile:@"spidEyeCounter.png"];
         spidderEyeCounter_.anchorPoint = ccp(0, 1);
         spidderEyeCounter_.scale = 1.15;
-        spidderEyeCounter_.position = ccp(winSize.width- [spidderEyeCounter_ boundingBox].size.width, winSize.height);
+        spidderEyeCounter_.position = ccp(winSize.width - [spidderEyeCounter_ boundingBox].size.width, winSize.height);
         [self addChild: spidderEyeCounter_ z:3];
         
         
         spidderEyeLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [GameUtility savedSpidderEyeCount]]
-                                              fontName:@"Futura" fontSize:11.4f*scaleFactor.x];
+                                              fontName:@"Futura" fontSize:11.4f*1.5f];
         spidderEyeLabel_.anchorPoint = ccp(0, 1);
         spidderEyeLabel_.position = ccp(spidderEyeCounter_.position.x+spidderEyeCounter_.boundingBox.size.width/2.6,
-                                        winSize.height - 1*scaleFactor.x);
+                                        winSize.height - 1.5f);
         [self addChild:spidderEyeLabel_ z:spidderEyeCounter_.zOrder+1];
 
         haikuCounter_ = [CCSprite spriteWithFile:@"haikuUI.png"];
@@ -112,7 +112,7 @@ NSMutableDictionary* productIDs;
         [self addChild: haikuCounter_ z:0];
         
         haikuLabel_ = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"X%i", [GameUtility savedHaikuCount]]
-                                         fontName:@"Futura" fontSize:12*scaleFactor.y];
+                                         fontName:@"Futura" fontSize:12*1.5f];
         haikuLabel_.anchorPoint = ccp(0, 0.6);
         haikuLabel_.position = ccp(haikuCounter_.position.x+[haikuCounter_ boundingBox].size.width/2,haikuCounter_.position.y);
         [self addChild:haikuLabel_ z:0];

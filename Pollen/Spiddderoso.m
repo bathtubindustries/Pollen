@@ -10,7 +10,7 @@
 #import "SpriteLayer.h"
 #import "cocos2d.h"
 
-#define SPIDDDER_COMBO_VELOCITY 5000.f //was 78
+#define SPIDDDER_COMBO_VELOCITY 110.f //was 78
 #define SPIDDDER_COMBO_VELOCITY_FALL -95.f
 #define SPIDDDER_VELOCITY_INCREMENT 52.f //was 30.f
 #define SPIDDDER_VELOCITY_DECREMENT 10.f
