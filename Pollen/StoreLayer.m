@@ -32,7 +32,7 @@ NSMutableDictionary* productIDs;
         //[GameUtility saveSpidderEyeCount:1500];
         
         
-        CCLabelTTF* backOut = [CCLabelTTF labelWithString:@"▲back▲" fontName:@"Chalkduster" fontSize:17*scaleFactor.x];
+        CCLabelTTF* backOut = [CCLabelTTF labelWithString:@"▲back▲" fontName:@"Chalkduster" fontSize:28*scaleFactor.x];
         backOut.anchorPoint = ccp(0, 1);
         backOut.position = ccp( -backOut.contentSize.width/2 + winSize.width/2 , winSize.height - 3*scaleFactor.y);
         [self addChild: backOut];
@@ -69,17 +69,19 @@ NSMutableDictionary* productIDs;
         [products addObject:Eyes100];
         [products addObject:Eyes250];
         
+        CCLabelTTF* packsLabel = [CCLabelTTF labelWithString:@"consumables" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
+        //packsLabel.anchorPoint = ccp(0, 1);
+        packsLabel.position = ccp(   Dandelion.position.x + Dandelion.contentSize.width/2 - packsLabel.contentSize.width, Dandelion.position.y- Dandelion.contentSize.height/2  -20);
+        [self addChild: packsLabel z:100];
+        [packsLabel setColor:ccc3(255, 224, 51)];
+        
         CCLabelTTF* pollinatorsLabel = [CCLabelTTF labelWithString:@"pollinators" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
-        pollinatorsLabel.anchorPoint = ccp(0, 1);
-        pollinatorsLabel.position = ccp( -pollinatorsLabel.contentSize.width/2 + winSize.width/2 , Dandelion.position.y+150*scaleFactor.y);
+        //pollinatorsLabel.anchorPoint = ccp(0, 1);
+        pollinatorsLabel.position = ccp(  Dandelion.position.x + Dandelion.contentSize.width/2  - packsLabel.contentSize.width, Dandelion.position.y+ Dandelion.contentSize.height/2  +20);
         [self addChild: pollinatorsLabel];
         [pollinatorsLabel setColor:ccc3(255, 224, 51)];
         
-        CCLabelTTF* packsLabel = [CCLabelTTF labelWithString:@"consumables" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
-        packsLabel.anchorPoint = ccp(0, 1);
-        packsLabel.position = ccp( -packsLabel.contentSize.width/2 + winSize.width/2 , Eyes100.position.y+80*scaleFactor.y);
-        [self addChild: packsLabel];
-        [packsLabel setColor:ccc3(255, 224, 51)];
+        
         [products addObject:Haikus3];
         
         
