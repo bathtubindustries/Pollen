@@ -1940,6 +1940,7 @@
 				GCC_PREFIX_HEADER = Pollen/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Pollen/libs/kazmath/include\"";
 				INFOPLIST_FILE = Pollen/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -1970,6 +1971,7 @@
 				GCC_PREFIX_HEADER = Pollen/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Pollen/libs/kazmath/include\"";
 				INFOPLIST_FILE = Pollen/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",

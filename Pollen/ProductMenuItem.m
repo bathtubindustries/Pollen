@@ -134,7 +134,7 @@
     else if (num==2){
         self = [ProductMenuItem itemWithNormalImage:@"storeTemplateConsumable.png" selectedImage:@"storeTemplateConsumable.png" target:self selector:@selector(productClicked:)];
         [self setIsEnabled:YES];
-        [self setProductName:@"150 Spidderoso Peepers"];
+        [self setProductName:@"1500 Spidderoso Peepers"];
         
         self.isIAP= true;
         self.consumable=true;
@@ -159,7 +159,7 @@
     else if (num==3){
         self = [ProductMenuItem itemWithNormalImage:@"storeTemplateConsumable.png" selectedImage:@"storeTemplateConsumable.png" target:self selector:@selector(productClicked:)];
         [self setIsEnabled:YES];
-        [self setProductName:@"350 Spidderoso Peepers"];
+        [self setProductName:@"3500 Spidderoso Peepers"];
         
         self.isIAP= true;
         self.consumable=true;
