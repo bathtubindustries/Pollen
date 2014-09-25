@@ -40,7 +40,7 @@
     return self;
 }
 -(CGRect) boundingBox {
-    return CGRectMake(self.position.x - TAPNODE_WIDTH/2, self.position.y - TAPNODE_HEIGHT/2, TAPNODE_WIDTH, TAPNODE_HEIGHT);
+    return CGRectMake(self.position.x - TAPNODE_WIDTH/2, self.position.y - TAPNODE_HEIGHT/2, TAPNODE_WIDTH, TAPNODE_HEIGHT+TAPNODE_HEIGHT/6);
 }
 -(void) update:(ccTime)dt {
     CGSize size = [[CCDirector sharedDirector] winSize];
