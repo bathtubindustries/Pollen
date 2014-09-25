@@ -52,17 +52,18 @@
         //pollen meter
         pollenBarBackground_ = [CCSprite spriteWithFile:@"tubeBack.png"];
         pollenBarBackground_.position = ccp(pollenBarBackground_.boundingBox.size.width/2,
-                                            size.height-pollenBarBackground_.boundingBox.size.height/2);
+                                            size.height-pollenBarBackground_.boundingBox.size.height/2 - ((size.height/480.f)-1)*4.f);
         [self addChild:pollenBarBackground_ z:500];
         
         pollenBar_ = [ClipSprite spriteWithFile:@"tubeFull.png"];
-        pollenBar_.position = ccp(pollenBarBackground_.position.x - pollenBar_.boundingBox.size.width-4*scaleFactor, pollenBarBackground_.position.y - 12.5*scaleFactor);
+        pollenBar_.position = ccp(pollenBarBackground_.position.x - pollenBar_.boundingBox.size.width-4*scaleFactor,
+                                  pollenBarBackground_.position.y - 18.75f + ((size.height/480.f)-1)*5.f);
         [pollenBar_ setClip:ccp(0, 0) :ccp([pollenBar_ boundingBox].size.height, 0)];
         [self addChild:pollenBar_ z:501];
         
         pollenBarTube_ = [CCSprite spriteWithFile:@"tubeEmpty.png"];
         pollenBarTube_.position = ccp(pollenBarBackground_.position.x-pollenBarTube_.boundingBox.size.width+2*scaleFactor,
-                                            pollenBarBackground_.position.y-15*scaleFactor);
+                                            pollenBarBackground_.position.y - 22.5f - ((size.height/480.f)-1)*3.f);
         [self addChild:pollenBarTube_ z:502];
         
         //section off top of screen
@@ -109,7 +110,7 @@
         scoreLeaf_ = [CCSprite spriteWithFile:@"scoreLeaf.png"];
         scoreLeaf_.position= ccp(scoreLeaf_.boundingBox.size.width/2,size.height-scoreLeaf_.boundingBox.size.height/2);
         scoreLeaf_.scaleX=1.1;
-        [self addChild:scoreLeaf_];
+        [self addChild:scoreLeaf_ z:2.5]; //ha. ha ha.
         
         
         highScore_ = [GameUtility savedHighScore];

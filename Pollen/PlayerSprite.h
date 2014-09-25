@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-#define PLAYER_XACCEL 2760.f //was 2650
+#define PLAYER_XACCEL 2755.f //was 2650
 #define PLAYER_XMAXSPEED 440.f
 
 #define PLAYER_GRAVITY -15.f

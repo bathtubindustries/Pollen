@@ -45,7 +45,6 @@
 			gameTitle = [CCSprite spriteWithFile:@"MainMenu-Landscape~ipad.png"];
 		}
         gameTitle.position = ccp(size.width/2, size.height/2);
-        gameTitle.scaleY = scaleFactor;
         [self addChild:gameTitle z:-103];
         
         
