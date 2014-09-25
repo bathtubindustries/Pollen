@@ -27,17 +27,17 @@ void IAPManager::completePurchase(const char *product, const char *data, int res
 		
         NSLog(@"purchsucc on %s",product);
         
-        if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpidderosoPeepers250"].location != NSNotFound)//product is 250 peepers
+        if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpidderosoPeepers250"].location != NSNotFound)//product is named 250 peepers on developer center
         {
-            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+350];
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"350 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+3500];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"3500 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
             
             [alert show];
         }
-        else if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpiderrosoPeepers100"].location != NSNotFound)//product is 100 peepers
+        else if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpiderrosoPeepers100"].location != NSNotFound)//product is 100 peepers on developer center
         {
-            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+150];
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"150 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
+            [GameUtility saveSpidderEyeCount:[GameUtility savedSpidderEyeCount]+1500];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Successful purchase" message:@"1500 peepers added" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
             
             [alert show];
         }

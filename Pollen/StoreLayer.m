@@ -53,8 +53,8 @@ NSMutableDictionary* productIDs;
         products = [[NSMutableArray array] retain];
         productIDs = [[NSMutableDictionary dictionary] retain];
         
-        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers250" forKey:@"350 Spidderoso Peepers"];
-        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpiderrosoPeepers100" forKey:@"150 Spidderoso Peepers"];
+        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpidderosoPeepers250" forKey:@"3500 Spidderoso Peepers"];
+        [productIDs setObject:@"com.BathtubIndustries.PollenBug.SpiderrosoPeepers100" forKey:@"1500 Spidderoso Peepers"];
         
         
         
