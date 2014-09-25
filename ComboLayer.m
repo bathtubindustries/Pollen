@@ -139,11 +139,7 @@
                     node.state = Success;
                     activeIndexForWave++;
                     NSMutableArray *successActions = [NSMutableArray array];
-                    [successActions addObject:[CCFadeIn actionWithDuration:.5]];
-                    [successActions addObject:[CCCallBlock actionWithBlock:^(void){
-                        node.visible=NO;
-                        [[factory nodes] removeObject:node];
-                    }]];
+                    [successActions addObject:[CCFadeIn actionWithDuration:.2]];
                         
 
                     

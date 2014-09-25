@@ -21,7 +21,7 @@
 -(id) initWithScore:(float)score toTutorial:(BOOL)tut {
     if(self = [super init]) {
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        float scaleFactor = winSize.height/winSize.width;
+        CGPoint scaleFactor = ccp (winSize.width/(320),winSize.height/(480));
         
         _playerScore=score;
         
@@ -41,7 +41,7 @@
                                                             }];
         itemRetry.scaleY=1.0;
         itemRetry.scaleX=1.15;
-        CCLabelTTF *retryText = [CCLabelTTF labelWithString:@"retry" fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        CCLabelTTF *retryText = [CCLabelTTF labelWithString:@"retry" fontName:@"Chalkduster" fontSize:21*scaleFactor.x];
         [retryText setColor:ccc3(255, 224, 51)];
         [itemRetry addChild:retryText];
         retryText.scaleY=(1/itemRetry.scaleY);
@@ -54,21 +54,21 @@
         }];
         mainMenuItem.scaleY=1.0;
         mainMenuItem.scaleX=1.15;
-        CCLabelTTF *mainMenuText = [CCLabelTTF labelWithString:@"menu" fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        CCLabelTTF *mainMenuText = [CCLabelTTF labelWithString:@"menu" fontName:@"Chalkduster" fontSize:21*scaleFactor.x];
         [mainMenuText setColor:ccc3(255, 224, 51)];
         [mainMenuItem addChild:mainMenuText];
         mainMenuText.scaleY=(1/mainMenuItem.scaleY);
         
         
-        [CCMenuItemFont setFontSize:(12*scaleFactor)];
+        [CCMenuItemFont setFontSize:(18*scaleFactor.x)];
         
         CCMenu *endMenu = [CCMenu menuWithItems:mainMenuItem,itemRetry, nil];
         
-        [endMenu alignItemsHorizontallyWithPadding: 1*scaleFactor];
-        [endMenu setPosition: ccp(winSize.width/2, (winSize.height*.19) -10*scaleFactor)];
+        [endMenu alignItemsHorizontallyWithPadding: 1*scaleFactor.x];
+        [endMenu setPosition: ccp(winSize.width/2, (winSize.height*.19) -10*scaleFactor.y)];
         
-        retryText.position=ccp(itemRetry.position.x-8*scaleFactor, itemRetry.position.y+(itemRetry.contentSize.height/2));
-        mainMenuText.position=ccp(mainMenuItem.position.x+mainMenuItem.contentSize.width+5*scaleFactor, mainMenuItem.position.y +mainMenuItem.contentSize.height/2);
+        retryText.position=ccp(itemRetry.position.x-8*scaleFactor.x, itemRetry.position.y+(itemRetry.contentSize.height/2));
+        mainMenuText.position=ccp(mainMenuItem.position.x+mainMenuItem.contentSize.width+5*scaleFactor.x, mainMenuItem.position.y +mainMenuItem.contentSize.height/2);
         
         
         
@@ -84,10 +84,10 @@
         CCSprite *leaderIcon = [CCSprite spriteWithFile:@"leaderIcon.png"];
         leaderIcon.scaleY = 1/(itemLeaderBoard.scaleY);
         leaderIcon.scaleX = 1/(itemLeaderBoard.scaleX);
-        leaderIcon.position=ccp(itemLeaderBoard.position.x -20*scaleFactor, leaderIcon.position.y+36*scaleFactor);
+        leaderIcon.position=ccp(itemLeaderBoard.position.x -20*scaleFactor.x, leaderIcon.position.y+36*scaleFactor.y);
         [itemLeaderBoard addChild:leaderIcon];
         
-        CCLabelTTF *leaderText = [CCLabelTTF labelWithString:@"check the leaderboards" fontName:@"Chalkduster" fontSize:11*scaleFactor];
+        CCLabelTTF *leaderText = [CCLabelTTF labelWithString:@"check the leaderboard" fontName:@"Chalkduster" fontSize:15*scaleFactor.x];
         [leaderText setColor:ccc3(255, 224, 51)];
         [itemLeaderBoard addChild:leaderText];
         leaderText.scaleX = (1/(itemLeaderBoard.scaleX))*(([itemLeaderBoard boundingBox].size.width - 10.f)/[leaderText boundingBox].size.width);
@@ -115,10 +115,10 @@
         CCSprite *challIcon = [CCSprite spriteWithFile:@"challengeIcon.png"];
         challIcon.scaleY = 1/(itemChallenge.scaleY);
         challIcon.scaleX = 1/(itemChallenge.scaleX)*(([itemLeaderBoard boundingBox].size.width - 10.f)/[leaderText boundingBox].size.width);
-        challIcon.position=ccp(itemChallenge.position.x -20*scaleFactor, challIcon.position.y+36*scaleFactor);
+        challIcon.position=ccp(itemChallenge.position.x -20*scaleFactor.x, challIcon.position.y+36*scaleFactor.y);
         [itemChallenge addChild:challIcon];
         
-        CCLabelTTF *challText = [CCLabelTTF labelWithString:@"send out a challenge" fontName:@"Chalkduster" fontSize: 11*scaleFactor];
+        CCLabelTTF *challText = [CCLabelTTF labelWithString:@"send out a challenge" fontName:@"Chalkduster" fontSize: 15*scaleFactor.x];
         [challText setColor:ccc3(255, 224, 51)];
         [itemChallenge addChild:challText];
         challText.scaleY = 1/(itemChallenge.scaleY);
@@ -133,10 +133,10 @@
         CCSprite *haikuIcon = [CCSprite spriteWithFile:@"heartIcon.png"];
         haikuIcon.scaleY = 1/(itemHaiku.scaleY);
         haikuIcon.scaleX = 1/(itemHaiku.scaleX);
-        haikuIcon.position=ccp(itemHaiku.position.x -20*scaleFactor, haikuIcon.position.y+36*scaleFactor);
+        haikuIcon.position=ccp(itemHaiku.position.x -20*scaleFactor.x, haikuIcon.position.y+36*scaleFactor.y);
         [itemHaiku addChild:haikuIcon];
         
-        CCLabelTTF *haikuText = [CCLabelTTF labelWithString:@"community haiku" fontName:@"Chalkduster" fontSize:11*scaleFactor];
+        CCLabelTTF *haikuText = [CCLabelTTF labelWithString:@"community haiku" fontName:@"Chalkduster" fontSize:15*scaleFactor.x];
         [haikuText setColor:ccc3(255, 224, 51)];
         [itemHaiku addChild:haikuText];
         haikuText.scaleY = 1/(itemHaiku.scaleY);
@@ -144,70 +144,70 @@
         
         CCMenu* topMenu = [CCMenu menuWithItems:itemLeaderBoard,itemChallenge, itemHaiku, nil];
         
-        [topMenu alignItemsVerticallyWithPadding: 3.0*scaleFactor];
-        [topMenu setPosition: ccp(10*scaleFactor + winSize.width/2, winSize.height*.80)];
+        [topMenu alignItemsVerticallyWithPadding: 3.0*scaleFactor.y];
+        [topMenu setPosition: ccp(10*scaleFactor.x + winSize.width/2, winSize.height*.80)];
         
-        haikuText.position = ccp(haikuIcon.position.x+25*scaleFactor+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y);
-        challText.position = ccp(haikuIcon.position.x+12*scaleFactor+challText.boundingBox.size.width/1.7,haikuIcon.position.y);
-        leaderText.position=ccp (leaderIcon.position.x+11*scaleFactor+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y);
+        haikuText.position = ccp(haikuIcon.position.x+25*scaleFactor.x+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y);
+        challText.position = ccp(haikuIcon.position.x+12*scaleFactor.x+challText.boundingBox.size.width/1.7,haikuIcon.position.y);
+        leaderText.position=ccp (leaderIcon.position.x+11*scaleFactor.x+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y);
         
         
         
         CCSprite * scoreBg = [CCSprite spriteWithFile:@"pauseBox.png"];
-        scoreBg.scaleX=1.5;
-        scoreBg.scaleY=1.3;
-        scoreBg.position= ccp(endMenu.position.x, endMenu.position.y+90*scaleFactor);
+        scoreBg.scaleX=1.5*scaleFactor.x;
+        scoreBg.scaleY=1.3*scaleFactor.y;
+        scoreBg.position= ccp(endMenu.position.x, endMenu.position.y+140*scaleFactor.y);
         
         CCSprite * divider = [CCSprite spriteWithFile:@"scoreDivider.png"];
         divider.scale=1.0;
-        divider.position = ccp(scoreBg.position.x-(scoreBg.contentSize.width/1.7) +4*scaleFactor, scoreBg.position.y-scoreBg.contentSize.height - 10*scaleFactor);
+        divider.position = ccp(scoreBg.position.x-(scoreBg.contentSize.width/1.7)*scaleFactor.x +9*scaleFactor.x, scoreBg.position.y-scoreBg.contentSize.height*1.12*scaleFactor.y);
         divider.rotation=10;
         [scoreBg addChild:divider];
         
         
         
-        CCLabelTTF *climbText = [CCLabelTTF labelWithString:@"you " fontName:@"Chalkduster" fontSize:12*scaleFactor];
+        CCLabelTTF *climbText = [CCLabelTTF labelWithString:@"you " fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
         [climbText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:climbText];
         climbText.scaleY=(1/scoreBg.scaleY);
         climbText.scaleX=(1/scoreBg.scaleX);
-        climbText.position= ccp(scoreBg.position.x-climbText.contentSize.width*1.8,scoreBg.position.y-4*scaleFactor- scoreBg.contentSize.height/2);
+        climbText.position= ccp(scoreBg.position.x-climbText.contentSize.width*1.2*scaleFactor.x,scoreBg.position.y- scaleFactor.y* scoreBg.contentSize.height/1.4);
         
-        CCLabelTTF *climbText2 = [CCLabelTTF labelWithString:@"climbed:" fontName:@"Chalkduster" fontSize: 12*scaleFactor];
+        CCLabelTTF *climbText2 = [CCLabelTTF labelWithString:@"climbed:" fontName:@"Chalkduster" fontSize: 18*scaleFactor.x];
         [climbText2 setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:climbText2];
         climbText2.scaleY=(1/scoreBg.scaleY);
         climbText2.scaleX=(1/scoreBg.scaleX);
-        climbText2.position= ccp(scoreBg.position.x-4*scaleFactor-climbText2.contentSize.width/2,scoreBg.position.y-15*scaleFactor-scoreBg.contentSize.height/2);
+        climbText2.position= ccp(climbText.position.x + 10*scaleFactor.x ,climbText.position.y -15*scaleFactor.y);
 
-        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)score ] fontName:@"Futura" fontSize:(self.playerScore <1000)? 18*scaleFactor :14*scaleFactor];
+        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)score ] fontName:@"Futura" fontSize:(self.playerScore <1000)? 27*scaleFactor.x :21*scaleFactor.x];
         [scoreText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:scoreText];
         scoreText.scaleY=(1/scoreBg.scaleY);
         scoreText.scaleX=(1/scoreBg.scaleX);
-        scoreText.position= ccp(climbText2.position.x,climbText2.position.y-20*scaleFactor);
+        scoreText.position= ccp(climbText2.position.x,climbText2.position.y-20*scaleFactor.y);
         
         
-        CCLabelTTF *bestText = [CCLabelTTF labelWithString:@"your" fontName:@"Chalkduster" fontSize:12*scaleFactor];
+        CCLabelTTF *bestText = [CCLabelTTF labelWithString:@"your" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
         [bestText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:bestText];
         bestText.scaleY=(1/scoreBg.scaleY);
         bestText.scaleX=(1/scoreBg.scaleX);
-        bestText.position= ccp(scoreBg.position.x-bestText.contentSize.width*2.3-20*scaleFactor,scoreBg.position.y-scoreBg.contentSize.height-5*scaleFactor);
+        bestText.position= ccp(scoreBg.position.x-bestText.contentSize.width*2.5*scaleFactor.x-20*scaleFactor.x,scoreBg.position.y-scoreBg.contentSize.height*scaleFactor.y-12*scaleFactor.y);
         
-        CCLabelTTF *bestText2 = [CCLabelTTF labelWithString:@"best:" fontName:@"Chalkduster" fontSize:12*scaleFactor];
+        CCLabelTTF *bestText2 = [CCLabelTTF labelWithString:@"best:" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
         [bestText2 setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:bestText2];
         bestText2.scaleY=(1/scoreBg.scaleY);
         bestText2.scaleX=(1/scoreBg.scaleX);
-        bestText2.position= ccp(scoreBg.position.x-bestText2.contentSize.width-40*scaleFactor,scoreBg.position.y-scoreBg.contentSize.height-15*scaleFactor);
+        bestText2.position= ccp(bestText.position.x + 8*scaleFactor.x ,bestText.position.y -15*scaleFactor.y);
         
-        CCLabelTTF *bestScoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)[GameUtility savedHighScore] ] fontName:@"Futura" fontSize:14*scaleFactor];
+        CCLabelTTF *bestScoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)[GameUtility savedHighScore] ] fontName:@"Futura" fontSize:21*scaleFactor.x];
         [bestScoreText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:bestScoreText];
         bestScoreText.scaleY=(1/scoreBg.scaleY);
         bestScoreText.scaleX=(1/scoreBg.scaleX);
-        bestScoreText.position= ccp(bestText2.position.x,bestText2.position.y-12*scaleFactor);
+        bestScoreText.position= ccp(bestText2.position.x,bestText2.position.y-15*scaleFactor.y);
         
         [self addChild:scoreBg];
         [self addChild:endMenu];

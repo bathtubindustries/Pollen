@@ -31,7 +31,7 @@
 
 -(id) initWithProductNumber: (NSInteger) num{
     CGSize size = [[CCDirector sharedDirector] winSize];
-    float scaleFactor = size.height/size.width;
+    CGPoint scaleFactor = ccp (size.width/(320),size.height/(480));
     ccColor3B labelColor = ccc3(224,192,26);
     
     if (num==0){
@@ -47,19 +47,19 @@
         self.consumable=false;
         self.eyeCost=0;
         
-        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:8*scaleFactor];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:12*scaleFactor.x];
         label.color = labelColor;
-        label.position = CGPointMake(self.itemSprite.position.x, self.itemSprite.position.y-40*scaleFactor);
+        label.position = CGPointMake(self.itemSprite.position.x, self.itemSprite.position.y-60);
         [self addChild:label];
         [self addChild:self.itemSprite];
         
-        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"house" fontName:@"Futura" fontSize:10*scaleFactor];
+        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"house" fontName:@"Futura" fontSize:15*scaleFactor.x];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(6*scaleFactor +self.contentSize.width/2, label.position.y-14*scaleFactor);
+        labelPrice.position = CGPointMake(6*scaleFactor.x +self.contentSize.width/2, label.position.y-22);
         [self addChild:labelPrice];
         
         CCSprite *imagePrice = [CCSprite spriteWithFile:@"costEyes.png"];
-        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width +2*scaleFactor, labelPrice.position.y);
+        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width +2*scaleFactor.x, labelPrice.position.y);
         [self addChild:imagePrice];
 
         self.lockSprite = [[CCSprite spriteWithFile:@"lockedOverlay.png"] retain];
@@ -94,19 +94,19 @@
         self.itemSprite = [CCSprite spriteWithFile:@"DandelionHammer.png"];
         self.itemSprite.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2);
         
-        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:8*scaleFactor];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:12*scaleFactor.x];
         label.color = labelColor;
-        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-40*scaleFactor);
+        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-60);
         [self addChild:label];
         [self addChild:self.itemSprite];
         
-        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"1000" fontName:@"Futura" fontSize:10*scaleFactor];
+        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"1000" fontName:@"Futura" fontSize:15*scaleFactor.x];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(6*scaleFactor +self.contentSize.width/2,  label.position.y-14*scaleFactor);
+        labelPrice.position = CGPointMake(6*scaleFactor.x +self.contentSize.width/2,  label.position.y-22);
         [self addChild:labelPrice];
         
         CCSprite *imagePrice = [CCSprite spriteWithFile:@"costEyes.png"];
-        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width+2*scaleFactor, labelPrice.position.y);
+        imagePrice.position = CGPointMake(labelPrice.position.x - labelPrice.contentSize.width+2*scaleFactor.x, labelPrice.position.y);
         [self addChild:imagePrice];
         
         self.lockSprite = [[CCSprite spriteWithFile:@"lockedOverlay.png"] retain];
@@ -139,18 +139,18 @@
         self.isIAP= true;
         self.consumable=true;
         
-        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:5*scaleFactor];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:7*scaleFactor.x];
         label.color = labelColor;
-        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-20*scaleFactor);
+        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-30);
         //[self addChild:label];
         
-        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"$ 0.99" fontName:@"Futura" fontSize:10*scaleFactor];
+        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"$ 0.99" fontName:@"Futura" fontSize:15*scaleFactor.x];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-10*scaleFactor);
+        labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-18);
         [self addChild:labelPrice];
         
         self.itemSprite = [CCSprite spriteWithFile:@"eyesStore1500.png"];
-        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor +self.contentSize.height/2);
+        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor.y +self.contentSize.height/2);
         self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
     
@@ -164,19 +164,19 @@
         self.isIAP= true;
         self.consumable=true;
         
-        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:5*scaleFactor];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:7*scaleFactor.x];
         label.color = labelColor;
-        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-20*scaleFactor);
+        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2 - 30);
         //[self addChild:label];
         
         
-        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"$ 1.99" fontName:@"Futura" fontSize:10*scaleFactor];
+        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"$ 1.99" fontName:@"Futura" fontSize:15*scaleFactor.x];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-10*scaleFactor);
+        labelPrice.position = CGPointMake(self.contentSize.width/2,  label.position.y-18);
         [self addChild:labelPrice];
         
         self.itemSprite = [CCSprite spriteWithFile:@"eyesStore3500.png"];
-        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor +self.contentSize.height/2);
+        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor.x +self.contentSize.height/2);
         self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
         
@@ -191,14 +191,14 @@
         self.consumable=true;
         self.eyeCost=150;
         
-        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:7*scaleFactor];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:self.productName fontName:@"Futura" fontSize:10*scaleFactor.x];
         label.color = labelColor;
-        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2-20*scaleFactor);
+        label.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2 -30);
         //[self addChild:label];
         
-        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"150" fontName:@"Futura" fontSize:10*scaleFactor];
+        CCLabelTTF * labelPrice = [CCLabelTTF labelWithString:@"150" fontName:@"Futura" fontSize:15*scaleFactor.x];
         labelPrice.color = labelColor;
-        labelPrice.position = CGPointMake(4*scaleFactor+self.contentSize.width/2,  label.position.y-10*scaleFactor);
+        labelPrice.position = CGPointMake(4*scaleFactor.x+self.contentSize.width/2,  label.position.y-18);
         [self addChild:labelPrice];
         
         CCSprite *imagePrice = [CCSprite spriteWithFile:@"costEyes.png"];
@@ -206,7 +206,7 @@
         [self addChild:imagePrice];
         
         self.itemSprite = [CCSprite spriteWithFile:@"haikuStore30.png"];
-        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor + self.contentSize.height/2);
+        self.itemSprite.position = CGPointMake(self.contentSize.width/2, -10 *scaleFactor.y + self.contentSize.height/2);
         self.itemSprite.scale=1.3;
         [self addChild:self.itemSprite];
         
