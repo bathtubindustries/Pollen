@@ -170,7 +170,7 @@
 -(void) applicationDidFinishLaunching:(UIApplication *)application
 {
 #warning REPLACE WITH APP STORE ID FOR ANALYTICS
-    [Grab initWithSecret:123456789];
+    [Grab initWithSecret:880236358];
 }
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application

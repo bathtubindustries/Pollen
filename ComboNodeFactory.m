@@ -77,11 +77,11 @@
     }
     else if (waveCount<10)
     {
-        duration=.75;
+        duration=.80;
     }
-    else if (waveCount<15)
+    else if (waveCount<14)
     {
-        duration=.69;
+        duration=.75;
     }
     else if (waveCount<20){
         duration=.64;

@@ -210,12 +210,12 @@
         self.spawnLayer.treeLevel = 4;
     }
     else if(h > 6000 && gravityIncrement_ == 10.5) {
-        gravityIncrement_ = 16.5;
-        jumpIncrement_ = 385;
+        gravityIncrement_ = 16;
+        jumpIncrement_ = 390;
         NSLog(@"reached sixth checkpoint %f", h);
         self.spawnLayer.treeLevel = 4;
     }
-    else if(h > 9000 && gravityIncrement_ == 16.5) {
+    else if(h > 9000 && gravityIncrement_ == 16) {
         gravityIncrement_ = 22;
         jumpIncrement_ = 420;
         NSLog(@"reached seventh checkpoint %f", h);
