@@ -38,25 +38,144 @@
     self.secLine.delegate=self;
     self.thirdLine.delegate=self;
     
+    isAdjusted=NO;
+    
     [self.firstInitial setReturnKeyType:UIReturnKeyDone];
     [self.firstLine setReturnKeyType:UIReturnKeyDone];
     [self.secLine setReturnKeyType:UIReturnKeyDone];
     [self.thirdLine setReturnKeyType:UIReturnKeyDone];
     [self.secInitial setReturnKeyType:UIReturnKeyDone];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWasShown:)
+     
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWillBeHidden:)
+     
+                                                 name:UIKeyboardWillHideNotification object:nil];
+
+    
+    
 }
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+
+{
+    
+    activeField = textField;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    
+    self.scrollView.contentInset = contentInsets;
+    
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    
+    // Your app might not need or want this behavior.
+    
+    CGRect aRect = self.view.frame;
+    
+    aRect.size.height -= kbSize.height;
+    
+    if (([activeField isEqual:self.thirdLine] || [activeField isEqual:self.secLine]) && !isAdjusted)
+    {
+        
+        CGPoint scrollPoint = CGPointMake(0.0, self.thirdLine.frame.origin.y - (kbSize.height - self.thirdLine.frame.size.height));
+        [self.scrollView setContentOffset:scrollPoint animated:NO];
+        isAdjusted=YES;
+    }
+
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+
+- (void)keyboardWasShown:(NSNotification*)aNotification
+
+{
+    
+    NSDictionary* info = [aNotification userInfo];
+    
+    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    
+    self.scrollView.contentInset = contentInsets;
+    
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    
+    // Your app might not need or want this behavior.
+    
+    CGRect aRect = self.view.frame;
+    
+    aRect.size.height -= kbSize.height;
+    
+    if (([activeField isEqual:self.thirdLine] || [activeField isEqual:self.secLine]) && !isAdjusted)
+    {
+    
+    CGPoint scrollPoint = CGPointMake(0.0, self.thirdLine.frame.origin.y - (kbSize.height - self.thirdLine.frame.size.height));
+    [self.scrollView setContentOffset:scrollPoint animated:NO];
+        isAdjusted=YES;
+    }
+    
+}
+
+
+
+// Called when the UIKeyboardWillHideNotification is sent
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+
+{
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    
+    self.scrollView.contentInset = contentInsets;
+    
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    isAdjusted=NO;
+    
+}
+
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
+    activeField = nil;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
+
+-(BOOL) aFieldIsEmpty
+{
+    return ([self.firstInitial.text isEqualToString:@""] || [self.secInitial.text isEqualToString:@""] || [self.firstLine.text isEqualToString:@""]|| [self.secLine.text isEqualToString:@""]|| [self.thirdLine.text isEqualToString:@""]);
+}
+
+
 - (IBAction)submitPressed:(id)sender {
 
     Firebase *newPoemRef =  [self.root childByAutoId];
     
     if (!self.firstLine.text || !self.secLine.text || !self.thirdLine.text
-        || !self.firstInitial.text || !self.secInitial.text || !self.firstInitial.text  )
+        || !self.firstInitial.text || !self.secInitial.text || !self.firstInitial.text || [self aFieldIsEmpty] )
     {
         UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Haiku Not Submitted" message:@"A field is missing" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
         
@@ -97,6 +216,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
+
 - (void)dealloc {
     [_firstInitial release];
     [_secInitial release];
@@ -108,6 +231,7 @@
     [super dealloc];
 }
 - (void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self setFirstInitial:nil];
     [self setSecInitial:nil];
     [self setFirstLine:nil];
