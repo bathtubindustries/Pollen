@@ -25,8 +25,8 @@
         float scaleFactor=1;
         //menu items and setup
         scaleFactor = size.height/size.width;
-        [CCMenuItemFont setFontName:@"Chalkduster"];
-        [CCMenuItemFont setFontSize:(24*scaleFactor)];
+        [CCMenuItemFont setFontName:@"GunnyRewritten"];
+        [CCMenuItemFont setFontSize:(36*scaleFactor)];
         haikuNum=[GameUtility savedHaikuCount];
         
         randSpawner = [[HaikuSpawner alloc] init];
@@ -40,7 +40,7 @@
             else{
                 if (!warned){
                     warningLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"not enough haiku charges left"]
-                                                      fontName:@"Chalkduster" fontSize:12*scaleFactor];
+                                                      fontName:@"GunnyRewritten" fontSize:12*scaleFactor];
                     warningLabel.position = ccp(size.width/2, size.height - ((3*size.height)/4) + 20*scaleFactor) ;
                     [self addChild:warningLabel];
                     [warningLabel setColor:ccRED];
@@ -50,7 +50,7 @@
         
         }];
         itemRevive.scale=1.2;
-        CCLabelTTF *reviveText = [CCLabelTTF labelWithString:@"continue" fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        CCLabelTTF *reviveText = [CCLabelTTF labelWithString:@"continue" fontName:@"GunnyRewritten" fontSize:20*scaleFactor];
         [reviveText setColor:ccc3(255, 224, 51)];
         [itemRevive addChild:reviveText];
         reviveText.scale=1*(1/itemRevive.scale);
@@ -60,7 +60,7 @@
         
         }];
         itemScores.scale=1.2;
-        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:@"next>" fontName:@"Chalkduster" fontSize:18*scaleFactor];
+        CCLabelTTF *scoreText = [CCLabelTTF labelWithString:@"next>" fontName:@"GunnyRewritten" fontSize:24*scaleFactor];
         [scoreText setColor:ccc3(255, 224, 51)];
         [itemScores addChild:scoreText];
         scoreText.scale=1.0*(1/itemRevive.scale);
@@ -75,25 +75,25 @@
         
         
         reviveText.position = ccp(itemRevive.contentSize.width/2 - 2*scaleFactor,
-                                  itemRevive.contentSize.height/2 + 3*scaleFactor);
+                                  itemRevive.contentSize.height/2 + 5*scaleFactor);
         scoreText.position = ccp(itemScores.contentSize.width/2 + 1*scaleFactor,
                                  itemScores.contentSize.height/2 - 3*scaleFactor);
         
         CCSprite *haikuSubtract = [CCSprite spriteWithFile:@"haikuUI.png"];
         haikuSubtract.scaleY=.15 *(1/itemRevive.scale);
         haikuSubtract.scaleX=.15*(1/itemRevive.scale);
-        haikuSubtract.position=ccp(reviveText.position.x-[haikuSubtract boundingBox].size.width/2, reviveText.position.y-haikuSubtract.boundingBox.size.height+8*scaleFactor);
+        haikuSubtract.position=ccp(reviveText.position.x-[haikuSubtract boundingBox].size.width/2, reviveText.position.y-haikuSubtract.boundingBox.size.height+3*scaleFactor);
         [itemRevive addChild:haikuSubtract];
         
-        reviveHaikuText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@" -%d",[GameUtility fib:haikuCost]] fontName:@"Chalkduster" fontSize:14*scaleFactor];
+        reviveHaikuText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@" -%d",[GameUtility fib:haikuCost]] fontName:@"GunnyRewritten" fontSize:16*scaleFactor];
         [reviveHaikuText setColor:ccc3(255, 224, 51)];
         [itemRevive addChild:reviveHaikuText];
         
         reviveHaikuText.position= ccp(haikuSubtract.position.x+20*scaleFactor, haikuSubtract.position.y);
         
         continueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"you fell"]
-                                           fontName:@"Chalkduster" fontSize:18*scaleFactor];
-        continueLabel.position = ccp(size.width/2, size.height - 64);
+                                           fontName:@"GunnyRewritten" fontSize:42*scaleFactor];
+        continueLabel.position = ccp(size.width/2, size.height - 68);
         [continueLabel setColor:ccWHITE];
         [self addChild:continueLabel];
         [continueLabel setVisible:NO];

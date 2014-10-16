@@ -36,6 +36,17 @@
             [GameUtility isTutorialNeeded:NO];
         }
         
+        for (NSString* family in [UIFont familyNames])
+        {
+            NSLog(@"%@", family);
+            
+            for (NSString* name in [UIFont fontNamesForFamilyName: family])
+            {
+                NSLog(@"  %@", name);
+            }
+        }
+        
+        
         //game title
         CCSprite * gameTitle;
         if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
@@ -129,8 +140,8 @@
         }
         
         //menu
-        [CCMenuItemFont setFontName:@"Chalkduster"];
-        [CCMenuItemFont setFontSize:(24*scaleFactor)];
+        [CCMenuItemFont setFontName:@"GunnyRewritten"];
+        [CCMenuItemFont setFontSize:(36*scaleFactor)];
         
         CCMenuItem *itemStore = [CCMenuItemFont itemWithString:@"store" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:
@@ -151,7 +162,7 @@
 
 
         CCMenu *menu = [CCMenu menuWithItems:play, itemStore, nil];
-		[menu alignItemsVerticallyWithPadding:2*scaleFactor];
+		[menu alignItemsVerticallyWithPadding:4*scaleFactor];
         [menu setPosition:ccp(size.width/2, 80*scaleFactor)];
 		[self addChild:menu];
         

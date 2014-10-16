@@ -41,7 +41,7 @@
                                                             }];
         itemRetry.scaleY=1.0;
         itemRetry.scaleX=1.15;
-        CCLabelTTF *retryText = [CCLabelTTF labelWithString:@"retry" fontName:@"Chalkduster" fontSize:21*scaleFactor.x];
+        CCLabelTTF *retryText = [CCLabelTTF labelWithString:@"retry" fontName:@"GunnyRewritten" fontSize:36*scaleFactor.x];
         [retryText setColor:ccc3(255, 224, 51)];
         [itemRetry addChild:retryText];
         retryText.scaleY=(1/itemRetry.scaleY);
@@ -54,13 +54,13 @@
         }];
         mainMenuItem.scaleY=1.0;
         mainMenuItem.scaleX=1.15;
-        CCLabelTTF *mainMenuText = [CCLabelTTF labelWithString:@"menu" fontName:@"Chalkduster" fontSize:21*scaleFactor.x];
+        CCLabelTTF *mainMenuText = [CCLabelTTF labelWithString:@"menu" fontName:@"GunnyRewritten" fontSize:36*scaleFactor.x];
         [mainMenuText setColor:ccc3(255, 224, 51)];
         [mainMenuItem addChild:mainMenuText];
         mainMenuText.scaleY=(1/mainMenuItem.scaleY);
         
         
-        [CCMenuItemFont setFontSize:(18*scaleFactor.x)];
+        [CCMenuItemFont setFontSize:(27*scaleFactor.x)];
         
         CCMenu *endMenu = [CCMenu menuWithItems:mainMenuItem,itemRetry, nil];
         
@@ -87,7 +87,7 @@
         leaderIcon.position=ccp(itemLeaderBoard.position.x -20*scaleFactor.x, leaderIcon.position.y+36*scaleFactor.y);
         [itemLeaderBoard addChild:leaderIcon];
         
-        CCLabelTTF *leaderText = [CCLabelTTF labelWithString:@"check the leaderboard" fontName:@"Chalkduster" fontSize:15*scaleFactor.x];
+        CCLabelTTF *leaderText = [CCLabelTTF labelWithString:@"check the leaderboard" fontName:@"GunnyRewritten" fontSize:30*scaleFactor.x];
         [leaderText setColor:ccc3(255, 224, 51)];
         [itemLeaderBoard addChild:leaderText];
         leaderText.scaleX = (1/(itemLeaderBoard.scaleX));
@@ -114,11 +114,11 @@
         
         CCSprite *challIcon = [CCSprite spriteWithFile:@"challengeIcon.png"];
         challIcon.scaleY = 1/(itemChallenge.scaleY);
-        challIcon.scaleX = 1/(itemChallenge.scaleX)*(([itemLeaderBoard boundingBox].size.width - 10.f)/[leaderText boundingBox].size.width);
+        challIcon.scaleX = 1/(itemChallenge.scaleX);
         challIcon.position=ccp(itemChallenge.position.x -20*scaleFactor.x, challIcon.position.y+36*scaleFactor.y);
         [itemChallenge addChild:challIcon];
         
-        CCLabelTTF *challText = [CCLabelTTF labelWithString:@"send out a challenge" fontName:@"Chalkduster" fontSize: 15*scaleFactor.x];
+        CCLabelTTF *challText = [CCLabelTTF labelWithString:@"send out a challenge" fontName:@"GunnyRewritten" fontSize: 30*scaleFactor.x];
         [challText setColor:ccc3(255, 224, 51)];
         [itemChallenge addChild:challText];
         challText.scaleY = 1/(itemChallenge.scaleY);
@@ -136,7 +136,7 @@
         haikuIcon.position=ccp(itemHaiku.position.x -20*scaleFactor.x, haikuIcon.position.y+36*scaleFactor.y);
         [itemHaiku addChild:haikuIcon];
         
-        CCLabelTTF *haikuText = [CCLabelTTF labelWithString:@"community haiku" fontName:@"Chalkduster" fontSize:15*scaleFactor.x];
+        CCLabelTTF *haikuText = [CCLabelTTF labelWithString:@"community haiku" fontName:@"GunnyRewritten" fontSize: 30 * scaleFactor.x ];
         [haikuText setColor:ccc3(255, 224, 51)];
         [itemHaiku addChild:haikuText];
         haikuText.scaleY = 1/(itemHaiku.scaleY);
@@ -149,7 +149,7 @@
         
         haikuText.position = ccp(haikuIcon.position.x+50*scaleFactor.x+haikuText.boundingBox.size.width/1.7,haikuIcon.position.y+4);
         challText.position = ccp(haikuIcon.position.x+25*scaleFactor.x+challText.boundingBox.size.width/1.7,haikuIcon.position.y+4);
-        leaderText.position=ccp (leaderIcon.position.x+25*scaleFactor.x+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y+4);
+        leaderText.position=ccp (leaderIcon.position.x+10*scaleFactor.x+leaderText.boundingBox.size.width/1.7, leaderIcon.position.y+4);
         
         
         
@@ -166,14 +166,14 @@
         
         
         
-        CCLabelTTF *climbText = [CCLabelTTF labelWithString:@"you " fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
+        CCLabelTTF *climbText = [CCLabelTTF labelWithString:@"you " fontName:@"GunnyRewritten" fontSize:36*scaleFactor.x];
         [climbText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:climbText];
         climbText.scaleY=(1/scoreBg.scaleY);
         climbText.scaleX=(1/scoreBg.scaleX);
         climbText.position= ccp(scoreBg.position.x-climbText.contentSize.width*1.2*scaleFactor.x,scoreBg.position.y- scaleFactor.y* scoreBg.contentSize.height/1.4);
         
-        CCLabelTTF *climbText2 = [CCLabelTTF labelWithString:@"climbed:" fontName:@"Chalkduster" fontSize: 18*scaleFactor.x];
+        CCLabelTTF *climbText2 = [CCLabelTTF labelWithString:@"climbed:" fontName:@"GunnyRewritten" fontSize: 36*scaleFactor.x];
         [climbText2 setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:climbText2];
         climbText2.scaleY=(1/scoreBg.scaleY);
@@ -188,19 +188,19 @@
         scoreText.position= ccp(climbText2.position.x,climbText2.position.y-20*scaleFactor.y);
         
         
-        CCLabelTTF *bestText = [CCLabelTTF labelWithString:@"your" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
+        CCLabelTTF *bestText = [CCLabelTTF labelWithString:@"your" fontName:@"GunnyRewritten" fontSize:36*scaleFactor.x];
         [bestText setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:bestText];
         bestText.scaleY=(1/scoreBg.scaleY);
         bestText.scaleX=(1/scoreBg.scaleX);
-        bestText.position= ccp(scoreBg.position.x-bestText.contentSize.width*2.5*scaleFactor.x-20*scaleFactor.x,scoreBg.position.y-scoreBg.contentSize.height*scaleFactor.y-12*scaleFactor.y);
+        bestText.position= ccp(scoreBg.position.x-bestText.contentSize.width*2.5*scaleFactor.x-10*scaleFactor.x,scoreBg.position.y-scoreBg.contentSize.height*scaleFactor.y-12*scaleFactor.y);
         
-        CCLabelTTF *bestText2 = [CCLabelTTF labelWithString:@"best:" fontName:@"Chalkduster" fontSize:18*scaleFactor.x];
+        CCLabelTTF *bestText2 = [CCLabelTTF labelWithString:@"best:" fontName:@"GunnyRewritten" fontSize:36*scaleFactor.x];
         [bestText2 setColor:ccc3(255, 204, 51)];
         [scoreBg addChild:bestText2];
         bestText2.scaleY=(1/scoreBg.scaleY);
         bestText2.scaleX=(1/scoreBg.scaleX);
-        bestText2.position= ccp(bestText.position.x + 8*scaleFactor.x ,bestText.position.y -15*scaleFactor.y);
+        bestText2.position= ccp(bestText.position.x + 14*scaleFactor.x ,bestText.position.y -15*scaleFactor.y);
         
         CCLabelTTF *bestScoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"%d m",(int)[GameUtility savedHighScore] ] fontName:@"Futura" fontSize:21*scaleFactor.x];
         [bestScoreText setColor:ccc3(255, 204, 51)];

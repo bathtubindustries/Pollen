@@ -279,6 +279,7 @@
 		22CD0CE5193009F4008B5EF5 /* muteOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE3193009F4008B5EF5 /* muteOn.png */; };
 		22CD0CE919304A60008B5EF5 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CD0CE819304A60008B5EF5 /* checkmark.png */; };
 		22D28BB7192AEBD500A9565A /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D28BB6192AEBD500A9565A /* GameKitHelper.m */; };
+		22D89C6719EFB8C200139D00 /* gnyrwn971.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22D89C6619EFB8C200139D00 /* gnyrwn971.ttf */; };
 		22DE834B1974E28D0030B0CD /* ComboNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834A1974E28D0030B0CD /* ComboNode.m */; };
 		22DE834E1974E2A50030B0CD /* ComboNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE834D1974E2A50030B0CD /* ComboNodeFactory.m */; };
 		22DE83501974EA250030B0CD /* yellowNode.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DE834F1974EA250030B0CD /* yellowNode.png */; };
@@ -752,6 +753,7 @@
 		22CD0CE819304A60008B5EF5 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		22D28BB5192AEBD500A9565A /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameKitHelper.h; path = Pollen/GameKitHelper.h; sourceTree = "<group>"; };
 		22D28BB6192AEBD500A9565A /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameKitHelper.m; path = Pollen/GameKitHelper.m; sourceTree = "<group>"; };
+		22D89C6619EFB8C200139D00 /* gnyrwn971.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gnyrwn971.ttf; path = "../../../../../Downloads/gunny-rewritten/gnyrwn971.ttf"; sourceTree = "<group>"; };
 		22DE83491974E28D0030B0CD /* ComboNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNode.h; sourceTree = "<group>"; };
 		22DE834A1974E28D0030B0CD /* ComboNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboNode.m; sourceTree = "<group>"; };
 		22DE834C1974E2A50030B0CD /* ComboNodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNodeFactory.h; sourceTree = "<group>"; };
@@ -1294,6 +1296,7 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22D89C6619EFB8C200139D00 /* gnyrwn971.ttf */,
 				C8B0222319D0899900165F44 /* tutorialMessage6.png */,
 				C8A0D58A19C9A5A700F4FDD6 /* pollenManHammer.plist */,
 				C8A0D58B19C9A5A700F4FDD6 /* pollenManHammer.pvr.ccz */,
@@ -1595,6 +1598,7 @@
 				C8A0D59119C9A5A700F4FDD6 /* pollenManWand.pvr.ccz in Resources */,
 				222178CE198431190052FAA5 /* successNode.png in Resources */,
 				22AA616919485E5B00931260 /* spidderEyeDrop-hd.png in Resources */,
+				22D89C6719EFB8C200139D00 /* gnyrwn971.ttf in Resources */,
 				11E5D29A1917CEEE00A76121 /* Icon.png in Resources */,
 				11E5D2981917CEEE00A76121 /* Icon-Small.png in Resources */,
 				11E5D2941917CEEE00A76121 /* Default@2x.png in Resources */,
@@ -1926,8 +1930,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1948,7 +1952,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "177d4233-871b-44c5-b2ea-194a3217a8c8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1958,8 +1962,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1979,7 +1983,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "177d4233-871b-44c5-b2ea-194a3217a8c8";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

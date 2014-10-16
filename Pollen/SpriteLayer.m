@@ -32,7 +32,7 @@
 #define END_COMBO_POLLEN_AMOUNT PLAYER_MAX_POLLEN/2
 
 //if you are testing or just want to see a bunch of haikus spawn, lower this to around 50 and play
-#define HAIKU_SPAWN_GAP 650
+#define HAIKU_SPAWN_GAP 200
 
 @implementation SpriteLayer
 

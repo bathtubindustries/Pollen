@@ -88,11 +88,11 @@
     
     aRect.size.height -= kbSize.height;
     
-    if (([activeField isEqual:self.thirdLine] || [activeField isEqual:self.secLine]) && !isAdjusted)
+    if (([activeField isEqual:self.thirdLine] || [activeField isEqual:self.secLine]) )
     {
         
         CGPoint scrollPoint = CGPointMake(0.0, self.thirdLine.frame.origin.y - (kbSize.height - self.thirdLine.frame.size.height));
-        [self.scrollView setContentOffset:scrollPoint animated:NO];
+        [self.scrollView setContentOffset:scrollPoint animated:YES];
         isAdjusted=YES;
     }
 
