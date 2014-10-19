@@ -92,7 +92,7 @@
     itemWrite.anchorPoint = ccp(0.5, 0.5);
     itemWrite.position=ccp(size.width/2, size.height-90*scaleFactor);
     
-    [CCMenuItemFont setFontSize:14*scaleFactor];
+    [CCMenuItemFont setFontSize:22*scaleFactor];
     CCMenuItem *back = [CCMenuItemFont itemWithString:@"back" block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:
          [CCTransitionFadeDown transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];

@@ -72,28 +72,21 @@
     
     activeField = textField;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    
-    self.scrollView.contentInset = contentInsets;
-    
-    self.scrollView.scrollIndicatorInsets = contentInsets;
-    
-    
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    
-    // Your app might not need or want this behavior.
-    
-    CGRect aRect = self.view.frame;
-    
-    aRect.size.height -= kbSize.height;
-    
-    if (([activeField isEqual:self.thirdLine] || [activeField isEqual:self.secLine]) )
-    {
+    if(!isAdjusted) {
+        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
         
-        CGPoint scrollPoint = CGPointMake(0.0, self.thirdLine.frame.origin.y - (kbSize.height - self.thirdLine.frame.size.height));
-        [self.scrollView setContentOffset:scrollPoint animated:YES];
-        isAdjusted=YES;
+        self.scrollView.contentInset = contentInsets;
+    
+        self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+        if (([activeField isEqual:self.thirdLine] || [activeField isEqual:self.secLine]))
+        {
+            
+            CGPoint scrollPoint = CGPointMake(0.0, self.thirdLine.frame.origin.y - (kbSize.height - self.thirdLine.frame.size.height));
+            [self.scrollView setContentOffset:scrollPoint animated:YES];
+            isAdjusted=YES;
+        }
+        
     }
 
     
@@ -110,18 +103,11 @@
     kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     
-    
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
     
     self.scrollView.contentInset = contentInsets;
     
     self.scrollView.scrollIndicatorInsets = contentInsets;
-    
-    
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    
-    // Your app might not need or want this behavior.
     
     CGRect aRect = self.view.frame;
     
@@ -203,6 +189,7 @@
         UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Haiku Submitted" message:@"Cool, thanks. If your haiku is 5-7-5 and not incredibly offensive, we will add it to the game's collection within a day!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
         
         [alert show];
+        [[CCDirector sharedDirector] dismissModalViewControllerAnimated:YES];
     }
     
 }

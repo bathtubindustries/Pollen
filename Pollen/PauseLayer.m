@@ -54,8 +54,8 @@
         pauseBox_.position=ccp(size.width/2,size.height/2);
         [self addChild:pauseBox_];
         
-        [CCMenuItemFont setFontName:@"Chalkduster"];
-        [CCMenuItemFont setFontSize:(18*scaleFactor)];
+        [CCMenuItemFont setFontName:@"GunnyRewritten"];
+        [CCMenuItemFont setFontSize:(24*scaleFactor)];
         
         CCMenuItem *itemResume = [CCMenuItemFont itemWithString:@"resume" block:^(id sender) {
             [self togglePauseMenu];
@@ -63,6 +63,7 @@
         CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"menu" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[MainMenuLayer scene]]];
         }];
+        
         
         
         CCMenuItem *soundOnItem = [CCMenuItemImage itemWithNormalImage:@"muteOn.png"
@@ -85,14 +86,15 @@
             soundToggleItem = [CCMenuItemToggle itemWithTarget:self
                                                                     selector:@selector(soundButtonTapped:)
                                                                        items:soundOnItem, soundOffItem, nil];
-
         
         
         pauseMenu_ = [CCMenu menuWithItems:itemResume, itemMainMenu, soundToggleItem, nil];
         
         
-        [pauseMenu_ alignItemsVerticallyWithPadding: 1.5*scaleFactor];
-        [pauseMenu_ setPosition: ccp(size.width/2, size.height/2)];
+        
+        [pauseMenu_ alignItemsVerticallyWithPadding: -5*scaleFactor];
+        [pauseMenu_ setPosition: ccp(size.width/2, 5*scaleFactor+ size.height/2)];
+        itemResume.position = CGPointMake(itemResume.position.x, itemResume.position.y-5*scaleFactor);
         
         [pauseMenu_ setEnabled:NO];
         [pauseMenu_ setVisible:NO];

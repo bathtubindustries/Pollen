@@ -753,7 +753,7 @@
 		22CD0CE819304A60008B5EF5 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		22D28BB5192AEBD500A9565A /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameKitHelper.h; path = Pollen/GameKitHelper.h; sourceTree = "<group>"; };
 		22D28BB6192AEBD500A9565A /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameKitHelper.m; path = Pollen/GameKitHelper.m; sourceTree = "<group>"; };
-		22D89C6619EFB8C200139D00 /* gnyrwn971.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gnyrwn971.ttf; path = "../../../../../Downloads/gunny-rewritten/gnyrwn971.ttf"; sourceTree = "<group>"; };
+		22D89C6619EFB8C200139D00 /* gnyrwn971.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gnyrwn971.ttf; sourceTree = "<group>"; };
 		22DE83491974E28D0030B0CD /* ComboNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNode.h; sourceTree = "<group>"; };
 		22DE834A1974E28D0030B0CD /* ComboNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboNode.m; sourceTree = "<group>"; };
 		22DE834C1974E2A50030B0CD /* ComboNodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboNodeFactory.h; sourceTree = "<group>"; };

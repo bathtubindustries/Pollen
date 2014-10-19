@@ -162,7 +162,7 @@
 
 
         CCMenu *menu = [CCMenu menuWithItems:play, itemStore, nil];
-		[menu alignItemsVerticallyWithPadding:4*scaleFactor];
+		[menu alignItemsVerticallyWithPadding:-5*scaleFactor];
         [menu setPosition:ccp(size.width/2, 80*scaleFactor)];
 		[self addChild:menu];
         
