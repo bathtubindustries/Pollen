@@ -116,7 +116,7 @@
         
         [self pause];
         
-        if(state == Tap)
+        /*if(state == Tap)
             NSLog(@"received tap event");
         else if(state == Swipe)
             NSLog(@"received swipe event");
@@ -125,7 +125,7 @@
         else if(state == CatchMyEye)
             NSLog(@"received catch my eye event");
         else if(state == Haikus)
-            NSLog(@"received haikus event");
+            NSLog(@"received haikus event");*/
     }
 }
 

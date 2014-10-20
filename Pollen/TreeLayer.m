@@ -93,7 +93,7 @@
     
     //switches level
     if(altitude_ > LEVEL_2_BEGINS && level_< 2) {    //Level 2 begins at defined altitude
-        NSLog (@"Level two begins");
+        //NSLog (@"Level two begins");
         if(bgSky2.position.y < -[bgSky2 boundingBox].size.height){
             bgSky2.position = ccp(bgSky2.position.x, bgSky1.position.y + [bgSky1 boundingBox].size.height);
             bgSky3.position = ccp(bgSky3.position.x, bgSky2.position.y + [bgSky2 boundingBox].size.height);

@@ -48,18 +48,18 @@
                 background = [CCSprite spriteWithFile:@"Default-568h@2x.png"];
                 
                 if([[CCDirector sharedDirector] winSize].height == 568.f) {
-                    NSLog(@"loading the big file");
+                    //NSLog(@"loading the big file");
                 } else {
                     CGPoint scaleFactor = ccp(size.width/320.f, size.height/568.f);
                     background.scaleX = scaleFactor.x;
                     background.scaleY = scaleFactor.y;
                     
-                    NSLog(@"loading the big file & scaling");
+                    //NSLog(@"loading the big file & scaling");
                 }
             } else {
                 background = [CCSprite spriteWithFile:@"Default@2x.png"];
                 
-                NSLog(@"loading the small file");
+                //NSLog(@"loading the small file");
             }
             //background.rotation = 90;
 		} else {

@@ -37,7 +37,7 @@ static NSMutableDictionary* g_iapProducts = nil;
     NSArray* validProducts = [response products];
     if([validProducts count] > 0)
     {
-		NSLog(@"productsRequest got a response");
+		//NSLog(@"productsRequest got a response");
         // Do payment transactions for each product where we received valid product info
         for(int i=0; i<validProducts.count; i++)
         {
@@ -60,7 +60,7 @@ static NSMutableDictionary* g_iapProducts = nil;
     // No valid products found
 	else if(response.invalidProductIdentifiers.count > 0)
     {
-		NSLog(@"productsRequest found invalid ids: %@", [response.invalidProductIdentifiers objectAtIndex:0]);
+		//NSLog(@"productsRequest found invalid ids: %@", [response.invalidProductIdentifiers objectAtIndex:0]);
         UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Purchase failed" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] autorelease];
         [alert show];
 	}
@@ -354,7 +354,7 @@ static NSMutableDictionary* g_iapProducts = nil;
 {
     
     SKProductsRequest* prodReq = [[SKProductsRequest alloc] initWithProductIdentifiers:products];
-        NSLog(@"purch?");
+       // NSLog(@"purch?");
     
     prodReq.delegate = catalogDelegate;
     [prodReq start];

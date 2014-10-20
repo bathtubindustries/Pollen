@@ -182,43 +182,43 @@
     if(h > 300 && gravityIncrement_ != 1 && !(self.spawnLayer.treeLevel > 1)) {
         gravityIncrement_ = 1;
         jumpIncrement_ = 75;
-        NSLog(@"reached first checkpoint %f", h);
+        //NSLog(@"reached first checkpoint %f", h);
         self.spawnLayer.treeLevel=1;
     }
     else if(h > 800 && gravityIncrement_ == 1) {
         gravityIncrement_ = 2.5;
         jumpIncrement_ = 175;
-        NSLog(@"reached second checkpoint %f", h);
+        //NSLog(@"reached second checkpoint %f", h);
         self.spawnLayer.treeLevel=2;
     }
     else if(h > 1500 && gravityIncrement_ == 2.5) {
         gravityIncrement_ = 4;
         jumpIncrement_ = 225;
-        NSLog(@"reached third checkpoint %f", h);
+        //NSLog(@"reached third checkpoint %f", h);
         self.spawnLayer.treeLevel=3;
     }
     else if(h > 2000 && gravityIncrement_ == 4) {
         gravityIncrement_ = 7;
         jumpIncrement_ = 290;
-        NSLog(@"reached fourth checkpoint %f", h);
+        //NSLog(@"reached fourth checkpoint %f", h);
         self.spawnLayer.treeLevel=4;
     }
     else if(h > 4000 && gravityIncrement_ == 7) {
         gravityIncrement_ = 10.5; //meant to be pretty hard (still playable... screwy with old boost mode)
         jumpIncrement_ = 355;
-        NSLog(@"reached fifth checkpoint %f", h);
+        //NSLog(@"reached fifth checkpoint %f", h);
         self.spawnLayer.treeLevel = 4;
     }
     else if(h > 6000 && gravityIncrement_ == 10.5) {
         gravityIncrement_ = 16;
         jumpIncrement_ = 405;
-        NSLog(@"reached sixth checkpoint %f", h);
+        //NSLog(@"reached sixth checkpoint %f", h);
         self.spawnLayer.treeLevel = 4;
     }
     else if(h > 9000 && gravityIncrement_ == 16) {
         gravityIncrement_ = 22;
         jumpIncrement_ = 440;
-        NSLog(@"reached seventh checkpoint %f", h);
+        //NSLog(@"reached seventh checkpoint %f", h);
         self.spawnLayer.treeLevel = 4;
     }
 }

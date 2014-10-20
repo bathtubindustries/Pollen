@@ -50,7 +50,7 @@
         float particleDistance = SIZE_HEIGHT/(n-1);
         unsigned short extraParticles = 0;
         while(extraParticles * particleDistance < FLOWER_HEIGHT) extraParticles++;
-        NSLog(@"%i", extraParticles);
+        //NSLog(@"%i", extraParticles);
         
         for(int i = 0; i < n+extraParticles; i++) {
             Flower *particle = [Flower node];
@@ -104,7 +104,7 @@
            (self.flowerAmount > INITIAL_FLOWER_AMOUNT-nextHeightChange)) {
             [self setParticleAmount:self.flowerAmount-1];
             
-            NSLog(@"height: %f, flower amount: %i", h, self.flowerAmount);
+           // NSLog(@"height: %f, flower amount: %i", h, self.flowerAmount);
         }
     }
     //NSLog(@"iterator: %i", nextHeightChange);

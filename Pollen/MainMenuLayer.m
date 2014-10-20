@@ -36,17 +36,6 @@
             [GameUtility isTutorialNeeded:NO];
         }
         
-        for (NSString* family in [UIFont familyNames])
-        {
-            NSLog(@"%@", family);
-            
-            for (NSString* name in [UIFont fontNamesForFamilyName: family])
-            {
-                NSLog(@"  %@", name);
-            }
-        }
-        
-        
         //game title
         CCSprite * gameTitle;
         if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {

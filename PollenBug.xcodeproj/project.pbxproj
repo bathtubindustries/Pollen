@@ -1930,8 +1930,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1952,7 +1952,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "177d4233-871b-44c5-b2ea-194a3217a8c8";
+				PROVISIONING_PROFILE = "a2b53998-c7ce-4378-b40a-6a0453b61009";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1962,8 +1962,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eric Nelson (6TAPJPUK7B)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1983,7 +1983,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "177d4233-871b-44c5-b2ea-194a3217a8c8";
+				PROVISIONING_PROFILE = "a2b53998-c7ce-4378-b40a-6a0453b61009";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

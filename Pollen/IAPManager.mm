@@ -21,11 +21,11 @@ void IAPManager::startPurchase(const char *product)
 
 void IAPManager::completePurchase(const char *product, const char *data, int result, bool isRestore)
 {
-	NSLog(@"IAPManager::completePurchase %s | %i", product, result);
+	//NSLog(@"IAPManager::completePurchase %s | %i", product, result);
 	if(result == 1)
 	{
 		
-        NSLog(@"purchsucc on %s",product);
+        //NSLog(@"purchsucc on %s",product);
         
         if ([[NSString stringWithUTF8String:product] rangeOfString:@"SpidderosoPeepers250"].location != NSNotFound)//product is named 250 peepers on developer center
         {
