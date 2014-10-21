@@ -18,7 +18,9 @@
         CGSize size = [CCDirector sharedDirector].winSize;
         float heightScale = size.height/480;
         float widthScale = (size.width/(320));
-        float scaleFactor = size.height/size.width;
+        float scaleFactor =size.height/size.width;
+        if (scaleFactor > 1.5)
+            scaleFactor*=.85;
         if (dict)
         {
             
