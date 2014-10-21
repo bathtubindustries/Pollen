@@ -210,6 +210,8 @@
 		222178E11986EC370052FAA5 /* letterO.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178DB1986EC370052FAA5 /* letterO.png */; };
 		222178E21986EC370052FAA5 /* letterP.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178DC1986EC370052FAA5 /* letterP.png */; };
 		222178E419870E850052FAA5 /* breathingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 222178E319870E850052FAA5 /* breathingDot.png */; };
+		22261F1F19F5EC04005269D4 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 22261F1D19F5EC04005269D4 /* Icon-120.png */; };
+		22261F2019F5EC04005269D4 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 22261F1E19F5EC04005269D4 /* Icon-180.png */; };
 		2233631C1927AC25005B12E9 /* treebody3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631A1927AC25005B12E9 /* treebody3.png */; };
 		2233631D1927AC25005B12E9 /* treebody4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2233631B1927AC25005B12E9 /* treebody4.png */; };
 		225BBB8C196FB22B006EB721 /* storeTemplateConsumable.png in Resources */ = {isa = PBXBuildFile; fileRef = 225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */; };
@@ -672,6 +674,8 @@
 		222178DB1986EC370052FAA5 /* letterO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letterO.png; sourceTree = "<group>"; };
 		222178DC1986EC370052FAA5 /* letterP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letterP.png; sourceTree = "<group>"; };
 		222178E319870E850052FAA5 /* breathingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breathingDot.png; sourceTree = "<group>"; };
+		22261F1D19F5EC04005269D4 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		22261F1E19F5EC04005269D4 /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-180.png"; sourceTree = "<group>"; };
 		2233631A1927AC25005B12E9 /* treebody3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody3.png; sourceTree = "<group>"; };
 		2233631B1927AC25005B12E9 /* treebody4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treebody4.png; sourceTree = "<group>"; };
 		225BBB8B196FB22B006EB721 /* storeTemplateConsumable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeTemplateConsumable.png; sourceTree = "<group>"; };
@@ -1296,6 +1300,8 @@
 		11E5D2021917CEED00A76121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22261F1D19F5EC04005269D4 /* Icon-120.png */,
+				22261F1E19F5EC04005269D4 /* Icon-180.png */,
 				22D89C6619EFB8C200139D00 /* gnyrwn971.ttf */,
 				C8B0222319D0899900165F44 /* tutorialMessage6.png */,
 				C8A0D58A19C9A5A700F4FDD6 /* pollenManHammer.plist */,
@@ -1641,6 +1647,7 @@
 				22AA615A19485E5B00931260 /* haikuColorFade-hd.plist in Resources */,
 				11A7F912191921860086EC1B /* pollenManGround.png in Resources */,
 				22CD0CE4193009F4008B5EF5 /* muteOff.png in Resources */,
+				22261F1F19F5EC04005269D4 /* Icon-120.png in Resources */,
 				116039F6191B0F74005BABEF /* plucked.mp3 in Resources */,
 				222178E11986EC370052FAA5 /* letterO.png in Resources */,
 				2217AF20198C991000CD56C0 /* frowns.png in Resources */,
@@ -1715,6 +1722,7 @@
 				22ADAD9B191E01BB009A63A1 /* ghostbust.wav in Resources */,
 				116039F7191B0F74005BABEF /* swipe.wav in Resources */,
 				227F5500199139A2009D7230 /* scoreDivider.png in Resources */,
+				22261F2019F5EC04005269D4 /* Icon-180.png in Resources */,
 				11E5D2971917CEEE00A76121 /* Icon-Small-50.png in Resources */,
 				11BF2C2F191A7C9000143F58 /* pollenBar.png in Resources */,
 				22785DE2196B135100C0E359 /* equippedOverlay.png in Resources */,
@@ -1890,7 +1898,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1901,7 +1910,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Pollen/Pollen/Resources/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = Pollen/Pollen/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "78e29749-ec52-48ad-86e8-2f1e8f838b36";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1911,7 +1923,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eric Nelson (3G5PX5MFS4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1920,7 +1933,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Pollen/Pollen/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "78e29749-ec52-48ad-86e8-2f1e8f838b36";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

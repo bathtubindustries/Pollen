@@ -23,7 +23,7 @@
 
         size = [[CCDirector sharedDirector] winSize];
         
-        if ([GameUtility firebaseHaikuCount]!=0)
+        if ([GameUtility firebaseHaikuCount]>1)
         {
             Firebase* myRootRef = [[Firebase alloc] initWithUrl:@"https://ytl3fdvvuk7.firebaseio-demo.com/Haikus"];
 
