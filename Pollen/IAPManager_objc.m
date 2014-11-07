@@ -67,7 +67,7 @@ static NSMutableDictionary* g_iapProducts = nil;
     // Unable to connect to iTunes App Store
 	else
     {
-		NSLog(@"productsRequest failure");
+		//NSLog(@"productsRequest failure");
 	}
 	
 #if !__has_feature(objc_arc)
@@ -252,13 +252,13 @@ static NSMutableDictionary* g_iapProducts = nil;
 
 - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
 {
-	NSLog(@"restore failed");
+	//NSLog(@"restore failed");
     [IAPManager_objc completePurchase:NULL tran:NULL result:IAPFail];
 }
 
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
-	NSLog(@"restore done");
+	//NSLog(@"restore done");
     [IAPManager_objc completePurchase:NULL tran:NULL result:IAPRestore];
 }
 
@@ -354,7 +354,7 @@ static NSMutableDictionary* g_iapProducts = nil;
 {
     
     SKProductsRequest* prodReq = [[SKProductsRequest alloc] initWithProductIdentifiers:products];
-       // NSLog(@"purch?");
+        //NSLog(@"purch?");
     
     prodReq.delegate = catalogDelegate;
     [prodReq start];

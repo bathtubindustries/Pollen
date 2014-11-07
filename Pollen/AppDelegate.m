@@ -170,7 +170,7 @@
 -(void) applicationDidFinishLaunching:(UIApplication *)application
 {
 
-    [Grab initWithSecret:880236358];
+    [Grab initWithSecret:@"pollen_54a136da002:e593bc7f61347309:00hb5tFFG2V6p6nTLnQ4LM//4j3TjJZ209ZiRDMNXNY="];
 }
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application

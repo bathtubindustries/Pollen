@@ -36,39 +36,84 @@
             
             line1.anchorPoint = ccp(0, 1);
             line1.position = ccp(self.contentSize.width/8, self.contentSize.height*.65);
-            [self addChild: line1];
+            
             [line1 setColor:ccc3(57, 37, 23)];
-            if (line1.contentSize.width > self.contentSize.width*.85)
+            if (line1.contentSize.width > self.contentSize.width*.9)
             {
                 line1.fontSize=15*scaleFactor;
-                //line1.position=CGPointMake(line1.position.x+(2/line1.contentSize.width), line1.position.y);
             }
+            if (line1.contentSize.width > self.contentSize.width*.92)
+            {
+                line1.fontSize=13*scaleFactor;
+                //line1.position = ccp(line1.position.x,line1.position.y+7*scaleFactor);
+            }
+            if (line1.contentSize.width > self.contentSize.width*.94)
+            {
+                line1.fontSize=11*scaleFactor;
+               // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
+            if (line1.contentSize.width > self.contentSize.width*.96)
+            {
+                line1.fontSize=9*scaleFactor;
+                // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
+            [self addChild: line1];
             
             CCLabelTTF* line2 = [CCLabelTTF labelWithString:self.secondLine fontName:@"GunnyRewritten" fontSize:18*scaleFactor];
+            line2.position = ccp(line1.position.x-7*widthScale, line1.position.y-22*heightScale);
             if (line2.contentSize.width > self.contentSize.width*.9)
             {
                 line2.fontSize=15*scaleFactor;
-                
             }
-            
+            if (line2.contentSize.width > self.contentSize.width*.92)
+            {
+                line2.fontSize=13*scaleFactor;
+                //line2.position = ccp(line2.position.x,line2.position.y+7*scaleFactor);
+            }
+            if (line2.contentSize.width > self.contentSize.width*.94)
+            {
+                line2.fontSize=11*scaleFactor;
+               // line2.position = ccp(line2.position.x,line2.position.y+14*scaleFactor);
+            }
+            if (line2.contentSize.width > self.contentSize.width*.96)
+            {
+                line2.fontSize=9*scaleFactor;
+                // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
 
             line2.anchorPoint = ccp(0, 1);
-            line2.position = ccp(line1.position.x-7*widthScale, line1.position.y-22*heightScale);
+            line2.position = ccp(line1.position.x-7*widthScale, line1.position.y-(line1.contentSize.height/1.5));
             [self addChild: line2];
             [line2 setColor:ccc3(57, 37, 23)];
             
             CCLabelTTF* line3 = [CCLabelTTF labelWithString:self.thirdLine fontName:@"GunnyRewritten" fontSize:18*scaleFactor];
             
             line3.anchorPoint = ccp(0, 1);
-            line3.position = ccp(line1.position.x, line2.position.y-20*heightScale);
-            [self addChild: line3];
+            
+            
             [line3 setColor:ccc3(57, 37, 23)];
-            if (line3.contentSize.width > self.contentSize.width*.85)
+            if (line3.contentSize.width > self.contentSize.width*.9)
             {
                 line3.fontSize=15*scaleFactor;
-                
             }
-            
+            if (line3.contentSize.width > self.contentSize.width*.92)
+            {
+                line3.fontSize=13*scaleFactor;
+                //line2.position = ccp(line2.position.x,line2.position.y+7*scaleFactor);
+            }
+            if (line3.contentSize.width > self.contentSize.width*.94)
+            {
+                line3.fontSize=11*scaleFactor;
+                // line2.position = ccp(line2.position.x,line2.position.y+14*scaleFactor);
+            }
+            if (line3.contentSize.width > self.contentSize.width*.96)
+            {
+                line3.fontSize=9*scaleFactor;
+                // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
+
+            line3.position = ccp(line1.position.x, line2.position.y-(line2.contentSize.height/1.5));
+            [self addChild: line3];
 
             CCLabelTTF* init1 = [CCLabelTTF labelWithString:[[[[@"-" stringByAppendingString:self.firstInit] stringByAppendingString:@"."] stringByAppendingString:self.secInit] stringByAppendingString:@"."]fontName:@"GunnyRewritten" fontSize:20*scaleFactor];
             init1.anchorPoint = ccp(0, 1);
@@ -101,33 +146,85 @@
             
             line1.anchorPoint = ccp(0, 1);
             line1.position = ccp(self.contentSize.width/8, self.contentSize.height*.65);
-            [self addChild: line1];
+            
             [line1 setColor:ccc3(57, 37, 23)];
-            if (line1.contentSize.width > self.contentSize.width*.85)
+            if (line1.contentSize.width > self.contentSize.width*.9)
             {
                 line1.fontSize=15*scaleFactor;
             }
+            if (line1.contentSize.width > self.contentSize.width*.92)
+            {
+                line1.fontSize=13*scaleFactor;
+                //line2.position = ccp(line2.position.x,line2.position.y+7*scaleFactor);
+            }
+            if (line1.contentSize.width > self.contentSize.width*.94)
+            {
+                line1.fontSize=11*scaleFactor;
+                // line2.position = ccp(line2.position.x,line2.position.y+14*scaleFactor);
+            }
+            if (line1.contentSize.width > self.contentSize.width*.96)
+            {
+                line1.fontSize=9*scaleFactor;
+                // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
+
+            [self addChild: line1];
             
             CCLabelTTF* line2 = [CCLabelTTF labelWithString:self.secondLine fontName:@"GunnyRewritten" fontSize:18*scaleFactor];
+            line2.position = ccp(line1.position.x-7*widthScale, line1.position.y-(line1.contentSize.height/1.5));
             if (line2.contentSize.width > self.contentSize.width*.9)
             {
                 line2.fontSize=15*scaleFactor;
             }
+            if (line2.contentSize.width > self.contentSize.width*.92)
+            {
+                line2.fontSize=13*scaleFactor;
+                //line2.position = ccp(line2.position.x,line2.position.y+7*scaleFactor);
+            }
+            if (line2.contentSize.width > self.contentSize.width*.94)
+            {
+                line2.fontSize=11*scaleFactor;
+                // line2.position = ccp(line2.position.x,line2.position.y+14*scaleFactor);
+            }
+            if (line2.contentSize.width > self.contentSize.width*.96)
+            {
+                line2.fontSize=9*scaleFactor;
+                // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
+
             line2.anchorPoint = ccp(0, 1);
-            line2.position = ccp(line1.position.x-7*widthScale, line1.position.y-22*heightScale);
+            
             [self addChild: line2];
             [line2 setColor:ccc3(57, 37, 23)];
             
             CCLabelTTF* line3 = [CCLabelTTF labelWithString:self.thirdLine fontName:@"GunnyRewritten" fontSize:18*scaleFactor];
             
             line3.anchorPoint = ccp(0, 1);
-            line3.position = ccp(line1.position.x, line2.position.y-20*heightScale);
-            [self addChild: line3];
+            
+            
             [line3 setColor:ccc3(57, 37, 23)];
-            if (line3.contentSize.width > self.contentSize.width*.85)
+            if (line3.contentSize.width > self.contentSize.width*.9)
             {
                 line3.fontSize=15*scaleFactor;
             }
+            if (line3.contentSize.width > self.contentSize.width*.92)
+            {
+                line3.fontSize=13*scaleFactor;
+                //line2.position = ccp(line2.position.x,line2.position.y+7*scaleFactor);
+            }
+            if (line3.contentSize.width > self.contentSize.width*.94)
+            {
+                line3.fontSize=11*scaleFactor;
+                // line2.position = ccp(line2.position.x,line2.position.y+14*scaleFactor);
+            }
+            if (line3.contentSize.width > self.contentSize.width*.96)
+            {
+                line3.fontSize=9*scaleFactor;
+                // line1.position = ccp(line1.position.x,line1.position.y+14*scaleFactor);
+            }
+
+            line3.position = ccp(line1.position.x, line2.position.y-(line2.contentSize.height/1.5));
+            [self addChild: line3];
             
             CCLabelTTF* init1 = [CCLabelTTF labelWithString:[[[[@"-" stringByAppendingString:self.firstInit] stringByAppendingString:@"."] stringByAppendingString:self.secInit] stringByAppendingString:@"."]fontName:@"GunnyRewritten" fontSize:20*scaleFactor];
             init1.anchorPoint = ccp(0, 1);

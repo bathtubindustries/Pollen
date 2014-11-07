@@ -1913,7 +1913,7 @@
 				INFOPLIST_FILE = Pollen/Pollen/Resources/Info.plist;
 				"INFOPLIST_FILE[sdk=*]" = Pollen/Pollen/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "78e29749-ec52-48ad-86e8-2f1e8f838b36";
+				PROVISIONING_PROFILE = "e39f3a6a-2ebc-41a5-b655-c4cb1c3d7ce6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1935,7 +1935,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Pollen/Pollen/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "78e29749-ec52-48ad-86e8-2f1e8f838b36";
+				PROVISIONING_PROFILE = "e39f3a6a-2ebc-41a5-b655-c4cb1c3d7ce6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1967,7 +1967,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "78e29749-ec52-48ad-86e8-2f1e8f838b36";
+				PROVISIONING_PROFILE = "e39f3a6a-2ebc-41a5-b655-c4cb1c3d7ce6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1998,7 +1998,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = PollenBug;
-				PROVISIONING_PROFILE = "78e29749-ec52-48ad-86e8-2f1e8f838b36";
+				PROVISIONING_PROFILE = "e39f3a6a-2ebc-41a5-b655-c4cb1c3d7ce6";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
